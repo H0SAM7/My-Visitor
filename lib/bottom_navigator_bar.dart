@@ -1,89 +1,87 @@
 
-// import 'package:flutter/material.dart';
+import 'dart:developer';
 
-// class BottomNavigator extends StatefulWidget {
-//   const BottomNavigator({super.key});
-//   static String id = 'BottomNavigator';
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:my_visitor/features/ML/presentation/views/ml_view.dart';
+import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 
-//   @override
-//   State<BottomNavigator> createState() => _BottomNavigatorState();
-// }
+class BottomNavigator extends StatefulWidget {
+  const BottomNavigator({super.key});
+  static String id = 'BottomNavigator';
 
-// class _BottomNavigatorState extends State<BottomNavigator> {
-//   int _currentIndex = 0;
+  @override
+  State<BottomNavigator> createState() => _BottomNavigatorState();
+}
 
-//   final List<Widget> _children = [
-//     // HomeView(),
-//     // HomeView(),
-//     // NewOrderView(),
-//     // OrdersView(),
-//     // ProfileView(),
-//   ];
+class _BottomNavigatorState extends State<BottomNavigator> {
+  int _currentIndex = 0;
 
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       backgroundColor: Colors.white,
-//       body: _children[_currentIndex],
-//       bottomNavigationBar: BottomNavigationBar(
-//         backgroundColor: Colors.white,
-//         elevation: 0,
-//         onTap: onTabTapped,
-//         currentIndex: _currentIndex,
-//         items: [
-//           BottomNavigationBarItem(
-//             icon: Image.asset(
-//               Assets.iconsHome,
-//               color: orangeColor,
-//               height: 20,
-//             ),
-//             label: 'Home',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Image.asset(
-//               Assets.iconsCar,
-//               color: orangeColor,
-//               height: 20,
-//             ),
-//             label: 'My Order',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Image.asset(Assets.iconsPlusIcon),
-//             label: '',
-//           ),
-//           BottomNavigationBarItem(
-//             // icon: Image.asset(
-//             //   Assets.o,
-//             //   color:  orangeColor,
-//             //   height: 20,
-//             // ),
-//             icon:
-//              Icon(
-//               Icons.shopping_cart_checkout,
-//               color: orangeColor,
-//             ),
-//             label: 'Orders',
-//           ),
-//           BottomNavigationBarItem(
-//             icon: Image.asset(
-//               Assets.iconsUser,
-//               color: orangeColor,
-//               height: 20,
-//             ),
-//             label: 'Profile',
-//           ),
-//         ],
-//         selectedItemColor: orangeColor,
-//         selectedLabelStyle: TextStyle(color: orangeColor),
-//         selectedFontSize: 10,
-//         showUnselectedLabels: false,
-//       ),
-//     );
-//   }
+  final List<Widget> _children = [
+     HomeView(),
+   
+        GestureDetector(
+          onTap: (){
+            log('message');
+          },
+          child: MLView()),
+            MLView(),
+    // HomeView(),
+    // NewOrderView(),
+    // OrdersView(),
+    // ProfileView(),
+  ];
 
-//   void onTabTapped(int index) {
-//     setState(() {
-//       _currentIndex = index;
-//     });
-//   }
-// }
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: _children[_currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        onTap: onTabTapped,
+        currentIndex: _currentIndex,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            // Image.asset(
+            //   Assets.iconsHome,
+            //   color: orangeColor,
+            //   height: 20,
+            // ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            // Image.asset(
+            //   Assets.iconsCar,
+            //   color: orangeColor,
+            //   height: 20,
+            // ),
+            label: 'Scan',
+       
+          ),
+          BottomNavigationBarItem(
+            icon:  Icon(Icons.scanner),
+            
+            ///Image.asset(Assets.iconsPlusIcon),
+            label: '',
+          ),
+ 
+         
+        ],
+        selectedItemColor: Colors.orange,
+        selectedLabelStyle: TextStyle(color: Colors.orange,),
+        selectedFontSize: 10,
+        showUnselectedLabels: false,
+      ),
+    );
+  }
+
+  void onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+}

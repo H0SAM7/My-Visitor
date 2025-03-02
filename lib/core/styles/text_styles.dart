@@ -6,7 +6,7 @@ abstract class AppStyles {
 
   static TextStyle style22Black(BuildContext context) {
     return TextStyle(
-      color: Colors.black,
+      color: Colors.white,
       fontSize: getResponsiveSize(context, fontSize: 22),
       fontWeight: FontWeight.w600,
     );
@@ -99,7 +99,7 @@ abstract class AppStyles {
   );
 
   static const TextStyle style22 = TextStyle(
-    color: Colors.black,
+    color: Colors.white,
     fontSize: 22,
     fontWeight: FontWeight.w500,
     height: 0,

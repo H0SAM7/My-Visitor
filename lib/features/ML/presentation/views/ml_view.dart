@@ -1,38 +1,18 @@
-import 'dart:typed_data';
+import 'package:flutter/material.dart';
+import 'package:my_visitor/core/utils/assets.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart'; // Needed for kIsWeb
-import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:dio/dio.dart';
-
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MLView extends StatefulWidget {
+  const MLView({super.key});
+  static String id = 'MLView';
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter YOLOv8 with Dio',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const YoloTst(),
-    );
-  }
+  State<MLView> createState() => _MLViewState();
 }
 
-class YoloTst extends StatefulWidget {
-  const YoloTst({super.key});
-
-  @override
-  _YoloTstState createState() => _YoloTstState();
-}
-
-class _YoloTstState extends State<YoloTst> {
+class _MLViewState extends State<MLView> {
   File? _imageFile;
   Uint8List? _imageBytes; // For Web
   final picker = ImagePicker();
@@ -91,31 +71,28 @@ class _YoloTstState extends State<YoloTst> {
     uploadImage();
   }
 
+
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.sizeOf(context);
     return Scaffold(
-      appBar: AppBar(title: Text("YOLOv8 Flutter Integration with Dio")),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _imageBytes != null
-                ? Image.memory(_imageBytes!, height: 200)
-                : _imageFile != null
-                    ? Image.file(_imageFile!, height: 200)
-                    : Text("Select an image"),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: pickImage,
-              child: Text("Pick Image"),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+      
+            Expanded(
+              child: Image.asset(Assets.imagesModelTst),
             ),
-            const SizedBox(height: 20),
-            const Text("Detection Results:", style: TextStyle(fontWeight: FontWeight.bold)),
-            Text(
-              _result
-            ),
-          ],
-        ),
+            Expanded(
+              flex: 2,
+              child: Container(
+                decoration: BoxDecoration(color: Colors.black),
+              ),
+            )
+          
+
+        ],
       ),
     );
   }
