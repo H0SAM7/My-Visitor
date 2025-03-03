@@ -56,7 +56,10 @@ class _ScanViewState extends State<ScanView> {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(Assets.imagesImageScan),
+            child: Image.asset(
+              Assets.imagesImageScan,
+              fit: BoxFit.cover,
+            ),
           ),
           Center(
             child: Image.asset(Assets.imagesScanRecan),
@@ -69,6 +72,7 @@ class _ScanViewState extends State<ScanView> {
                 onPressed: pickImage,
                 icon: Image.asset(
                   Assets.imagesScanButton,
+                  fit: BoxFit.cover,
                 ),
               ),
             ),

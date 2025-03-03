@@ -2,18 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppStyles {
-  
-
-  static TextStyle style22Black(BuildContext context) {
+  static TextStyle style22White(BuildContext context) {
     return TextStyle(
       color: Colors.white,
       fontSize: getResponsiveSize(context, fontSize: 22),
-      fontWeight: FontWeight.w600,
+      fontWeight: FontWeight.bold,
     );
   }
 
-
-  static TextStyle style32(BuildContext context,Color color) {
+  static TextStyle style32(BuildContext context, Color color) {
     return TextStyle(
       color: color,
       fontSize: getResponsiveSize(context, fontSize: 32),
@@ -21,89 +18,14 @@ abstract class AppStyles {
     );
   }
 
-
-
-  static TextStyle style14(BuildContext context,) {
+  static TextStyle style18(
+    BuildContext context,
+  ) {
     return const TextStyle(
-        fontSize: 14,
-            fontWeight: FontWeight.w400,
-            color: Color(0xff495057)
-    );
+        fontSize: 18,
+        fontWeight: FontWeight.w400,
+        color: Color.fromARGB(255, 243, 248, 254));
   }
-
-
-
-
-
-
-
-
-  static TextStyle styleMedium18(BuildContext context) {
-    return TextStyle(
-      //   color: blueColor,
-      fontSize: getResponsiveSize(context, fontSize: 18),
-      fontFamily: GoogleFonts.amiri().fontFamily,
-      fontWeight: FontWeight.bold,
-    );
-  }
-
-
-  static TextStyle style24(BuildContext context) {
-  
-    return  TextStyle(
-                    fontSize: 24,
-                   // color: blue500,
-                    fontFamily:  GoogleFonts.inter().fontFamily,
-                    fontWeight: FontWeight.bold,
-                  );
-  }
-
-
-
-
-
-
-
-
-  static TextStyle style18(BuildContext context) {
-    return TextStyle(
-      //   color: blueColor,
-      fontSize: getResponsiveSize(context, fontSize: 18),
-      color: Colors.black,
-
-      fontWeight: FontWeight.w400,
-      height: 0,
-    );
-  }
-
-
-  static const TextStyle style25 = TextStyle(
-    color: Colors.black,
-    fontSize: 25,
-    fontWeight: FontWeight.w500,
-    height: 0,
-  );
-
-  static const TextStyle styleBold18 = TextStyle(
-    color: Colors.black,
-    fontSize: 18,
-    fontWeight: FontWeight.w600,
-    height: 0,
-  );
-
-  static TextStyle style20 = TextStyle(
-    color: Colors.black.withOpacity(0.800000011920929),
-    fontSize: 20,
-    fontWeight: FontWeight.w400,
-    height: 0,
-  );
-
-  static const TextStyle style22 = TextStyle(
-    color: Colors.white,
-    fontSize: 22,
-    fontWeight: FontWeight.w500,
-    height: 0,
-  );
 }
 
 // sacleFactor

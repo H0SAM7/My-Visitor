@@ -1,14 +1,10 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/utils/assets.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:dio/dio.dart';
-import 'package:my_visitor/features/ML/presentation/views/ml_view.dart';
 import 'package:my_visitor/temp/tst.dart';
 
 class DetectionView extends StatefulWidget {
@@ -24,7 +20,7 @@ class DetectionView extends StatefulWidget {
 class _DetectionViewState extends State<DetectionView> {
   String _result = "Processing...";
   final Dio _dio = Dio();
-
+  var classNumber = -1;
   @override
   void initState() {
     super.initState();
@@ -60,10 +56,10 @@ class _DetectionViewState extends State<DetectionView> {
         _result = response.statusCode == 200
             ? response.data.toString()
             : "Error: ${response.statusMessage}";
-         Map<String, dynamic> detection_result = response.data ;
-         String classNumber=detection_result['classes'][0].toString();
-         log(detection_result.toString());
-            log(classNumber.toString());
+        Map<String, dynamic> detection_result = response.data;
+        classNumber = detection_result['classes'][0];
+        log(detection_result.toString());
+        log(classNumber.toString());
       });
     } catch (e) {
       setState(() {
@@ -80,32 +76,48 @@ class _DetectionViewState extends State<DetectionView> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              widget.imageBytes != null
-                  ? Image.memory(widget.imageBytes!, height: size.height * .4)
-                  : widget.imageFile != null
-                      ? Image.file(
-                          widget.imageFile!,
-                          height: size.height * .4,
-                          width: size.width,
-                          fit: BoxFit.fill,
-                        )
-                      : Text("No image available"),
-              const SizedBox(height: 20),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text("Name", style: AppStyles.style22),
-              ),
-              const SizedBox(height: 20),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(_result),
-              ),
-             
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                widget.imageBytes != null
+                    ? Image.memory(widget.imageBytes!, height: size.height * .4)
+                    : widget.imageFile != null
+                        ? Image.file(
+                            widget.imageFile!,
+                            height: size.height * .4,
+                            width: size.width,
+                            fit: BoxFit.fill,
+                          )
+                        : Text("No image available"),
+                const SizedBox(height: 20),
+                classNumber == -1
+                    ? Text(_result)
+                    : Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Text("${historicalData[classNumber as int].name} :",
+                                style: AppStyles.style22White(context)),
+                          ),
+                          const SizedBox(height: 20),
+                          Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child:
+                                  //Text(_result),
+                                  Text(
+                                historicalData[classNumber as int].aboutMe,
+                                style: AppStyles.style18(context),
+                              )),
+                        ],
+                      ),
+              ],
+            ),
           ),
         ),
       ),

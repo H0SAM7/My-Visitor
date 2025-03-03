@@ -3,4 +3,5 @@ class HosamModel{
   final String aboutMe;
 
   HosamModel({required this.name, required this.aboutMe});
+
 }

@@ -1,9 +1,5 @@
-class HosamModel {
-  final String name;
-  final String aboutMe;
 
-  HosamModel({required this.name, required this.aboutMe});
-}
+import 'package:my_visitor/features/ML/data/models/hosam_model.dart';
 
 List<HosamModel> historicalData = [
   HosamModel(name: "Akhenaten", aboutMe: "came to power as the pharaoh of Egypt in either the year 1353 or 1351 BCE and reigned for roughly 17 years during the 18th dynasty of Egypt’s New Kingdom. Akhenaten became best known to modern scholars for the new religion he created that centered on the Aten. In Akhenaten’s new religion, this figure generally came to be represented as a sun disk and is best understood as the light produced by the sun itself.  The king ascended the throne under his birth name, Amenhotep IV, but in his fifth regnal year, he changed his name to one that better reflected his religious ideas (Amenhotep = “Amun is satisfied,” Akhenaten = “Effective for Aten”). Shortly after this first significant step, Akhenaten initiated a series of changes in Egyptian religion, art and writing that appeared to coincide with the jubilees of his deified father, Amenhotep III, and the Aten."),
