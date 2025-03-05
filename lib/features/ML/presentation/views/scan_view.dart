@@ -3,9 +3,7 @@ import 'package:my_visitor/core/utils/assets.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:dio/dio.dart';
 import 'package:my_visitor/features/ML/presentation/views/detection_view.dart';
-import 'package:my_visitor/features/ML/presentation/views/ml_view.dart';
 
 class ScanView extends StatefulWidget {
   const ScanView({super.key});

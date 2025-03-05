@@ -3,7 +3,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:my_visitor/features/ML/presentation/views/ml_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 
 class BottomNavigator extends StatefulWidget {
@@ -20,12 +19,9 @@ class _BottomNavigatorState extends State<BottomNavigator> {
   final List<Widget> _children = [
      HomeView(),
    
-        GestureDetector(
-          onTap: (){
-            log('message');
-          },
-          child: MLView()),
-            MLView(),
+            HomeView(),
+     HomeView(),
+
     // HomeView(),
     // NewOrderView(),
     // OrdersView(),
