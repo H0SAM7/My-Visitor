@@ -1,9 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
@@ -14,8 +12,6 @@ import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
-import 'package:my_visitor/features/auth/views/widgets/social_auth.dart';
-import 'package:my_visitor/temp/screen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class RegisterView extends StatefulWidget {
@@ -70,6 +66,8 @@ class _RegisterViewState extends State<RegisterView> {
             description: state.errMessage,
             onPressed: () {
               Navigator.pop(context);
+
+              
             },
             actionTitle: 'Ok',
           );

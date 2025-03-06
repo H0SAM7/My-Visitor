@@ -34,6 +34,7 @@ class CustomSendButton extends StatelessWidget {
             style: TextStyle(
               color: txtcolor ?? Colors.white,
               fontWeight: FontWeight.bold,
+              fontSize: 18,
             ),
           ),
         ),

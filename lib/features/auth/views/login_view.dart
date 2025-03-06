@@ -8,6 +8,7 @@ import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
+import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
@@ -105,7 +106,7 @@ class _LoginViewState extends State<LoginView> {
                         alignment: Alignment.centerLeft,
                         child: TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, LoginView.id);
+                            Navigator.pushNamed(context, ForgetView.id);
                           },
                           child: Text(
                             'Forget Password',

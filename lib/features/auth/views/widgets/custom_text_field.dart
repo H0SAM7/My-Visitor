@@ -10,12 +10,13 @@ class CustomTextFrom extends StatefulWidget {
     this.hide = false,
     this.validator,
     this.isPasswordField = false,
-    this.controller, this.enabel=true,
+    this.controller,
+    this.enabel = true,
   });
   final void Function(String)? onChanged;
   final String label, hint;
   final bool hide;
-    final bool? enabel;
+  final bool? enabel;
   final String? Function(String?)? validator;
   final bool isPasswordField;
   final TextEditingController? controller;
@@ -48,12 +49,13 @@ class _CustomTextFromState extends State<CustomTextFrom> {
           fillColor: Colors.white,
           label: Text(
             widget.label,
-             style: const TextStyle(color: Colors.black),
+            style: TextStyle(
+                color: orangeColor, fontSize: 16, fontWeight: FontWeight.bold,),
           ),
           hintText: widget.hint,
-          enabled: widget.enabel??true,
+          enabled: widget.enabel ?? true,
           border: OutlineInputBorder(
-               borderSide: BorderSide(color: orangeColor),
+            borderSide: BorderSide(color: orangeColor),
             borderRadius: const BorderRadius.all(Radius.circular(16)),
           ),
           enabledBorder: outlineInputBorder,
@@ -72,7 +74,7 @@ class _CustomTextFromState extends State<CustomTextFrom> {
                 )
               : null,
           hintStyle: const TextStyle(
-             color: Colors.black,
+            color: Colors.black,
           ),
         ),
       ),
@@ -81,6 +83,6 @@ class _CustomTextFromState extends State<CustomTextFrom> {
 }
 
 final outlineInputBorder = OutlineInputBorder(
-  borderSide: BorderSide(color: orangeColor),
+  borderSide: BorderSide(color: Colors.black),
   borderRadius: const BorderRadius.all(Radius.circular(16)),
 );
