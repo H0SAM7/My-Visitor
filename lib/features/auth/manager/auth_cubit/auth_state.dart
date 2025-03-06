@@ -17,7 +17,9 @@ final class AuthCancel extends AuthState {}
 
 final class AuthSendVerification extends AuthState {}
 
-final class AuthVerificationFailure extends AuthState {}
+final class AuthVerificationFailure extends AuthState {
+ String errMessage='Email verification failed.';
+}
 
 
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_visitor/constants.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 void showCustomAlert({
@@ -28,7 +29,7 @@ void showCustomAlert({
       DialogButton(
         onPressed: onPressed,
         width: 120,
-        color: Colors.black,
+        color: orangeColor,
         child: Text(
           actionTitle,
           style: const TextStyle(

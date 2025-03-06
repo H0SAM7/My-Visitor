@@ -11,10 +11,10 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
-  Future<void> register(
-      {required String email,
-      required String password,
-      }) async {
+  Future<void> register({
+    required String email,
+    required String password,
+  }) async {
     emit(AuthLoading());
     try {
       final userCredential =
@@ -38,7 +38,6 @@ class AuthCubit extends Cubit<AuthState> {
               .doc(user.uid)
               .set({
             'email': email,
-            
           });
           // String jsonString =
           //     jsonEncode({'email': email, 'username': userName});
@@ -56,7 +55,7 @@ class AuthCubit extends Cubit<AuthState> {
           // If email verification fails, delete the user and throw an exception
           emit(AuthVerificationFailure());
           await user.delete();
-          emit(AuthFailure(errMessage: 'Email verification failed.'));
+          //emit(AuthFailure(errMessage: 'Email verification failed.'));
         }
       }
     } catch (e) {
@@ -72,7 +71,11 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
-
+      if (!credential.user!.emailVerified) {
+        emit(AuthFailure(
+            errMessage: "Email is not verified. Please verify your email."));
+        return;
+      }
       emit(AuthSuccess());
     } catch (e) {
       emit(
@@ -113,7 +116,7 @@ class AuthCubit extends Cubit<AuthState> {
       );
       final UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
-    
+
       emit(AuthSuccess());
       // Once signed in, return the UserCredential
       return userCredential;

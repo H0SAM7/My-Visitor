@@ -15,6 +15,7 @@ import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/social_auth.dart';
+import 'package:my_visitor/temp/screen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class RegisterView extends StatefulWidget {
@@ -35,7 +36,7 @@ class _RegisterViewState extends State<RegisterView> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          Navigator.pushReplacementNamed(context, BottomNavigator.id);
+          Navigator.pushReplacementNamed(context, LoginView.id);
         } else if (state is AuthSendVerification) {
           showCustomAlert(
             context: context,
@@ -45,6 +46,19 @@ class _RegisterViewState extends State<RegisterView> {
                 'Please  check your email to verify your account, and you can Login ',
             onPressed: () {
               Navigator.pushNamed(context, LoginView.id);
+            },
+            actionTitle: 'Ok',
+          );
+        } 
+        else if (state is AuthVerificationFailure) {
+          showCustomAlert(
+            context: context,
+            type: AlertType.warning,
+            title: 'Time out',
+            description:
+                state.errMessage,
+            onPressed: () {
+              Navigator.pushReplacementNamed(context, RegisterView.id);
             },
             actionTitle: 'Ok',
           );
