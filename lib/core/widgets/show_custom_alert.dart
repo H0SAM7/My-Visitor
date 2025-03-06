@@ -18,17 +18,26 @@ void showCustomAlert({
     onWillPopActive: true,
     closeFunction: closeFunction,
     style: const AlertStyle(
-        titleStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+      backgroundColor: Colors.black,
+      titleStyle: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 20, color: Colors.white),
+      descStyle: TextStyle(
+          fontWeight: FontWeight.bold, fontSize: 16, color: Colors.white),
+    ),
     buttons: [
       DialogButton(
         onPressed: onPressed,
         width: 120,
+        color: Colors.black,
         child: Text(
           actionTitle,
-          style: const TextStyle(color: Colors.white, fontSize: 20),
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
-   
     ],
   ).show();
 }

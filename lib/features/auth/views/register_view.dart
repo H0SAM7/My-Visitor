@@ -81,7 +81,7 @@ class _RegisterViewState extends State<RegisterView> {
                         padding: const EdgeInsets.all(8.0),
                         child: CustomBack(),
                       ),
-                  
+
                       const SizedBox(
                         height: 10,
                       ),
@@ -118,7 +118,7 @@ class _RegisterViewState extends State<RegisterView> {
                           password = value;
                         },
                       ),
-                  
+
                       HaveAccWidget(
                         title: 'You have Accounts? ',
                         action: 'Login',
@@ -133,17 +133,16 @@ class _RegisterViewState extends State<RegisterView> {
                         child: CustomSendButton(
                           label: 'Sign Up',
                           onTap: () async {
-                              if (formKey.currentState!.validate()) {
-                                await BlocProvider.of<AuthCubit>(context)
-                                    .register(
-                                        email: email!,
-                                        password: password!,
-                                        );
-                  
-                                // await FirebaseMessaging.instance
-                                //     .subscribeToTopic(notifiGroup);
-                  
-                              }
+                            if (formKey.currentState!.validate()) {
+                              await BlocProvider.of<AuthCubit>(context)
+                                  .register(
+                                email: email!,
+                                password: password!,
+                              );
+
+                              // await FirebaseMessaging.instance
+                              //     .subscribeToTopic(notifiGroup);
+                            }
                           },
                         ),
                       ),
