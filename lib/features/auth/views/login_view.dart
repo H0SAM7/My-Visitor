@@ -14,6 +14,7 @@ import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
+import 'package:my_visitor/temp/screen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../../../bottom_navigator_bar.dart';
@@ -37,7 +38,8 @@ class _LoginViewState extends State<LoginView> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-          Navigator.pushReplacementNamed(context, BottomNavigator.id);
+         // Navigator.pushReplacementNamed(context, BottomNavigator.id);
+         Navigator.pushReplacementNamed(context, screenTSt.id);
         } else if (state is AuthFailure) {
           showCustomAlert(
             context: context,
