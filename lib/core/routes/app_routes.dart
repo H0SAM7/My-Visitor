@@ -5,12 +5,13 @@ import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
+import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/temp/screen.dart';
 
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = ForgetView.id;
+  static String? initialRoute = SplashScreen1.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -20,6 +21,8 @@ abstract class AppRoutes {
     LoginView.id: (context) => const LoginView(),
         screenTSt.id: (context) => const screenTSt(),
         ForgetView.id: (context) => const ForgetView(),
+                SplashScreen1.id: (context) => const SplashScreen1(),
+
 
   };
 }

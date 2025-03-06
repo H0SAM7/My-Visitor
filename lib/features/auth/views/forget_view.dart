@@ -47,7 +47,7 @@ class _ForgetViewState extends State<ForgetView> {
             description:
                 'Please  check your email to reset your pssword, and you can Login ',
             onPressed: () {
-              Navigator.pushNamed(context, LoginView.id);
+              Navigator.pushReplacementNamed(context, LoginView.id);
             },
             actionTitle: 'Ok',
           );

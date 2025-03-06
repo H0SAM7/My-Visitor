@@ -18,7 +18,6 @@ import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
 import 'package:my_visitor/temp/screen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-import '../../../bottom_navigator_bar.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
