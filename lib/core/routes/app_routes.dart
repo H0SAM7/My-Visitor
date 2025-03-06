@@ -13,10 +13,9 @@ abstract class AppRoutes {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
     HomeView.id: (context) => const HomeView(),
-        ScanView.id: (context) => const ScanView(),
-                RegisterView.id: (context) => const RegisterView(),
-        LoginView.id: (context) => const LoginView(),
-
-
+    ScanView.id: (context) => const ScanView(),
+    RegisterView.id: (context) => const RegisterView(),
+    LoginView.id: (context) => const LoginView(),
+    
   };
 }

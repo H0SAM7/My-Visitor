@@ -7,11 +7,7 @@ import 'package:device_preview/device_preview.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_visitor/firebase_options.dart';
 
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(MyApp());
-// }
+
 
 void main()async {
   WidgetsFlutterBinding.ensureInitialized(); // Ensure binding before async calls
