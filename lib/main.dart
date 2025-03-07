@@ -16,7 +16,7 @@ void main()async {
   );
   runApp(
     DevicePreview(
-    //  enabled: true,
+     enabled: false,
       builder: (context) => MyApp(), // Wrap your app
     ),
   );
@@ -30,9 +30,9 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => AuthCubit(),
       child: MaterialApp(
-        useInheritedMediaQuery: true,
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
+        // useInheritedMediaQuery: true,
+        // locale: DevicePreview.locale(context),
+        // builder: DevicePreview.appBuilder,
         darkTheme: ThemeData.dark(), // Dark Theme
 
         themeMode: ThemeMode.dark,
