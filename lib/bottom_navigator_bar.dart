@@ -1,8 +1,10 @@
-
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:my_visitor/constants.dart';
+import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 
 class BottomNavigator extends StatefulWidget {
@@ -17,15 +19,13 @@ class _BottomNavigatorState extends State<BottomNavigator> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-     HomeView(),
-   
-            HomeView(),
-     HomeView(),
+    HomeView(),
+    ScanView(),
 
-    // HomeView(),
-    // NewOrderView(),
-    // OrdersView(),
-    // ProfileView(),
+    HomeView(),
+    HomeView(),
+
+ 
   ];
 
   @override
@@ -40,35 +40,49 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            // Image.asset(
-            //   Assets.iconsHome,
-            //   color: orangeColor,
-            //   height: 20,
-            // ),
+            backgroundColor: Colors.white,
+            icon: Image.asset(
+              Assets.iconsHome,
+              color: orangeColor,
+              //height: 20,
+            ),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            // Image.asset(
-            //   Assets.iconsCar,
-            //   color: orangeColor,
-            //   height: 20,
-            // ),
+            backgroundColor: Colors.white,
+            icon: Image.asset(
+              Assets.imagesScan2,
+              color: orangeColor,
+             height: 30,
+            ),
             label: 'Scan',
-       
           ),
           BottomNavigationBarItem(
-            icon:  Icon(Icons.scanner),
-            
+            backgroundColor: Colors.white,
+
+            icon: Icon(
+              Icons.settings,
+              color: orangeColor,
+              size: 25,
+            ),
+            //   Image.asset(
+            //     Assets.iconsSettingsIcon,
+            //  //  color: orangeColor,
+            //     height: 20,
+            //   ),
+            label: 'Settings',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.scanner),
+
             ///Image.asset(Assets.iconsPlusIcon),
             label: '',
           ),
- 
-         
         ],
         selectedItemColor: Colors.orange,
-        selectedLabelStyle: TextStyle(color: Colors.orange,),
+        selectedLabelStyle: TextStyle(
+          color: Colors.orange,
+        ),
         selectedFontSize: 10,
         showUnselectedLabels: false,
       ),
