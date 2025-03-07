@@ -3,6 +3,7 @@ import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/home/presentation/views/drawer/drawer_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/custom_search_bar.dart';
+import 'package:my_visitor/features/home/presentation/views/widgets/fisrt_section.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,28 +12,23 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        // leading: IconButton(
-        //   onPressed: () {},
-        //   icon: Icon(
-        //     Icons.draw_rounded,
-        //   ),
-        // ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
         title: Image.asset(Assets.imagesHomeLogo),
         centerTitle: true,
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.person,
-              size: 26,
-            ),
-            onPressed: () {},
+          CircleAvatar(
+            backgroundColor: Colors.white,
+            child: Icon(Icons.person, color: Colors.black),
           ),
+          SizedBox(width: 10),
         ],
       ),
+      extendBodyBehindAppBar: true,
       drawer: DrawerView(),
       body: Column(
         children: [
-          CustomSearchBar(),
+          Expanded(child: FirstSection()),
         ],
       ),
     );

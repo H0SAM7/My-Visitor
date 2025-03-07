@@ -20,7 +20,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
              
           builder: (BuildContext context, SearchController controller) {
             return SearchBar(
-              
+              hintText: 'Search...',
               backgroundColor: WidgetStateProperty.all(Colors.white),
               controller: controller,
               padding: const WidgetStatePropertyAll<EdgeInsets>(
@@ -39,7 +39,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
               shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                 RoundedRectangleBorder(
                   borderRadius:
-                      BorderRadius.circular(15), // Smaller rounded corners
+                      BorderRadius.circular(8), // Smaller rounded corners
                 ),
               ),
             );
