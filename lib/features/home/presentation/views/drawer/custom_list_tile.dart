@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/constants.dart';
 
-class CustomListTile extends StatelessWidget {
+class CustomDrawerListTile extends StatelessWidget {
   final IconData icon;
   final String title;
   final Widget? trailing;
   final VoidCallback? onTap;
  final Color? color;
-  const CustomListTile({
+  const CustomDrawerListTile({
     super.key,
     required this.icon,
     required this.title,

@@ -39,18 +39,18 @@ class _DrawerViewState extends State<DrawerView> {
           //     // إضافة ما تود فعله عند الضغط على Dark Mode
           //   },
           // ),
-          CustomListTile(
+          CustomDrawerListTile(
             icon: Icons.info_outline,
             title: 'Account Information',
             onTap: () {},
           ),
         
-          CustomListTile(
+          CustomDrawerListTile(
             icon: Icons.notifications,
             title: 'Notification',
             onTap: () {},
           ),
-          CustomListTile(
+          CustomDrawerListTile(
             icon: Icons.local_play,
             title: 'My Plans',
             onTap: () {
@@ -58,17 +58,17 @@ class _DrawerViewState extends State<DrawerView> {
             },
           ),
 
-          CustomListTile(
+          CustomDrawerListTile(
             icon: Icons.favorite_outline,
             title: 'Favourits',
             onTap: () {},
           ),
-          CustomListTile(
+          CustomDrawerListTile(
             icon: Icons.settings_outlined,
             title: 'Settings',
             onTap: () {},
           ),
-          CustomListTile(
+          CustomDrawerListTile(
             icon: Icons.logout,
             title: 'Logout',
             color: const Color.fromARGB(255, 180, 32, 21),

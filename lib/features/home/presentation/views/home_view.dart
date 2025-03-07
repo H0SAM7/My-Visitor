@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/home/presentation/views/drawer/drawer_view.dart';
+import 'package:my_visitor/features/home/presentation/views/widgets/custom_search_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -19,16 +21,19 @@ class HomeView extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.person,size: 26,),
-            onPressed: () {
-             
-            },
+            icon: Icon(
+              Icons.person,
+              size: 26,
+            ),
+            onPressed: () {},
           ),
         ],
       ),
       drawer: DrawerView(),
       body: Column(
-        children: [],
+        children: [
+          CustomSearchBar(),
+        ],
       ),
     );
   }
