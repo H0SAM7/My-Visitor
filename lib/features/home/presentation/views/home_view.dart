@@ -192,7 +192,7 @@ class LandMarkItem extends StatelessWidget {
         children: [
           Icon(icon, color: iconColor, size: 14),
           SizedBox(width: 4),
-          Text(text, style: TextStyle(color: Colors.white, fontSize: 12)),
+          Text(text, style: TextStyle(color: Colors.white, fontSize: 12,),),
         ],
       ),
     );
