@@ -16,7 +16,7 @@ class PyramidText extends StatelessWidget {
           Text(
             "The Great Pyramid of Giza",
             style: TextStyle(
-              color: Colors.amber,
+              color: Color(0xffE09A1E),
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),

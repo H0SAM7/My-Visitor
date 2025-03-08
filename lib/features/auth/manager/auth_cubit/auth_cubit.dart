@@ -53,8 +53,9 @@ class AuthCubit extends Cubit<AuthState> {
           log('User account created successfully.');
         } else {
           // If email verification fails, delete the user and throw an exception
+                await user.delete();
           emit(AuthVerificationFailure());
-          await user.delete();
+
           //emit(AuthFailure(errMessage: 'Email verification failed.'));
         }
       }
@@ -72,8 +73,7 @@ class AuthCubit extends Cubit<AuthState> {
       final credential = await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       if (!credential.user!.emailVerified) {
-        emit(AuthFailure(
-            errMessage: "Email is not verified. Please verify your email."));
+        emit(AuthVerificationFailure());
         return;
       }
       emit(AuthSuccess());

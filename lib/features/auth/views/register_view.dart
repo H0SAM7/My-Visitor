@@ -24,10 +24,10 @@ class RegisterView extends StatefulWidget {
 class _RegisterViewState extends State<RegisterView> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String? email, password, phone, fatherPhone, name;
+  bool _isDialogShowing = false; // Prevent multiple alerts
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.sizeOf(context);
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
@@ -44,32 +44,34 @@ class _RegisterViewState extends State<RegisterView> {
             },
             actionTitle: 'Ok',
           );
-        } 
-        else if (state is AuthVerificationFailure) {
+        } else if (state is AuthVerificationFailure) {
           showCustomAlert(
             context: context,
             type: AlertType.warning,
             title: 'Time out',
-            description:
-                state.errMessage,
+            description: state.errMessage,
             onPressed: () {
               Navigator.pushReplacementNamed(context, RegisterView.id);
             },
             actionTitle: 'Ok',
           );
         } else if (state is AuthFailure) {
-          showCustomAlert(
-            context: context,
-            type: AlertType.error,
-            title: 'Error',
-            description: state.errMessage,
-            onPressed: () {
-              Navigator.pop(context);
+          if (!_isDialogShowing) {
+            _isDialogShowing = true; // Set flag to true before showing dialog
 
-              
-            },
-            actionTitle: 'Ok',
-          );
+            showCustomAlert(
+              context: context,
+              type: AlertType.error,
+              title: 'Error',
+              description: state.errMessage,
+              onPressed: () {
+                          _isDialogShowing = false; // Reset flag after dismissing
+
+                Navigator.pop(context);
+              },
+              actionTitle: 'Ok',
+            );
+          }
         }
       },
       builder: (context, state) {

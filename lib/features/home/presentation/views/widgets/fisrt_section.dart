@@ -25,7 +25,7 @@ class FirstSection extends StatelessWidget {
           child: CustomSearchBar(),
         ),
         Positioned(
-          bottom: height * 0.1,
+          bottom: height * 0.06,
           left: 16,
           right: 16,
           child: PyramidText(),
