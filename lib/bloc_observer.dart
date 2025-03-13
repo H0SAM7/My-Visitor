@@ -17,7 +17,7 @@ class SimpleBlocObserever implements BlocObserver {
   void onCreate(BlocBase bloc) {
     log("cearte=$bloc");
   }
-  
+
   @override
   void onError(BlocBase bloc, Object error, StackTrace stackTrace) {
     // TODO: implement onError

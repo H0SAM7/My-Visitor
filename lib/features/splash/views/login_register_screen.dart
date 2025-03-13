@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/features/splash/views/widgets/custom_button.dart';
+
 class LoginRegisterScreen extends StatelessWidget {
   const LoginRegisterScreen({super.key});
 
@@ -10,9 +11,7 @@ class LoginRegisterScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        
-        backgroundColor:Colors.black ,
-        
+        backgroundColor: Colors.black,
       ),
       backgroundColor: Colors.black,
       body: Column(
@@ -21,36 +20,27 @@ class LoginRegisterScreen extends StatelessWidget {
           SizedBox(
             height: screenHeight * 0.6,
             child: Image.asset(
-              'assets/egyption_cat.png', 
+              'assets/egyption_cat.png',
               fit: BoxFit.contain,
             ),
           ),
-
           const SizedBox(height: 20),
-
-        
           Center(
-           child: CustomButton(onNext: (){},
-            buttonText: 'Login',
-             buttonColor: const Color.fromARGB(255, 253, 105, 0),
-             buttonFontColor: Colors.white),
+            child: CustomButton(
+                onNext: () {},
+                buttonText: 'Login',
+                buttonColor: const Color.fromARGB(255, 253, 105, 0),
+                buttonFontColor: Colors.white),
           ),
-
           const SizedBox(height: 10),
-          CustomButton(onNext:   () {
-                
-              }, buttonText: "Register", 
+          CustomButton(
+              onNext: () {},
+              buttonText: "Register",
               buttonColor: Colors.white,
-               buttonFontColor: Colors.black),
-
-
+              buttonFontColor: Colors.black),
           const SizedBox(height: 15),
-
-          
           TextButton(
-            onPressed: () {
-            
-            },
+            onPressed: () {},
             child: const Text(
               "Continue as a guest",
               style: TextStyle(

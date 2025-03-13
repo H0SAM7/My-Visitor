@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 
-
 class CustomProgressHUD extends StatelessWidget {
   final bool inAsyncCall;
   final Widget child;
   final AlignmentGeometry indicatorAlignment;
- final bool verify;
-const CustomProgressHUD({super.key, 
+  final bool verify;
+  const CustomProgressHUD({
+    super.key,
     required this.inAsyncCall,
     required this.child,
     this.indicatorAlignment = Alignment.bottomCenter,
@@ -34,4 +34,3 @@ const CustomProgressHUD({super.key,
     );
   }
 }
-

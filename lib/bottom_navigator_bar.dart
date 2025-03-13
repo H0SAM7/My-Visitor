@@ -21,11 +21,8 @@ class _BottomNavigatorState extends State<BottomNavigator> {
   final List<Widget> _children = [
     HomeView(),
     ScanView(),
-
     HomeView(),
     HomeView(),
-
- 
   ];
 
   @override
@@ -53,7 +50,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
             icon: Image.asset(
               Assets.imagesScan2,
               color: orangeColor,
-             height: 30,
+              height: 30,
             ),
             label: 'Scan',
           ),

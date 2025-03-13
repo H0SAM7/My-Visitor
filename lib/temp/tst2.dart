@@ -115,11 +115,13 @@ class _ResultScreenState extends State<ResultScreen> {
     FormData formData;
     if (kIsWeb && widget.imageBytes != null) {
       formData = FormData.fromMap({
-        "file": MultipartFile.fromBytes(widget.imageBytes!, filename: 'upload.png'),
+        "file":
+            MultipartFile.fromBytes(widget.imageBytes!, filename: 'upload.png'),
       });
     } else if (widget.imageFile != null) {
       formData = FormData.fromMap({
-        "file": await MultipartFile.fromFile(widget.imageFile!.path, filename: 'upload.png'),
+        "file": await MultipartFile.fromFile(widget.imageFile!.path,
+            filename: 'upload.png'),
       });
     } else {
       setState(() {
@@ -131,7 +133,9 @@ class _ResultScreenState extends State<ResultScreen> {
     try {
       Response response = await _dio.post(url, data: formData);
       setState(() {
-        _result = response.statusCode == 200 ? response.data.toString() : "Error: ${response.statusMessage}";
+        _result = response.statusCode == 200
+            ? response.data.toString()
+            : "Error: ${response.statusMessage}";
       });
     } catch (e) {
       setState(() {
@@ -154,7 +158,8 @@ class _ResultScreenState extends State<ResultScreen> {
                     ? Image.file(widget.imageFile!, height: 200)
                     : Text("No image available"),
             SizedBox(height: 10),
-            Text("Detection Results:", style: TextStyle(fontWeight: FontWeight.bold)),
+            Text("Detection Results:",
+                style: TextStyle(fontWeight: FontWeight.bold)),
             Text(_result),
           ],
         ),

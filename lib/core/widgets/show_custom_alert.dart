@@ -10,11 +10,7 @@ void showCustomAlert({
   required VoidCallback onPressed,
   required String actionTitle,
   Function? closeFunction,
-  
-}
-
-) {
-
+}) {
   Alert(
     context: context,
     type: type,

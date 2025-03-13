@@ -27,7 +27,7 @@
 //           child: Padding(
 //             padding: const EdgeInsets.only(left: 8.0),
 //             child: Center(
-//               child: 
+//               child:
 //               Text(
 //                 title,
 //                 textAlign: TextAlign.left,
@@ -44,5 +44,3 @@
 //     );
 //   }
 // }
-
-

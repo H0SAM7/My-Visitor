@@ -72,10 +72,9 @@ class _ForgetViewState extends State<ForgetView> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                   const SizedBox(
-                        height: 40,
-                      ),
-                      
+                const SizedBox(
+                  height: 40,
+                ),
                 CustomBack(),
                 const SizedBox(
                   height: 15,

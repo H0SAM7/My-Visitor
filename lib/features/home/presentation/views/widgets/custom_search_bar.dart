@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:my_visitor/constants.dart';
 
@@ -17,7 +16,6 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
       child: SizedBox(
         height: 35,
         child: SearchAnchor(
-             
           builder: (BuildContext context, SearchController controller) {
             return SearchBar(
               hintText: 'Search...',

@@ -95,13 +95,14 @@ class _DetectionViewState extends State<DetectionView> {
                 classNumber == -1
                     ? Text(_result)
                     : Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Padding(
                             padding:
                                 const EdgeInsets.symmetric(horizontal: 8.0),
-                            child: Text("${historicalData[classNumber as int].name} :",
+                            child: Text(
+                                "${historicalData[classNumber as int].name} :",
                                 style: AppStyles.style22White(context)),
                           ),
                           const SizedBox(height: 20),

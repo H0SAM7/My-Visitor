@@ -65,7 +65,7 @@ class _RegisterViewState extends State<RegisterView> {
               title: 'Error',
               description: state.errMessage,
               onPressed: () {
-                          _isDialogShowing = false; // Reset flag after dismissing
+                _isDialogShowing = false; // Reset flag after dismissing
 
                 Navigator.pop(context);
               },

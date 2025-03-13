@@ -2,7 +2,7 @@ String getFormattedDateTime({required DateTime createdAt}) {
   // Extract hour and minute from the provided DateTime
   int hour = createdAt.hour;
   int minute = createdAt.minute;
-  
+
   // Determine if the time is PM and adjust hour for 12-hour format
   String period = hour >= 12 ? 'PM' : 'AM';
   hour = hour % 12;

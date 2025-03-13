@@ -50,7 +50,10 @@ class _CustomTextFromState extends State<CustomTextFrom> {
           label: Text(
             widget.label,
             style: TextStyle(
-                color: orangeColor, fontSize: 16, fontWeight: FontWeight.bold,),
+              color: orangeColor,
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           hintText: widget.hint,
           enabled: widget.enabel ?? true,

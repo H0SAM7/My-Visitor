@@ -7,6 +7,11 @@ class screenTSt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
+        children: [Center(child: Text('Success'))],
+      ),
+    );
+    return Scaffold(
+      body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
@@ -16,10 +21,7 @@ class screenTSt extends StatelessWidget {
          من الجيش
 """,
             style: TextStyle(
-              color: Colors.white,
-              fontSize: 40 ,
-              fontWeight: FontWeight.bold
-            ),
+                color: Colors.white, fontSize: 40, fontWeight: FontWeight.bold),
           ))
         ],
       ),

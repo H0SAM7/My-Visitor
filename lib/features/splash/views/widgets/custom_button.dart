@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
-   
     required this.onNext,
     required this.buttonText,
     required this.buttonColor,
@@ -17,7 +16,7 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     final Size screenSize = MediaQuery.of(context).size;
+    final Size screenSize = MediaQuery.of(context).size;
     double screenWidth = screenSize.width;
     double screenHeight = screenSize.height;
 
@@ -34,7 +33,7 @@ class CustomButton extends StatelessWidget {
         onPressed: onNext,
         child: Text(
           buttonText,
-          style:  TextStyle(
+          style: TextStyle(
             fontSize: 20,
             color: buttonFontColor,
             fontWeight: FontWeight.bold,

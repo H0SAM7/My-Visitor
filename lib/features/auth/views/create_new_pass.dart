@@ -25,34 +25,34 @@ class CreateNewPass extends StatelessWidget {
                 style: AppStyles.style18(context),
               ),
             ),
-              const SizedBox(
+            const SizedBox(
               height: 20,
             ),
-          CustomTextFrom(
-            label: 'Password',
-            hint: 'Enter your Password',
-            isPasswordField: true,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-                  'Password must include at least 8 characters, an uppercase letter, a number, and a special character',
-                  style: AppStyles.style18(context),
-                ),
-          ),
-               const SizedBox(
+            CustomTextFrom(
+              label: 'Password',
+              hint: 'Enter your Password',
+              isPasswordField: true,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'Password must include at least 8 characters, an uppercase letter, a number, and a special character',
+                style: AppStyles.style18(context),
+              ),
+            ),
+            const SizedBox(
               height: 10,
             ),
-          CustomTextFrom(
-            label: 'Confirm Password',
-            hint: 'Re-Enter your Password',
-            isPasswordField: true,
-          ),
-           
-              const SizedBox(
+            CustomTextFrom(
+              label: 'Confirm Password',
+              hint: 'Re-Enter your Password',
+              isPasswordField: true,
+            ),
+
+            const SizedBox(
               height: 30,
             ),
-           // CustomButton(title: 'Reset Password',onTap: (){},)
+            // CustomButton(title: 'Reset Password',onTap: (){},)
           ],
         ),
       ),

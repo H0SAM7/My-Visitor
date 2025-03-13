@@ -18,7 +18,6 @@ import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
 import 'package:my_visitor/temp/screen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
   static String id = 'LoginView';
@@ -38,8 +37,8 @@ class _LoginViewState extends State<LoginView> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-         // Navigator.pushReplacementNamed(context, BottomNavigator.id);
-         Navigator.pushReplacementNamed(context, screenTSt.id);
+          // Navigator.pushReplacementNamed(context, BottomNavigator.id);
+          Navigator.pushReplacementNamed(context, screenTSt.id);
         } else if (state is AuthFailure) {
           showCustomAlert(
             context: context,
@@ -77,7 +76,7 @@ class _LoginViewState extends State<LoginView> {
                         padding: const EdgeInsets.all(8.0),
                         child: CustomBack(),
                       ),
-                  
+
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
@@ -126,7 +125,7 @@ class _LoginViewState extends State<LoginView> {
                               // await FirebaseMessaging.instance
                               //     .subscribeToTopic(notifiGroup);
                             }
-                  
+
                             //  FirebaseAuth.instance.authStateChanges().listen((User? user) {
                             //                   if (user == null) {
                             //                     Navigator.pushNamed(context, RegisterView.id);
@@ -146,12 +145,12 @@ class _LoginViewState extends State<LoginView> {
                           },
                         ),
                       ),
-                  
+
                       const SizedBox(
                         height: 15,
                       ),
                       const Center(child: OrWidget()),
-                  
+
                       const SizedBox(
                         height: 15,
                       ),
@@ -165,7 +164,7 @@ class _LoginViewState extends State<LoginView> {
                           },
                         ),
                       ),
-                  
+
                       const SizedBox(
                         height: 24,
                       ),

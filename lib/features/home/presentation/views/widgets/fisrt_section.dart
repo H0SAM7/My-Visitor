@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/custom_search_bar.dart';
@@ -9,7 +8,7 @@ class FirstSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-       double height = MediaQuery.of(context).size.height;
+    double height = MediaQuery.of(context).size.height;
 
     return Stack(
       children: [
@@ -19,7 +18,6 @@ class FirstSection extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
-        
         Padding(
           padding: EdgeInsets.only(top: height * 0.1, left: 16, right: 16),
           child: CustomSearchBar(),
@@ -34,4 +32,3 @@ class FirstSection extends StatelessWidget {
     );
   }
 }
-

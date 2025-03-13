@@ -1,4 +1,3 @@
-
 // import 'package:vistor/core/styles/text_styles.dart';
 // import 'package:vistor/core/utils/colors.dart';
 // import 'package:flutter/material.dart';
@@ -22,7 +21,7 @@
 //           AppStyles.style24(context),
 //           ),
 //           IconButton(onPressed: (){}, icon: Icon(Icons.account_circle,size: 30,color: blue500,)),
-    
+
 //         ],
 //       ),
 //     );

@@ -21,11 +21,11 @@ class FirebaseFailure extends Failure {
 
   factory FirebaseFailure.fromAuthException(FirebaseAuthException exception) {
     switch (exception.code) {
-
       case 'invalid-email':
         return FirebaseFailure(errMessage: 'The email address is not valid.');
       case 'user-disabled':
-        return FirebaseFailure(errMessage: 'The user account has been disabled.');
+        return FirebaseFailure(
+            errMessage: 'The user account has been disabled.');
       case 'user-not-found':
         return FirebaseFailure(errMessage: 'No user found with this email.');
       case 'wrong-password':
@@ -38,29 +38,34 @@ class FirebaseFailure extends Failure {
         return FirebaseFailure(errMessage: 'This operation is not allowed.');
 
       default:
-        return FirebaseFailure(errMessage: 'An unexpected Firebase Auth error occurred.');
+        return FirebaseFailure(
+            errMessage: 'An unexpected Firebase Auth error occurred.');
     }
   }
-factory FirebaseFailure.fromFirestoreException(FirebaseException exception) {
+  factory FirebaseFailure.fromFirestoreException(FirebaseException exception) {
     switch (exception.code) {
       case 'permission-denied':
-        return FirebaseFailure(errMessage: 'Permission denied to access Firestore.');
+        return FirebaseFailure(
+            errMessage: 'Permission denied to access Firestore.');
       case 'not-found':
         return FirebaseFailure(errMessage: 'Document not found in Firestore.');
       case 'aborted':
         return FirebaseFailure(errMessage: 'Firestore operation was aborted.');
       case 'already-exists':
-        return FirebaseFailure(errMessage: 'Document already exists in Firestore.');
+        return FirebaseFailure(
+            errMessage: 'Document already exists in Firestore.');
       case 'resource-exhausted':
         return FirebaseFailure(errMessage: 'Firestore resource exhausted.');
       case 'unavailable':
-        return FirebaseFailure(errMessage: 'Firestore service is currently unavailable.');
+        return FirebaseFailure(
+            errMessage: 'Firestore service is currently unavailable.');
       case 'deadline-exceeded':
         return FirebaseFailure(errMessage: 'Firestore operation timed out.');
       case 'cancelled':
         return FirebaseFailure(errMessage: 'Firestore request was cancelled.');
       default:
-        return FirebaseFailure(errMessage: 'An unexpected Firestore error occurred.');
+        return FirebaseFailure(
+            errMessage: 'An unexpected Firestore error occurred.');
     }
   }
 }

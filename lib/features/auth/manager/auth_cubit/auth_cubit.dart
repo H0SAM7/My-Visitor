@@ -53,7 +53,7 @@ class AuthCubit extends Cubit<AuthState> {
           log('User account created successfully.');
         } else {
           // If email verification fails, delete the user and throw an exception
-                await user.delete();
+          await user.delete();
           emit(AuthVerificationFailure());
 
           //emit(AuthFailure(errMessage: 'Email verification failed.'));

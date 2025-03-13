@@ -6,12 +6,13 @@ import 'package:my_visitor/features/splash/views/welcome_screen1.dart';
 
 class SplashScreen1 extends StatefulWidget {
   const SplashScreen1({super.key});
-static String id='SplashScreen1';
+  static String id = 'SplashScreen1';
   @override
   SplashScreen1State createState() => SplashScreen1State();
 }
 
-class SplashScreen1State extends State<SplashScreen1> with SingleTickerProviderStateMixin {
+class SplashScreen1State extends State<SplashScreen1>
+    with SingleTickerProviderStateMixin {
   double _opacity = 0.0;
   double _scale = 0.8; // يبدأ بحجم أصغر قليلاً
 
@@ -48,7 +49,7 @@ class SplashScreen1State extends State<SplashScreen1> with SingleTickerProviderS
           // الخلفية
           Positioned.fill(
             child: Image.asset(
-               Assets.imagesBackground,
+              Assets.imagesBackground,
               fit: BoxFit.cover,
             ),
           ),
@@ -69,7 +70,7 @@ class SplashScreen1State extends State<SplashScreen1> with SingleTickerProviderS
                   );
                 },
                 child: Image.asset(
-                    Assets.imagesLogo,
+                  Assets.imagesLogo,
                   width: screenWidth * 0.9, // حجم مرن للوجو
                 ),
               ),

@@ -24,7 +24,7 @@ class SocialAuth extends StatelessWidget {
           onTap: () {
             Navigator.pushNamed(context, BottomNavigator.id);
           },
-         // child: 
+          // child:
           // CircleAvatar(
           //   radius: 30,
           //   backgroundColor: Colors.white,

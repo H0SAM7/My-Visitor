@@ -64,7 +64,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '510264322044',
     projectId: 'my-vistor',
     storageBucket: 'my-vistor.firebasestorage.app',
-    iosClientId: '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
+    iosClientId:
+        '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
     iosBundleId: 'com.example.myVisitor',
   );
 
@@ -74,7 +75,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '510264322044',
     projectId: 'my-vistor',
     storageBucket: 'my-vistor.firebasestorage.app',
-    iosClientId: '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
+    iosClientId:
+        '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
     iosBundleId: 'com.example.myVisitor',
   );
 

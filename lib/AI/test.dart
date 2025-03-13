@@ -53,7 +53,8 @@ class _YoloTstState extends State<YoloTst> {
       });
     } else if (_imageFile != null) {
       formData = FormData.fromMap({
-        "file": await MultipartFile.fromFile(_imageFile!.path, filename: 'upload.png'),
+        "file": await MultipartFile.fromFile(_imageFile!.path,
+            filename: 'upload.png'),
       });
     } else {
       return;
@@ -62,7 +63,9 @@ class _YoloTstState extends State<YoloTst> {
     try {
       Response response = await _dio.post(url, data: formData);
       setState(() {
-        _result = response.statusCode == 200 ? response.data.toString() : "Error: ${response.statusMessage}";
+        _result = response.statusCode == 200
+            ? response.data.toString()
+            : "Error: ${response.statusMessage}";
       });
     } catch (e) {
       setState(() {
@@ -110,10 +113,9 @@ class _YoloTstState extends State<YoloTst> {
               child: Text("Pick Image"),
             ),
             const SizedBox(height: 20),
-            const Text("Detection Results:", style: TextStyle(fontWeight: FontWeight.bold)),
-            Text(
-              _result
-            ),
+            const Text("Detection Results:",
+                style: TextStyle(fontWeight: FontWeight.bold)),
+            Text(_result),
           ],
         ),
       ),

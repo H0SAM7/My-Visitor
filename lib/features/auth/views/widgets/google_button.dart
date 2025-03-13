@@ -17,7 +17,7 @@ class GoogleButton extends StatelessWidget {
         height: 50,
         width: 300,
         decoration: BoxDecoration(
-          border: Border.all(width: .7,color: orangeColor),
+          border: Border.all(width: .7, color: orangeColor),
           borderRadius: BorderRadius.circular(10),
           //color: orangeColor,
         ),

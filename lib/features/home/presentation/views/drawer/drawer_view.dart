@@ -44,7 +44,7 @@ class _DrawerViewState extends State<DrawerView> {
             title: 'Account Information',
             onTap: () {},
           ),
-        
+
           CustomDrawerListTile(
             icon: Icons.notifications,
             title: 'Notification',

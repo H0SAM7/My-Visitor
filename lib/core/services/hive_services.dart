@@ -2,7 +2,7 @@
 // import 'package:vistor/core/models/user_model.dart';
 // import 'package:hive/hive.dart';
 // class HiveServices {
-  
+
 // // Ensure the box is initialized with a dynamic name
 // Future<Box<UserModel>> getUserBox(String boxName) async {
 //   if (!Hive.isBoxOpen(boxName)) {
