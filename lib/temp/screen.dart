@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:my_visitor/features/hotels/data/repos/hotel_repo_impl.dart';
 
 class screenTSt extends StatelessWidget {
   const screenTSt({super.key});
@@ -7,7 +10,16 @@ class screenTSt extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        children: [Center(child: Text('Success'))],
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+              child: IconButton(
+                  onPressed: () async {
+                 var tt=   await HotelRepoImpl().featchAllhotels();
+                    log('${tt}');
+                  },
+                  icon: Icon(Icons.airplanemode_inactive_outlined)))
+        ],
       ),
     );
     return Scaffold(

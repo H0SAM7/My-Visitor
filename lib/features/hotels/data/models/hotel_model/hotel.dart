@@ -7,7 +7,7 @@ import 'search_metadata.dart';
 import 'search_parameters.dart';
 import 'serpapi_pagination.dart';
 
-class Hotel {
+class HotelModel {
   SearchMetadata? searchMetadata;
   SearchParameters? searchParameters;
   SearchInformation? searchInformation;
@@ -15,7 +15,7 @@ class Hotel {
   List<Property>? properties;
   SerpapiPagination? serpapiPagination;
 
-  Hotel({
+  HotelModel({
     this.searchMetadata,
     this.searchParameters,
     this.searchInformation,
@@ -24,7 +24,7 @@ class Hotel {
     this.serpapiPagination,
   });
 
-  factory Hotel.fromMap(Map<String, dynamic> data) => Hotel(
+  factory HotelModel.fromMap(Map<String, dynamic> data) => HotelModel(
         searchMetadata: data['search_metadata'] == null
             ? null
             : SearchMetadata.fromMap(
@@ -60,13 +60,13 @@ class Hotel {
 
   /// `dart:convert`
   ///
-  /// Parses the string and returns the resulting Json object as [Hotel].
-  factory Hotel.fromJson(String data) {
-    return Hotel.fromMap(json.decode(data) as Map<String, dynamic>);
+  /// Parses the string and returns the resulting Json object as [HotelModel].
+  factory HotelModel.fromJson(String data) {
+    return HotelModel.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
   /// `dart:convert`
   ///
-  /// Converts [Hotel] to a JSON string.
+  /// Converts [HotelModel] to a JSON string.
   String toJson() => json.encode(toMap());
 }

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/home/presentation/views/drawer/drawer_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/category_item.dart';
-import 'package:my_visitor/features/home/presentation/views/widgets/category_list_view.dart';
-import 'package:my_visitor/features/home/presentation/views/widgets/custom_search_bar.dart';
+
 import 'package:my_visitor/features/home/presentation/views/widgets/fisrt_section.dart';
 
 class HomeView extends StatelessWidget {
@@ -94,7 +92,6 @@ class LandMarkItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
     return Container(
       width: screenWidth * 0.6, // 90% of screen width
       height: screenWidth * 0.6, // 60% of screen width
