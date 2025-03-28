@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_visitor/bloc_observer.dart';
 import 'package:my_visitor/core/routes/app_routes.dart';
@@ -30,21 +31,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => AuthCubit(),
-      child: MaterialApp(
-        // useInheritedMediaQuery: true,
-        // locale: DevicePreview.locale(context),
-        // builder: DevicePreview.appBuilder,
-        darkTheme: ThemeData.dark(), // Dark Theme
+      child: ScreenUtilInit(
+          designSize: const Size(360, 690),
+          minTextAdapt: true,
+          splitScreenMode: true,
+          builder: (_, child) {
+            return MaterialApp(
+              // useInheritedMediaQuery: true,
+              // locale: DevicePreview.locale(context),
+              // builder: DevicePreview.appBuilder,
+              darkTheme: ThemeData.dark(), // Dark Theme
 
-        themeMode: ThemeMode.dark,
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          scaffoldBackgroundColor: Colors.black,
-          fontFamily: GoogleFonts.manrope().fontFamily,
-        ),
-        initialRoute: AppRoutes.initialRoute,
-        routes: AppRoutes.routes,
-      ),
+              themeMode: ThemeMode.dark,
+              debugShowCheckedModeBanner: false,
+              theme: ThemeData(
+                scaffoldBackgroundColor: Colors.black,
+                fontFamily: GoogleFonts.manrope().fontFamily,
+              ),
+              initialRoute: AppRoutes.initialRoute,
+              routes: AppRoutes.routes,
+            );
+          }),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppStyles {
   static TextStyle style22White(BuildContext context) {
@@ -25,6 +24,16 @@ abstract class AppStyles {
         fontSize: 18,
         fontWeight: FontWeight.w400,
         color: Color.fromARGB(255, 243, 248, 254));
+  }
+
+  static TextStyle style16Gray(
+    BuildContext context,
+  ) {
+    return const TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      color: Color(0xffBDBDBD),
+    );
   }
 }
 

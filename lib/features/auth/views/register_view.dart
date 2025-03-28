@@ -40,7 +40,7 @@ class _RegisterViewState extends State<RegisterView> {
             description:
                 'Please  check your email to verify your account, and you can Login ',
             onPressed: () {
-              Navigator.pushNamed(context, LoginView.id);
+          Navigator.pushReplacementNamed(context, LoginView.id);
             },
             actionTitle: 'Ok',
           );

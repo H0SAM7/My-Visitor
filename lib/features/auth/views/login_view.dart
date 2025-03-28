@@ -46,7 +46,7 @@ class _LoginViewState extends State<LoginView> {
             title: 'Error',
             description: state.errMessage,
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushReplacementNamed(context, LoginView.id);
             },
             actionTitle: 'Ok',
           );

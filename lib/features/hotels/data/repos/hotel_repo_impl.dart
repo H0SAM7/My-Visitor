@@ -29,6 +29,12 @@ class HotelRepoImpl extends HotelRepo {
       return left(ServerFailure(errMessage: e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, List<HotelModel>>> book() {
+    // TODO: implement book
+    throw UnimplementedError();
+  }
 
   // Future<Either<Failure, List<BookModel>>> featchAllbooks() async {
   //   try {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_visitor/features/splash/views/widgets/custom_button.dart';
+import 'package:my_visitor/features/splash/views/widgets/splash_button.dart';
 
 class CustomSplashScreen extends StatelessWidget {
   final String backgroundImage;
@@ -76,7 +76,7 @@ class CustomSplashScreen extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            CustomButton(
+            SplashButton(
               onNext: onNext,
               buttonText: buttonText,
               buttonColor: buttonColor,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_visitor/features/splash/views/widgets/custom_button.dart';
+import 'package:my_visitor/features/splash/views/widgets/splash_button.dart';
 
 class LoginRegisterScreen extends StatelessWidget {
   const LoginRegisterScreen({super.key});
@@ -26,14 +26,14 @@ class LoginRegisterScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Center(
-            child: CustomButton(
+            child:SplashButton(
                 onNext: () {},
                 buttonText: 'Login',
                 buttonColor: const Color.fromARGB(255, 253, 105, 0),
                 buttonFontColor: Colors.white),
           ),
           const SizedBox(height: 10),
-          CustomButton(
+          SplashButton(
               onNext: () {},
               buttonText: "Register",
               buttonColor: Colors.white,

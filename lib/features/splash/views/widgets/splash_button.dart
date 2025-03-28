@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CustomButton extends StatelessWidget {
-  const CustomButton({
+class SplashButton extends StatelessWidget {
+  const SplashButton({
     super.key,
     required this.onNext,
     required this.buttonText,
