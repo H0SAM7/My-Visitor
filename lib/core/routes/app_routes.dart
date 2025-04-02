@@ -6,15 +6,14 @@ import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotel_details_view.dart';
-import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart'
-    show HotelsView;
+import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/temp/screen.dart';
 
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = HotelDetailsView.id;
+  static String? initialRoute = HotelsView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########

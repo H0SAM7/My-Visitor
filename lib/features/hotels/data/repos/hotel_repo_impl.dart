@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_visitor/core/error/dio_failures.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel.dart';
-import 'package:my_visitor/features/hotels/data/repos/hotel_repo.dart';
+import 'package:my_visitor/features/hotels/domain/repos/hotel_repo.dart';
 import 'package:my_visitor/keys/hotels.dart';
 import 'package:my_visitor/services/api_services.dart';
 

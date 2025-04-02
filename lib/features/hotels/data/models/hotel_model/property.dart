@@ -22,7 +22,7 @@ class Property {
   TotalRate? totalRate;
   List<Price>? prices;
   List<NearbyPlace>? nearbyPlaces;
-  List<Image>? images;
+  ImageCollection? images;
   double? overallRating;
   int? reviews;
   double? locationRating;
@@ -94,9 +94,9 @@ class Property {
         nearbyPlaces: (data['nearby_places'] as List<dynamic>?)
             ?.map((e) => NearbyPlace.fromMap(e as Map<String, dynamic>))
             .toList(),
-        images: (data['images'] as List<dynamic>?)
-            ?.map((e) => Image.fromJson(e as Map<String, dynamic>))
-            .toList(),
+        images: data['images'] == null
+            ? null
+            : ImageCollection.fromJson(data['images'] as Map<String, dynamic>),
         overallRating: (data['overall_rating'] as num?)?.toDouble(),
         reviews: data['reviews'] as int?,
         locationRating: (data['location_rating'] as num?)?.toDouble(),
@@ -130,7 +130,7 @@ class Property {
         'total_rate': totalRate?.toMap(),
         'prices': prices?.map((e) => e.toMap()).toList(),
         'nearby_places': nearbyPlaces?.map((e) => e.toMap()).toList(),
-        'images': images?.map((e) => e.toJson()).toList(),
+        'images': images?.toJson(),
         'overall_rating': overallRating,
         'reviews': reviews,
         'location_rating': locationRating,
