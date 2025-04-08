@@ -17,12 +17,17 @@ class HotelRemoteDataSourceImpl extends  HotelsRemoteDataSource{
         endPoint: hotelsBaseUrl,
         queryParameters: {'api_key': hotelsToken},
       );
-      List<HotelEntity> hotels = (data['properties'] as List)
-          .map((hotel) => HotelModel.fromMap(hotel))
-          .toList();
+      List<HotelEntity> hotels = getHotelsList(data);
       log(hotels.toString());
       log('Get Hotels Done');
       return hotels;
+  }
+
+  List<HotelEntity> getHotelsList(Map<String, dynamic> data) {
+    List<HotelEntity> hotels = (data['properties'] as List)
+        .map((hotel) => HotelModel.fromMap(hotel))
+        .toList();
+    return hotels;
   }
   
 }
