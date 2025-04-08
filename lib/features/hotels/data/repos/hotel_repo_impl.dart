@@ -20,6 +20,8 @@ class HotelRepoImpl extends HotelRepo {
       required this.hotelsLocalDataSource});
   @override
   Future<Either<Failure, List<HotelEntity>>> featchAllhotels() async {
+    List<HotelEntity> hotelsList;
+
     try {
       // var data = await ApiServices().getRequest(
       //   endPoint: hotelsBaseUrl,
@@ -30,12 +32,12 @@ class HotelRepoImpl extends HotelRepo {
       //     .toList();
       // log(hotels.toString());
       // log('Get Hotels Done');
-      List<HotelEntity> hotelsList = hotelsLocalDataSource.fetchAllHotels();
+      hotelsList = hotelsLocalDataSource.fetchAllHotels();
       if (hotelsList.isNotEmpty) {
         return right(hotelsList);
       }
-      List<HotelEntity> hotels = await hotelRemoteDataSource.fetchAllHotels();
-      return right(hotels);
+      hotelsList = await hotelRemoteDataSource.fetchAllHotels();
+      return right(hotelsList);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));
