@@ -1,11 +1,29 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/features/hotels/data/repos/hotel_repo_impl.dart';
+import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 
-class screenTSt extends StatelessWidget {
+class screenTSt extends StatefulWidget {
   const screenTSt({super.key});
   static String id = 'screenTSt';
+
+  @override
+  State<screenTSt> createState() => _screenTStState();
+}
+
+class _screenTStState extends State<screenTSt> {
+  @override
+  void initState() {
+    tst();
+    super.initState();
+  }
+
+  void tst() async {
+    await BlocProvider.of<HotelCubit>(context).fetchHotels();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,8 +33,9 @@ class screenTSt extends StatelessWidget {
           Center(
               child: IconButton(
                   onPressed: () async {
-                 var tt=   await HotelRepoImpl().featchAllhotels();
-                    log('${tt}');
+                    var tt = await BlocProvider.of<HotelCubit>(context)
+                        .fetchHotels();
+                    log('%%%%%%%%%%');
                   },
                   icon: Icon(Icons.airplanemode_inactive_outlined)))
         ],

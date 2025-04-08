@@ -16,7 +16,9 @@ class HotelEntityAdapter extends TypeAdapter<HotelEntity> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return HotelEntity()..hotels = fields[0] as HotelModel?;
+    return HotelEntity(
+      hotels: fields[0] as HotelModel?,
+    );
   }
 
   @override

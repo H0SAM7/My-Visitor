@@ -10,77 +10,99 @@ import 'reviews_breakdown.dart';
 import 'total_rate.dart';
 
 class Property {
-  String? type;
-  String? name;
-  String? link;
-  String? propertyToken;
-  String? serpapiPropertyDetailsLink;
-  GpsCoordinates? gpsCoordinates;
-  String? checkInTime;
-  String? checkOutTime;
-  RatePerNight? ratePerNight;
-  TotalRate? totalRate;
-  List<Price>? prices;
-  List<NearbyPlace>? nearbyPlaces;
-  ImageCollection? images;
-  double? overallRating;
-  int? reviews;
-  double? locationRating;
-  List<String>? amenities;
-  List<String>? excludedAmenities;
-  List<String>? essentialInfo;
-  String? description;
-  String? deal;
-  String? dealDescription;
-  String? hotelClass;
-  int? extractedHotelClass;
-  List<Rating>? ratings;
-  List<ReviewsBreakdown>? reviewsBreakdown;
-  bool? ecoCertified;
+  final String type;
+  final String name;
+  final String link;
+  final String propertyToken;
+  final String serpapiPropertyDetailsLink;
+  final GpsCoordinates? gpsCoordinates;
+  final String checkInTime;
+  final String checkOutTime;
+  final RatePerNight? ratePerNight;
+  final TotalRate? totalRate;
+  final List<Price> prices;
+  final List<NearbyPlace> nearbyPlaces;
+  final ImageCollection? images;
+  final double overallRating;
+  final int reviews;
+  final double locationRating;
+  final List<String> amenities;
+  final List<String> excludedAmenities;
+  final List<String> essentialInfo;
+  final String description;
+  final String deal;
+  final String dealDescription;
+  final String hotelClass;
+  final int extractedHotelClass;
+  final List<Rating> ratings;
+  final List<ReviewsBreakdown> reviewsBreakdown;
+  final bool ecoCertified;
 
   Property({
-    this.type,
-    this.name,
-    this.link,
-    this.propertyToken,
-    this.serpapiPropertyDetailsLink,
+    String? type,
+    String? name,
+    String? link,
+    String? propertyToken,
+    String? serpapiPropertyDetailsLink,
     this.gpsCoordinates,
-    this.checkInTime,
-    this.checkOutTime,
+    String? checkInTime,
+    String? checkOutTime,
     this.ratePerNight,
     this.totalRate,
-    this.prices,
-    this.nearbyPlaces,
+    List<Price>? prices,
+    List<NearbyPlace>? nearbyPlaces,
     this.images,
-    this.overallRating,
-    this.reviews,
-    this.locationRating,
-    this.amenities,
-    this.excludedAmenities,
-    this.essentialInfo,
-    this.description,
-    this.deal,
-    this.dealDescription,
-    this.hotelClass,
-    this.extractedHotelClass,
-    this.ratings,
-    this.reviewsBreakdown,
-    this.ecoCertified,
-  });
+    double? overallRating,
+    int? reviews,
+    double? locationRating,
+    List<String>? amenities,
+    List<String>? excludedAmenities,
+    List<String>? essentialInfo,
+    String? description,
+    String? deal,
+    String? dealDescription,
+    String? hotelClass,
+    int? extractedHotelClass,
+    List<Rating>? ratings,
+    List<ReviewsBreakdown>? reviewsBreakdown,
+    bool? ecoCertified,
+  })  : type = type ?? '',
+        name = name ?? '',
+        link = link ?? '',
+        propertyToken = propertyToken ?? '',
+        serpapiPropertyDetailsLink = serpapiPropertyDetailsLink ?? '',
+        checkInTime = checkInTime ?? '',
+        checkOutTime = checkOutTime ?? '',
+        prices = prices ?? [],
+        nearbyPlaces = nearbyPlaces ?? [],
+        overallRating = overallRating ?? 0.0,
+        reviews = reviews ?? 0,
+        locationRating = locationRating ?? 0.0,
+        amenities = amenities ?? [],
+        excludedAmenities = excludedAmenities ?? [],
+        essentialInfo = essentialInfo ?? [],
+        description = description ?? '',
+        deal = deal ?? '',
+        dealDescription = dealDescription ?? '',
+        hotelClass = hotelClass ?? '',
+        extractedHotelClass = extractedHotelClass ?? 0,
+        ratings = ratings ?? [],
+        reviewsBreakdown = reviewsBreakdown ?? [],
+        ecoCertified = ecoCertified ?? false;
 
   factory Property.fromMap(Map<String, dynamic> data) => Property(
-        type: data['type'] as String?,
-        name: data['name'] as String?,
-        link: data['link'] as String?,
-        propertyToken: data['property_token'] as String?,
+        type: data['type'] as String? ?? '',
+        name: data['name'] as String? ?? '',
+        link: data['link'] as String? ?? '',
+        propertyToken: data['property_token'] as String? ?? '',
         serpapiPropertyDetailsLink:
-            data['serpapi_property_details_link'] as String?,
+            data['serpapi_property_details_link'] as String? ?? '',
         gpsCoordinates: data['gps_coordinates'] == null
             ? null
             : GpsCoordinates.fromMap(
                 data['gps_coordinates'] as Map<String, dynamic>),
-        checkInTime: data['check_in_time'] as String?,
-        checkOutTime: data['check_out_time'] as String?,
+        checkInTime: data['check_in_time'] as String? ?? '',
+        checkOutTime: data['check_out_time'] as String? ?? '',
         ratePerNight: data['rate_per_night'] == null
             ? null
             : RatePerNight.fromMap(
@@ -89,32 +111,45 @@ class Property {
             ? null
             : TotalRate.fromMap(data['total_rate'] as Map<String, dynamic>),
         prices: (data['prices'] as List<dynamic>?)
-            ?.map((e) => Price.fromMap(e as Map<String, dynamic>))
-            .toList(),
+                ?.map((e) => Price.fromMap(e as Map<String, dynamic>))
+                .toList() ??
+            [],
         nearbyPlaces: (data['nearby_places'] as List<dynamic>?)
-            ?.map((e) => NearbyPlace.fromMap(e as Map<String, dynamic>))
-            .toList(),
+                ?.map((e) => NearbyPlace.fromMap(e as Map<String, dynamic>))
+                .toList() ??
+            [],
         images: data['images'] == null
             ? null
             : ImageCollection.fromJson(data['images'] as Map<String, dynamic>),
-        overallRating: (data['overall_rating'] as num?)?.toDouble(),
-        reviews: data['reviews'] as int?,
-        locationRating: (data['location_rating'] as num?)?.toDouble(),
-        amenities: data['amenities'] as List<String>?,
-        excludedAmenities: data['excluded_amenities'] as List<String>?,
-        essentialInfo: data['essential_info'] as List<String>?,
-        description: data['description'] as String?,
-        deal: data['deal'] as String?,
-        dealDescription: data['deal_description'] as String?,
-        hotelClass: data['hotel_class'] as String?,
-        extractedHotelClass: data['extracted_hotel_class'] as int?,
+        overallRating: (data['overall_rating'] as num?)?.toDouble() ?? 0.0,
+        reviews: data['reviews'] as int? ?? 0,
+        locationRating: (data['location_rating'] as num?)?.toDouble() ?? 0.0,
+        amenities: (data['amenities'] as List<dynamic>?)
+                ?.map((e) => e as String)
+                .toList() ??
+            [],
+        excludedAmenities: (data['excluded_amenities'] as List<dynamic>?)
+                ?.map((e) => e as String)
+                .toList() ??
+            [],
+        essentialInfo: (data['essential_info'] as List<dynamic>?)
+                ?.map((e) => e as String)
+                .toList() ??
+            [],
+        description: data['description'] as String? ?? '',
+        deal: data['deal'] as String? ?? '',
+        dealDescription: data['deal_description'] as String? ?? '',
+        hotelClass: data['hotel_class'] as String? ?? '',
+        extractedHotelClass: data['extracted_hotel_class'] as int? ?? 0,
         ratings: (data['ratings'] as List<dynamic>?)
-            ?.map((e) => Rating.fromJson(e as Map<String, dynamic>))
-            .toList(),
+                ?.map((e) => Rating.fromJson(e as Map<String, dynamic>))
+                .toList() ??
+            [],
         reviewsBreakdown: (data['reviews_breakdown'] as List<dynamic>?)
-            ?.map((e) => ReviewsBreakdown.fromMap(e as Map<String, dynamic>))
-            .toList(),
-        ecoCertified: data['eco_certified'] as bool?,
+                ?.map((e) => ReviewsBreakdown.fromMap(e as Map<String, dynamic>))
+                .toList() ??
+            [],
+        ecoCertified: data['eco_certified'] as bool? ?? false,
       );
 
   Map<String, dynamic> toMap() => {
@@ -128,8 +163,8 @@ class Property {
         'check_out_time': checkOutTime,
         'rate_per_night': ratePerNight?.toMap(),
         'total_rate': totalRate?.toMap(),
-        'prices': prices?.map((e) => e.toMap()).toList(),
-        'nearby_places': nearbyPlaces?.map((e) => e.toMap()).toList(),
+        'prices': prices.map((e) => e.toMap()).toList(),
+        'nearby_places': nearbyPlaces.map((e) => e.toMap()).toList(),
         'images': images?.toJson(),
         'overall_rating': overallRating,
         'reviews': reviews,
@@ -142,20 +177,14 @@ class Property {
         'deal_description': dealDescription,
         'hotel_class': hotelClass,
         'extracted_hotel_class': extractedHotelClass,
-        'ratings': ratings?.map((e) => e.toJson()).toList(),
-        'reviews_breakdown': reviewsBreakdown?.map((e) => e.toMap()).toList(),
+        'ratings': ratings.map((e) => e.toJson()).toList(),
+        'reviews_breakdown': reviewsBreakdown.map((e) => e.toMap()).toList(),
         'eco_certified': ecoCertified,
       };
 
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Property].
   factory Property.fromJson(String data) {
     return Property.fromMap(json.decode(data) as Map<String, dynamic>);
   }
 
-  /// `dart:convert`
-  ///
-  /// Converts [Property] to a JSON string.
   String toJson() => json.encode(toMap());
 }

@@ -2,10 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel.dart';
+import 'package:my_visitor/features/hotels/data/models/hotel_model/property.dart';
 
 class HotelCard extends StatelessWidget {
-  const HotelCard({super.key});
-
+  const HotelCard({super.key, required this.hotelproperties});
+final Property hotelproperties;
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -15,8 +17,8 @@ class HotelCard extends StatelessWidget {
           return Stack(
             children: [
               Positioned.fill(
-                child: Image.asset(
-                  Assets.imagesHotelTSt,
+                child: Image.network(
+                hotelproperties.images!.images[0].thumbnail,
                   fit: BoxFit.cover,
                 ),
               ),
@@ -41,7 +43,7 @@ class HotelCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Mumbai',
+                      hotelproperties.name.toString(),
                       style: AppStyles.style32(
                         context,
                         Colors.white,
@@ -49,7 +51,7 @@ class HotelCard extends StatelessWidget {
                     ),
                     SizedBox(height: constraints.maxHeight * 0.02),
                     Text(
-                      'Financial Capital of India',
+                      hotelproperties.description.toString(),
                       style: AppStyles.style18(context),
                     ),
                   ],

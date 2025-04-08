@@ -8,6 +8,7 @@ import 'package:my_visitor/core/routes/app_routes.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_visitor/features/hotels/domain/entities/hotel_entity.dart';
+import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 import 'package:my_visitor/firebase_options.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:my_visitor/keys/hive_keys.dart';
@@ -35,8 +36,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AuthCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthCubit(),
+        ),
+        BlocProvider(
+          create: (context) => HotelCubit()..fetchHotels(),
+          lazy: true,
+        ),
+      ],
       child: ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,

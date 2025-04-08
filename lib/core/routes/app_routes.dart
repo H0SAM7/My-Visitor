@@ -26,6 +26,7 @@ abstract class AppRoutes {
     SplashScreen1.id: (context) => const SplashScreen1(),
     HotelsView.id: (context) => const HotelsView(),
         HotelDetailsView.id: (context) => const HotelDetailsView(),
+      
 
   };
 }

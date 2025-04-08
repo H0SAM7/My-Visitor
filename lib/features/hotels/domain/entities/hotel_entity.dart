@@ -9,8 +9,32 @@ part 'hotel_entity.g.dart';
 class HotelEntity {
     @HiveField(0)
 
-  HotelModel? hotels;
+ final String type;
+  final String name;
+  final String link;
+  final String propertyToken;
+  final String serpapiPropertyDetailsLink;
+ final double? latitude;
+final double? longitude;
 
 
+
+  final String pricePerNight;
+
+  final List<String> images;
+
+  final int reviews;
+  final double locationRating;
+  final List<String> amenities;
+  final List<String> excludedAmenities;
+  final List<String> essentialInfo;
+  final String description;
+  final String deal;
+  final String dealDescription;
+  final String hotelClass;
+  final int extractedHotelClass;
+
+
+  final bool ecoCertified;
   
 }
