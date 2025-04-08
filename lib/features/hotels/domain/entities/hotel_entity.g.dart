@@ -16,7 +16,7 @@ class HotelEntityAdapter extends TypeAdapter<HotelEntity> {
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return HotelEntity()..properties = (fields[0] as List?)?.cast<Property>();
+    return HotelEntity()..hotels = fields[0] as HotelModel?;
   }
 
   @override
@@ -24,7 +24,7 @@ class HotelEntityAdapter extends TypeAdapter<HotelEntity> {
     writer
       ..writeByte(1)
       ..writeByte(0)
-      ..write(obj.properties);
+      ..write(obj.hotels);
   }
 
   @override

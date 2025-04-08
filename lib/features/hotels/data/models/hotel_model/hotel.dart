@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:my_visitor/features/hotels/domain/entities/hotel_entity.dart';
+
 import 'brand.dart';
 import 'property.dart';
 import 'search_information.dart';
@@ -7,7 +9,7 @@ import 'search_metadata.dart';
 import 'search_parameters.dart';
 import 'serpapi_pagination.dart';
 
-class HotelModel {
+class HotelModel extends HotelEntity{
   SearchMetadata? searchMetadata;
   SearchParameters? searchParameters;
   SearchInformation? searchInformation;
