@@ -1,48 +1,52 @@
-import 'package:my_visitor/features/hotelsff/domain/entities/hotel_entity.dart';
+import 'package:hive/hive.dart';
 
-class Hotelmodel extends HotelEntity {
+part 'hotel_model.g.dart';
+
+@HiveType(typeId: 0)
+class HotelModel extends HiveObject {
+  @HiveField(0)
   SearchMetadata? searchMetadata;
+  @HiveField(1)
   SearchParameters? searchParameters;
+  @HiveField(2)
   SearchInformation? searchInformation;
+  @HiveField(3)
   List<Brands>? brands;
+  @HiveField(4)
   List<Properties>? properties;
+  @HiveField(5)
   SerpapiPagination? serpapiPagination;
 
-  Hotelmodel({
-    this.searchMetadata,
-    this.searchParameters,
-    this.searchInformation,
-    this.brands,
-    this.properties,
-    this.serpapiPagination,
-  }) : super(properties: properties);
-  Hotelmodel.fromJson(Map<String, dynamic> json)
-      : searchMetadata = json["search_metadata"] == null
-            ? null
-            : SearchMetadata.fromJson(json["search_metadata"]),
-        searchParameters = json["search_parameters"] == null
-            ? null
-            : SearchParameters.fromJson(json["search_parameters"]),
-        searchInformation = json["search_information"] == null
-            ? null
-            : SearchInformation.fromJson(json["search_information"]),
-        brands = json["brands"] == null
-            ? null
-            : (json["brands"] as List).map((e) => Brands.fromJson(e)).toList(),
-        properties = json["properties"] == null
-            ? null
-            : (json["properties"] as List)
-                .map((e) => Properties.fromJson(e))
-                .toList(),
-        serpapiPagination = json["serpapi_pagination"] == null
-            ? null
-            : SerpapiPagination.fromJson(json["serpapi_pagination"]),
-        super(
-            properties: json["properties"] == null
-                ? null
-                : (json["properties"] as List)
-                    .map((e) => Properties.fromJson(e))
-                    .toList());
+  HotelModel(
+      {this.searchMetadata,
+      this.searchParameters,
+      this.searchInformation,
+      this.brands,
+      this.properties,
+      this.serpapiPagination});
+
+  HotelModel.fromJson(Map<String, dynamic> json) {
+    searchMetadata = json["search_metadata"] == null
+        ? null
+        : SearchMetadata.fromJson(json["search_metadata"]);
+    searchParameters = json["search_parameters"] == null
+        ? null
+        : SearchParameters.fromJson(json["search_parameters"]);
+    searchInformation = json["search_information"] == null
+        ? null
+        : SearchInformation.fromJson(json["search_information"]);
+    brands = json["brands"] == null
+        ? null
+        : (json["brands"] as List).map((e) => Brands.fromJson(e)).toList();
+    properties = json["properties"] == null
+        ? null
+        : (json["properties"] as List)
+            .map((e) => Properties.fromJson(e))
+            .toList();
+    serpapiPagination = json["serpapi_pagination"] == null
+        ? null
+        : SerpapiPagination.fromJson(json["serpapi_pagination"]);
+  }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> _data = <String, dynamic>{};
@@ -68,10 +72,15 @@ class Hotelmodel extends HotelEntity {
   }
 }
 
-class SerpapiPagination {
+@HiveType(typeId: 1)
+class SerpapiPagination extends HiveObject {
+  @HiveField(0)
   num? currentFrom;
+  @HiveField(1)
   num? currentTo;
+  @HiveField(2)
   String? nextPageToken;
+  @HiveField(3)
   String? next;
 
   SerpapiPagination(
@@ -94,29 +103,70 @@ class SerpapiPagination {
   }
 }
 
-class Properties {
+@HiveType(typeId: 2)
+class Properties extends HiveObject {
+  @HiveField(0)
   String? type;
-  String? name;
-  String? description;
-  String? link;
-  String? propertyToken;
-  String? serpapiPropertyDetailsLink;
-  GpsCoordinates? gpsCoordinates;
-  String? checkInTime;
-  String? checkOutTime;
-  RatePerNight? ratePerNight;
-  TotalRate? totalRate;
-  String? deal;
-  String? dealDescription;
-  List<NearbyPlaces>? nearbyPlaces;
-  List<Images>? images;
-  num? overallRating;
-  num? reviews;
-  List<Ratings>? ratings;
-  num? locationRating;
-  List<ReviewsBreakdown>? reviewsBreakdown;
-  List<String>? amenities;
 
+  @HiveField(1)
+  String? name;
+
+  @HiveField(2)
+  String? description;
+
+  @HiveField(3)
+  String? link;
+
+  @HiveField(4)
+  String? propertyToken;
+
+  @HiveField(5)
+  String? serpapiPropertyDetailsLink;
+
+  @HiveField(6)
+  GpsCoordinates? gpsCoordinates;
+
+  @HiveField(7)
+  String? checkInTime;
+
+  @HiveField(8)
+  String? checkOutTime;
+
+  @HiveField(9)
+  RatePerNight? ratePerNight;
+
+  @HiveField(10)
+  TotalRate? totalRate;
+
+  @HiveField(11)
+  String? deal;
+
+  @HiveField(12)
+  String? dealDescription;
+
+  @HiveField(13)
+  List<NearbyPlaces>? nearbyPlaces;
+
+  @HiveField(14)
+  List<Images>? images;
+
+  @HiveField(15)
+  num? overallRating;
+
+  @HiveField(16)
+  num? reviews;
+
+  @HiveField(17)
+  List<Ratings>? ratings;
+
+  @HiveField(18)
+  num? locationRating;
+
+  @HiveField(19)
+  List<ReviewsBreakdown>? reviewsBreakdown;
+
+  @HiveField(20)
+  List<String>? amenities;
   Properties(
       {this.type,
       this.name,
@@ -141,8 +191,8 @@ class Properties {
       this.amenities});
 
   Properties.fromJson(Map<String, dynamic> json) {
-    type = json["type"];
-    name = json["name"];
+    type = json["type"] ?? "";
+    name = json["name"] ?? "";
     description = json["description"] ?? "";
     link = json["link"] ?? "";
     propertyToken = json["property_token"] ?? "";
@@ -224,14 +274,25 @@ class Properties {
   }
 }
 
-class ReviewsBreakdown {
+@HiveType(typeId: 3)
+class ReviewsBreakdown extends HiveObject {
+  @HiveField(0)
   String? name;
-  String? description;
-  num? totalMentioned;
-  num? positive;
-  num? negative;
-  num? neutral;
 
+  @HiveField(1)
+  String? description;
+
+  @HiveField(2)
+  num? totalMentioned;
+
+  @HiveField(3)
+  num? positive;
+
+  @HiveField(4)
+  num? negative;
+
+  @HiveField(5)
+  num? neutral;
   ReviewsBreakdown(
       {this.name,
       this.description,
@@ -261,8 +322,11 @@ class ReviewsBreakdown {
   }
 }
 
-class Ratings {
+@HiveType(typeId: 4)
+class Ratings extends HiveObject {
+  @HiveField(0)
   num? stars;
+  @HiveField(1)
   num? count;
 
   Ratings({this.stars, this.count});
@@ -280,8 +344,11 @@ class Ratings {
   }
 }
 
-class Images {
+@HiveType(typeId: 5)
+class Images extends HiveObject {
+  @HiveField(0)
   String? thumbnail;
+  @HiveField(1)
   String? originalImage;
 
   Images({this.thumbnail, this.originalImage});
@@ -299,8 +366,11 @@ class Images {
   }
 }
 
-class NearbyPlaces {
+@HiveType(typeId: 6)
+class NearbyPlaces extends HiveObject {
+  @HiveField(0)
   String? name;
+@HiveField(1)
   List<Transportations>? transportations;
 
   NearbyPlaces({this.name, this.transportations});
@@ -325,8 +395,11 @@ class NearbyPlaces {
   }
 }
 
-class Transportations {
+@HiveType(typeId: 7)
+class Transportations extends HiveObject {
+  @HiveField(0)
   String? type;
+    @HiveField(1)
   String? duration;
 
   Transportations({this.type, this.duration});
@@ -344,8 +417,11 @@ class Transportations {
   }
 }
 
-class TotalRate {
+@HiveType(typeId: 8)
+class TotalRate extends HiveObject {
+  @HiveField(0)
   String? lowest;
+  @HiveField(1)
   num? extractedLowest;
 
   TotalRate({this.lowest, this.extractedLowest});
@@ -363,8 +439,11 @@ class TotalRate {
   }
 }
 
-class RatePerNight {
+@HiveType(typeId: 9)
+class RatePerNight extends HiveObject {
+  @HiveField(0)
   String? lowest;
+  @HiveField(1)
   num? extractedLowest;
 
   RatePerNight({this.lowest, this.extractedLowest});
@@ -382,8 +461,11 @@ class RatePerNight {
   }
 }
 
-class GpsCoordinates {
+@HiveType(typeId: 10)
+class GpsCoordinates extends HiveObject {
+  @HiveField(0)
   num? latitude;
+  @HiveField(1)
   num? longitude;
 
   GpsCoordinates({this.latitude, this.longitude});
@@ -401,9 +483,13 @@ class GpsCoordinates {
   }
 }
 
-class Brands {
+@HiveType(typeId: 11)
+class Brands extends HiveObject {
+  @HiveField(0)
   num? id;
+  @HiveField(1)
   String? name;
+  @HiveField(2)
   List<Children>? children;
 
   Brands({this.id, this.name, this.children});
@@ -427,8 +513,11 @@ class Brands {
   }
 }
 
-class Children {
+@HiveType(typeId: 12)
+class Children extends HiveObject {
+  @HiveField(0)
   num? id;
+  @HiveField(1)
   String? name;
 
   Children({this.id, this.name});
@@ -446,7 +535,9 @@ class Children {
   }
 }
 
-class SearchInformation {
+@HiveType(typeId: 13)
+class SearchInformation extends HiveObject {
+  @HiveField(0)
   num? totalResults;
 
   SearchInformation({this.totalResults});
@@ -462,17 +553,37 @@ class SearchInformation {
   }
 }
 
-class SearchParameters {
-  String? engine;
-  String? q;
-  String? gl;
-  String? hl;
-  String? currency;
-  String? checkInDate;
-  String? checkOutDate;
-  num? adults;
-  num? children;
+@HiveType(typeId: 14)
+class SearchParameters extends HiveObject {
 
+
+
+@HiveField(0)
+  String? engine;
+
+  @HiveField(1)
+  String? q;
+
+  @HiveField(2)
+  String? gl;
+
+  @HiveField(3) // Fixed from 9 to 3 for sequential order
+  String? hl;
+
+  @HiveField(4)
+  String? currency;
+
+  @HiveField(5)
+  String? checkInDate;
+
+  @HiveField(6)
+  String? checkOutDate;
+
+  @HiveField(7)
+  num? adults;
+
+  @HiveField(8) // Fixed from 7 to 8, removed erroneous empty annotation
+  num? children;
   SearchParameters(
       {this.engine,
       this.q,
@@ -511,15 +622,25 @@ class SearchParameters {
   }
 }
 
-class SearchMetadata {
+@HiveType(typeId: 15)
+class SearchMetadata extends HiveObject {
+  @HiveField(0)
   String? id;
+  @HiveField(1)
   String? status;
+  @HiveField(2)
   String? jsonEndpoint;
+  @HiveField(3)
   String? createdAt;
+  @HiveField(4)
   String? processedAt;
+  @HiveField(5)
   String? googleHotelsUrl;
+  @HiveField(6)
   String? rawHtmlFile;
+  @HiveField(7)
   String? prettifyHtmlFile;
+  @HiveField(8)
   num? totalTimeTaken;
 
   SearchMetadata(

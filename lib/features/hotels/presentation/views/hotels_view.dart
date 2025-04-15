@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_visitor/features/hotelsff/presentation/manager/hotel_cubit/hotel_cubit.dart';
-import 'package:my_visitor/features/hotelsff/presentation/views/widgets/hotels_list_view.dart';
+import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/hotels_list_view.dart';
 
 class HotelsView extends StatefulWidget {
   const HotelsView({super.key});
@@ -47,7 +47,7 @@ class _HotelsViewState extends State<HotelsView> {
                 )
               ],
             );
-          } else if (state is HotelfFailure) {
+          } else if (state is HotelFailure) {
             return Center(
               child: Text('Error: ${state.errMessage}'),
             );

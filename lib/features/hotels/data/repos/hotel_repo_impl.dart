@@ -3,11 +3,10 @@ import 'dart:developer';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_visitor/core/error/dio_failures.dart';
-import 'package:my_visitor/features/hotelsff/data/models/hotel_model/hotel_model.dart';
-import 'package:my_visitor/features/hotelsff/data/sources/local/hotel_local_data_source.dart';
-import 'package:my_visitor/features/hotelsff/data/sources/remote/hotel_remote_data_source.dart';
-import 'package:my_visitor/features/hotelsff/domain/entities/hotel_entity.dart';
-import 'package:my_visitor/features/hotelsff/domain/repos/hotel_repo.dart';
+import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
+import 'package:my_visitor/features/hotels/data/sources/local/hotel_local_data_source.dart';
+import 'package:my_visitor/features/hotels/data/sources/remote/hotel_remote_data_source.dart';
+import 'package:my_visitor/features/hotels/domain/repos/hotel_repo.dart';
 import 'package:my_visitor/keys/hotels.dart';
 import 'package:my_visitor/services/api_services.dart';
 
@@ -19,8 +18,8 @@ class HotelRepoImpl extends HotelRepo {
       {required this.hotelRemoteDataSource,
       required this.hotelsLocalDataSource});
   @override
-  Future<Either<Failure, List<HotelEntity>>> featchAllhotels() async {
-    List<HotelEntity> hotelsList;
+  Future<Either<Failure, List<HotelModel>>> featchAllhotels() async {
+    List<HotelModel> hotelsList;
 
     try {
       // var data = await ApiServices().getRequest(
@@ -32,6 +31,9 @@ class HotelRepoImpl extends HotelRepo {
       //     .toList();
       // log(hotels.toString());
       // log('Get Hotels Done');
+
+
+
       hotelsList = hotelsLocalDataSource.fetchAllHotels();
       if (hotelsList.isNotEmpty) {
         log(hotelsList.toString());
@@ -48,7 +50,7 @@ class HotelRepoImpl extends HotelRepo {
   }
 
   @override
-  Future<Either<Failure, List<Hotelmodel>>> book() {
+  Future<Either<Failure, List<HotelModel>>> book() {
     // TODO: implement book
     throw UnimplementedError();
   }

@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:my_visitor/features/hotelsff/presentation/views/widgets/amenitie_item.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_item.dart';
 
 class AmenitieListView extends StatelessWidget {
   const AmenitieListView({

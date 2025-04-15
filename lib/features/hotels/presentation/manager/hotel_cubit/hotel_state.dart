@@ -8,13 +8,13 @@ final class HotelInitial extends HotelState {}
 final class HotelLoading extends HotelState {}
 
 final class HotelSuccess extends HotelState {
-  final List<HotelEntity> hotels;
+  final List<HotelModel> hotels;
 
   HotelSuccess({required this.hotels});
 }
 
-final class HotelfFailure extends HotelState {
+final class HotelFailure extends HotelState {
   final String errMessage;
 
-  HotelfFailure({required this.errMessage});
+  HotelFailure({required this.errMessage});
 }

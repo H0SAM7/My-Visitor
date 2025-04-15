@@ -7,8 +7,8 @@ import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/core/widgets/image_slider.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
-import 'package:my_visitor/features/hotelsff/presentation/views/widgets/amenitie_item.dart';
-import 'package:my_visitor/features/hotelsff/presentation/views/widgets/amenitie_listiew.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_item.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_listiew.dart';
 import 'package:my_visitor/features/splash/views/widgets/splash_button.dart';
 
 class HotelDetailsView extends StatelessWidget {
