@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_visitor/features/hotels/data/repos/hotel_repo_impl.dart';
-import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
+import 'package:my_visitor/features/hotelsff/data/repos/hotel_repo_impl.dart';
+import 'package:my_visitor/features/hotelsff/presentation/manager/hotel_cubit/hotel_cubit.dart';
 
 class screenTSt extends StatefulWidget {
   const screenTSt({super.key});
