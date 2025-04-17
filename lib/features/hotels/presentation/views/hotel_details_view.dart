@@ -3,26 +3,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/core/widgets/image_slider.dart';
-import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
-import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_item.dart';
-import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_listiew.dart';
-import 'package:my_visitor/features/splash/views/widgets/splash_button.dart';
+import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
+import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/actions_section.dart';
+
+import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_listview.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/review_and_price_sec.dart';
 
 class HotelDetailsView extends StatelessWidget {
-  const HotelDetailsView({super.key});
-  static String id = 'HotelDetailsView';
+  const HotelDetailsView({super.key, required this.hotel});
+  static const String id = 'HotelDetailsView';
+  final Properties hotel;
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
-    List<String> imageList = [
-      Assets.imagesHotelTSt,
-      Assets.imagesEgyptionCat,
-      Assets.imagesHotelTSt,
-    ];
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -30,11 +30,15 @@ class HotelDetailsView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ImageSlider(imageList: imageList, size: size),
+            CustomBack(),
+            ImageSlider(
+                imageList:
+                    hotel.images!.map((image) => image.originalImage!).toList(),
+                size: size),
             SizedBox(
               height: 30,
             ),
-            CustomTitleHeader(title: 'Serenity Haven Resort, Cairo'),
+            CustomTitleHeader(title: hotel.name.toString()),
             Row(
               children: [
                 Icon(
@@ -48,6 +52,7 @@ class HotelDetailsView extends StatelessWidget {
                 ),
               ],
             ),
+            ReviewAndPriceSection(hotel: hotel),
             SizedBox(
               height: 15,
             ),
@@ -56,7 +61,7 @@ class HotelDetailsView extends StatelessWidget {
               height: 15,
             ),
             Text(
-              """A luxurious hotel in the heart of the city, featuring a modern design and rooms equipped with the latest amenities. It contains various restaurants, a fitness center, a spa, and a swimming pool. It provides an ideal environment to stay, whether for work or relaxation, with distinguished services and trained staff. ... Read more""",
+              hotel.description.toString(),
               style: AppStyles.style16Gray(
                 context,
               ),
@@ -70,44 +75,16 @@ class HotelDetailsView extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            AmenitiesWidget(),
+            SizedBox(
+                height: 70.h,
+                child: AmenitieListView(amenities: hotel.amenities!)),
             SizedBox(
               height: 15,
             ),
-            Row(
-              children: [
-                CustomButton(
-                  title: 'title',
-                  width: 170.w,
-                  color: Color(0xff333333),
-                ),
-                CustomButton(
-                  title: 'title',
-                  width: 170.w,
-                ),
-              ],
-            )
+            ActionsSection()
           ],
         ),
       ),
-    );
-  }
-}
-
-class AmenitiesWidget extends StatelessWidget {
-  final List<Map<String, dynamic>> amenities = [
-    {'icon': Icons.air, 'label': 'AC'},
-    {'icon': Icons.wifi, 'label': 'WI FI'},
-    {'icon': Icons.local_laundry_service, 'label': 'Laundry'},
-    {'icon': Icons.local_parking, 'label': 'Parking'},
-    {'icon': Icons.local_bar, 'label': 'Cafe'},
-  ];
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 80, // Adjust height as needed
-      child: AmenitieListView(amenities: amenities),
     );
   }
 }

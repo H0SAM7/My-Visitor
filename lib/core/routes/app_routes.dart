@@ -5,6 +5,8 @@ import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
+import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
+import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotel_details_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
@@ -25,8 +27,27 @@ abstract class AppRoutes {
     ForgetView.id: (context) => const ForgetView(),
     SplashScreen1.id: (context) => const SplashScreen1(),
     HotelsView.id: (context) => const HotelsView(),
-        HotelDetailsView.id: (context) => const HotelDetailsView(),
-      
+          BookView.id: (context) => const BookView(),
+
 
   };
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+ 
+      case HotelDetailsView.id:
+        final properties  = settings.arguments as Properties ;
+        return MaterialPageRoute(
+          builder: (context) => HotelDetailsView(hotel: properties),
+        );
+
+      default:
+        return MaterialPageRoute(
+          builder: (context) => const Scaffold(
+            body: Center(
+              child: Text('Page Not Found'),
+            ),
+          ),
+        );
+    }
+  }
 }

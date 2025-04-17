@@ -80,6 +80,9 @@ class MyApp extends StatelessWidget {
               ),
               initialRoute: AppRoutes.initialRoute,
               routes: AppRoutes.routes,
+                 onGenerateRoute:
+            AppRoutes.generateRoute, // Handles dynamic routes with arguments
+
             );
           }),
     );

@@ -3,6 +3,7 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 
 class ImageSlider extends StatefulWidget {
   const ImageSlider({
@@ -27,10 +28,11 @@ class _ImageSliderState extends State<ImageSlider> {
                 items: widget.imageList.map((image) {
                   return ClipRRect(
                     borderRadius: BorderRadius.circular(16),
-                    child: Image.asset(
+                    child: Image.network(
                       image,
                       fit: BoxFit.cover,
                       width: widget.size.width,
+                     
                     ),
                   );
                 }).toList(),

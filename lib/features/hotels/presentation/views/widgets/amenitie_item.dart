@@ -1,6 +1,6 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_display.dart';
 
 class AmenitieItem extends StatelessWidget {
   const AmenitieItem({
@@ -8,7 +8,8 @@ class AmenitieItem extends StatelessWidget {
     required this.label,
   });
 
-final String label;
+  final String label;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,10 +20,11 @@ final String label;
             color: Colors.black54, // Dark background like in the image
             borderRadius: BorderRadius.circular(8),
           ),
-          child: Icon(
-            Icons.wifi,
-            color: Colors.white,
+          child: FaIcon(
+            AmenityIconProvider()
+                .getIcon(label), // Use FaIcon to render IconData
             size: 24,
+            color: Colors.white, // White icon to match the theme
           ),
         ),
         SizedBox(height: 5),

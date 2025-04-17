@@ -8,7 +8,7 @@ class AmenitieListView extends StatelessWidget {
     required this.amenities,
   });
 
-  final List<Map<String, dynamic>> amenities;
+  final List<String> amenities;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class AmenitieListView extends StatelessWidget {
         final amenity = amenities[index];
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-          child: AmenitieItem(label: 'amenity'),
+          child: AmenitieItem(label: amenity),
         );
       },
     );
