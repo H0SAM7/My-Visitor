@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/hotels_list_view.dart';
 
@@ -29,7 +30,7 @@ class _HotelsViewState extends State<HotelsView> {
         builder: (context, state) {
           if (state is HotelLoading) {
             return const Center(
-              child: CircularProgressIndicator(),
+              child: CustomLoadingIndicator(),
             );
           } else if (state is HotelSuccess) {
             return Column(
