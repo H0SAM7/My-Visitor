@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/home/presentation/views/drawer/drawer_view.dart';
-import 'package:my_visitor/features/home/presentation/views/widgets/category_item.dart';
-
 import 'package:my_visitor/features/home/presentation/views/widgets/fisrt_section.dart';
+import 'package:my_visitor/features/home/presentation/views/widgets/hotels_sec.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -27,31 +26,38 @@ class HomeView extends StatelessWidget {
       extendBodyBehindAppBar: true,
       drawer: DrawerView(),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(child: FirstSection()),
-          Row(
-            children: [
-              CategoryItem(
-                title: '"Popular"',
-                icon: Icons.whatshot,
-                bgColor: Colors.amber,
-                isSelected: true,
-              ),
-              CategoryItem(
-                title: '"Popular"',
-                icon: Icons.whatshot,
-                bgColor: Colors.amber,
-                isSelected: false,
-              ),
-            ],
+          // Row(
+          //   children: [
+          //     CategoryItem(
+          //       title: '"Popular"',
+          //       icon: Icons.whatshot,
+          //       bgColor: Colors.amber,
+          //       isSelected: true,
+          //     ),
+          //     CategoryItem(
+          //       title: '"Popular"',
+          //       icon: Icons.whatshot,
+          //       bgColor: Colors.amber,
+          //       isSelected: false,
+          //     ),
+          //   ],
+          // ),
+          SizedBox(
+            height: 10,
           ),
-          Expanded(child: SecondSection())
-          //
+               Divider(),
+          HomeHotelsSection(),
+               Divider(),
         ],
       ),
     );
   }
 }
+
+
 
 class SecondSection extends StatelessWidget {
   const SecondSection({super.key});

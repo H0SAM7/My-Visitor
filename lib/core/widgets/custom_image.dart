@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 class CustomImage extends StatelessWidget {
   const CustomImage({
     super.key,
@@ -16,6 +17,7 @@ class CustomImage extends StatelessWidget {
           imageUrl: image,
           fit: BoxFit.cover,
           errorWidget: (context, url, error) => const Icon(Icons.error),
+          progressIndicatorBuilder: (context, url, progress) => CustomLoadingIndicator(),
         ),
       ),
     );

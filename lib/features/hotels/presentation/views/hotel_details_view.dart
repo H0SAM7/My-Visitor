@@ -1,21 +1,15 @@
-import 'dart:developer';
 
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/core/widgets/image_slider.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
-import 'package:my_visitor/features/hotels/presentation/views/widgets/actions_section.dart';
-
 import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_listview.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/review_and_price_sec.dart';
-import 'package:intl/intl.dart';
 
 class HotelDetailsView extends StatelessWidget {
   const HotelDetailsView({super.key, required this.hotel});

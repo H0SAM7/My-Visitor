@@ -12,7 +12,7 @@ class HotelListView extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     final properties =
-        hotelsList.expand((hotel) => hotel.properties!).toList();
+        hotelsList.expand((hotel) => hotel.properties!).toList().sublist(2);
 
     return GridView.builder(
         itemCount: properties.length,
