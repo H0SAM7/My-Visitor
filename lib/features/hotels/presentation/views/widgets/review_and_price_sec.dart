@@ -23,7 +23,7 @@ class ReviewAndPriceSection extends StatelessWidget {
           // Makes the row take only necessary space
           children: [
             Text(
-              hotel.reviews!.toDouble().toString(),
+              hotel.overallRating!.toString(),
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 24,
@@ -38,7 +38,7 @@ class ReviewAndPriceSection extends StatelessWidget {
             ),
             SizedBox(width: 4), // Space between star and reviews
             Text(
-              '${hotel.reviews!.toDouble()} Reviews',
+              '${hotel.reviews!} Reviews',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,

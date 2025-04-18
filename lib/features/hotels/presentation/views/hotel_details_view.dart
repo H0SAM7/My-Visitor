@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +15,7 @@ import 'package:my_visitor/features/hotels/presentation/views/widgets/actions_se
 
 import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_listview.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/review_and_price_sec.dart';
+import 'package:intl/intl.dart';
 
 class HotelDetailsView extends StatelessWidget {
   const HotelDetailsView({super.key, required this.hotel});
@@ -81,7 +84,44 @@ class HotelDetailsView extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            ActionsSection()
+            // ActionsSection(hotel: hotel,)
+
+            Row(
+              children: [
+                Expanded(
+                  child: CustomButton(
+                    title: 'Destination',
+                    width: 170.w,
+                    color: Color(0xff333333),
+                  ),
+                ),
+                Expanded(
+                  child: CustomButton(
+                    title: 'Book Now',
+                    width: 170.w,
+                    onTap: () {
+                      // Navigator.pushNamed(context, HotelBookView.id,
+                      //     arguments: hotel);
+                      showModalBottomSheet(
+                          context: context,
+                          isScrollControlled: true,
+                          backgroundColor: Colors.black,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                                top: Radius.circular(20.r)),
+                          ),
+                          builder: (context) {
+                            return SizedBox(
+                                height: 400.h,
+                                child: BookHotelView(
+                                  hotel: hotel,
+                                ));
+                          });
+                    },
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

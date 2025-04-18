@@ -5,7 +5,9 @@ import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
+import 'package:my_visitor/features/hotels/data/models/book_model.dart/hotel_book_model.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
+import 'package:my_visitor/features/hotels/presentation/views/book_confirmation.dart';
 import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotel_details_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
@@ -27,19 +29,29 @@ abstract class AppRoutes {
     ForgetView.id: (context) => const ForgetView(),
     SplashScreen1.id: (context) => const SplashScreen1(),
     HotelsView.id: (context) => const HotelsView(),
-          BookView.id: (context) => const BookView(),
-
-
   };
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
- 
       case HotelDetailsView.id:
-        final properties  = settings.arguments as Properties ;
+        final properties = settings.arguments as Properties;
         return MaterialPageRoute(
           builder: (context) => HotelDetailsView(hotel: properties),
         );
-
+      case BookConfirmation.id:
+        final args = settings.arguments as Map<String, dynamic>;
+        final bookOrder = args['hotelBookModel'] as HotelBookModel;
+        final properties = args['properties'] as Properties;
+        return MaterialPageRoute(
+          builder: (context) => BookConfirmation(
+            hotelBookModel: bookOrder,
+            hotel: properties,
+          ),
+        );
+      case BookHotelView.id:
+        final properties = settings.arguments as Properties;
+        return MaterialPageRoute(
+          builder: (context) => BookHotelView(hotel: properties),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => const Scaffold(
