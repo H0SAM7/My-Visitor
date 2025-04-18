@@ -9,19 +9,16 @@ abstract class HotelsLocalDataSource {
 }
 
 class HotelLocalDataSourceImpl extends HotelsLocalDataSource {
-  List<HotelModel> hotels=[];
+  //List<HotelModel> hotels = [];
   @override
   List<HotelModel> fetchAllHotels() {
-
     try {
       var box = Hive.box<HotelModel>(kHotelsBox);
-     hotels.addAll( box.values);
-      log(hotels.isEmpty.toString());
-     // log('HIvE Date #######################${hotels[0].properties![0].description.toString()} ');
-      log('#######################  ${box.values.toString()}');
+      List<HotelModel> hotels = box.values.toList();
+      log('Fetched ${hotels.length} hotels from box');
       return hotels;
     } catch (e) {
-            log('#######################  err to fetch hotels from hive');
+      log('#######################  err to fetch hotels from hive');
 
       log(e.toString());
       return [];

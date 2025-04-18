@@ -23,7 +23,7 @@ class HotelRemoteDataSourceImpl extends HotelsRemoteDataSource {
     );
     List<HotelModel> hotels = getHotelsList(data);
  
-    saveHotelDataInHive(hotels, kHotelsBox);
+    saveHotelDataInHive(hotels, );
     log('Get Hotels Done%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
     log(hotels.length.toString());
 
@@ -32,27 +32,32 @@ class HotelRemoteDataSourceImpl extends HotelsRemoteDataSource {
     return hotels;
   }
 
-  List<HotelModel> getHotelsList(dynamic data) {
-    try {
-      // Check if data is a Map and contains the expected key
-      if (data is Map<String, dynamic>) {
-       
-        final hotelList = data['properties'] as List<dynamic>? ?? [];
-        final hotels = hotelList
-            .map((e) => HotelModel.fromJson({
-                  'properties': [e]
-                }))
-            .toList();
-        log('Hotels parsed: ${hotels.length}');
-        return hotels;
-      } else {
-        log('Unexpected data format: $data');
-        return [];
-      }
-    } catch (e) {
-      log('Error parsing hotels: $e');
+List<HotelModel> getHotelsList(dynamic data) {
+  try {
+    if (data is Map<String, dynamic>) {
+      // Parse the entire response as a single HotelModel
+      final hotelModel = HotelModel.fromJson(data);
+      final hotels = hotelModel.properties?.map((property) {
+        // Create a new HotelModel for each property, copying other metadata
+        return HotelModel(
+          searchMetadata: hotelModel.searchMetadata,
+          searchParameters: hotelModel.searchParameters,
+          searchInformation: hotelModel.searchInformation,
+          brands: hotelModel.brands,
+          properties: [property], // Wrap single property in a list
+          serpapiPagination: hotelModel.serpapiPagination,
+        );
+      }).toList() ?? [];
+      log('Hotels parsed: ${hotels.length}');
+      return hotels;
+    } else {
+      log('Unexpected data format: $data');
       return [];
     }
+  } catch (e, stackTrace) {
+    log('Error parsing hotels: $e', stackTrace: stackTrace);
+    return [];
   }
+}
 }
 //Hotelsmodel.fromJson(e)).toList()
