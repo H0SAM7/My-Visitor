@@ -46,9 +46,12 @@ class ReviewAndPriceSection extends StatelessWidget {
             ),
           ],
         ),
-        CustomButton(
-          title: '${hotel.ratePerNight!.lowest} Per Night ',
-          width: 110.w,
+        Flexible(
+          fit: FlexFit.tight,
+          child: CustomButton(
+            title: '${hotel.ratePerNight!.lowest} Per Night ',
+            width: 130.w,
+          ),
         ),
       ],
     );

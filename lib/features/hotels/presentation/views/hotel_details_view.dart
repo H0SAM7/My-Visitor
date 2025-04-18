@@ -27,13 +27,21 @@ class HotelDetailsView extends StatelessWidget {
     var size = MediaQuery.sizeOf(context);
 
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CustomBack(),
+          
+        ),
+        title: Text(hotel.name!),
+      ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomBack(),
             ImageSlider(
                 imageList:
                     hotel.images!.map((image) => image.originalImage!).toList(),

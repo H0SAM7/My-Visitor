@@ -48,7 +48,6 @@ class BookConfirmation extends StatelessWidget {
               padding: const EdgeInsets.all(16),
               child: Row(
                 children: [
-                  // Hotel Image Placeholder
                   Container(
                     width: screenWidth * 0.3,
                     height: screenHeight * 0.15,

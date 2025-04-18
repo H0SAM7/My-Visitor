@@ -7,27 +7,24 @@ class CustomBack extends StatelessWidget {
   void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(15.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.white.withOpacity(.3), // Button background color
-          borderRadius: BorderRadius.circular(13),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.2),
-              blurRadius: 4,
-              offset: const Offset(2, 2),
-            ),
-          ],
-        ),
-        child: IconButton(
-          icon: Image.asset(Assets.iconsBack, color: Colors.white),
-          onPressed: onPressed ??
-              () {
-                Navigator.pop(context);
-              },
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(.3), // Button background color
+        borderRadius: BorderRadius.circular(13),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            blurRadius: 4,
+            offset: const Offset(2, 2),
+          ),
+        ],
+      ),
+      child: IconButton(
+        icon: Image.asset(Assets.iconsBack, color: Colors.white),
+        onPressed: onPressed ??
+            () {
+              Navigator.pop(context);
+            },
       ),
     );
   }
