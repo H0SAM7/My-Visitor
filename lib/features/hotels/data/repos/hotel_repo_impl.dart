@@ -7,8 +7,7 @@ import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.d
 import 'package:my_visitor/features/hotels/data/sources/local/hotel_local_data_source.dart';
 import 'package:my_visitor/features/hotels/data/sources/remote/hotel_remote_data_source.dart';
 import 'package:my_visitor/features/hotels/domain/repos/hotel_repo.dart';
-import 'package:my_visitor/keys/hotels.dart';
-import 'package:my_visitor/services/api_services.dart';
+
 
 class HotelRepoImpl extends HotelRepo {
   final HotelsRemoteDataSource hotelRemoteDataSource;
@@ -18,7 +17,7 @@ class HotelRepoImpl extends HotelRepo {
       {required this.hotelRemoteDataSource,
       required this.hotelsLocalDataSource});
   @override
-  Future<Either<Failure, List<HotelModel>>> featchAllhotels() async {
+  Future<Either<Failure, List<HotelModel>>> featchAllhotels({int pageNumber=0}) async {
     List<HotelModel> hotelsList;
 
     try {

@@ -1,14 +1,12 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
-import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/core/widgets/image_slider.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
-import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/amenitie_listview.dart';
+import 'package:my_visitor/features/hotels/presentation/views/widgets/hotels_actions.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/review_and_price_sec.dart';
 
 class HotelDetailsView extends StatelessWidget {
@@ -86,44 +84,9 @@ class HotelDetailsView extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-            // ActionsSection(hotel: hotel,)
+      
 
-            Row(
-              children: [
-                Expanded(
-                  child: CustomButton(
-                    title: 'Destination',
-                    width: 170.w,
-                    color: Color(0xff333333),
-                  ),
-                ),
-                Expanded(
-                  child: CustomButton(
-                    title: 'Book Now',
-                    width: 170.w,
-                    onTap: () {
-                      // Navigator.pushNamed(context, HotelBookView.id,
-                      //     arguments: hotel);
-                      showModalBottomSheet(
-                          context: context,
-                          isScrollControlled: true,
-                          backgroundColor: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.vertical(
-                                top: Radius.circular(20.r)),
-                          ),
-                          builder: (context) {
-                            return SizedBox(
-                                height: 400.h,
-                                child: BookHotelView(
-                                  hotel: hotel,
-                                ));
-                          });
-                    },
-                  ),
-                ),
-              ],
-            ),
+            HotelsActions(hotel: hotel),
           ],
         ),
       ),

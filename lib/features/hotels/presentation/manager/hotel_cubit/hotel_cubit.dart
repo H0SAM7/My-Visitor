@@ -1,13 +1,11 @@
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:dartz/dartz.dart';
 import 'package:meta/meta.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/data/repos/hotel_repo_impl.dart';
 import 'package:my_visitor/features/hotels/data/sources/local/hotel_local_data_source.dart';
 import 'package:my_visitor/features/hotels/data/sources/remote/hotel_remote_data_source.dart';
-import 'package:my_visitor/features/hotels/domain/repos/hotel_repo.dart';
 
 part 'hotel_state.dart';
 
