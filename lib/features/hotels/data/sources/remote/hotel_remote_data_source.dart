@@ -3,22 +3,21 @@ import 'dart:developer';
 
 import 'package:my_visitor/core/utils/functions/save_hotel_data.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
-import 'package:my_visitor/keys/hive_keys.dart';
 import 'package:my_visitor/keys/hotels.dart';
 import 'package:my_visitor/services/api_services.dart';
 
 abstract class HotelsRemoteDataSource {
-  Future<List<HotelModel>> fetchAllHotels({int pageNumber=0});
+  Future<List<HotelModel>> fetchAllHotels();
 }
 
 
 class HotelRemoteDataSourceImpl extends HotelsRemoteDataSource {
   @override
-  Future<List<HotelModel>> fetchAllHotels({int pageNumber=0}) async {
+  Future<List<HotelModel>> fetchAllHotels() async {
     String api='&check_in_date=2025-04-31&check_out_date=2025-05-30&adults=2&currency=USD&gl=us&hl=en';
-    String pagi='&start=${pageNumber*20}';
+   // String pagi='&next_page_token=$nextPageToken';
     var data = await ApiServices().getRequest(
-      endPoint: '$hotelsBaseUrl$api$pagi',
+      endPoint: '$hotelsBaseUrl$api',
       queryParameters: {'api_key': hotelsToken},
     );
     List<HotelModel> hotels = getHotelsList(data);

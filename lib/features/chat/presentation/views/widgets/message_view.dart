@@ -1,5 +1,5 @@
 import 'package:my_visitor/core/utils/get_formated_date.dart';
-import 'package:my_visitor/features/chat/models/message_model.dart';
+import 'package:my_visitor/features/chat/data/models/message_model.dart';
 import 'package:flutter/material.dart';
 
 class MyMessage extends StatelessWidget {

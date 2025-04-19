@@ -4,8 +4,8 @@
 
 
 
-import 'package:my_visitor/features/chat/models/message_model.dart';
-import 'package:my_visitor/features/chat/views/widgets/message_view.dart';
+import 'package:my_visitor/features/chat/data/models/message_model.dart';
+import 'package:my_visitor/features/chat/presentation/views/widgets/message_view.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

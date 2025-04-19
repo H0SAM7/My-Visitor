@@ -1,6 +1,6 @@
 
-import 'package:my_visitor/features/chat/manager/cubit_cubit/chat_cubit.dart';
-import 'package:my_visitor/features/chat/views/widgets/chat_view_body.dart';
+import 'package:my_visitor/features/chat/presentation/manager/cubit_cubit/chat_cubit.dart';
+import 'package:my_visitor/features/chat/presentation/views/widgets/chat_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

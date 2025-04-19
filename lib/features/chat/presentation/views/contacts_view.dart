@@ -1,7 +1,7 @@
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
-import 'package:my_visitor/features/chat/models/message_model.dart';
-import 'package:my_visitor/features/chat/views/chat_view.dart';
+import 'package:my_visitor/features/chat/data/models/message_model.dart';
+import 'package:my_visitor/features/chat/presentation/views/chat_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 

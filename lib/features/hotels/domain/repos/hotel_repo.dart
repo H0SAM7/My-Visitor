@@ -3,7 +3,7 @@ import 'package:my_visitor/core/error/dio_failures.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 
 abstract class HotelRepo {
-    Future<Either<Failure, List<HotelModel>>> featchAllhotels({int pageNumber=0});
+    Future<Either<Failure, List<HotelModel>>> featchAllhotels();
     Future<Either<Failure, List<HotelModel>>> book();
 
 }

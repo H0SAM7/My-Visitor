@@ -16,7 +16,7 @@ class HotelListView extends StatefulWidget {
 class _HotelListViewState extends State<HotelListView> {
   late ScrollController _scrollController;
   bool hasTriggered = false; // Prevent multiple triggers
-
+  var nextPageToken = 'CBI=';
   @override
   void initState() {
     super.initState();
@@ -36,10 +36,16 @@ class _HotelListViewState extends State<HotelListView> {
     }
   }
 
-  void _triggerYourRequest() async {
+void _triggerYourRequest() async {
+  final token = widget.hotelsList[0].serpapiPagination?.nextPageToken;
+  if (token != null) {
     await BlocProvider.of<HotelCubit>(context).fetchHotels();
-    log('🚀 Request triggered!');
+    log('🚀 Request triggered with nextPageToken: $token');
+  } else {
+    log('⚠️ No more pages available.');
   }
+}
+
 
   @override
   void dispose() {
@@ -66,6 +72,9 @@ class _HotelListViewState extends State<HotelListView> {
         childAspectRatio: 2 / 3.5,
       ),
       itemBuilder: (context, index) {
+        log(widget.hotelsList[0].serpapiPagination!.nextPageToken.toString());
+        log(widget.hotelsList[0].serpapiPagination!.currentTo.toString());
+
         final hotel = properties[index];
         return HotelCard(hotel: hotel);
       },

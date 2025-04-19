@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
+import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/hotels_list_view.dart';
 
@@ -21,28 +22,46 @@ class _HotelsViewState extends State<HotelsView> {
     super.initState();
   }
 
-  void init() async{
-  await  BlocProvider.of<HotelCubit>(context).fetchHotels();
+  void init() async {
+    await BlocProvider.of<HotelCubit>(context).fetchHotels();
   }
+
+  List<HotelModel> hotels = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
-        title: Text('Hotels Near You',style: AppStyles.style22White(context),),
+        title: Text(
+          'Hotels Near You',
+          style: AppStyles.style22White(context),
+        ),
         centerTitle: true,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomBack(),
-      ),),
-      body: BlocBuilder<HotelCubit, HotelState>(
+        ),
+      ),
+      body: BlocConsumer<HotelCubit, HotelState>(
+        listener: (context, state) {
+          if (state is HotelSuccess) {
+            hotels.addAll(state.hotels);
+          }
+
+          if (state is HotelPaginationFailure) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.errMessage)));
+          }
+        },
         builder: (context, state) {
           if (state is HotelLoading) {
             return const Center(
               child: CustomLoadingIndicator(),
             );
-          } else if (state is HotelSuccess) {
+          } else if (state is HotelSuccess ||
+              state is HotelPginationLoading ||
+              state is HotelPaginationFailure) {
             return Column(
               children: [
                 // SizedBox(
@@ -53,7 +72,7 @@ class _HotelsViewState extends State<HotelsView> {
                 //   HotelCard(),
                 Expanded(
                   child: HotelListView(
-                    hotelsList: state.hotels,
+                    hotelsList:hotels,
                   ),
                 )
               ],
@@ -63,6 +82,7 @@ class _HotelsViewState extends State<HotelsView> {
               child: Text('Error: ${state.errMessage}'),
             );
           }
+
           return const Center(
             child: Text('Press a button to fetch hotels'),
           );

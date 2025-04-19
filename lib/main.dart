@@ -15,9 +15,23 @@ import 'package:my_visitor/keys/hive_keys.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await hiveInit();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  Bloc.observer = SimpleBlocObserever();
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) => MyApp(), // Wrap your app
+    ),
+  );
+}
+
+Future<void> hiveInit() async {
   await Hive.initFlutter();
   Hive.registerAdapter(HotelModelAdapter());
-
+  
   Hive.registerAdapter(SearchMetadataAdapter());
   Hive.registerAdapter(SearchParametersAdapter());
   Hive.registerAdapter(SearchInformationAdapter());
@@ -34,16 +48,6 @@ void main() async {
   Hive.registerAdapter(GpsCoordinatesAdapter());
   Hive.registerAdapter(ChildrenAdapter());
   await Hive.openBox<HotelModel>(kHotelsBox);
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
-  Bloc.observer = SimpleBlocObserever();
-  runApp(
-    DevicePreview(
-      enabled: false,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
-  );
 }
 
 class MyApp extends StatelessWidget {

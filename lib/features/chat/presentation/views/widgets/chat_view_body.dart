@@ -1,8 +1,8 @@
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
-import 'package:my_visitor/features/chat/manager/cubit_cubit/chat_cubit.dart';
-import 'package:my_visitor/features/chat/models/message_model.dart';
-import 'package:my_visitor/features/chat/views/widgets/confirm_dialog.dart';
-import 'package:my_visitor/features/chat/views/widgets/messages_list_view.dart';
+import 'package:my_visitor/features/chat/presentation/manager/cubit_cubit/chat_cubit.dart';
+import 'package:my_visitor/features/chat/data/models/message_model.dart';
+import 'package:my_visitor/features/chat/presentation/views/widgets/confirm_dialog.dart';
+import 'package:my_visitor/features/chat/presentation/views/widgets/messages_list_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';

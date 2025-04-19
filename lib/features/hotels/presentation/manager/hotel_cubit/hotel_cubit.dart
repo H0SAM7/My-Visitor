@@ -13,6 +13,11 @@ class HotelCubit extends Cubit<HotelState> {
   HotelCubit() : super(HotelInitial());
 
   Future<void> fetchHotels() async {
+    // if (nextPageToken == 'CBI=') {
+    //   emit(HotelLoading());
+    // } else {
+    //   emit(HotelPginationLoading());
+    // }
     emit(HotelLoading());
     var result = await HotelRepoImpl(
       hotelRemoteDataSource: HotelRemoteDataSourceImpl(),
@@ -21,9 +26,15 @@ class HotelCubit extends Cubit<HotelState> {
 
     result.fold((failure) {
       log(failure.errMessage.toString());
-      emit(HotelFailure(errMessage: failure.errMessage.toString()));
+      // if (nextPageToken == 'CBI=') {
+      //   emit(HotelFailure(errMessage: failure.errMessage.toString()));
+      // } else {
+      //   emit(HotelPaginationFailure(errMessage: failure.errMessage.toString()));
+      // }
+              emit(HotelFailure(errMessage: failure.errMessage.toString()));
+
     }, (hotels) {
-            log('@@@@@@@@@@@@@@@@@@@@${hotels.toString()}');
+      log('@@@@@@@@@@@@@@@@@@@@${hotels.toString()}');
 
       emit(HotelSuccess(hotels: hotels));
     });
