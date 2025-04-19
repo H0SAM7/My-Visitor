@@ -7,17 +7,17 @@ import 'package:my_visitor/keys/hotels.dart';
 import 'package:my_visitor/services/api_services.dart';
 
 abstract class HotelsRemoteDataSource {
-  Future<List<HotelModel>> fetchAllHotels();
+  Future<List<HotelModel>> fetchAllHotels({String? nextPageToken});
 }
 
 
 class HotelRemoteDataSourceImpl extends HotelsRemoteDataSource {
   @override
-  Future<List<HotelModel>> fetchAllHotels() async {
+  Future<List<HotelModel>> fetchAllHotels({String? nextPageToken}) async {
     String api='&check_in_date=2025-04-31&check_out_date=2025-05-30&adults=2&currency=USD&gl=us&hl=en';
-   // String pagi='&next_page_token=$nextPageToken';
+   String pagi='&next_page_token=$nextPageToken';
     var data = await ApiServices().getRequest(
-      endPoint: '$hotelsBaseUrl$api',
+      endPoint: '$hotelsBaseUrl$api$pagi',
       queryParameters: {'api_key': hotelsToken},
     );
     List<HotelModel> hotels = getHotelsList(data);

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:my_visitor/core/error/dio_failures.dart';
@@ -15,7 +17,7 @@ class HotelRepoImpl extends HotelRepo {
       {required this.hotelRemoteDataSource,
       required this.hotelsLocalDataSource});
   @override
-  Future<Either<Failure, List<HotelModel>>> featchAllhotels() async {
+  Future<Either<Failure, List<HotelModel>>> featchAllhotels({String? nextPageToken}) async {
     List<HotelModel> hotelsList;
 
     try {
@@ -31,12 +33,12 @@ class HotelRepoImpl extends HotelRepo {
 
 
 
-      // hotelsList = hotelsLocalDataSource.fetchAllHotels();
-      // if (hotelsList.isNotEmpty) {
-      //   log('get data from hive ${hotelsList.toString()}');
-      //   return right(hotelsList);
-      // }
-      hotelsList = await hotelRemoteDataSource.fetchAllHotels();
+      hotelsList = hotelsLocalDataSource.fetchAllHotels();
+      if (hotelsList.isNotEmpty) {
+        log('get data from hive ${hotelsList.toString()}');
+        return right(hotelsList);
+      }
+      hotelsList = await hotelRemoteDataSource.fetchAllHotels(nextPageToken: nextPageToken);
       return right(hotelsList);
     } catch (e) {
       if (e is DioException) {

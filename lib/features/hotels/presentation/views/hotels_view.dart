@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
@@ -47,6 +49,7 @@ class _HotelsViewState extends State<HotelsView> {
         listener: (context, state) {
           if (state is HotelSuccess) {
             hotels.addAll(state.hotels);
+            log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ${hotels.length}');
           }
 
           if (state is HotelPaginationFailure) {

@@ -16,7 +16,9 @@ class HotelListView extends StatefulWidget {
 class _HotelListViewState extends State<HotelListView> {
   late ScrollController _scrollController;
   bool hasTriggered = false; // Prevent multiple triggers
-  var nextPageToken = 'CBI=';
+  String? nextPageToken;
+  var isLoading = false;
+
   @override
   void initState() {
     super.initState();
@@ -32,20 +34,26 @@ class _HotelListViewState extends State<HotelListView> {
         hasTriggered = true;
         log('📡 Triggering request - reached 70% of scroll');
         _triggerYourRequest();
+        hasTriggered=false;
       }
     }
   }
 
-void _triggerYourRequest() async {
-  final token = widget.hotelsList[0].serpapiPagination?.nextPageToken;
-  if (token != null) {
-    await BlocProvider.of<HotelCubit>(context).fetchHotels();
-    log('🚀 Request triggered with nextPageToken: $token');
-  } else {
-    log('⚠️ No more pages available.');
-  }
-}
+  void _triggerYourRequest() async {
+    final token = widget.hotelsList[0].serpapiPagination?.nextPageToken;
+    if (!isLoading) {
+      if (token != null) {
+        isLoading = true;
 
+        await BlocProvider.of<HotelCubit>(context)
+            .fetchHotels(nextPageToken: token);
+            isLoading=false;
+        log('🚀 Request triggered with nextPageToken: $token');
+      } else {
+        log('⚠️ No more pages available.');
+      }
+    }
+  }
 
   @override
   void dispose() {
@@ -73,6 +81,7 @@ void _triggerYourRequest() async {
       ),
       itemBuilder: (context, index) {
         log(widget.hotelsList[0].serpapiPagination!.nextPageToken.toString());
+        log(widget.hotelsList.length.toString());
         log(widget.hotelsList[0].serpapiPagination!.currentTo.toString());
 
         final hotel = properties[index];
