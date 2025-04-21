@@ -23,7 +23,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: false,
-      builder: (context) => MyApp(), // Wrap your app
+      builder: (context) => MyApp(), 
     ),
   );
 }
@@ -31,7 +31,6 @@ void main() async {
 Future<void> hiveInit() async {
   await Hive.initFlutter();
   Hive.registerAdapter(HotelModelAdapter());
-  
   Hive.registerAdapter(SearchMetadataAdapter());
   Hive.registerAdapter(SearchParametersAdapter());
   Hive.registerAdapter(SearchInformationAdapter());

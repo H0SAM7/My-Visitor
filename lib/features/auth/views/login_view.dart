@@ -45,6 +45,9 @@ class _LoginViewState extends State<LoginView> {
             type: AlertType.error,
             title: 'Error',
             description: state.errMessage,
+            closeFunction:  () {
+              Navigator.pushReplacementNamed(context, LoginView.id);
+            },
             onPressed: () {
               Navigator.pushReplacementNamed(context, LoginView.id);
             },

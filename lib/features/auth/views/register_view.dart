@@ -50,6 +50,9 @@ class _RegisterViewState extends State<RegisterView> {
             type: AlertType.warning,
             title: 'Time out',
             description: state.errMessage,
+            closeFunction:  () {
+              Navigator.pushReplacementNamed(context, RegisterView.id);
+            },
             onPressed: () {
               Navigator.pushReplacementNamed(context, RegisterView.id);
             },

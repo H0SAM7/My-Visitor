@@ -36,7 +36,16 @@ class FirebaseFailure extends Failure {
         return FirebaseFailure(errMessage: 'The password is too weak.');
       case 'operation-not-allowed':
         return FirebaseFailure(errMessage: 'This operation is not allowed.');
-
+      case 'invalid-credential':
+        return FirebaseFailure(
+          errMessage:
+              'The credentials provided are incorrect Email or password or have expired. Please try again.',
+        );
+      case 'account-exists-with-different-credential':
+        return FirebaseFailure(
+          errMessage:
+              'An account already exists with the same email but different sign-in method.',
+        );
       default:
         return FirebaseFailure(
             errMessage: 'An unexpected Firebase Auth error occurred.');

@@ -60,6 +60,7 @@ class AuthCubit extends Cubit<AuthState> {
         }
       }
     } catch (e) {
+      log(e.toString());
       emit(AuthFailure(
           errMessage: FirebaseFailure.fromFirebaseException(e as Exception)
               .errMessage
@@ -78,13 +79,21 @@ class AuthCubit extends Cubit<AuthState> {
       }
       emit(AuthSuccess());
     } catch (e) {
-      emit(
-        AuthFailure(
-          errMessage: FirebaseFailure.fromFirebaseException(e as Exception)
-              .errMessage
-              .toString(),
-        ),
-      );
+      log(e.toString());
+
+      // emit(
+      //   AuthFailure(
+      //     errMessage: FirebaseFailure.fromFirebaseException(e as Exception)
+      //         .errMessage
+      //         .toString(),
+      //   ),
+      // );
+      if (e is FirebaseAuthException) {
+        emit(AuthFailure(
+            errMessage: FirebaseFailure.fromFirebaseException(e).errMessage.toString()));
+      } else {
+        emit(AuthFailure(errMessage: "An unexpected error occurred."));
+      }
     }
   }
 

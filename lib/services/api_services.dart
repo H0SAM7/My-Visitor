@@ -5,8 +5,24 @@ class ApiServices {
       {required String endPoint,  queryParameters}) async {
     Response response = await Dio().get(
       endPoint,
+      
       queryParameters: queryParameters,
     );
     return response.data;
   }
+  Future<Map<String, dynamic>> postRequest({
+    required String endPoint,
+    Map<String, dynamic>? data,
+    Map<String, dynamic>? queryParameters,
+    Map<String, dynamic>? headers,
+  }) async {
+    Response response = await Dio().post(
+      endPoint,
+      data: data,
+      queryParameters: queryParameters,
+      options: Options(headers: headers),
+    );
+    return response.data;
+  }
+
 }
