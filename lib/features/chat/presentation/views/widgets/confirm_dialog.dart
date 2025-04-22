@@ -7,8 +7,7 @@ void confiemDialog({
   required String title,
   required String description,
   required VoidCallback cancelOnPressed,
-    required VoidCallback okOnPressed,
-
+  required VoidCallback okOnPressed,
   Function? closeFunction,
 }) {
   Alert(
@@ -29,7 +28,7 @@ void confiemDialog({
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-            DialogButton(
+      DialogButton(
         onPressed: okOnPressed,
         width: 120,
         child: const Text(
@@ -37,7 +36,6 @@ void confiemDialog({
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-   
     ],
   ).show();
 }

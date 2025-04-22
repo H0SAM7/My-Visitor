@@ -1,1 +1,1 @@
-final String kHotelsBox='hotels_box';
+final String kHotelsBox = 'hotels_box';

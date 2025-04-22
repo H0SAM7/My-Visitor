@@ -22,29 +22,29 @@ class HomeHotelsSection extends StatelessWidget {
             children: [
               CustomTitleHeader(title: 'Hotels Near You'),
               TextButton(
-                child: 
-               Text( 'See All ',
-                style: AppStyles.style18(
-                  context,
-                ).copyWith(color: orangeColor),),
-                onPressed: (){
+                child: Text(
+                  'See All ',
+                  style: AppStyles.style18(
+                    context,
+                  ).copyWith(color: orangeColor),
+                ),
+                onPressed: () {
                   Navigator.pushNamed(context, HotelsView.id);
                 },
               )
             ],
           ),
         ),
-             
         SizedBox(
-      height: 10,
-    ),
-    SizedBox(
-      height: 290.h,
-      child: HotelsHomeView(),
-    ),
-    SizedBox(
-      height: 10,
-    ),
+          height: 10,
+        ),
+        SizedBox(
+          height: 290.h,
+          child: HotelsHomeView(),
+        ),
+        SizedBox(
+          height: 10,
+        ),
       ],
     );
   }

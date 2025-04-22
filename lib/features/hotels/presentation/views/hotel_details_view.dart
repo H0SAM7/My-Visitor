@@ -24,7 +24,6 @@ class HotelDetailsView extends StatelessWidget {
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomBack(),
-          
         ),
         title: Text(hotel.name!),
       ),
@@ -84,8 +83,6 @@ class HotelDetailsView extends StatelessWidget {
             SizedBox(
               height: 15,
             ),
-      
-
             HotelsActions(hotel: hotel),
           ],
         ),

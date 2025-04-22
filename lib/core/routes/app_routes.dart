@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
 import 'package:my_visitor/features/auth/views/forget_view.dart';
@@ -11,13 +12,14 @@ import 'package:my_visitor/features/hotels/presentation/views/book_confirmation.
 import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotel_details_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
+import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/temp/screen.dart';
 
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = LoginView.id;
+  static String? initialRoute = HomeView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -29,19 +31,6 @@ abstract class AppRoutes {
     ForgetView.id: (context) => const ForgetView(),
     SplashScreen1.id: (context) => const SplashScreen1(),
     HotelsView.id: (context) => const HotelsView(),
-
-
-
-
-
-
-
-
-
-
-
-
-    
   };
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -55,9 +44,12 @@ abstract class AppRoutes {
         final bookOrder = args['hotelBookModel'] as HotelBookModel;
         final properties = args['properties'] as Properties;
         return MaterialPageRoute(
-          builder: (context) => BookConfirmation(
-            hotelBookModel: bookOrder,
-            hotel: properties,
+          builder: (context) => BlocProvider(
+            create: (context) => PayMobCubit(),
+            child: BookConfirmation(
+              hotelBookModel: bookOrder,
+              hotel: properties,
+            ),
           ),
         );
       case BookHotelView.id:
@@ -76,7 +68,3 @@ abstract class AppRoutes {
     }
   }
 }
-
-
-
-

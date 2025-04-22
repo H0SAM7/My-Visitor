@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
@@ -26,13 +25,12 @@ class HotelCard extends StatelessWidget {
             return Stack(
               children: [
                 Positioned.fill(
-                  
-                  child: CustomImage(image:  hotel.images![0].originalImage!)
-                  // Image.network(
-                  //   hotel.images![0].originalImage!,
-                  //   fit: BoxFit.cover,
-                  // ),
-                ),
+                    child: CustomImage(image: hotel.images![0].originalImage!)
+                    // Image.network(
+                    //   hotel.images![0].originalImage!,
+                    //   fit: BoxFit.cover,
+                    // ),
+                    ),
                 Positioned.fill(
                   child: Container(
                     decoration: BoxDecoration(
@@ -94,5 +92,3 @@ class HotelCard extends StatelessWidget {
     );
   }
 }
-
-

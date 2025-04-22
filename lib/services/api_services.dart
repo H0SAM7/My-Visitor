@@ -2,14 +2,14 @@ import 'package:dio/dio.dart';
 
 class ApiServices {
   Future<Map<String, dynamic>> getRequest(
-      {required String endPoint,  queryParameters}) async {
+      {required String endPoint, queryParameters}) async {
     Response response = await Dio().get(
       endPoint,
-      
       queryParameters: queryParameters,
     );
     return response.data;
   }
+
   Future<Map<String, dynamic>> postRequest({
     required String endPoint,
     Map<String, dynamic>? data,
@@ -24,5 +24,4 @@ class ApiServices {
     );
     return response.data;
   }
-
 }

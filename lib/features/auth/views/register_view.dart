@@ -40,7 +40,7 @@ class _RegisterViewState extends State<RegisterView> {
             description:
                 'Please  check your email to verify your account, and you can Login ',
             onPressed: () {
-          Navigator.pushReplacementNamed(context, LoginView.id);
+              Navigator.pushReplacementNamed(context, LoginView.id);
             },
             actionTitle: 'Ok',
           );
@@ -50,7 +50,7 @@ class _RegisterViewState extends State<RegisterView> {
             type: AlertType.warning,
             title: 'Time out',
             description: state.errMessage,
-            closeFunction:  () {
+            closeFunction: () {
               Navigator.pushReplacementNamed(context, RegisterView.id);
             },
             onPressed: () {

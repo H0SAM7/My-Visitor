@@ -48,16 +48,14 @@ class HomeView extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-               Divider(),
+          Divider(),
           HomeHotelsSection(),
-               Divider(),
+          Divider(),
         ],
       ),
     );
   }
 }
-
-
 
 class SecondSection extends StatelessWidget {
   const SecondSection({super.key});

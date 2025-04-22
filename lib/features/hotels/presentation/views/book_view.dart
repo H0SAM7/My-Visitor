@@ -267,9 +267,8 @@ class _BookHotelViewState extends State<BookHotelView> {
                             checkOut: checkOutDateController.value.toString(),
                             noRooms: roomsController.value,
                             guest: (adultsController.value +
-                                    childrenController.value +
-                                    infantsController.value)
-                                ,
+                                childrenController.value +
+                                infantsController.value),
                           );
                           Navigator.pushNamed(
                             context,

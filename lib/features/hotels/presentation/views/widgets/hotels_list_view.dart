@@ -34,7 +34,7 @@ class _HotelListViewState extends State<HotelListView> {
         hasTriggered = true;
         log('📡 Triggering request - reached 70% of scroll');
         _triggerYourRequest();
-        hasTriggered=false;
+        hasTriggered = false;
       }
     }
   }
@@ -47,7 +47,7 @@ class _HotelListViewState extends State<HotelListView> {
 
         await BlocProvider.of<HotelCubit>(context)
             .fetchHotels(nextPageToken: token);
-            isLoading=false;
+        isLoading = false;
         log('🚀 Request triggered with nextPageToken: $token');
       } else {
         log('⚠️ No more pages available.');

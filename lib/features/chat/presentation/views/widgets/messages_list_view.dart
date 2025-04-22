@@ -1,9 +1,3 @@
-
-
-
-
-
-
 import 'package:my_visitor/features/chat/data/models/message_model.dart';
 import 'package:my_visitor/features/chat/presentation/views/widgets/message_view.dart';
 

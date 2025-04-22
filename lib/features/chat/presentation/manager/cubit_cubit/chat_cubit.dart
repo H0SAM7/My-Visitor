@@ -11,7 +11,7 @@ part 'chat_state.dart';
 class ChatCubit extends Cubit<ChatState> {
   ChatCubit() : super(ChatInitial());
   CollectionReference messages = FirebaseFirestore.instance.collection('chat');
-    CollectionReference users = FirebaseFirestore.instance.collection('users');
+  CollectionReference users = FirebaseFirestore.instance.collection('users');
 
   void sendMEssage({required MessageModel messageModel}) {
     emit(ChatLoading());
@@ -23,7 +23,6 @@ class ChatCubit extends Cubit<ChatState> {
         'receiver': messageModel.receiver,
         'userName': messageModel.userName,
       });
-            
 
       emit(ChatSuccess());
     } catch (e) {
@@ -49,8 +48,4 @@ class ChatCubit extends Cubit<ChatState> {
       // emit(ChatSuccess(messageList:messagesList));
     });
   }
-
-
-
-
 }

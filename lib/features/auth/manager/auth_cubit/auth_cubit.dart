@@ -35,7 +35,7 @@ class AuthCubit extends Cubit<AuthState> {
         if (eVerified) {
           await FirebaseFirestore.instance
               .collection('users')
-              .doc(user.uid)
+              .doc(user.email)
               .set({
             'email': email,
           });
@@ -90,7 +90,9 @@ class AuthCubit extends Cubit<AuthState> {
       // );
       if (e is FirebaseAuthException) {
         emit(AuthFailure(
-            errMessage: FirebaseFailure.fromFirebaseException(e).errMessage.toString()));
+            errMessage: FirebaseFailure.fromFirebaseException(e)
+                .errMessage
+                .toString()));
       } else {
         emit(AuthFailure(errMessage: "An unexpected error occurred."));
       }
@@ -125,7 +127,12 @@ class AuthCubit extends Cubit<AuthState> {
       );
       final UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
-
+  await FirebaseFirestore.instance
+              .collection('users')
+              .doc(userCredential.user!.email!)
+              .set({
+            'email': userCredential.user!.email!,
+          });
       emit(AuthSuccess());
       // Once signed in, return the UserCredential
       return userCredential;

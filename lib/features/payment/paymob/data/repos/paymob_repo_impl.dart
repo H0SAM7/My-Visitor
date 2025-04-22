@@ -1,13 +1,11 @@
-import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:my_visitor/core/error/dio_failures.dart' as dio;
-import 'package:my_visitor/features/payment/paymob/data/repos/paymob_repo.dart';
 import 'dart:developer';
+
+import 'package:dartz/dartz.dart';
+import 'package:my_visitor/features/payment/paymob/data/models/transaction_model.dart';
+import 'package:my_visitor/features/payment/paymob/data/repos/paymob_repo.dart';
 import 'package:my_visitor/core/error/dio_failures.dart';
-import 'package:my_visitor/features/payment/paymob/data/helper/api_keys.dart';
 import 'package:my_visitor/features/payment/paymob/data/sources/paymob_remote_data_source.dart';
 import 'package:my_visitor/services/api_services.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class PaymobRepoImpl implements PaymobRepo {
   PaymobRepoImpl();
@@ -33,7 +31,7 @@ class PaymobRepoImpl implements PaymobRepo {
     try {
       final result =
           await PaymobRemoteDataSourceImpl(apiServices: ApiServices())
-              .getOrderId(token, amount, currency);
+              .getOrderId(token: token, amount: amount, currency: currency);
       return right(result['id']);
     } catch (e) {
       return left(ServerFailure(errMessage: e.toString()));
@@ -50,10 +48,32 @@ class PaymobRepoImpl implements PaymobRepo {
     try {
       final result =
           await PaymobRemoteDataSourceImpl(apiServices: ApiServices())
-              .getPaymentKey(token, amount, currency, orderId);
+              .getPaymentKey(
+                  token: token,
+                  amount: amount,
+                  currency: currency,
+                  orderId: orderId);
       return right(result['token']);
     } catch (e) {
       return left(ServerFailure(errMessage: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, PaymobTransactionModel>> getTransactionStatus(
+      {required String orderId, required String token}) async {
+    try {
+      final response =
+          await PaymobRemoteDataSourceImpl(apiServices: ApiServices())
+              .getTransactionStatus(token: token, orderId: orderId);
+      return right(response);
+    } catch (e) {
+      log("getTransactionStatus ${e.toString()}");
+      return left(
+        ServerFailure(
+          errMessage: e.toString(),
+        ),
+      );
     }
   }
 

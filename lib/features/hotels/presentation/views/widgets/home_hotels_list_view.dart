@@ -11,37 +11,37 @@ class HomeHotelsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final properties = hotelsList.expand((hotel) => hotel.properties!).toList().sublist(2);
+    final properties =
+        hotelsList.expand((hotel) => hotel.properties!).toList().sublist(2);
 
     return ListView.builder(
       scrollDirection: Axis.horizontal,
-      itemCount: properties.length+1,
-      
+      itemCount: properties.length + 1,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       itemBuilder: (context, index) {
-              if (index == properties.length) {
+        if (index == properties.length) {
           return Padding(
             padding: const EdgeInsets.only(right: 16),
             child: SizedBox(
               width: 100,
               child: OutlinedButton(
                 onPressed: () {
-                                    Navigator.pushNamed(context, HotelsView.id);
-
+                  Navigator.pushNamed(context, HotelsView.id);
                 },
-                child:  Text('See All',style: TextStyle(color: orangeColor),),
+                child: Text(
+                  'See All',
+                  style: TextStyle(color: orangeColor),
+                ),
               ),
             ),
           );
         }
 
         final hotel = properties[index];
-        
+
         return Padding(
           padding: const EdgeInsets.only(right: 16),
-          child: SizedBox(
-            width: 200,
-            child: HotelHomeCard(hotel: hotel)),
+          child: SizedBox(width: 200, child: HotelHomeCard(hotel: hotel)),
         );
       },
     );

@@ -1,4 +1,3 @@
-
 // class Hotelsmodel {
 //   SearchMetadata? searchMetadata;
 //   SearchParameters? searchParameters;

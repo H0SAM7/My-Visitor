@@ -18,36 +18,31 @@ class _HotelsHomeViewState extends State<HotelsHomeView> {
     super.initState();
   }
 
-  void init() async{
-  await  BlocProvider.of<HotelCubit>(context).fetchHotels();
+  void init() async {
+    await BlocProvider.of<HotelCubit>(context).fetchHotels();
   }
 
   @override
   Widget build(BuildContext context) {
-    return 
-       BlocBuilder<HotelCubit, HotelState>(
-        builder: (context, state) {
-          if (state is HotelLoading) {
-            return const Center(
-              child: CustomLoadingIndicator(),
-            );
-          } else if (state is HotelSuccess) {
-            return 
-     
-                HomeHotelsListView(
-                  hotelsList: state.hotels,
-                );
-          
-          } else if (state is HotelFailure) {
-            return Center(
-              child: Text('Error: ${state.errMessage}'),
-            );
-          }
+    return BlocBuilder<HotelCubit, HotelState>(
+      builder: (context, state) {
+        if (state is HotelLoading) {
           return const Center(
-            child: Text('Press a button to fetch hotels'),
+            child: CustomLoadingIndicator(),
           );
-        },
-      );
-    
+        } else if (state is HotelSuccess) {
+          return HomeHotelsListView(
+            hotelsList: state.hotels,
+          );
+        } else if (state is HotelFailure) {
+          return Center(
+            child: Text('Error: ${state.errMessage}'),
+          );
+        }
+        return const Center(
+          child: Text('Press a button to fetch hotels'),
+        );
+      },
+    );
   }
 }

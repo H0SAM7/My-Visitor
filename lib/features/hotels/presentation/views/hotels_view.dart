@@ -75,7 +75,7 @@ class _HotelsViewState extends State<HotelsView> {
                 //   HotelCard(),
                 Expanded(
                   child: HotelListView(
-                    hotelsList:hotels,
+                    hotelsList: hotels,
                   ),
                 )
               ],

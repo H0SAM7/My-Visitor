@@ -18,7 +18,7 @@ class HotelCubit extends Cubit<HotelState> {
     } else {
       emit(HotelPginationLoading());
     }
-   // emit(HotelLoading());
+    // emit(HotelLoading());
     var result = await HotelRepoImpl(
       hotelRemoteDataSource: HotelRemoteDataSourceImpl(),
       hotelsLocalDataSource: HotelLocalDataSourceImpl(),
@@ -31,8 +31,7 @@ class HotelCubit extends Cubit<HotelState> {
       } else {
         emit(HotelPaginationFailure(errMessage: failure.errMessage.toString()));
       }
-              emit(HotelFailure(errMessage: failure.errMessage.toString()));
-
+      emit(HotelFailure(errMessage: failure.errMessage.toString()));
     }, (hotels) {
       log('@@@@@@@@@@@@@@@@@@@@${hotels.toString()}');
 

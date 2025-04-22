@@ -26,7 +26,7 @@ class LoginRegisterScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           Center(
-            child:SplashButton(
+            child: SplashButton(
                 onNext: () {},
                 buttonText: 'Login',
                 buttonColor: const Color.fromARGB(255, 253, 105, 0),

@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
@@ -29,14 +28,13 @@ class HotelsActions extends StatelessWidget {
             title: 'Book Now',
             width: 170.w,
             onTap: () {
-         
               showModalBottomSheet(
                   context: context,
                   isScrollControlled: true,
                   backgroundColor: Colors.black,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(20.r)),
+                    borderRadius:
+                        BorderRadius.vertical(top: Radius.circular(20.r)),
                   ),
                   builder: (context) {
                     return SizedBox(

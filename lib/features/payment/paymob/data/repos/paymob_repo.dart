@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:my_visitor/core/error/dio_failures.dart';
+import 'package:my_visitor/features/payment/paymob/data/models/transaction_model.dart';
 
 abstract class PaymobRepo {
   Future<Either<Failure, String>> getAuthToken();
@@ -14,5 +15,7 @@ abstract class PaymobRepo {
     required String currency,
     required int orderId,
   });
- // Future<Either<Failure, void>> payMobPay({required int amount});
+  Future<Either<Failure, PaymobTransactionModel>> getTransactionStatus(
+      {required String orderId, required String token,});
+  // Future<Either<Failure, void>> payMobPay({required int amount});
 }

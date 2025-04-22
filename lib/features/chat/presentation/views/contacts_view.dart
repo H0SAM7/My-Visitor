@@ -14,18 +14,18 @@ class ContactsScreen extends StatelessWidget {
         .orderBy('createdAt', descending: true)
         .snapshots()
         .map((snapshot) {
-          final uniqueUsernames = <String>{};
-          final messageModels = <MessageModel>[];
+      final uniqueUsernames = <String>{};
+      final messageModels = <MessageModel>[];
 
-          for (var doc in snapshot.docs) {
-            final message = MessageModel.fromJson(doc.data());
-            if (uniqueUsernames.add(message.userName)) {
-              messageModels.add(message);
-            }
-          }
+      for (var doc in snapshot.docs) {
+        final message = MessageModel.fromJson(doc.data());
+        if (uniqueUsernames.add(message.userName)) {
+          messageModels.add(message);
+        }
+      }
 
-          return messageModels;
-        });
+      return messageModels;
+    });
   }
 
   @override

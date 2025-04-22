@@ -370,7 +370,7 @@ class Images extends HiveObject {
 class NearbyPlaces extends HiveObject {
   @HiveField(0)
   String? name;
-@HiveField(1)
+  @HiveField(1)
   List<Transportations>? transportations;
 
   NearbyPlaces({this.name, this.transportations});
@@ -399,7 +399,7 @@ class NearbyPlaces extends HiveObject {
 class Transportations extends HiveObject {
   @HiveField(0)
   String? type;
-    @HiveField(1)
+  @HiveField(1)
   String? duration;
 
   Transportations({this.type, this.duration});
@@ -555,10 +555,7 @@ class SearchInformation extends HiveObject {
 
 @HiveType(typeId: 14)
 class SearchParameters extends HiveObject {
-
-
-
-@HiveField(0)
+  @HiveField(0)
   String? engine;
 
   @HiveField(1)

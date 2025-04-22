@@ -1,7 +1,8 @@
 import 'dart:developer';
 
 import 'package:my_visitor/core/error/dio_failures.dart';
-import 'package:my_visitor/features/payment/paymob/data/helper/api_keys.dart';
+import 'package:my_visitor/features/payment/paymob/data/helper/apis.dart';
+import 'package:my_visitor/features/payment/paymob/data/helper/paymob_constants.dart';
 import 'package:my_visitor/services/api_services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -22,11 +23,11 @@ class PaymobServices {
       required int amount,
       required String currency}) async {
     try {
-      final result =
-          await ApiServices().postRequest(endPoint: PaymobKeys.orderId, data: {
+      final result = await ApiServices()
+          .postRequest(endPoint: PaymobKeys.orderIdApi, data: {
         "auth_token": token,
         "amount_cents":
-            (amount*100).toString(), //  >>(STRING)<< ---> amount with cent
+            (amount * 100).toString(), //  >>(STRING)<< ---> amount with cent
         "currency": currency, //Not Req
         "delivery_needed": "false",
         "items": [],
@@ -55,8 +56,8 @@ class PaymobServices {
           3600, // وقت انتهاء صلاحية رمز الدفع هذا بالثواني. (الحد الأقصى هو 3600 ثانية وهي ساعة)
       "currency": currency, // العملة جنية مصري
       "order_id": orderId, // من الخطوة 2
-      "integration_id": PaymobKeys.cardPaymentMethodIntegrationId,
-          "billing_data": {
+      "integration_id": PaymobConstants.cardPaymentMethodIntegrationId,
+      "billing_data": {
         //Have To Be Values
         "first_name": "Clifford",
         "last_name": "Nicolas",
@@ -83,17 +84,18 @@ class PaymobServices {
     required int amount,
   }) async {
     try {
-  final authToken = await getAuthToken();
-  final orderId = await getOrderId(
-    token: authToken,
-    amount: amount,
-    currency: 'EGP',
-  );
-  final paymentKey = await getPaymentKey(
-      token: authToken, amount: amount, currency: 'EGP', orderId: orderId);
-  launchUrl(Uri.parse(
-      "https://accept.paymob.com/api/acceptance/iframes/914974?payment_token=$paymentKey"));
-}  catch (e) {
-log('###########ERRRRRRR $e');}
+      final authToken = await getAuthToken();
+      final orderId = await getOrderId(
+        token: authToken,
+        amount: amount,
+        currency: 'EGP',
+      );
+      final paymentKey = await getPaymentKey(
+          token: authToken, amount: amount, currency: 'EGP', orderId: orderId);
+      launchUrl(Uri.parse(
+          "https://accept.paymob.com/api/acceptance/iframes/914974?payment_token=$paymentKey"));
+    } catch (e) {
+      log('###########ERRRRRRR $e');
+    }
   }
 }

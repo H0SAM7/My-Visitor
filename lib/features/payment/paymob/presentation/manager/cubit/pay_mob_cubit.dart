@@ -1,8 +1,11 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:my_visitor/features/hotels/data/sources/remote/hotel_remote_data_source.dart';
+import 'package:my_visitor/core/utils/functions/url_luncher.dart';
+import 'package:my_visitor/features/payment/paymob/data/helper/paymob_constants.dart';
+import 'package:my_visitor/features/payment/paymob/data/models/transaction_model.dart';
 import 'package:my_visitor/features/payment/paymob/data/repos/paymob_repo_impl.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 part 'pay_mob_state.dart';
 
@@ -15,7 +18,8 @@ class PayMobCubit extends Cubit<PayMobState> {
       // Get the Auth Token
       final authTokenResult = await PaymobRepoImpl().getAuthToken();
       authTokenResult.fold(
-        (failure) => emit(PaymobFailureState(errorMessage:  failure.errMessage.toString())),
+        (failure) => emit(
+            PaymobFailureState(errorMessage: failure.errMessage.toString())),
         (authToken) async {
           // Get the Order ID
           final orderIdResult = await PaymobRepoImpl().getOrderId(
@@ -24,8 +28,8 @@ class PayMobCubit extends Cubit<PayMobState> {
             currency: 'EGP',
           );
           orderIdResult.fold(
-            (failure) =>
-                emit(PaymobFailureState(errorMessage:  failure.errMessage.toString())),
+            (failure) => emit(PaymobFailureState(
+                errorMessage: failure.errMessage.toString())),
             (orderId) async {
               // Get the Payment Key
               final paymentKeyResult = await PaymobRepoImpl().getPaymentKey(
@@ -35,21 +39,77 @@ class PayMobCubit extends Cubit<PayMobState> {
                 orderId: orderId,
               );
               paymentKeyResult.fold(
-                (failure) =>
-                    emit(PaymobFailureState(errorMessage:  failure.errMessage.toString())),
-                (paymentKey) {
-                  // Successfully retrieved the payment key, launch the URL
-                  launchUrl(Uri.parse(
-                      "https://accept.paymob.com/api/acceptance/iframes/914974?payment_token=$paymentKey"));
-                  emit(PaymobSuccessState());
-                },
-              );
+                  (failure) => emit(PaymobFailureState(
+                      errorMessage: failure.errMessage.toString())),
+                  (paymentKey) async {
+                log('tokenn $authToken');
+                log("https://accept.paymob.com/api/acceptance/iframes/914974?payment_token=$paymentKey");
+
+                bool success = await launchUrlMethod(
+                  Uri.parse(
+                      "https://accept.paymob.com/api/acceptance/iframes/${PaymobConstants.idFrame1}?payment_token=$paymentKey"),
+                );
+                await Future.delayed(
+                  Duration(seconds: 60),
+                );
+
+                if (success) {
+                  log("*******************************$success");
+                  emit(PaymobSuccessState(
+                    token: authToken,
+                    orderId: orderId.toString(),
+                  ));
+                }
+              });
             },
           );
         },
       );
     } catch (e) {
-      emit(PaymobFailureState(errorMessage:  e.toString()));
+      emit(PaymobFailureState(errorMessage: e.toString()));
+    }
+  }
+
+  Future<PaymobTransactionModel?> updatePaymentStatus(
+      {required String orderId, required String token}) async {
+    try {
+      emit(PaymobTransactionloading());
+      final result = await PaymobRepoImpl().getTransactionStatus(
+        token: token,
+        orderId: orderId,
+      );
+
+      result.fold(
+        (failure) {
+          emit(PaymobTransactionFailure(
+              errMessage: failure.errMessage.toString()));
+        },
+        (transaction) {
+          if (transaction.success) {
+            log('transssssssss ${transaction.success.toString()}');
+            log('PaymobTransactionModel Variables:');
+            log('id: ${transaction.id}');
+            log('success: ${transaction.success}');
+            log('pending: ${transaction.pending}');
+            log('isAuth: ${transaction.isAuth}');
+            log('isCapture: ${transaction.isCapture}');
+            log('isStandalonePayment: ${transaction.isStandalonePayment}');
+            log('isVoided: ${transaction.isVoided}');
+            log('isRefunded: ${transaction.isRefunded}');
+            log('amountCents: ${transaction.amountCents}');
+            log('createdAt: ${transaction.createdAt}');
+            log('currency: ${transaction.currency}');
+
+            emit(PaymobTransactionSuccess());
+            return transaction;
+          } else {
+            emit(PaymobTransactionFailure(errMessage: 'Payment failed.'));
+          }
+        },
+      );
+    } catch (e) {
+      log(e.toString());
+      emit(PaymobTransactionFailure(errMessage: e.toString()));
     }
   }
 }

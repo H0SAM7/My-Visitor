@@ -12,8 +12,7 @@ class CustomAppBar extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            onTap:
-                onTap ??
+            onTap: onTap ??
                 () {
                   Navigator.pop(context);
                 },

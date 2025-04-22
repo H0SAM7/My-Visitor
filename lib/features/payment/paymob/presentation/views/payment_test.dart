@@ -1,7 +1,9 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_visitor/features/payment/paymob/data/helper/api_keys.dart';
+import 'package:my_visitor/features/payment/paymob/data/helper/apis.dart';
+import 'package:my_visitor/features/payment/paymob/data/helper/paymob_constants.dart';
+import 'package:my_visitor/features/payment/paymob/data/repos/paymob_repo_impl.dart';
 import 'package:my_visitor/features/payment/paymob/paymob_services.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -41,7 +43,8 @@ class _CounterScreenState extends State<CounterScreen> {
     super.initState();
   }
 
-  final String iframeId = PaymobKeys.idFrame; // Use your Paymob iframe ID here
+  final String iframeId =
+      PaymobConstants.idFrame1; // Use your Paymob iframe ID here
 
   @override
   Widget build(BuildContext context) {
@@ -54,17 +57,25 @@ class _CounterScreenState extends State<CounterScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const SizedBox(height: 20),
-            BlocBuilder<PayMobCubit, PayMobState>(
+            BlocConsumer<PayMobCubit, PayMobState>(
+              listener: (context, state) => {
+                if(state is PaymobSuccessState){
+                  
+                 
+                }
+              },
               builder: (context, state) {
                 if (state is PaymobLoadingState) {
                   return const CircularProgressIndicator();
                 } else if (state is PaymobSuccessState) {
+
                   return Column(
                     children: [
                       IconButton(
                         onPressed: () async {
                           // Trigger the payment process on button press
-                          await BlocProvider.of<PayMobCubit>(context).processPayment(100);
+                          await BlocProvider.of<PayMobCubit>(context)
+                              .processPayment(100);
                         },
                         icon: const Icon(
                           Icons.payment,
@@ -77,11 +88,13 @@ class _CounterScreenState extends State<CounterScreen> {
                 } else if (state is PaymobFailureState) {
                   return Column(
                     children: [
-                      Text('Error: ${state.errorMessage}', style: TextStyle(color: Colors.red)),
+                      Text('Error: ${state.errorMessage}',
+                          style: TextStyle(color: Colors.red)),
                       ElevatedButton(
                         onPressed: () {
                           // Retry the payment process on failure
-                          BlocProvider.of<PayMobCubit>(context).processPayment(100);
+                          BlocProvider.of<PayMobCubit>(context)
+                              .processPayment(100);
                         },
                         child: const Text('Retry Payment'),
                       ),
@@ -89,36 +102,54 @@ class _CounterScreenState extends State<CounterScreen> {
                   );
                 }
                 return ElevatedButton(
-                  onPressed: ()async {
+                  onPressed: () async {
                     // Trigger payment process on button click
-                  await  BlocProvider.of<PayMobCubit>(context).processPayment(100);
+                    await BlocProvider.of<PayMobCubit>(context)
+                        .processPayment(100);
                   },
                   child: const Text('Start Payment'),
                 );
               },
             ),
-            IconButton(onPressed: ()async{
-                        // ///////////////////////////////////////////////
-                      final authToken = await PaymobServices().getAuthToken();
-                      final orderId = await PaymobServices().getOrderId(
-                        token: authToken,
-                        amount: 100,
-                        currency: 'EGP',
-                      );
-                      final paymentKey = await PaymobServices().getPaymentKey(
-                        token: authToken,
-                        amount: 100,
-                        currency: 'EGP',
-                        orderId: orderId,
-                      );
-                      log("https://accept.paymob.com/api/acceptance/iframes/914974?payment_token=$paymentKey");
-                      launchUrl(
-                        Uri.parse(
-                            "https://accept.paymob.com/api/acceptance/iframes/914973?payment_token=$paymentKey"),
-                      );
+            SizedBox(height: 100,),
+            IconButton(
+                onPressed: () async {
+                  // ///////////////////////////////////////////////
+                  final authToken = await PaymobServices().getAuthToken();
+                  log('auth tokkkkkkkkkkkkkkkkkkkkennnnn $authToken');
+                  final orderId = await PaymobServices().getOrderId(
+                    token: authToken,
+                    amount: 100,
+                    currency: 'EGP',
+                  );
+                  log('order tokkkkkkkkkkkkkkkkkkkkennnnn $orderId');
 
-                      // //////////////////////////////////////
-            }, icon: Icon(Icons.access_time_sharp))
+                  final paymentKey = await PaymobServices().getPaymentKey(
+                    token: authToken,
+                    amount: 100,
+                    currency: 'EGP',
+                    orderId: orderId,
+                  );
+                  log('paaaayment key tokkkkkkkkkkkkkkkkkkkkennnnn $authToken');
+
+                  log("https://accept.paymob.com/api/acceptance/iframes/914974?payment_token=$paymentKey");
+                  launchUrl(
+                    Uri.parse(
+                        "https://accept.paymob.com/api/acceptance/iframes/914973?payment_token=$paymentKey"),
+                  );
+
+                  log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&#############################');
+                  //  var trans = await PaymobRepoImpl().getTransactionStatus(
+                  //     orderId: orderId.toString(), token: authToken);
+                  // log(trans.toString());
+                  await BlocProvider.of<PayMobCubit>(context)
+                      .updatePaymentStatus(
+                    orderId: orderId.toString(),
+                    token: authToken,
+                  );
+                  // //////////////////////////////////////
+                },
+                icon: Icon(Icons.access_time_sharp))
           ],
         ),
       ),

@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MessageModel {
-   final DateTime createdAt;
+  final DateTime createdAt;
   final String message;
   final String receiver;
   final String sender;
@@ -15,13 +15,11 @@ class MessageModel {
     required this.userName,
   });
 
-
-  factory MessageModel.fromJson( json) {
-    
+  factory MessageModel.fromJson(json) {
     return MessageModel(
       createdAt: json['createdAt'] is Timestamp
-        ? (json['createdAt'] as Timestamp).toDate()
-        : DateTime.parse(json['createdAt'] as String),
+          ? (json['createdAt'] as Timestamp).toDate()
+          : DateTime.parse(json['createdAt'] as String),
       message: json['message'] as String,
       receiver: json['receiver'] as String,
       sender: json['sender'] as String,
@@ -31,7 +29,7 @@ class MessageModel {
 
   Map<String, dynamic> toJson() {
     return {
-     'createdAt': createdAt,
+      'createdAt': createdAt,
       'message': message,
       'receiver': receiver,
       'sender': sender,

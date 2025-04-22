@@ -19,13 +19,13 @@ class MyMessage extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.all(10.0),
-                decoration:  BoxDecoration(
+                decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 14, 93, 157),
                   borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(16),
-            topLeft: Radius.circular(16),
-            topRight: Radius.circular(16),
-          ),
+                    bottomRight: Radius.circular(16),
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
                 ),
                 child: Text(
                   messageModel.message,
@@ -35,8 +35,9 @@ class MyMessage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5.0),
-               Text(
-                 getFormattedDateTime(createdAt: messageModel.createdAt).toString(),
+              Text(
+                getFormattedDateTime(createdAt: messageModel.createdAt)
+                    .toString(),
                 style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 12.0,
@@ -49,6 +50,7 @@ class MyMessage extends StatelessWidget {
     );
   }
 }
+
 class FriendMessage extends StatelessWidget {
   final MessageModel messageModel;
   const FriendMessage({super.key, required this.messageModel});
@@ -67,12 +69,11 @@ class FriendMessage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 77, 157, 222),
-           borderRadius: const BorderRadius.only(
-                bottomLeft: Radius.circular(16),
-                topLeft: Radius.circular(16),
-                topRight: Radius.circular(16))
-                ),
+                    color: const Color.fromARGB(255, 77, 157, 222),
+                    borderRadius: const BorderRadius.only(
+                        bottomLeft: Radius.circular(16),
+                        topLeft: Radius.circular(16),
+                        topRight: Radius.circular(16))),
                 child: Text(
                   messageModel.message,
                   style: const TextStyle(
@@ -81,8 +82,9 @@ class FriendMessage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5.0),
-               Text(
-                getFormattedDateTime(createdAt: messageModel.createdAt).toString(),
+              Text(
+                getFormattedDateTime(createdAt: messageModel.createdAt)
+                    .toString(),
                 style: const TextStyle(
                   color: Colors.grey,
                   fontSize: 12.0,

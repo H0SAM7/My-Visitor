@@ -51,8 +51,7 @@ class HotelHomeCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        (
-                          hotel.name!.length > 20
+                        (hotel.name!.length > 20
                             ? '${hotel.name!.substring(0, 20)}...'
                             : hotel.name!),
                         overflow: TextOverflow.ellipsis,
@@ -63,10 +62,9 @@ class HotelHomeCard extends StatelessWidget {
                       ),
                       SizedBox(height: constraints.maxHeight * 0.02),
                       Text(
-                         hotel.description!.length > 20
-                            ? '${ hotel.description!.substring(0, 16)}...'
-                            : hotel.name!
-                       ,
+                        hotel.description!.length > 20
+                            ? '${hotel.description!.substring(0, 16)}...'
+                            : hotel.name!,
                         style: AppStyles.style16Gray(context),
                       ),
                       SizedBox(

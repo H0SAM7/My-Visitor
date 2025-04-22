@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
@@ -7,12 +6,14 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     required this.title,
-    this.color, this.onTap, this.width,
+    this.color,
+    this.onTap,
+    this.width,
   });
   final String title;
   final Color? color;
   final double? width;
-final void Function()? onTap;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -20,7 +21,7 @@ final void Function()? onTap;
       child: GestureDetector(
         onTap: onTap,
         child: Container(
-          width:width??300,
+          width: width ?? 300,
           height: 45,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
@@ -29,15 +30,13 @@ final void Function()? onTap;
           child: Padding(
             padding: const EdgeInsets.only(left: 8.0),
             child: Center(
-              child:
-              Text(
+              child: Text(
                 title,
                 textAlign: TextAlign.left,
                 style: AppStyles.style16Gray(context).copyWith(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white
-                ),
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white),
               ),
             ),
           ),

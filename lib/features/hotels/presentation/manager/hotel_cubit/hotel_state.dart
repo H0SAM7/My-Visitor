@@ -6,6 +6,7 @@ sealed class HotelState {}
 final class HotelInitial extends HotelState {}
 
 final class HotelLoading extends HotelState {}
+
 final class HotelPginationLoading extends HotelState {}
 
 final class HotelSuccess extends HotelState {
@@ -19,6 +20,7 @@ final class HotelFailure extends HotelState {
 
   HotelFailure({required this.errMessage});
 }
+
 final class HotelPaginationFailure extends HotelState {
   final String errMessage;
 

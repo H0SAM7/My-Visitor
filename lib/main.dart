@@ -23,7 +23,7 @@ void main() async {
   runApp(
     DevicePreview(
       enabled: false,
-      builder: (context) => MyApp(), 
+      builder: (context) => MyApp(),
     ),
   );
 }
@@ -83,9 +83,8 @@ class MyApp extends StatelessWidget {
               ),
               initialRoute: AppRoutes.initialRoute,
               routes: AppRoutes.routes,
-                 onGenerateRoute:
-            AppRoutes.generateRoute, // Handles dynamic routes with arguments
-
+              onGenerateRoute: AppRoutes
+                  .generateRoute, // Handles dynamic routes with arguments
             );
           }),
     );

@@ -24,11 +24,10 @@ class _ChatViewBodyState extends State<ChatViewBody> {
   final TextEditingController nameController = TextEditingController();
 
   TextEditingController textController = TextEditingController();
-  final Stream<QuerySnapshot> chatStream =
-      FirebaseFirestore.instance
-          .collection('chat')
-          .orderBy('createdAt', descending: false)
-          .snapshots();
+  final Stream<QuerySnapshot> chatStream = FirebaseFirestore.instance
+      .collection('chat')
+      .orderBy('createdAt', descending: false)
+      .snapshots();
   @override
   void dispose() {
     scrollController.dispose();
@@ -113,8 +112,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
         //         .toList() ??
         //     [];
 
-        final messagesList =
-            snapshot.data?.docs
+        final messagesList = snapshot.data?.docs
                 .map((doc) => MessageModel.fromJson(doc))
                 .where(
                   (msg) =>

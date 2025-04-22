@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AmenityIconProvider {
-final Map<String, IconData> _amenityIconMap = {
+  final Map<String, IconData> _amenityIconMap = {
     "Breakfast (\$)": FontAwesomeIcons.utensils,
     "Breakfast": FontAwesomeIcons.utensils, // Same as Breakfast ($)
     "Free breakfast": FontAwesomeIcons.utensils, // Same as Breakfast
@@ -31,7 +31,8 @@ final Map<String, IconData> _amenityIconMap = {
     "Crib": FontAwesomeIcons.babyCarriage,
     "Ironing board": FontAwesomeIcons.shirt, // Closest match for ironing
     "Pet-friendly": FontAwesomeIcons.dog,
-    "Washer": FontAwesomeIcons.soap, // Same as laundry, or use a washing machine icon
+    "Washer":
+        FontAwesomeIcons.soap, // Same as laundry, or use a washing machine icon
     "Kitchen": FontAwesomeIcons.kitchenSet,
     "Kitchen in rooms": FontAwesomeIcons.kitchenSet, // Same as Kitchen
     "Kitchen in some rooms": FontAwesomeIcons.kitchenSet, // Same as Kitchen

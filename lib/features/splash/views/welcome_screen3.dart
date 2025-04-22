@@ -65,7 +65,7 @@ class SplashScreen4 extends StatelessWidget {
                   ),
 
                   const SizedBox(height: 20),
-                 SplashButton(
+                  SplashButton(
                       buttonColor: const Color.fromARGB(255, 253, 105, 0),
                       buttonFontColor: Colors.white,
                       onNext: () {

@@ -8,7 +8,6 @@ import 'package:my_visitor/features/hotels/data/sources/local/hotel_local_data_s
 import 'package:my_visitor/features/hotels/data/sources/remote/hotel_remote_data_source.dart';
 import 'package:my_visitor/features/hotels/domain/repos/hotel_repo.dart';
 
-
 class HotelRepoImpl extends HotelRepo {
   final HotelsRemoteDataSource hotelRemoteDataSource;
   final HotelsLocalDataSource hotelsLocalDataSource;
@@ -17,7 +16,8 @@ class HotelRepoImpl extends HotelRepo {
       {required this.hotelRemoteDataSource,
       required this.hotelsLocalDataSource});
   @override
-  Future<Either<Failure, List<HotelModel>>> featchAllhotels({String? nextPageToken}) async {
+  Future<Either<Failure, List<HotelModel>>> featchAllhotels(
+      {String? nextPageToken}) async {
     List<HotelModel> hotelsList;
 
     try {
@@ -31,14 +31,13 @@ class HotelRepoImpl extends HotelRepo {
       // log(hotels.toString());
       // log('Get Hotels Done');
 
-
-
       hotelsList = hotelsLocalDataSource.fetchAllHotels();
       if (hotelsList.isNotEmpty) {
         log('get data from hive ${hotelsList.toString()}');
         return right(hotelsList);
       }
-      hotelsList = await hotelRemoteDataSource.fetchAllHotels(nextPageToken: nextPageToken);
+      hotelsList = await hotelRemoteDataSource.fetchAllHotels(
+          nextPageToken: nextPageToken);
       return right(hotelsList);
     } catch (e) {
       if (e is DioException) {
@@ -71,7 +70,4 @@ class HotelRepoImpl extends HotelRepo {
   // return left(ServerFailure(errMessage: e.toString()));
   //   }
   // }
-
-
-  
 }
