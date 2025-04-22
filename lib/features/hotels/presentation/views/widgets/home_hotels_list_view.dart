@@ -41,7 +41,7 @@ class HomeHotelsListView extends StatelessWidget {
 
         return Padding(
           padding: const EdgeInsets.only(right: 16),
-          child: SizedBox(width: 200, child: HotelHomeCard(hotel: hotel)),
+          child: SizedBox(width: 250, child: HotelHomeCard(hotel: hotel)),
         );
       },
     );

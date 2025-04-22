@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:my_visitor/features/home/presentation/views/drawer/custom_list_tile.dart';
+import 'package:my_visitor/features/home/presentation/views/widgets/drawer/custom_list_tile.dart';
 
 class DrawerView extends StatefulWidget {
   const DrawerView({super.key});

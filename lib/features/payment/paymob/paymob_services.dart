@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:my_visitor/core/error/dio_failures.dart';
 import 'package:my_visitor/features/payment/paymob/data/helper/apis.dart';
 import 'package:my_visitor/features/payment/paymob/data/helper/paymob_constants.dart';
 import 'package:my_visitor/services/api_services.dart';

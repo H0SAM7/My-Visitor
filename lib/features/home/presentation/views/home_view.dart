@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/utils/assets.dart';
-import 'package:my_visitor/features/home/presentation/views/drawer/drawer_view.dart';
+import 'package:my_visitor/features/home/presentation/views/widgets/drawer/drawer_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/fisrt_section.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/hotels_sec.dart';
 

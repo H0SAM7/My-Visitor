@@ -27,21 +27,20 @@ class BookConfirmation extends StatefulWidget {
 class _BookConfirmationState extends State<BookConfirmation> {
   bool isloading = false;
   void _handlePaymentSuccess(String orderId, String token) async {
+     await Future.delayed(
+      Duration(minutes: 2),
+    );
     final result = await BlocProvider.of<PayMobCubit>(context)
         .updatePaymentStatus(orderId: orderId, token: token);
     log(result.toString());
-    if (result!.success) {
+   
+    if (result.success&&mounted) {
       await addTransactionDetailsToFirebase(
         orderId: orderId,
         result: result.toJson(),
         hotel: widget.hotel,
         hotelBookModel: widget.hotelBookModel,
       );
-    }
-    if (mounted) {
-      setState(() {
-        isloading = false;
-      });
     }
   }
 
@@ -63,6 +62,12 @@ class _BookConfirmationState extends State<BookConfirmation> {
         }
         if (state is PaymobSuccessState) {
           _handlePaymentSuccess(state.orderId, state.token);
+          if (mounted) {
+            setState(() {
+              isloading = false;
+            });
+          }
+          
           showCustomAlert(
             context: context,
             type: AlertType.success,

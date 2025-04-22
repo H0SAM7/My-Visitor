@@ -70,46 +70,65 @@ class PayMobCubit extends Cubit<PayMobState> {
     }
   }
 
-  Future<PaymobTransactionModel?> updatePaymentStatus(
-      {required String orderId, required String token}) async {
-    try {
-      emit(PaymobTransactionloading());
-      final result = await PaymobRepoImpl().getTransactionStatus(
-        token: token,
-        orderId: orderId,
-      );
+Future<PaymobTransactionModel> updatePaymentStatus({
+  required String orderId,
+  required String token,
+}) async {
+  try {
+    emit(PaymobTransactionloading());
+    await Future.delayed(Duration(minutes: 2));
 
-      result.fold(
-        (failure) {
-          emit(PaymobTransactionFailure(
-              errMessage: failure.errMessage.toString()));
-        },
-        (transaction) {
-          if (transaction.success) {
-            log('transssssssss ${transaction.success.toString()}');
-            log('PaymobTransactionModel Variables:');
-            log('id: ${transaction.id}');
-            log('success: ${transaction.success}');
-            log('pending: ${transaction.pending}');
-            log('isAuth: ${transaction.isAuth}');
-            log('isCapture: ${transaction.isCapture}');
-            log('isStandalonePayment: ${transaction.isStandalonePayment}');
-            log('isVoided: ${transaction.isVoided}');
-            log('isRefunded: ${transaction.isRefunded}');
-            log('amountCents: ${transaction.amountCents}');
-            log('createdAt: ${transaction.createdAt}');
-            log('currency: ${transaction.currency}');
+    final result = await PaymobRepoImpl().getTransactionStatus(
+      token: token,
+      orderId: orderId,
+    );
 
-            emit(PaymobTransactionSuccess());
-            return transaction;
-          } else {
-            emit(PaymobTransactionFailure(errMessage: 'Payment failed.'));
-          }
-        },
-      );
-    } catch (e) {
-      log(e.toString());
-      emit(PaymobTransactionFailure(errMessage: e.toString()));
+    PaymobTransactionModel? transactionResult;
+
+    result.fold(
+      (failure) {
+        emit(PaymobTransactionFailure(
+          errMessage: failure.errMessage.toString(),
+        ));
+      },
+      (transaction) {
+        if (transaction.success) {
+          log('transssssssss ${transaction.success.toString()}');
+          log('PaymobTransactionModel Variables:');
+          log('id: ${transaction.id}');
+          log('success: ${transaction.success}');
+          log('pending: ${transaction.pending}');
+          log('isAuth: ${transaction.isAuth}');
+          log('isCapture: ${transaction.isCapture}');
+          log('isStandalonePayment: ${transaction.isStandalonePayment}');
+          log('isVoided: ${transaction.isVoided}');
+          log('isRefunded: ${transaction.isRefunded}');
+          log('amountCents: ${transaction.amountCents}');
+          log('createdAt: ${transaction.createdAt}');
+          log('currency: ${transaction.currency}');
+
+          emit(PaymobTransactionSuccess());
+          transactionResult = transaction;
+        } else {
+          emit(PaymobTransactionFailure(errMessage: 'Payment failed.'));
+        }
+      },
+    );
+
+    if (transactionResult != null) {
+      return transactionResult!;
+    } else {
+      throw Exception("Failed to fetch transaction.");
     }
+
+  } catch (e) {
+    log(e.toString());
+    emit(PaymobTransactionFailure(errMessage: e.toString()));
+    throw Exception("Exception during updatePaymentStatus: $e");
   }
+}
+
+
+
+
 }
