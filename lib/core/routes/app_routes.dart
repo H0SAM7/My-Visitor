@@ -12,6 +12,7 @@ import 'package:my_visitor/features/hotels/presentation/views/book_confirmation.
 import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotel_details_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
+import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/temp/screen.dart';
@@ -19,7 +20,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = LoginView.id;
+  static String? initialRoute = HomeView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -56,6 +57,16 @@ abstract class AppRoutes {
         final properties = settings.arguments as Properties;
         return MaterialPageRoute(
           builder: (context) => BookHotelView(hotel: properties),
+        );
+      case MapScreen.id:
+        final args = settings.arguments as Map<String, dynamic>;
+        final destinationLat = args['destinationLat'] as double;
+        final destinationLng = args['destinationLng'] as double;
+        return MaterialPageRoute(
+          builder: (context) => MapScreen(
+            destinationLat: destinationLat,
+            destinationLng: destinationLng,
+          ),
         );
       default:
         return MaterialPageRoute(
