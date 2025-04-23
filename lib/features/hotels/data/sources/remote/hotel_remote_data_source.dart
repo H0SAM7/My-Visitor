@@ -1,6 +1,6 @@
 import 'dart:developer';
 
-import 'package:my_visitor/core/utils/functions/save_hotel_data.dart';
+import 'package:my_visitor/core/utils/functions/save_hive_data.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/keys/hotels.dart';
 import 'package:my_visitor/services/api_services.dart';

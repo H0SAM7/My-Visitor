@@ -8,33 +8,33 @@ import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cu
 import 'package:my_visitor/features/resturants/presentation/views/widgets/home_resturants_Item.dart';
 import 'package:my_visitor/features/resturants/presentation/views/widgets/resturant_item.dart';
 
-class ResturentsListView extends StatelessWidget {
-  const ResturentsListView({
+class HomeResturantsListView extends StatelessWidget {
+  const HomeResturantsListView({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-  
     return BlocBuilder<RestrurantCubit, RestrurantState>(
       builder: (context, state) {
         if (state is ResrurantSuccess) {
           return ListView.builder(
             itemCount: state.restaurants.length,
+            scrollDirection: Axis.horizontal,
+            physics: ScrollPhysics(),
             itemBuilder: (context, index) {
-
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ResturantItem(
+           
+              return SizedBox(
+                            width: 300,
+              
+                child: HomeResturantCard(
                   restaurantModel: state.restaurants[index],
                 ),
               );
             },
           );
         } else if (state is ResrurantFailure) {
-          return  Center(
-            child: CustomErrView(errMessage:  state.errMessage),
-          ); 
+          return CustomErrView(errMessage: state.errMessage);
         } else {
           return  AnimationRoutes.loadingWidget(); 
         }

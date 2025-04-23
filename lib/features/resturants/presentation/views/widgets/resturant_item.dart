@@ -1,90 +1,139 @@
-// import 'package:flutter/material.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-// import 'package:flutter_screenutil/flutter_screenutil.dart';
-// import 'package:my_visitor/core/styles/text_styles.dart';
-// import 'package:my_visitor/features/resturants/data/models/resturant_model/datum.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_visitor/bottom_navigator_bar.dart';
+import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/animation_routes.dart';
+import 'package:my_visitor/core/utils/functions/url_luncher.dart';
+import 'package:my_visitor/core/widgets/custom_image.dart';
+import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';
 
-// class ResturantItem extends StatelessWidget {
-//   const ResturantItem({
-//     super.key,
-//     required this.restaurantModel,
-//   });
-//   final Datum restaurantModel;
-//   @override
-//   Widget build(BuildContext context) {
-//     return GestureDetector(
-//       onTap: () async {
-//         // await BlocProvider.of<MenuCubit>(context)
-//         //     .getMenu(quary: restaurantModel.quary);
+class ResturantItem extends StatelessWidget {
+  const ResturantItem({
+    super.key,
+    required this.restaurantModel,
+  });
 
-//         // Navigator.pushNamed(context, MenuItemsView.id,arguments: restaurantModel);
-//       },
-//       child: Card(
-//         color: Colors.white,
-//         elevation: 4,
-//         shape: RoundedRectangleBorder(
-//           borderRadius: BorderRadius.circular(10),
-//         ),
-//         child: Column(
-//           crossAxisAlignment: CrossAxisAlignment.start,
-//           children: [
-//             Container(
-//               height: 150.h,
-//               width: double.infinity,
-//               decoration: const BoxDecoration(
-//                 color: Colors.grey,
-//                 borderRadius: BorderRadius.vertical(top: Radius.circular(10)),
-//               ),
-//               child: Image.network(
-//                 restaurantModel!
-//                         .thumbnail!.photo!.photoSizeDynamic!.urlTemplate! ??
-//                     'https://th.bing.com/th/id/R.26f677899cb906831538311cac52504e?rik=s0GOw2btDQt1tQ&pid=ImgRaw&r=0',
-//                 fit: BoxFit.cover,
-//               ),
-//             ),
-//             Padding(
-//               padding: const EdgeInsets.all(8.0),
-//               child: Column(
-//                 crossAxisAlignment: CrossAxisAlignment.start,
-//                 children: [
-//                   Text(
-//                     restaurantModel.name ?? '',
-//                     // 'Rose Garden Restaurant',
-//                     style: AppStyles.style22White(context).copyWith(
-//                       color: Colors.black,
-//                     ),
-//                   ),
-//                   const SizedBox(height: 4),
-//                   Text(
-//                     'menu',
-//                     // 'Burger - Chiken - Riche - Wings',
-//                     style: AppStyles.style16Gray(context).copyWith(
-//                         color: Colors.grey, fontWeight: FontWeight.bold),
-//                   ),
-//                   const SizedBox(height: 8),
-//                   Row(
-//                     children: [
-//                       const Icon(Icons.star, color: Colors.orange, size: 20),
-//                       const SizedBox(width: 4),
-//                       Text('restaurantModel.rate'),
-//                       const SizedBox(width: 16),
-//                       const Icon(Icons.delivery_dining,
-//                           color: Colors.orange, size: 20),
-//                       const SizedBox(width: 4),
-//                       const Text('Free'),
-//                       const SizedBox(width: 16),
-//                       const Icon(Icons.access_time,
-//                           color: Colors.orange, size: 20),
-//                       const SizedBox(width: 4),
-//                       Text('restaurantModel.time'),
-//                     ],
-//                   ),
-//                 ],
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+  final RestaurantModel restaurantModel;
+  @override
+  Widget build(BuildContext context) {
+    // Get screen size for responsive calculations
+    final screenSize = MediaQuery.of(context).size;
+
+    return GestureDetector(
+      onTap: () async {
+        if (restaurantModel.hasMenu) {
+          await launchUrlMethod(Uri.parse(restaurantModel.menuUrl.toString()));
+        
+        }
+      },
+      child: Card(
+        color: const Color.fromARGB(19, 192, 180, 180),
+        elevation: 4,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.r),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: screenSize.height * 0.2,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade300,
+                // borderRadius: BorderRadius.vertical(top: Radius.circular(10.r)),
+              ),
+              child: CustomImage(
+                borderRadius: 0,
+                image: restaurantModel.squareImgUrl ??
+                    'https://th.bing.com/th/id/R.26f677899cb906831538311cac52504e?rik=s0GOw2btDQt1tQ&pid=ImgRaw&r=0',
+              ),
+            ),
+            // Responsive padding
+            Padding(
+              padding: EdgeInsets.all(8.w), // Responsive padding
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    restaurantModel.name ?? '',
+                    style: AppStyles.style22White(context).copyWith(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    restaurantModel
+                                .establishmentTypeAndCuisineTags?.isNotEmpty ==
+                            true
+                        ? restaurantModel.establishmentTypeAndCuisineTags!
+                            .take(5)
+                            .join(', ')
+                        : 'No tags available',
+                    style: AppStyles.style16Gray(context).copyWith(
+                      color: Colors.grey,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14.sp,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(height: 8.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(Icons.star_border_outlined,
+                          color: Colors.orange, size: 18.sp),
+                      SizedBox(width: 4.w),
+                      Flexible(
+                        child: Text(
+                          restaurantModel.averageRating.toString() ?? '',
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      SizedBox(width: 12.w),
+                      Icon(Icons.delivery_dining_outlined,
+                          color: Colors.orange, size: 18.sp),
+                      SizedBox(width: 4.w),
+                      Flexible(
+                        child: Text(
+                          'Free',
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                      SizedBox(width: 12.w),
+                      Icon(Icons.access_time,
+                          color: Colors.orange, size: 18.sp),
+                      SizedBox(width: 4.w),
+                      Flexible(
+                        child: Text(
+                          restaurantModel.currentOpenStatusText,
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            color: Colors.white,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

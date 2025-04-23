@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/hotels_home_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
@@ -29,7 +30,8 @@ class HomeHotelsSection extends StatelessWidget {
                   ).copyWith(color: orangeColor),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, HotelsView.id);
+                  Navigator.push(
+                      context, AnimationRoutes.routeBottomLeft(HotelsView(),),);
                 },
               )
             ],
@@ -45,6 +47,7 @@ class HomeHotelsSection extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
+        Divider(),
       ],
     );
   }

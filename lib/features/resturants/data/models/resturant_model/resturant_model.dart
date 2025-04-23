@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
 
-part 'restaurant_model.g.dart';
+part 'resturant_model.g.dart';
 
 @HiveType(typeId: 20)
 class RestaurantResponse {

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/features/resturants/presentation/views/widgets/resutrant_list_view.dart';
 
 class ResturantsView extends StatelessWidget {
@@ -7,11 +9,22 @@ class ResturantsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+        title: Text(
+          'Resturants Near You',
+          style: AppStyles.style22White(context),
+        ),
+        centerTitle: true,
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CustomBack(),
+        ),
+      ),
       body: Column(
         children: [
-          // Expanded(
-          //   child: ResturentsListView(),
-          // ),
+          Expanded(
+            child: ResturentsListView(),
+          ),
         ],
       ),
     );

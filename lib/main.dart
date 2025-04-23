@@ -6,12 +6,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_visitor/bloc_observer.dart';
 import 'package:my_visitor/core/routes/app_routes.dart';
 import 'package:device_preview/device_preview.dart';
+import 'package:my_visitor/core/utils/hive_inits.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
-import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
+import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
 import 'package:my_visitor/firebase_options.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:my_visitor/keys/hive_keys.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -33,23 +33,8 @@ void main() async {
 
 Future<void> hiveInit() async {
   await Hive.initFlutter();
-  Hive.registerAdapter(HotelModelAdapter());
-  Hive.registerAdapter(SearchMetadataAdapter());
-  Hive.registerAdapter(SearchParametersAdapter());
-  Hive.registerAdapter(SearchInformationAdapter());
-  Hive.registerAdapter(BrandsAdapter());
-  Hive.registerAdapter(PropertiesAdapter());
-  Hive.registerAdapter(SerpapiPaginationAdapter());
-  Hive.registerAdapter(ReviewsBreakdownAdapter());
-  Hive.registerAdapter(RatingsAdapter());
-  Hive.registerAdapter(ImagesAdapter());
-  Hive.registerAdapter(NearbyPlacesAdapter());
-  Hive.registerAdapter(TransportationsAdapter());
-  Hive.registerAdapter(TotalRateAdapter());
-  Hive.registerAdapter(RatePerNightAdapter());
-  Hive.registerAdapter(GpsCoordinatesAdapter());
-  Hive.registerAdapter(ChildrenAdapter());
-  await Hive.openBox<HotelModel>(kHotelsBox);
+  await hotelsInit();
+  await resturantInit();
 }
 
 class MyApp extends StatelessWidget {
@@ -64,6 +49,10 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => HotelCubit()..fetchHotels(),
+          lazy: true,
+        ),
+             BlocProvider(
+          create: (context) =>RestrurantCubit()..getAllResturants(),
           lazy: true,
         ),
       ],

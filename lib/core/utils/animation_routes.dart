@@ -89,8 +89,8 @@ class AnimationRoutes {
   static Widget loadingWidget() {
     return Center(
       child: LoadingAnimationWidget.flickr(
-        size: 75,
-        leftDotColor: Colors.black,
+        size: 50,
+        leftDotColor: Colors.white,
         rightDotColor: orangeColor,
       ),
     );

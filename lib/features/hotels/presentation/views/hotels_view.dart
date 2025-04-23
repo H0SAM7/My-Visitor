@@ -3,7 +3,9 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
+import 'package:my_visitor/core/widgets/custom_err_view.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
@@ -59,8 +61,8 @@ class _HotelsViewState extends State<HotelsView> {
         },
         builder: (context, state) {
           if (state is HotelLoading) {
-            return const Center(
-              child: CustomLoadingIndicator(),
+            return Center(
+              child: AnimationRoutes.loadingWidget(),
             );
           } else if (state is HotelSuccess ||
               state is HotelPginationLoading ||
@@ -82,7 +84,7 @@ class _HotelsViewState extends State<HotelsView> {
             );
           } else if (state is HotelFailure) {
             return Center(
-              child: Text('Error: ${state.errMessage}'),
+              child: CustomErrView(errMessage: state.errMessage),
             );
           }
 

@@ -5,19 +5,20 @@ import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 class CustomImage extends StatelessWidget {
   const CustomImage({
     super.key,
-    required this.image,
+    required this.image, this.borderRadius,
   });
   final String image;
+  final double? borderRadius; 
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(16),
+      borderRadius: BorderRadius.circular(borderRadius?? 16),
       child: AspectRatio(
         aspectRatio: 16 / 9,
         child: CachedNetworkImage(
           imageUrl: image,
           fit: BoxFit.cover,
-          errorWidget: (context, url, error) => const Icon(Icons.error),
+          errorWidget: (context, url, error) => Icon(Icons.error),
           progressIndicatorBuilder: (context, url, progress) =>
               CustomLoadingIndicator(),
         ),

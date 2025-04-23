@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
@@ -45,8 +46,9 @@ class HotelHomeCard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
+                  
                   left: constraints.maxWidth * 0.05,
-                  bottom: constraints.maxHeight * 0.1,
+                  bottom: 10.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

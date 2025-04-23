@@ -14,6 +14,7 @@ import 'package:my_visitor/features/hotels/presentation/views/hotel_details_view
 import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
 import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
+import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/temp/screen.dart';
@@ -21,7 +22,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = ResturantsView.id;
+  static String? initialRoute = HomeView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
