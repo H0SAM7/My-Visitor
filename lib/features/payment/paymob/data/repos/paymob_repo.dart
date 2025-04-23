@@ -15,7 +15,9 @@ abstract class PaymobRepo {
     required String currency,
     required int orderId,
   });
-  Future<Either<Failure, PaymobTransactionModel>> getTransactionStatus(
-      {required String orderId, required String token,});
+  Future<Either<Failure, PaymobTransactionModel>> getTransactionStatus({
+    required String orderId,
+    required String token,
+  });
   // Future<Either<Failure, void>> payMobPay({required int amount});
 }

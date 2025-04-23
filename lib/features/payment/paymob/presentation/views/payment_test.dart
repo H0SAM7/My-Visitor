@@ -58,17 +58,12 @@ class _CounterScreenState extends State<CounterScreen> {
           children: <Widget>[
             const SizedBox(height: 20),
             BlocConsumer<PayMobCubit, PayMobState>(
-              listener: (context, state) => {
-                if(state is PaymobSuccessState){
-                  
-                 
-                }
-              },
+              listener: (context, state) =>
+                  {if (state is PaymobSuccessState) {}},
               builder: (context, state) {
                 if (state is PaymobLoadingState) {
                   return const CircularProgressIndicator();
                 } else if (state is PaymobSuccessState) {
-
                   return Column(
                     children: [
                       IconButton(
@@ -111,7 +106,9 @@ class _CounterScreenState extends State<CounterScreen> {
                 );
               },
             ),
-            SizedBox(height: 100,),
+            SizedBox(
+              height: 100,
+            ),
             IconButton(
                 onPressed: () async {
                   // ///////////////////////////////////////////////

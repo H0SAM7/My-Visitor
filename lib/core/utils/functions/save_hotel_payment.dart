@@ -1,4 +1,3 @@
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:my_visitor/features/hotels/data/models/book_model.dart/hotel_book_model.dart';

@@ -74,8 +74,10 @@ class _MapScreenState extends State<MapScreen> {
   Future<void> _getRoute(LatLng destination) async {
     if (currentLocation == null) return;
 
-    final start = LatLng(currentLocation!.latitude!, currentLocation!.longitude!);
-    final endpoint = 'https://api.openrouteservice.org/v2/directions/driving-car';
+    final start =
+        LatLng(currentLocation!.latitude!, currentLocation!.longitude!);
+    final endpoint =
+        'https://api.openrouteservice.org/v2/directions/driving-car';
     final queryParameters = {
       'api_key': orsApiKey,
       'start': '${start.longitude},${start.latitude}',
@@ -88,9 +90,11 @@ class _MapScreenState extends State<MapScreen> {
         queryParameters: queryParameters,
       );
 
-      final List<dynamic> coords = response['features'][0]['geometry']['coordinates'];
+      final List<dynamic> coords =
+          response['features'][0]['geometry']['coordinates'];
       setState(() {
-        routePoints = coords.map((coord) => LatLng(coord[1], coord[0])).toList();
+        routePoints =
+            coords.map((coord) => LatLng(coord[1], coord[0])).toList();
         markers.add(
           Marker(
             width: 80.0,

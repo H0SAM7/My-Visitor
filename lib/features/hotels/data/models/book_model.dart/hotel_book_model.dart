@@ -9,7 +9,7 @@ class HotelBookModel {
       required this.checkOut,
       required this.noRooms,
       required this.guest});
-        Map<String, dynamic> toJson() {
+  Map<String, dynamic> toJson() {
     return {
       'checkIn': checkIn,
       'checkOut': checkOut,

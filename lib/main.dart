@@ -27,6 +27,9 @@ void main() async {
     ),
   );
 }
+//@ hive annotations
+// the hotels from 0 to 15
+// resturants from 20 to 29
 
 Future<void> hiveInit() async {
   await Hive.initFlutter();

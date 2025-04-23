@@ -29,62 +29,72 @@ class HotelDetailsView extends StatelessWidget {
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ImageSlider(
-                imageList:
-                    hotel.images!.map((image) => image.originalImage!).toList(),
-                size: size),
-            SizedBox(
-              height: 30,
-            ),
-            CustomTitleHeader(title: hotel.name.toString()),
-            Row(
-              children: [
-                Icon(
-                  Icons.location_on_outlined,
-                ),
-                Text(
-                  'Hotel in Heliopolis, Cairo ',
-                  style: AppStyles.style16Gray(
-                    context,
-                  ),
-                ),
-              ],
-            ),
-            ReviewAndPriceSection(hotel: hotel),
-            SizedBox(
-              height: 15,
-            ),
-            CustomTitleHeader(title: 'Description'),
-            SizedBox(
-              height: 15,
-            ),
-            Text(
-              hotel.description.toString(),
-              style: AppStyles.style16Gray(
-                context,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 20.h,
               ),
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            CustomTitleHeader(
-              title: 'Amenities',
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            SizedBox(
-                height: 70.h,
-                child: AmenitieListView(amenities: hotel.amenities!)),
-            SizedBox(
-              height: 15,
-            ),
-            HotelsActions(hotel: hotel),
-          ],
+              ImageSlider(
+                  imageList: hotel.images!
+                      .map((image) => image.originalImage!)
+                      .toList(),
+                  size: size),
+              SizedBox(
+                height: 30,
+              ),
+              CustomTitleHeader(title: hotel.name.toString()),
+              Row(
+                children: [
+                  Icon(
+                    Icons.location_on_outlined,
+                  ),
+                  Text(
+                    'Hotel in Heliopolis, Cairo ',
+                    style: AppStyles.style16Gray(
+                      context,
+                    ),
+                  ),
+                ],
+              ),
+              ReviewAndPriceSection(hotel: hotel),
+              SizedBox(
+                height: 15,
+              ),
+              CustomTitleHeader(title: 'Description'),
+              SizedBox(
+                height: 15,
+              ),
+              Text(
+                hotel.description.toString(),
+                style: AppStyles.style16Gray(
+                  context,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              CustomTitleHeader(
+                title: 'Amenities',
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              SizedBox(
+                  height: 70.h,
+                  child: AmenitieListView(amenities: hotel.amenities!)),
+              SizedBox(
+                height: 15,
+              ),
+              HotelsActions(hotel: hotel),
+              SizedBox(
+                height: 15,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
@@ -38,8 +39,14 @@ class _LoginViewState extends State<LoginView> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
-         Navigator.pushReplacementNamed(context, BottomNavigator.id);
-        //  Navigator.pushReplacementNamed(context, screenTSt.id);
+          Navigator.pushReplacement(
+            context,
+            AnimationRoutes.routeBottom(
+              const BottomNavigator(),
+            ),
+          );
+
+          //  Navigator.pushReplacementNamed(context, screenTSt.id);
         } else if (state is AuthFailure) {
           showCustomAlert(
             context: context,
@@ -47,10 +54,20 @@ class _LoginViewState extends State<LoginView> {
             title: 'Error',
             description: state.errMessage,
             closeFunction: () {
-              Navigator.pushReplacementNamed(context, LoginView.id);
+              Navigator.pushReplacement(
+                context,
+                AnimationRoutes.route(
+                  const LoginView(),
+                ),
+              );
             },
             onPressed: () {
-              Navigator.pushReplacementNamed(context, LoginView.id);
+              Navigator.pushReplacement(
+                context,
+                AnimationRoutes.route(
+                  const LoginView(),
+                ),
+              );
             },
             actionTitle: 'Ok',
           );

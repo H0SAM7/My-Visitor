@@ -30,7 +30,7 @@ class HotelsActions extends StatelessWidget {
                   hotel.gpsCoordinates!.latitude!.toDouble();
               final double hotelLng =
                   hotel.gpsCoordinates!.longitude!.toDouble();
-                  log('hotelLng: $hotelLng and hotelLat: $hotelLat');
+              log('hotelLng: $hotelLng and hotelLat: $hotelLat');
               Navigator.pushNamed(
                 context,
                 MapScreen.id,

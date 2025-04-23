@@ -36,7 +36,7 @@ class ReviewAndPriceSection extends StatelessWidget {
             ),
             SizedBox(width: 4), // Space between star and reviews
             Text(
-              '${hotel.reviews!} Reviews',
+              '(${hotel.reviews!}) Reviews',
               style: TextStyle(
                 color: Colors.white,
                 fontSize: 16,

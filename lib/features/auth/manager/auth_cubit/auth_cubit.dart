@@ -127,12 +127,12 @@ class AuthCubit extends Cubit<AuthState> {
       );
       final UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
-  await FirebaseFirestore.instance
-              .collection('users')
-              .doc(userCredential.user!.email!)
-              .set({
-            'email': userCredential.user!.email!,
-          });
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(userCredential.user!.email!)
+          .set({
+        'email': userCredential.user!.email!,
+      });
       emit(AuthSuccess());
       // Once signed in, return the UserCredential
       return userCredential;

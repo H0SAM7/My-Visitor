@@ -95,8 +95,7 @@ class PaymobRemoteDataSourceImpl implements PaymobRemoteDataSource {
     log(result.toString());
     PaymobTransactionModel transactionModel =
         PaymobTransactionModel.fromJson(result);
-  
+
     return transactionModel;
   }
-
 }
