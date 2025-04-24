@@ -13,6 +13,7 @@ import 'package:my_visitor/features/hotels/presentation/views/book_confirmation.
 import 'package:my_visitor/features/hotels/presentation/views/book_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotel_details_view.dart';
 import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
+import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.dart';
 import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
@@ -23,7 +24,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = HomeView.id;
+  static String? initialRoute = LandmarksView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -37,6 +38,8 @@ abstract class AppRoutes {
     HotelsView.id: (context) => const HotelsView(),
     ResturantsView.id: (context) => const ResturantsView(),
         DetectionView.id: (context) =>  DetectionView(),
+                LandmarksView.id: (context) =>  LandmarksView(),
+
 
   };
   static Route<dynamic> generateRoute(RouteSettings settings) {
