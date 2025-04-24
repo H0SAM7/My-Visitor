@@ -27,7 +27,7 @@ class LandmarkCubit extends Cubit<LandmarkState> {
       log(failure.errMessage.toString());
 
       emit(
-          LandmarkPaginationFailure(errMessage: failure.errMessage.toString()));
+          LandmarkFailure(errMessage: failure.errMessage.toString()));
     }, (landmark) {
       log('@@@@@@@@@@@@@@@@@@@@${landmark.toString()}');
 
@@ -35,3 +35,5 @@ class LandmarkCubit extends Cubit<LandmarkState> {
     });
   }
 }
+
+

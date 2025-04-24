@@ -1,7 +1,5 @@
 import 'dart:developer';
-
 import 'package:my_visitor/core/utils/functions/save_hive_data.dart';
-import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/landmarks/data/models/landmark_model.dart';
 import 'package:my_visitor/keys/hotels.dart';
 import 'package:my_visitor/services/api_services.dart';
@@ -15,19 +13,18 @@ class LandmarkRemoteDataSourceImpl extends LandmarkRemoteDataSource {
   Future<LandmarkResponse> fetchLandmarks() async {
   
     var data = await ApiServices().getRequest(
-      endPoint: '$hotelsBaseUrl',
-      queryParameters: {'api_key': hotelsToken},
+      endPoint: landmarksApi,
+      queryParameters: {'api_key': landmarkToken},
     );
         LandmarkResponse landmarkResponse = LandmarkResponse.fromJson(data);
 
     saveLandmarksHive(
       landmarkResponse,
     );
-    log('Get Hotels Done%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
+    log('Get landmarks Done%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%');
     log(landmarkResponse.toString());
 
-    // log(hotels.toString());
-    log('Get Hotels Done');
+    log('Get landmarks Done');
     return landmarkResponse;
   }
 

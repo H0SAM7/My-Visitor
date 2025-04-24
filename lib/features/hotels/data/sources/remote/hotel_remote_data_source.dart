@@ -13,7 +13,7 @@ class HotelRemoteDataSourceImpl extends HotelsRemoteDataSource {
   @override
   Future<List<HotelModel>> fetchAllHotels({String? nextPageToken}) async {
     String api =
-        '&check_in_date=2025-04-31&check_out_date=2025-05-30&adults=2&currency=USD&gl=us&hl=en';
+        '&check_in_date=$checkInDate&check_out_date=$checkInDate&adults=2&currency=USD&gl=us&hl=en';
     String pagi = '&next_page_token=$nextPageToken';
     var data = await ApiServices().getRequest(
       endPoint: '$hotelsBaseUrl$api$pagi',

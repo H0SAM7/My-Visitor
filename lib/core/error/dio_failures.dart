@@ -34,10 +34,10 @@ class ServerFailure extends Failure {
   }
 
   factory ServerFailure.fromResponse(int? statusCode, dynamic response) {
+    // Handle specific status codes
     if (statusCode == 400 || statusCode == 401 || statusCode == 403) {
       return ServerFailure(
-          errMessage: response['error']['message'] ??
-              response['message'] ??
+          errMessage: _extractErrorMessage(response) ??
               'Invalid request or authentication failed.');
     } else if (statusCode == 404) {
       return ServerFailure(
@@ -48,13 +48,60 @@ class ServerFailure extends Failure {
       if (errors != null && errors.isNotEmpty) {
         return ServerFailure(errMessage: errors.values.first.join(', '));
       }
-      return ServerFailure(errMessage: 'Validation error occurred.');
+      return ServerFailure(
+          errMessage: _extractErrorMessage(response) ?? 'Validation error occurred.');
     } else if (statusCode == 500) {
       return ServerFailure(
           errMessage: 'Internal server error. Please try later.');
     } else {
       return ServerFailure(
-          errMessage: 'Oops! There was an error. Please try again.');
+          errMessage: _extractErrorMessage(response) ??
+              'Oops! There was an error. Please try again.');
     }
+  }
+
+  // Helper method to extract error message from various response structures
+  static String? _extractErrorMessage(dynamic response) {
+    if (response == null) return null;
+
+    // Handle if response is a Map
+    if (response is Map<String, dynamic>) {
+      // Common keys for error messages
+      const commonKeys = ['message', 'msg', 'error', 'errors', 'detail', 'info'];
+      for (var key in commonKeys) {
+        if (response.containsKey(key)) {
+          final value = response[key];
+          if (value is String && value.isNotEmpty) {
+            return value;
+          } else if (value is Map) {
+            // Recursively search in nested map
+            return _extractErrorMessage(value);
+          } else if (value is List && value.isNotEmpty) {
+            // Handle lists (e.g., errors: ["msg1", "msg2"])
+            return value.join(', ');
+          } else if (value != null) {
+            return value.toString();
+          }
+        }
+      }
+
+      // Recursively search through all values in the map
+      for (var value in response.values) {
+        final result = _extractErrorMessage(value);
+        if (result != null) return result;
+      }
+    }
+
+    // Handle if response is a List
+    if (response is List && response.isNotEmpty) {
+      return _extractErrorMessage(response.first);
+    }
+
+    // Handle if response is a String
+    if (response is String && response.isNotEmpty) {
+      return response;
+    }
+
+    return null;
   }
 }

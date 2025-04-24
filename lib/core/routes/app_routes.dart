@@ -24,7 +24,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = LandmarksView.id;
+  static String? initialRoute = ScanView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -37,10 +37,8 @@ abstract class AppRoutes {
     SplashScreen1.id: (context) => const SplashScreen1(),
     HotelsView.id: (context) => const HotelsView(),
     ResturantsView.id: (context) => const ResturantsView(),
-        DetectionView.id: (context) =>  DetectionView(),
-                LandmarksView.id: (context) =>  LandmarksView(),
-
-
+    DetectionView.id: (context) => DetectionView(),
+    LandmarksView.id: (context) => LandmarksView(),
   };
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
