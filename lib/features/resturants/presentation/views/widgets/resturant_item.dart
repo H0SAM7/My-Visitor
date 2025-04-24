@@ -8,6 +8,7 @@ import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/utils/functions/url_luncher.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
 import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';
+import 'package:my_visitor/features/resturants/presentation/views/resturants_details_view.dart';
 
 class ResturantItem extends StatelessWidget {
   const ResturantItem({
@@ -23,10 +24,12 @@ class ResturantItem extends StatelessWidget {
 
     return GestureDetector(
       onTap: () async {
-        if (restaurantModel.hasMenu) {
-          await launchUrlMethod(Uri.parse(restaurantModel.menuUrl.toString()));
-        
-        }
+        Navigator.push(
+            context,
+            AnimationRoutes.routeBottomLeft(ResturantsDetailsView(
+              restaurantModel: restaurantModel,
+            )));
+       
       },
       child: Card(
         color: const Color.fromARGB(19, 192, 180, 180),

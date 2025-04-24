@@ -6,6 +6,7 @@ import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/utils/functions/url_luncher.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
 import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';
+import 'package:my_visitor/features/resturants/presentation/views/resturants_details_view.dart';
 
 class HomeResturantCard extends StatelessWidget {
   const HomeResturantCard({super.key, required this.restaurantModel});
@@ -20,11 +21,17 @@ class HomeResturantCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: GestureDetector(
         onTap: () async {
-          if (restaurantModel.hasMenu) {
-            await launchUrlMethod(
-                Uri.parse(restaurantModel.menuUrl.toString()));
+          // if (restaurantModel.hasMenu) {
+          //   await launchUrlMethod(
+          //       Uri.parse(restaurantModel.menuUrl.toString()));
          
-          }
+          // }
+          Navigator.push(
+            context,
+            AnimationRoutes.routeBottomLeft(ResturantsDetailsView(
+              restaurantModel: restaurantModel,
+            )));
+          
         },
         child: SizedBox(
           width: double.infinity,

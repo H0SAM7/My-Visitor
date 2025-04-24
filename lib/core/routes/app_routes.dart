@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/bottom_navigator_bar.dart';
+import 'package:my_visitor/features/ML/presentation/views/detection_view.dart';
 import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
 import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
@@ -35,6 +36,8 @@ abstract class AppRoutes {
     SplashScreen1.id: (context) => const SplashScreen1(),
     HotelsView.id: (context) => const HotelsView(),
     ResturantsView.id: (context) => const ResturantsView(),
+        DetectionView.id: (context) =>  DetectionView(),
+
   };
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {

@@ -43,12 +43,14 @@ class HomeView extends StatelessWidget {
           SliverToBoxAdapter(
             child: SizedBox(height: 10.h),
           ),
+          
+   SliverToBoxAdapter(
+            child: HomeHotelsSection(),
+          ),
           SliverToBoxAdapter(
             child: ResturantsHomeSec(),
           ),
-          SliverToBoxAdapter(
-            child: HomeHotelsSection(),
-          ),
+       
           SliverToBoxAdapter(
             child: SizedBox(height: 20.h),
           ),

@@ -10,7 +10,7 @@ import 'package:my_visitor/temp/tst.dart';
 class DetectionView extends StatefulWidget {
   final Uint8List? imageBytes;
   final File? imageFile;
-
+static String id='DetectionView';
   const DetectionView({super.key, this.imageBytes, this.imageFile});
 
   @override
@@ -28,9 +28,14 @@ class _DetectionViewState extends State<DetectionView> {
   }
 
   Future<void> uploadImage() async {
-    String url = kIsWeb
-        ? "http://127.0.0.1:5000/predict"
+    String url = kIsWeb 
+    
+    //?'https://yolo-production-5c57.up.railway.app/predict':'https://yolo-production-5c57.up.railway.app/predict';
+      //  ? "https://mon2072003.github.io/Yolo/predict"
+      //  : "https://mon2072003.github.io/Yolo/predict";
+            ? "http://127.0.0.1:5000/predict"
         : "http://10.0.2.2:5000/predict";
+
 
     FormData formData;
     if (kIsWeb && widget.imageBytes != null) {
@@ -62,6 +67,7 @@ class _DetectionViewState extends State<DetectionView> {
         log(classNumber.toString());
       });
     } catch (e) {
+      log(e.toString());
       setState(() {
         _result = "Error: $e";
       });
