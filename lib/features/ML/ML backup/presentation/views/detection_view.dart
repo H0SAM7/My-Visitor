@@ -5,7 +5,6 @@ import 'package:my_visitor/core/styles/text_styles.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:dio/dio.dart';
-import 'package:my_visitor/keys/network.dart';
 import 'package:my_visitor/temp/tst.dart';
 
 class DetectionView extends StatefulWidget {
@@ -29,10 +28,10 @@ class _DetectionViewState extends State<DetectionView> {
   }
 
   Future<void> uploadImage() async {
-    // String url = kIsWeb
+    String url = kIsWeb
         
-    //     ? "https://yolo-production-5c57.up.railway.app/predict"
-    //     : "https://yolo-production-5c57.up.railway.app/predict";
+        ? "https://yolo-production-5c57.up.railway.app/predict"
+        : "https://yolo-production-5c57.up.railway.app/predict";
 
     //     ? "http://127.0.0.1:5000/predict"
     // : "http://10.0.2.2:5000/predict";
@@ -56,7 +55,7 @@ class _DetectionViewState extends State<DetectionView> {
     }
 
     try {
-      Response response = await _dio.post(mlEndPoint, data: formData);
+      Response response = await _dio.post(url, data: formData);
       setState(() {
         _result = response.statusCode == 200
             ? response.data.toString()

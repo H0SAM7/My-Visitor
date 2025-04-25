@@ -2,19 +2,21 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:my_visitor/bloc_observer.dart';
+import 'package:google_fonts/google_fonts.dart'        ;
+import 'package:my_visitor/bloc_observer.dart'         ;
 import 'package:my_visitor/core/routes/app_routes.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:my_visitor/core/utils/hive_inits.dart';
+import 'package:device_preview/device_preview.dart'    ;
+import 'package:my_visitor/core/utils/hive_inits.dart' ;
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
-import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
-import 'package:my_visitor/features/landmarks/data/models/landmark_model.dart';
 import 'package:my_visitor/features/landmarks/presentation/manager/landmark_cubit/landmark_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
 import 'package:my_visitor/firebase_options.dart';
 import 'package:hive_flutter/adapters.dart';
+
+
+
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -30,7 +32,7 @@ void main() async {
     ),
   );
 }
-//@ hive annotations
+// @ hive annotations
 // the hotels from 0 to 15
 // resturants from 20 to 29
 
@@ -75,7 +77,7 @@ class MyApp extends StatelessWidget {
               // useInheritedMediaQuery: true,
               // locale: DevicePreview.locale(context),
               // builder: DevicePreview.appBuilder,
-              darkTheme: ThemeData.dark(), // Dark Theme
+              darkTheme: ThemeData.dark(), 
 
               themeMode: ThemeMode.dark,
               debugShowCheckedModeBanner: false,
@@ -86,7 +88,8 @@ class MyApp extends StatelessWidget {
               initialRoute: AppRoutes.initialRoute,
               routes: AppRoutes.routes,
               onGenerateRoute: AppRoutes
-                  .generateRoute, // Handles dynamic routes with arguments
+                  .generateRoute, 
+                  
             );
           }),
     );

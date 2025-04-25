@@ -1,0 +1,1 @@
+final String mlEndPoint='https://yolo-production-5c57.up.railway.app/predict';
