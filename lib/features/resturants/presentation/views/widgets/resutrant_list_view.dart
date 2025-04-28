@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_err_view.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
+import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';
 import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/views/widgets/home_resturants_Item.dart';
@@ -36,7 +37,7 @@ class ResturentsListView extends StatelessWidget {
             child: CustomErrView(errMessage:  state.errMessage),
           ); 
         } else {
-          return  AnimationRoutes.loadingWidget(); 
+          return  LoadingWidgets.loadingCircles(); 
         }
       },
     );

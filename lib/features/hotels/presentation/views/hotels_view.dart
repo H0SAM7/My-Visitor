@@ -7,6 +7,7 @@ import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_err_view.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
+import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/hotels_list_view.dart';
@@ -62,7 +63,7 @@ class _HotelsViewState extends State<HotelsView> {
         builder: (context, state) {
           if (state is HotelLoading) {
             return Center(
-              child: AnimationRoutes.loadingWidget(),
+              child: LoadingWidgets.loadingCircles(),
             );
           } else if (state is HotelSuccess ||
               state is HotelPginationLoading ||

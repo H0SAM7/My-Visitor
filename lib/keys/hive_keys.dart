@@ -3,3 +3,5 @@ final String kResturantsBox = 'resurants_box';
 
 
 final String kLandmarks = 'landmarks';
+
+final String kMlData = 'ML_Results';

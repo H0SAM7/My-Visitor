@@ -152,20 +152,23 @@ class _DetailsTab extends StatelessWidget {
               size: 16,
             ),
             SizedBox(width: 8.w),
-            Text(
-              restaurantModel.establishmentTypeAndCuisineTags?.isNotEmpty ==
-                      true
-                  ? restaurantModel.establishmentTypeAndCuisineTags!
-                      .take(5)
-                      .join(', ')
-                  : '',
-              style: AppStyles.style16Gray(context).copyWith(
-                color: Colors.grey,
-                fontWeight: FontWeight.bold,
-                fontSize: 14.sp,
+            Flexible(
+              
+              child: Text(
+                restaurantModel.establishmentTypeAndCuisineTags?.isNotEmpty ==
+                        true
+                    ? restaurantModel.establishmentTypeAndCuisineTags!
+                        .take(5)
+                        .join(', ')
+                    : '',
+                style: AppStyles.style16Gray(context).copyWith(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
             ),
           ],
         ),

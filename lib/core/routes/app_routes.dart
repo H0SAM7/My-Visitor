@@ -16,7 +16,6 @@ import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.dart';
 import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
-import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/temp/screen.dart';
@@ -24,7 +23,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = ScanView.id;
+  static String? initialRoute = HomeView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -39,6 +38,12 @@ abstract class AppRoutes {
     ResturantsView.id: (context) => const ResturantsView(),
     DetectionView.id: (context) => DetectionView(),
     LandmarksView.id: (context) => LandmarksView(),
+
+
+
+
+
+    
   };
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -65,14 +70,14 @@ abstract class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BookHotelView(hotel: properties),
         );
-      case MapScreen.id:
+      case MapView.id:
         final args = settings.arguments as Map<String, dynamic>;
         final destinationLat = args['destinationLat'] as double;
         final destinationLng = args['destinationLng'] as double;
         return MaterialPageRoute(
-          builder: (context) => MapScreen(
-            destinationLat: destinationLat,
-            destinationLng: destinationLng,
+          builder: (context) => MapView(
+            latitude: destinationLat,
+            longitude: destinationLng,
           ),
         );
       default:

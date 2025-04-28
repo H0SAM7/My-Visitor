@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -6,11 +5,25 @@ import 'package:latlong2/latlong.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/features/maps/cubit/map_cubit.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MapScreen(latitude: 26.566640, longitude: 31.742795),
+    );
+  }
+}
 
 
-class MapView extends StatelessWidget {
-  MapView({super.key, required this.latitude, required this.longitude});
-  static const String id='MapView';
+class MapScreen extends StatelessWidget {
+  MapScreen({super.key, required this.latitude, required this.longitude});
   final double latitude;
   final double longitude;
   final MapController mapController = MapController();

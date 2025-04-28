@@ -1,17 +1,46 @@
 part of 'image_detection_cubit.dart';
 
 @immutable
-sealed class ImageDetectionState {}
 
-final class ImageDetectionInitial extends ImageDetectionState {}
-final class ImageDetectionLoading extends ImageDetectionState {}
-final class ImageDetectionFailure extends ImageDetectionState {
-  final String errmessage;
+abstract class DetectionState {}
 
-  ImageDetectionFailure({required this.errmessage});
+class DetectionInitial extends DetectionState {}
+
+class DetectionLoading extends DetectionState {}
+
+class DetectionSuccess extends DetectionState {
+  final int classNumber;
+  final String result;
+
+  DetectionSuccess({required this.classNumber, required this.result});
 }
-final class ImageDetectionSuccess extends ImageDetectionState {
-  final int classNum;
 
-  ImageDetectionSuccess({required this.classNum});
+
+
+
+
+
+
+
+
+class GetDataLoading extends DetectionState {}
+
+
+
+class UploadDataSuccess extends DetectionState {}
+class GetDataSuccess extends DetectionState {
+ final List<DetectionModel> data;
+
+  GetDataSuccess({required this.data});
+}
+class GetDataFilure extends DetectionState {
+  final String errMessage;
+
+  GetDataFilure({required this.errMessage});
+}
+
+class DetectionError extends DetectionState {
+  final String errMessage;
+
+  DetectionError({required this.errMessage});
 }

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
@@ -47,7 +48,12 @@ class _ForgetViewState extends State<ForgetView> {
             description:
                 'Please  check your email to reset your pssword, and you can Login ',
             onPressed: () {
-              Navigator.pushReplacementNamed(context, LoginView.id);
+              Navigator.pushReplacement(
+                context,
+                AnimationRoutes.fadeRoute(
+                  const LoginView(),
+                ),
+              );
             },
             actionTitle: 'Ok',
           );
@@ -58,7 +64,12 @@ class _ForgetViewState extends State<ForgetView> {
             title: 'Error',
             description: state.errMessage,
             onPressed: () {
-              Navigator.pop(context);
+             Navigator.pushReplacement(
+                context,
+                AnimationRoutes.fadeRoute(
+                  const ForgetView(),
+                ),
+              );
             },
             actionTitle: 'Ok',
           );

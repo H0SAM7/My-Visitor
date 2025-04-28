@@ -1,8 +1,12 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:my_visitor/features/ML/presentation/manager/cubit/image_detection_cubit.dart';
 import 'package:my_visitor/features/ML/presentation/views/detection_view.dart';
 
 class ScanView extends StatefulWidget {
@@ -35,47 +39,61 @@ class _ScanViewState extends State<ScanView> {
         _imageFile = file;
         _imageBytes = null;
       });
-      navigateToResultScreen(null, file);
+      navigateToResultScreen(
+        null,
+        file,
+      );
     }
   }
 
   void navigateToResultScreen(Uint8List? bytes, File? file) {
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => DetectionView(imageBytes: bytes, imageFile: file),
+      AnimationRoutes.fancyZoomRotateFade(
+        DetectionView(
+          imageBytes: bytes,
+          imageFile: file,
+        ),
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        children: [
-          Positioned.fill(
-            child: Image.asset(
-              Assets.imagesImageScan,
-              fit: BoxFit.cover,
+    return BlocProvider(
+      create: (context) => ImageDetectionCubit(Dio()),
+      child: Scaffold(
+        body: Stack(
+          children: [
+            Positioned.fill(
+              
+              child: Image.asset(
+                Assets.imagesImageScan,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Center(
-            child: Image.asset(Assets.imagesScanRecan),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 45.0),
-              child: IconButton(
-                onPressed: pickImage,
-                icon: Image.asset(
-                  Assets.imagesScanButton,
-                  fit: BoxFit.cover,
+            Center(
+              child: Image.asset(
+                Assets.imagesScanRecan,
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  bottom: 45.0,
+                ),
+                child: IconButton(
+                  onPressed: pickImage,
+                  icon: Image.asset(
+                    Assets.imagesScanButton,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

@@ -1,9 +1,11 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:my_visitor/features/maps/cubit/map_cubit.dart';
 
-import 'package:my_visitor/features/maps/mina/cubit/map_cubit.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,13 +16,17 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: MapScreen());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MapScreen(latitude: 26.566640, longitude: 31.742795),
+    );
   }
 }
 
 class MapScreen extends StatelessWidget {
-  MapScreen({super.key});
-
+  MapScreen({super.key, required this.latitude, required this.longitude});
+  double latitude;
+  double longitude;
   final MapController mapController = MapController();
 
   @override
@@ -46,6 +52,10 @@ class MapScreen extends StatelessWidget {
                         (tapPosition, point) => context
                             .read<MapCubit>()
                             .addDestinationMarker(point),
+                    onMapReady:
+                        () => context.read<MapCubit>().addDestinationMarker(
+                          LatLng(latitude, longitude),
+                        ),
                   ),
                   children: [
                     TileLayer(
@@ -89,8 +99,3 @@ class MapScreen extends StatelessWidget {
     );
   }
 }
-
-//hosam 
-//lang , lat
-
-/// MIna

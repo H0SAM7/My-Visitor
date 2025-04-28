@@ -6,18 +6,23 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
-import 'package:my_visitor/features/maps/mina/api.dart';
+import 'package:my_visitor/features/maps/api.dart';
 
 part 'map_state.dart';
 
 class MapCubit extends Cubit<MapState> {
   LocationData? currentLocation;
-  List<LatLng>? routePoints = [LatLng(0, 0)];
+  List<LatLng>? routePoints = [LatLng(26.566640, 31.742795)];
   List<Marker> markers = [];
+  bool isSatellite = false;
+  int tripSeconds = 0;
+  double distanceKm = 0;
+  double estimatedPrice = 0;
+
   MapCubit() : super(MapInitial());
+
   Future<void> getCurrentLocation() async {
     var location = Location();
-
     try {
       var userLocation = await location.getLocation();
       currentLocation = userLocation;
@@ -35,14 +40,10 @@ class MapCubit extends Cubit<MapState> {
 
     location.onLocationChanged.listen((LocationData newLocation) {
       currentLocation = newLocation;
+      emitLoaded();
     });
-    emit(
-      MapLoaded(
-        currentLocation: currentLocation,
-        routePoints: routePoints!,
-        markers: markers,
-      ),
-    );
+
+    emitLoaded();
   }
 
   Future<void> getRoute(LatLng destination) async {
@@ -63,16 +64,14 @@ class MapCubit extends Cubit<MapState> {
       final List<dynamic> coords =
           data['features'][0]['geometry']['coordinates'];
       routePoints = coords.map((coord) => LatLng(coord[1], coord[0])).toList();
+
+      // Calculate distance and price (example)
+      distanceKm = _calculateDistance(routePoints!);
+      estimatedPrice = distanceKm * 10; // Example: 10 EGP per km
+      emitLoaded();
     } else {
       throw Exception('Failed to load route');
     }
-    emit(
-      MapLoaded(
-        currentLocation: currentLocation,
-        routePoints: routePoints!,
-        markers: markers,
-      ),
-    );
   }
 
   void addDestinationMarker(LatLng point) {
@@ -86,12 +85,32 @@ class MapCubit extends Cubit<MapState> {
       ),
     );
     getRoute(point);
+  }
+
+  void toggleMapType() {
+    isSatellite = !isSatellite;
+    emitLoaded();
+  }
+
+  void emitLoaded() {
     emit(
       MapLoaded(
         currentLocation: currentLocation,
         routePoints: routePoints!,
         markers: markers,
+        tripSeconds: tripSeconds,
+        distanceKm: distanceKm,
+        estimatedPrice: estimatedPrice,
+        isSatellite: isSatellite,
       ),
     );
+  }
+
+  double _calculateDistance(List<LatLng> points) {
+    double totalDistance = 0;
+    for (int i = 0; i < points.length - 1; i++) {
+      totalDistance += Distance().as(LengthUnit.Kilometer, points[i], points[i + 1]);
+    }
+    return totalDistance;
   }
 }

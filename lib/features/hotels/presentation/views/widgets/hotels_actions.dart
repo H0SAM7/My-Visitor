@@ -33,7 +33,7 @@ class HotelsActions extends StatelessWidget {
               log('hotelLng: $hotelLng and hotelLat: $hotelLat');
               Navigator.pushNamed(
                 context,
-                MapScreen.id,
+                MapView.id,
                 arguments: {
                   'destinationLat': hotelLat,
                   'destinationLng': hotelLng,

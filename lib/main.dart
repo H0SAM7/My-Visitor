@@ -7,12 +7,14 @@ import 'package:my_visitor/bloc_observer.dart'         ;
 import 'package:my_visitor/core/routes/app_routes.dart';
 import 'package:device_preview/device_preview.dart'    ;
 import 'package:my_visitor/core/utils/hive_inits.dart' ;
+import 'package:my_visitor/features/ML/data/models/detection_model.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 import 'package:my_visitor/features/landmarks/presentation/manager/landmark_cubit/landmark_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
 import 'package:my_visitor/firebase_options.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:my_visitor/keys/hive_keys.dart';
 
 
 
@@ -41,6 +43,8 @@ Future<void> hiveInit() async {
   await hotelsInit();
   await resturantInit();
 
+  Hive.registerAdapter(DetectionModelAdapter());
+  await Hive.openBox<DetectionModel>(kMlData);
 
   await landmarksInit();
 }

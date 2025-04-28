@@ -56,7 +56,7 @@ class _LoginViewState extends State<LoginView> {
             closeFunction: () {
               Navigator.pushReplacement(
                 context,
-                AnimationRoutes.route(
+                AnimationRoutes.fadeRoute(
                   const LoginView(),
                 ),
               );
@@ -64,7 +64,7 @@ class _LoginViewState extends State<LoginView> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                AnimationRoutes.route(
+                AnimationRoutes.fadeRoute(
                   const LoginView(),
                 ),
               );
@@ -93,10 +93,10 @@ class _LoginViewState extends State<LoginView> {
                       const SizedBox(
                         height: 50,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: CustomBack(),
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(8.0),
+                      //   child: CustomBack(),
+                      // ),
 
                       Padding(
                         padding: const EdgeInsets.all(8.0),
