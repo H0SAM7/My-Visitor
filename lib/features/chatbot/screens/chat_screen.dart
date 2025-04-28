@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
+import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import '../models/chat_message.dart';
 import '../widgets/chat_bubble.dart';
 import '../services/ai_service.dart';
 
-class ChatScreen extends StatefulWidget {
-  const ChatScreen({super.key});
-  static String id = 'ChatScreen';
+class ChatbotScreen extends StatefulWidget {
+  const ChatbotScreen({super.key});
+  static String id = 'ChatbotScreen';
 
   @override
-  State<ChatScreen> createState() => _ChatScreenState();
+  State<ChatbotScreen> createState() => _ChatbotScreenState();
 }
 
-class _ChatScreenState extends State<ChatScreen> {
+class _ChatbotScreenState extends State<ChatbotScreen> {
   final TextEditingController _messageController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
   final List<ChatMessage> _messages = [];
@@ -224,6 +227,14 @@ ${_currentCity.isNotEmpty ? 'الموقع الحالي/Current Location: $_curre
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Ai Assistent ',
+          style: AppStyles.style22White(context),
+        ),
+        centerTitle: true,
+        leading: CustomBack(),
+      ),
       backgroundColor: Colors.black,
       body: Column(
         children: [
@@ -240,7 +251,7 @@ ${_currentCity.isNotEmpty ? 'الموقع الحالي/Current Location: $_curre
           if (_isLoading)
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 8),
-              child: CircularProgressIndicator(),
+              child: CustomLoadingIndicator(),
             ),
           _buildInputField(),
         ],
