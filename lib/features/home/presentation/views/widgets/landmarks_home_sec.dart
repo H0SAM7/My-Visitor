@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
+import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_home_list_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_list_view.dart';
 
 class LandmarksHomeSec extends StatelessWidget {
@@ -42,7 +43,7 @@ class LandmarksHomeSec extends StatelessWidget {
         ),
         SizedBox(
           height: 290.h,
-          child: LandmarksListView(),
+          child: LandmarksHomeListView(),
         ),
         Divider(),
       ],

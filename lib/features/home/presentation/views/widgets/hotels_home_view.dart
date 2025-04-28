@@ -39,7 +39,7 @@ class _HotelsHomeViewState extends State<HotelsHomeView> {
           );
         } else if (state is HotelFailure) {
           return Center(
-            child: CustomErrView(errMessage:state.errMessage),
+            child: Text(state.errMessage),
           );
         }
         return const Center(
