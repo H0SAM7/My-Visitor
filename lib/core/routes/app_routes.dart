@@ -6,6 +6,7 @@ import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
 import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
+import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 import 'package:my_visitor/features/hotels/data/models/book_model.dart/hotel_book_model.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
@@ -38,7 +39,9 @@ abstract class AppRoutes {
     ResturantsView.id: (context) => const ResturantsView(),
     DetectionView.id: (context) => DetectionView(),
     LandmarksView.id: (context) => LandmarksView(),
-
+    ChatScreen.id: (context) => ChatScreen(),
+    
+   
 
 
 

@@ -40,7 +40,7 @@ void main() async {
   ]).then((_) {
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: true,
       builder: (context) => MyApp(),
     ),
   );
@@ -106,6 +106,7 @@ class MyApp extends StatelessWidget {
               routes: AppRoutes.routes,
               onGenerateRoute: AppRoutes
                   .generateRoute, 
+                  
                   
             );
           }),
