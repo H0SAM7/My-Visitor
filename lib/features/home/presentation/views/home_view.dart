@@ -7,6 +7,7 @@ import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/drawer/drawer_view.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/fisrt_section.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/hotels_sec.dart';
+import 'package:my_visitor/features/home/presentation/views/widgets/landmarks_home_sec.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/resturants_home_sec.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/resturants/presentation/views/widgets/home_resturants_list_view.dart';
@@ -36,21 +37,22 @@ class HomeView extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: SizedBox(
-              height: 450.h, 
+              height: 450.h,
               child: FirstSection(),
             ),
           ),
           SliverToBoxAdapter(
             child: SizedBox(height: 10.h),
           ),
-          
-   SliverToBoxAdapter(
+          SliverToBoxAdapter(
+            child: LandmarksHomeSec(),
+          ),
+          SliverToBoxAdapter(
             child: HomeHotelsSection(),
           ),
           SliverToBoxAdapter(
             child: ResturantsHomeSec(),
           ),
-       
           SliverToBoxAdapter(
             child: SizedBox(height: 20.h),
           ),

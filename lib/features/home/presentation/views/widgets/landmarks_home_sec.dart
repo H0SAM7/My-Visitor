@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
-import 'package:my_visitor/features/home/presentation/views/widgets/hotels_home_view.dart';
-import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
+import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_list_view.dart';
 
-class HomeHotelsSection extends StatelessWidget {
-  const HomeHotelsSection({
+class LandmarksHomeSec extends StatelessWidget {
+  const LandmarksHomeSec({
     super.key,
   });
 
@@ -16,12 +14,13 @@ class HomeHotelsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Divider(),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              CustomTitleHeader(title: 'Hotels Near You'),
+              CustomTitleHeader(title: 'Popular Now'),
               TextButton(
                 child: Text(
                   'See All ',
@@ -30,26 +29,20 @@ class HomeHotelsSection extends StatelessWidget {
                   ).copyWith(color: orangeColor),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    AnimationRoutes.flipHorizontalRoute(
-                      HotelsView(),
-                    ),
-                  );
+                  // Navigator.push(
+                  //   context,
+                  //   AnimationRoutes.routeBottomLeft(
+                  //     ResturantsView(),
+                  //   ),
+                  // );
                 },
-              )
+              ),
             ],
           ),
         ),
         SizedBox(
-          height: 10,
-        ),
-        SizedBox(
           height: 290.h,
-          child: HotelsHomeView(),
-        ),
-        SizedBox(
-          height: 10,
+          child: LandmarksListView(),
         ),
         Divider(),
       ],

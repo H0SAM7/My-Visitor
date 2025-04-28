@@ -5,6 +5,7 @@ import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/utils/functions/url_luncher.dart';
+import 'package:my_visitor/core/widgets/confirmation_dialog.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
@@ -153,7 +154,6 @@ class _DetailsTab extends StatelessWidget {
             ),
             SizedBox(width: 8.w),
             Flexible(
-              
               child: Text(
                 restaurantModel.establishmentTypeAndCuisineTags?.isNotEmpty ==
                         true
@@ -175,12 +175,23 @@ class _DetailsTab extends StatelessWidget {
         SizedBox(height: 8.h),
 
         SizedBox(height: 50.h),
-        CustomButton(title: 'Go Now',onTap: ()async{
-           if (restaurantModel.hasMenu) {
-          await launchUrlMethod(Uri.parse(restaurantModel.menuUrl.toString()));
-
-        }
-        },),
+        CustomButton(
+          title: 'Go Now',
+          onTap: ()  {
+            if (restaurantModel.hasMenu) {
+              showCustomDialog(context,
+                  title: 'Explorer',
+                  content: 'Are you sure you want to open this Menu',
+                  positiveButtonText: 'Ok',
+                  negativeButtonText: 'Cancel', onPositivePressed: () async {
+                await launchUrlMethod(
+                    Uri.parse(restaurantModel.menuUrl.toString()));
+              }, onNegativePressed: () {
+                Navigator.pop(context);
+              });
+            }
+          },
+        ),
       ],
     );
   }

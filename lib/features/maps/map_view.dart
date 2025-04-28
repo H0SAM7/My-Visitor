@@ -1,9 +1,9 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:my_visitor/constants.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/features/maps/cubit/map_cubit.dart';
 
 
@@ -26,6 +26,7 @@ class MapView extends StatelessWidget {
           elevation: 0,
           title: const Text('Go to Trip', style: TextStyle(color: Colors.black)),
           centerTitle: true,
+          leading: CustomBack(),
         ),
         body: BlocBuilder<MapCubit, MapState>(
           builder: (context, state) {
