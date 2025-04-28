@@ -31,7 +31,7 @@ class LandmarksHomeListView extends StatelessWidget {
             },
           );
         } else if (state is LandmarkFailure) {
-          return Text( state.errMessage);
+          return Center(child: Text( state.errMessage));
         } else {
           return LoadingWidgets.loadingCircles();
         }
