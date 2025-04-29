@@ -19,6 +19,7 @@ import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
+import 'package:my_visitor/features/translation/translation_view.dart';
 import 'package:my_visitor/temp/screen.dart';
 
 abstract class AppRoutes {
@@ -40,6 +41,7 @@ abstract class AppRoutes {
     DetectionView.id: (context) => DetectionView(),
     LandmarksView.id: (context) => LandmarksView(),
     ChatbotScreen.id: (context) => ChatbotScreen(),
+    TranslationView.id: (context) => TranslationView(),
 
    
 
@@ -94,3 +96,6 @@ abstract class AppRoutes {
     }
   }
 }
+
+
+

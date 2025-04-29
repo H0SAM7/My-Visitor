@@ -6,7 +6,6 @@ import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_home_list_view.dart';
-import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_list_view.dart';
 
 class LandmarksHomeSec extends StatelessWidget {
   const LandmarksHomeSec({

@@ -1,7 +1,7 @@
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:firebase_core/firebase_core.dart'          ;
+import 'package:flutter/material.dart'                     ;
+import 'package:flutter/services.dart'                     ;
+import 'package:flutter_bloc/flutter_bloc.dart'            ;
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart'        ;
 import 'package:my_visitor/bloc_observer.dart'         ;
@@ -14,16 +14,18 @@ import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hote
 import 'package:my_visitor/features/landmarks/presentation/manager/landmark_cubit/landmark_cubit.dart';
 import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cubit.dart';
 import 'package:my_visitor/firebase_options.dart';
-import 'package:hive_flutter/adapters.dart';
-import 'package:my_visitor/keys/hive_keys.dart';
+import 'package:hive_flutter/adapters.dart'      ;
+import 'package:my_visitor/keys/hive_keys.dart'  ;
 
-// chatbot  ==
-// land pagi + page 
+//  home 
 
-// translation
-// settings 
-// drawer
-// redesign chat 
+//  translation
+
+//  settings 
+
+//  drawer
+
+//  redesign chat 
 
 
 

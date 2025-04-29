@@ -71,6 +71,7 @@ class LandmarkItem extends StatelessWidget {
                  if (snapshot.connectionState == ConnectionState.waiting) {
                    return const Center(child: CustomLoadingIndicator());
                  } else if (snapshot.hasError || !snapshot.hasData) {
+                  log(snapshot.error.toString());
                    return CustomImage(
                      image: destination.thumbnail ?? 'https://example.com/default_image.jpg',
                    );
