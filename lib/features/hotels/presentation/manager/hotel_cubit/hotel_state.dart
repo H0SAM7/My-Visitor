@@ -7,7 +7,6 @@ final class HotelInitial extends HotelState {}
 
 final class HotelLoading extends HotelState {}
 
-final class HotelPginationLoading extends HotelState {}
 
 final class HotelSuccess extends HotelState {
   final List<HotelModel> hotels;
@@ -20,6 +19,9 @@ final class HotelFailure extends HotelState {
 
   HotelFailure({required this.errMessage});
 }
+
+
+final class HotelPginationLoading extends HotelState {}
 
 final class HotelPaginationFailure extends HotelState {
   final String errMessage;

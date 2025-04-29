@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:hive_flutter/adapters.dart';
-import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/landmarks/data/models/landmark_model.dart';
 import 'package:my_visitor/keys/hive_keys.dart';
 

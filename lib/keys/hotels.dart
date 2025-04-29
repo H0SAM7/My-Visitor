@@ -2,13 +2,13 @@ final String hotelsBaseUrl =
     'https://serpapi.com/search.json?engine=google_hotels&q=Egypt';
 
 final String hotelsToken =
-    'dac0572b7cc229aa8ccacf2140e5e6742e5f5d35de9cf75de3b54bf859df9ac8';
+    '5cdd2ef3f95e7ab8e264a0bb4f8f7b0026577eecf028529484c3aa1891e0087d';
 
 final String landmarksApi =
     'https://serpapi.com/search.json?engine=google&q=egypt+Destinations';
 
 final String landmarkToken =
-    "dac0572b7cc229aa8ccacf2140e5e6742e5f5d35de9cf75de3b54bf859df9ac8";
+    "5cdd2ef3f95e7ab8e264a0bb4f8f7b0026577eecf028529484c3aa1891e0087d";
 
 String checkInDate = DateTime.now().toString();
 

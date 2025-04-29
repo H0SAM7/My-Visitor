@@ -5,17 +5,19 @@ import 'package:my_visitor/keys/hotels.dart';
 import 'package:my_visitor/services/api_services.dart';
 
 abstract class LandmarkRemoteDataSource {
-  Future<LandmarkResponse> fetchLandmarks();
+  Future<LandmarkResponse> fetchLandmarks({ int? pagiNum});
 }
 
 class LandmarkRemoteDataSourceImpl extends LandmarkRemoteDataSource {
   @override
-  Future<LandmarkResponse> fetchLandmarks() async {
-  
+  Future<LandmarkResponse> fetchLandmarks({ int? pagiNum}) async {
+
+ 
     var data = await ApiServices().getRequest(
       endPoint: landmarksApi,
       queryParameters: {'api_key': landmarkToken},
     );
+    log("$landmarksApi&start=${pagiNum??20}");
         LandmarkResponse landmarkResponse = LandmarkResponse.fromJson(data);
 
     saveLandmarksHive(

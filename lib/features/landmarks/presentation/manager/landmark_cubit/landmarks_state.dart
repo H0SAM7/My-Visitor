@@ -19,3 +19,15 @@ final class LandmarkFailure extends LandmarkState {
 
   LandmarkFailure({required this.errMessage});
 }
+
+
+
+
+
+final class LandmarkPginationLoading extends LandmarkState {}
+
+final class LandmarkPaginationFailure extends LandmarkState {
+  final String errMessage;
+
+  LandmarkPaginationFailure({required this.errMessage});
+}

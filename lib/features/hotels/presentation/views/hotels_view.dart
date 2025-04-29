@@ -52,6 +52,7 @@ class _HotelsViewState extends State<HotelsView> {
         listener: (context, state) {
           if (state is HotelSuccess) {
             hotels.addAll(state.hotels);
+            
             log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ${hotels.length}');
           }
 

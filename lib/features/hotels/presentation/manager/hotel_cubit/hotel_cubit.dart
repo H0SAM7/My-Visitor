@@ -31,7 +31,7 @@ class HotelCubit extends Cubit<HotelState> {
       } else {
         emit(HotelPaginationFailure(errMessage: failure.errMessage.toString()));
       }
-      emit(HotelFailure(errMessage: failure.errMessage.toString()));
+      //emit(HotelFailure(errMessage: failure.errMessage.toString()));
     }, (hotels) {
       log('@@@@@@@@@@@@@@@@@@@@${hotels.toString()}');
 

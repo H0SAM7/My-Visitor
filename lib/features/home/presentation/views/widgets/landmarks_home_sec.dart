@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
+import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_home_list_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_list_view.dart';
 
@@ -30,12 +32,12 @@ class LandmarksHomeSec extends StatelessWidget {
                   ).copyWith(color: orangeColor),
                 ),
                 onPressed: () {
-                  // Navigator.push(
-                  //   context,
-                  //   AnimationRoutes.routeBottomLeft(
-                  //     ResturantsView(),
-                  //   ),
-                  // );
+                  Navigator.push(
+                    context,
+                    AnimationRoutes.fancyZoomRotateFade(
+                      LandmarksView(),
+                    ),
+                  );
                 },
               ),
             ],

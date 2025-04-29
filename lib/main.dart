@@ -17,8 +17,9 @@ import 'package:my_visitor/firebase_options.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:my_visitor/keys/hive_keys.dart';
 
-// chatbot  
+// chatbot  ==
 // land pagi + page 
+
 // translation
 // settings 
 // drawer

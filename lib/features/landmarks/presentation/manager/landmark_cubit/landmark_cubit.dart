@@ -11,19 +11,28 @@ part 'landmarks_state.dart';
 
 class LandmarkCubit extends Cubit<LandmarkState> {
   LandmarkCubit() : super(LandmarkInitial());
-  Future<void> fetchLandmarks() async {
-    emit(LandmarkLoading());
+  Future<void> fetchLandmarks({int? pagiNum}) async {
+    if (pagiNum == 10 || pagiNum == null) {
+      emit(LandmarkLoading());
+    } else {
+      emit(LandmarkPginationLoading());
+    }
 
     var result = await LandmarkRepoImpl(
       landmarkLocalDataSource: LandmarkLocalDataSourceImpl(),
       landmarkRemoteDataSource: LandmarkRemoteDataSourceImpl(),
-    ).featchLandmarks();
+    ).featchLandmarks(
+      pagiNum: pagiNum,
+    );
 
     result.fold((failure) {
       log(failure.errMessage.toString());
-
-      emit(
-          LandmarkFailure(errMessage: failure.errMessage.toString()));
+      if (pagiNum == 10) {
+        emit(LandmarkFailure(errMessage: failure.errMessage.toString()));
+      } else {
+        emit(LandmarkPaginationFailure(
+            errMessage: failure.errMessage.toString()));
+      }
     }, (landmark) {
       log('@@@@@@@@@@@@@@@@@@@@${landmark.toString()}');
 
@@ -31,5 +40,3 @@ class LandmarkCubit extends Cubit<LandmarkState> {
     });
   }
 }
-
-

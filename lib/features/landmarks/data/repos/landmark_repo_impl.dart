@@ -21,7 +21,7 @@ class LandmarkRepoImpl extends LandmarkRepo {
 
   @override
   Future<Either<Failure, LandmarkResponse>> featchLandmarks(
-     ) async {
+{  int? pagiNum}   ) async {
 
     try {
 
@@ -31,7 +31,7 @@ class LandmarkRepoImpl extends LandmarkRepo {
         log('get data from hive ${landmarksLocal.toString()}');
         return right(landmarksLocal);
       }
-      LandmarkResponse   landmarksRemo = await landmarkRemoteDataSource.fetchLandmarks(
+      LandmarkResponse   landmarksRemo = await landmarkRemoteDataSource.fetchLandmarks(pagiNum: pagiNum
          );
       return right(landmarksRemo);
     } catch (e) {
