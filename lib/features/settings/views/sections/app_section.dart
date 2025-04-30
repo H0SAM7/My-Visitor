@@ -2,6 +2,9 @@ import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
 import 'package:my_visitor/features/chat/presentation/views/chat_view.dart';
+import 'package:my_visitor/features/settings/views/about_view.dart';
+import 'package:my_visitor/features/settings/views/faqs_view.dart';
+import 'package:my_visitor/features/settings/views/privacy_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:flutter/material.dart';
 
@@ -50,6 +53,9 @@ class GeneralSection extends StatelessWidget {
             color: orangeColor,
           ),
           title: 'FAQs',
+          onTap: (){
+            Navigator.pushNamed(context, FaqsView.id);
+          },
         ),
         ItemSetting(
           leading: Icon(
@@ -57,6 +63,9 @@ class GeneralSection extends StatelessWidget {
             color: orangeColor,
           ),
           title: 'About App',
+          onTap: (){
+            Navigator.pushNamed(context, AboutView.id);
+          },
         ),
         ItemSetting(
           leading: Icon(
@@ -64,6 +73,9 @@ class GeneralSection extends StatelessWidget {
             color: orangeColor,
           ),
           title: 'privacy & policy',
+          onTap: (){
+            Navigator.pushNamed(context, PrivacyPolicyView.id);
+          },
         ),
         ItemSetting(
           leading: Icon(

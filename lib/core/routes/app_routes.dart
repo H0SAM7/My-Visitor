@@ -21,6 +21,9 @@ import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.dart';
 import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
+import 'package:my_visitor/features/settings/views/about_view.dart';
+import 'package:my_visitor/features/settings/views/faqs_view.dart';
+import 'package:my_visitor/features/settings/views/privacy_view.dart';
 import 'package:my_visitor/features/settings/views/sections/edit_profile_view.dart';
 import 'package:my_visitor/features/settings/views/settings_view.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
@@ -54,7 +57,10 @@ abstract class AppRoutes {
     SettingsView.id: (context) => SettingsView(),
     PersonalInfoView.id: (context) => PersonalInfoView(),
     EditProfileView.id: (context) => EditProfileView(),
-        SendNotifactionsSendView.id: (context) => SendNotifactionsSendView(),
+    SendNotifactionsSendView.id: (context) => SendNotifactionsSendView(),
+    FaqsView.id: (context) => FaqsView(),
+    PrivacyPolicyView.id: (context) => PrivacyPolicyView(),
+    AboutView.id: (context) => AboutView(),
 
     NotifiView.id: (context) => NotifiView(),
 

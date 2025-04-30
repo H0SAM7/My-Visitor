@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,6 @@ import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
 import 'package:my_visitor/features/translation/translation_view.dart';
-import 'package:my_visitor/temp/map_test.dart'; // Add this import
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -141,7 +139,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
              DrawerListTile(
             title: "Support",
             leading: Icon(
-              Icons.support_outlined,
+              Icons.chat_bubble_outline,
               color: orangeColor,
             ),
             onTap: () {
