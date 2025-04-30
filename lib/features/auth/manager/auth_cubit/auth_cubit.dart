@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:my_visitor/core/error/firebase_failure.dart';
+import 'package:my_visitor/core/models/user_model.dart';
 import 'package:my_visitor/core/utils/functions/auth_helper.dart';
 part 'auth_state.dart';
 
@@ -12,15 +13,14 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
   Future<void> register({
-    required String email,
-    required String password,
+required UserModel userModel
   }) async {
     emit(AuthLoading());
     try {
       final userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
+        email:userModel.email,
+        password: userModel.password,
       );
       User? user = userCredential.user;
       if (user != null) {
@@ -37,17 +37,10 @@ class AuthCubit extends Cubit<AuthState> {
               .collection('users')
               .doc(user.email)
               .set({
-            'email': email,
+            'email':userModel.email,
           });
-          // String jsonString =
-          //     jsonEncode({'email': email, 'username': userName});
-
-          // await SharedPreference().setString(email, jsonString);
-
-          // await FirebaseFirestore.instance.collection('users').add({
-          //   "email": email,
-          // });
-
+          await userCredential.user?.updateDisplayName(userModel.name ??userModel.email);
+      
           emit(AuthSuccess());
 
           log('User account created successfully.');

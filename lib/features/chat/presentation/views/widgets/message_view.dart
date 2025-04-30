@@ -69,7 +69,7 @@ class FriendMessage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 77, 157, 222),
+                    color: const Color(0xffEEEEEE),
                     borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(16),
                         topLeft: Radius.circular(16),
@@ -77,7 +77,7 @@ class FriendMessage extends StatelessWidget {
                 child: Text(
                   messageModel.message,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: Color.fromARGB(53, 0, 0, 0),
                   ),
                 ),
               ),

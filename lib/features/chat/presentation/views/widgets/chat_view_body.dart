@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/chat/presentation/manager/cubit_cubit/chat_cubit.dart';
 import 'package:my_visitor/features/chat/data/models/message_model.dart';
@@ -128,10 +129,9 @@ class _ChatViewBodyState extends State<ChatViewBody> {
 
         return Column(
           children: [
-            //  CustomAppBar(
-            //   title: 'Live Chat',
-            //   onTap: showConfirmDialog,
-            // ),
+            SizedBox(
+              height: 20.h,
+            ),
             Expanded(
               child: MessagesListView(
                 controller: scrollController,
@@ -145,8 +145,14 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                 onSubmitted: (_) => sendMessage(),
                 decoration: InputDecoration(
                   hintText: " Write message...",
-                  hintStyle: const TextStyle(color: Colors.black54),
-                  border: InputBorder.none,
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  border: OutlineInputBorder(
+                    borderRadius:
+                        BorderRadius.circular(20.0), 
+                    borderSide: BorderSide.none, 
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
                   suffixIcon: IconButton(
                     icon: Icon(Icons.send, color: Colors.blueAccent),
                     onPressed: sendMessage,

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
 Future<void> checkEmailVerification(User user) async {
-  const timeout = Duration(seconds: 10);
+  const timeout = Duration(seconds: 260);
   final endTime = DateTime.now().add(timeout);
   while (!user.emailVerified && DateTime.now().isBefore(endTime)) {
     await Future.delayed(const Duration(seconds: 20));
@@ -12,8 +12,8 @@ Future<void> checkEmailVerification(User user) async {
 }
 
 Future<bool> waitForEmailVerification(User user) async {
-  const timeout = Duration(seconds: 20);
-  const interval = Duration(seconds: 5);
+  const timeout = Duration(seconds: 260);
+  const interval = Duration(seconds: 20);
   final endTime = DateTime.now().add(timeout);
 
   while (DateTime.now().isBefore(endTime)) {

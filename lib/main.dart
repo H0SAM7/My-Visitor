@@ -19,7 +19,7 @@ import 'package:my_visitor/keys/hive_keys.dart'  ;
 
 //  home 
 
-//  translation
+
 
 //  settings 
 

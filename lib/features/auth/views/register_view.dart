@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_visitor/core/models/user_model.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
@@ -24,7 +25,7 @@ class RegisterView extends StatefulWidget {
 class _RegisterViewState extends State<RegisterView> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   String? email, password, phone, fatherPhone, name;
-  bool _isDialogShowing = false; // Prevent multiple alerts
+  bool _isDialogShowing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +71,7 @@ class _RegisterViewState extends State<RegisterView> {
               onPressed: () {
                 _isDialogShowing = false; // Reset flag after dismissing
 
-              Navigator.pushReplacementNamed(context, RegisterView.id);
+                Navigator.pushReplacementNamed(context, RegisterView.id);
               },
               actionTitle: 'Ok',
             );
@@ -150,11 +151,13 @@ class _RegisterViewState extends State<RegisterView> {
                           label: 'Sign Up',
                           onTap: () async {
                             if (formKey.currentState!.validate()) {
-                              await BlocProvider.of<AuthCubit>(context)
-                                  .register(
+                              final user = UserModel(
                                 email: email!,
                                 password: password!,
+                                name: name,
                               );
+                              await BlocProvider.of<AuthCubit>(context)
+                                  .register(userModel: user);
 
                               // await FirebaseMessaging.instance
                               //     .subscribeToTopic(notifiGroup);

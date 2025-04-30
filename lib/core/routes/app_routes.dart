@@ -6,6 +6,8 @@ import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
 import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
+import 'package:my_visitor/features/chat/presentation/views/chat_view.dart';
+import 'package:my_visitor/features/chat/presentation/views/contacts_view.dart';
 import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 import 'package:my_visitor/features/hotels/data/models/book_model.dart/hotel_book_model.dart';
@@ -17,6 +19,8 @@ import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.dart';
 import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
+import 'package:my_visitor/features/settings/views/settings_view.dart';
+import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/features/translation/translation_view.dart';
@@ -25,7 +29,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = HomeView.id;
+  static String? initialRoute = ChatView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -43,12 +47,13 @@ abstract class AppRoutes {
     ChatbotScreen.id: (context) => ChatbotScreen(),
     TranslationView.id: (context) => TranslationView(),
 
-   
+    ContactsScreen.id: (context) => ContactsScreen(),
+    SettingsView.id: (context) => SettingsView(),
+    PersonalInfoView.id: (context) => PersonalInfoView(),
 
-
-
-
-    
+    ChatView.id: (context) => ChatView(
+          contactEmail: 'hoadel2003@gmail.com',
+        ),
   };
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -96,6 +101,3 @@ abstract class AppRoutes {
     }
   }
 }
-
-
-

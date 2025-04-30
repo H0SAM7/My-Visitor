@@ -1,3 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/features/chat/presentation/manager/cubit_cubit/chat_cubit.dart';
 import 'package:my_visitor/features/chat/presentation/views/widgets/chat_view_body.dart';
 import 'package:flutter/material.dart';
@@ -17,16 +20,22 @@ class ChatView extends StatelessWidget {
       create: (context) => ChatCubit(),
       child: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.pink[300],
+          backgroundColor: Colors.transparent,
+          leading: CustomBack(),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Chat with expert'),
+              Text(
+                "Support Team",
+                style: AppStyles.style22White(context),
+                
+              ),
               Text(
                 'Typically replies within 5 minutes',
-                style: TextStyle(fontSize: 12, color: Colors.white70),
+                style: AppStyles.style16Gray(context),
               ),
             ],
+            
           ),
         ),
         body: ChatViewBody(
