@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
+import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
 import 'package:my_visitor/features/home/presentation/views/home_view.dart';
 import 'package:my_visitor/features/settings/views/settings_view.dart';
 
@@ -20,76 +22,52 @@ class _BottomNavigatorState extends State<BottomNavigator> {
   final List<Widget> _children = [
     HomeView(),
     ScanView(),
-    HomeView(),
+    ChatbotScreen(),
     SettingsView(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 25, 25, 25),
+      backgroundColor: Colors.transparent,
       body: _children[_currentIndex],
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: BottomNavigationBar(
-          elevation: 0,
-          onTap: onTabTapped,
-          currentIndex: _currentIndex,
-          items: [
-            BottomNavigationBarItem(
-              backgroundColor: Colors.white,
-              icon: Image.asset(
-                Assets.iconsHome,
-                color: orangeColor,
-                height: 20,
-              ),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              backgroundColor: Colors.white,
-              icon: Image.asset(
-                Assets.iconsScanning,
-                color: orangeColor,
-                height: 30,
-              ),
-              label: 'Scan',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.scanner,
-                size: 20,
-              ),
-              label: '',
-            ),
-            BottomNavigationBarItem(
-              backgroundColor: Colors.white,
-              icon: Icon(
-                Icons.settings,
-                color: orangeColor,
-                size: 20,
-              ),
-              label: 'Settings',
-            ),
-          ],
-          selectedItemColor: Colors.white,
-          selectedLabelStyle: TextStyle(
-            color: Colors.orange,
+      bottomNavigationBar: CurvedNavigationBar(
+        index: _currentIndex,
+        height: 60.0,
+        items: [
+          Image.asset(
+            Assets.iconsHome,
+            color: orangeColor,
+            height: 20,
           ),
-          selectedFontSize: 10,
-          backgroundColor: Colors.transparent ,
-          type: BottomNavigationBarType.fixed   ,
-          showUnselectedLabels: false           ,
-          selectedIconTheme: IconThemeData()    ,
-        ),
+          Image.asset(
+            Assets.iconsScanning,
+            color: orangeColor,
+            height: 30,
+          ),
+          Image.asset(
+            Assets.iconsChatbot,
+            color: orangeColor,
+            height: 22,
+          ),
+          Image.asset(
+            Assets.iconsSetting,
+            color: orangeColor,
+            height: 30,
+          ),
+        ],
+        color: Colors.white,
+        buttonBackgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
+        
+        animationCurve: Curves.easeInOut,
+        animationDuration: Duration(milliseconds: 600),
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
       ),
     );
-  }
-
-  void onTabTapped(int index) {
-    setState(() {
-      _currentIndex = index;
-    });
   }
 }

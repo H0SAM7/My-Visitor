@@ -10,6 +10,8 @@ class Assets {
 
   static const String iconsChat = "assets/icons/chat.png";
 
+  static const String iconsChatbot = "assets/icons/chatbot.png";
+
   static const String iconsChevronRight = "assets/icons/chevron-right.png";
 
   static const String iconsDrawerIcon = "assets/icons/drawer_icon.png";
@@ -26,6 +28,8 @@ class Assets {
 
   static const String iconsScanning = "assets/icons/Scanning.png";
 
+  static const String iconsSetting = "assets/icons/Setting.png";
+
   static const String iconsSettingsIcon = "assets/icons/SettingsIcon.png";
 
   static const String iconsUser = "assets/icons/User.png";
@@ -33,6 +37,8 @@ class Assets {
   static const String imagesAnubis = "assets/images/anubis.png";
 
   static const String imagesBackground = "assets/images/background.png";
+
+  static const String imagesDefualtProfile = "assets/images/defualt_profile.png";
 
   static const String imagesEgyptionCat = "assets/images/egyption_cat.png";
 
@@ -51,6 +57,10 @@ class Assets {
   static const String imagesLuxorTSt = "assets/images/luxorTSt.png";
 
   static const String imagesModelTst = "assets/images/modelTst.png";
+
+  static const String imagesNoNotifi = "assets/images/no_notifi.png";
+
+  static const String imagesNotifiIcon = "assets/images/notifiIcon.png";
 
   static const String imagesPharaoh = "assets/images/pharaoh.png";
 

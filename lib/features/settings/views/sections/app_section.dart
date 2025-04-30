@@ -1,5 +1,7 @@
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
+import 'package:my_visitor/features/chat/presentation/views/chat_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:flutter/material.dart';
 
@@ -10,19 +12,10 @@ class AppSections extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
+       
         ItemSetting(
           onTap: () {
-            //         Navigator.pushNamed(context, NotifiView.id);
-          },
-          leading: Icon(
-            Icons.history_outlined,
-            color: orangeColor,
-          ),
-          title: 'Booking History',
-        ),
-        ItemSetting(
-          onTap: () {
-            //         Navigator.pushNamed(context, NotifiView.id);
+                 Navigator.pushNamed(context, NotifiView.id);
           },
           leading: Image.asset(
             Assets.iconsBell,
@@ -32,7 +25,6 @@ class AppSections extends StatelessWidget {
         ),
         ItemSetting(
           onTap: () {
-            //         Navigator.pushNamed(context, NotifiView.id);
           },
           leading: Icon(
             Icons.language_outlined,
@@ -72,6 +64,16 @@ class GeneralSection extends StatelessWidget {
             color: orangeColor,
           ),
           title: 'privacy & policy',
+        ),
+        ItemSetting(
+          leading: Icon(
+            Icons.chat_bubble_outline,
+            color: orangeColor,
+          ),
+          title: 'Support Team',
+          onTap: (){
+            Navigator.pushNamed(context, ChatView.id);
+          },
         ),
       ],
     );

@@ -1,20 +1,29 @@
-import 'dart:convert';
+import 'dart:developer';
 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
-import 'package:my_visitor/core/utils/shared_pref.dart';
+import 'package:my_visitor/core/widgets/loading_widgets.dart';
+import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/chat/presentation/views/widgets/custom_app_bar.dart';
 import 'package:my_visitor/features/settings/views/sections/edit_profile_view.dart';
+import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
 import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';
-import 'package:my_visitor/features/settings/views/widgets/user_details_section.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+
+class AppConstants {
+  static const String defaultUsername = 'User Name';
+  static const String defaultEmail = 'User@gmail.com';
+  static const String defaultPhone = 'Not Provided';
+  static const String defaultProfileImage = Assets.imagesDefualtProfile;
+}
 
 class PersonalInfoView extends StatelessWidget {
   const PersonalInfoView({super.key});
   static String id = 'PersonalInfoView';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,16 +37,11 @@ class PersonalInfoView extends StatelessWidget {
               },
               child: Text(
                 'Edit',
-                style: TextStyle(
-                  color: orangeColor,
-                ),
+                style: TextStyle(color: orangeColor),
               ),
             ),
           ),
-          const UserDetailsSection(),
-          const SettingContainer(
-            child: PersonalInfoSection(),
-          )
+          const SettingContainer(child: PersonalInfoSection()),
         ],
       ),
     );
@@ -45,83 +49,107 @@ class PersonalInfoView extends StatelessWidget {
 }
 
 class PersonalInfoSection extends StatefulWidget {
-  const PersonalInfoSection({
-    super.key,
-  });
+  const PersonalInfoSection({super.key});
 
   @override
   State<PersonalInfoSection> createState() => _PersonalInfoSectionState();
 }
 
 class _PersonalInfoSectionState extends State<PersonalInfoSection> {
-  Map<String, String>? userInfo;
+  Map<String, dynamic>? userInfo;
 
   @override
   void initState() {
     super.initState();
-    _loadUserInfo();
+    _checkUserAndLoadInfo();
+  }
+
+  Future<void> _checkUserAndLoadInfo() async {
+    if (FirebaseAuth.instance.currentUser == null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        Navigator.pushReplacementNamed(context, LoginView.id);
+      });
+      return;
+    }
+    await _loadUserInfo();
   }
 
   Future<void> _loadUserInfo() async {
-    User? user = FirebaseAuth.instance.currentUser;
-    Map<String, String> defaultValues = {
-      'username': 'User Name', // Default full name
-      'email': 'User@gmail.com', // Default email
-    };
-
-    if (user != null) {
-      String? jsonString = await SharedPreference().getString(user.email!);
-
-      if (jsonString != null) {
-        Map<String, dynamic> storedUserInfo = jsonDecode(jsonString);
-
-        userInfo =
-            storedUserInfo.map((key, value) => MapEntry(key, value as String));
-      } else {
-        userInfo = defaultValues;
-      }
-    } else {
-      userInfo = defaultValues;
+    try {
+      userInfo = await ProfileUtils.getUserProfile();
+      setState(() {});
+    } catch (e) {
+      log('Error loading user info: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to load user info')),
+      );
+      userInfo = {
+        'username': AppConstants.defaultUsername,
+        'email': AppConstants.defaultEmail,
+        'phone': AppConstants.defaultPhone,
+        'profileImageUrl': AppConstants.defaultProfileImage,
+      };
+      setState(() {});
     }
-
-    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomListTile(
-          title: 'Full Name',
-          subtitle: userInfo!['username']!,
-          leading: Image.asset(
-            Assets.iconsUser,
-          ),
-        ),
-        CustomListTile(
-          title: 'Email',
-          subtitle: userInfo!['email']!,
-          leading: Icon(FontAwesomeIcons.mailchimp),
-        ),
-        CustomListTile(
-          title: 'Phone Number',
-          subtitle: '01098894833',
-          leading: Image.asset(
-            Assets.iconsCall,
-          ),
-        ),
-      ],
-    );
+    return userInfo == null
+        ? Center(child: LoadingWidgets.loadingthreeRotatingDots())
+        : Column(
+            children: [
+              CircleAvatar(
+                radius: 45,
+                backgroundColor: Colors.orange,
+                backgroundImage: userInfo!['profileImageUrl'] != null &&
+                        userInfo!['profileImageUrl'].isNotEmpty
+                    ? NetworkImage(userInfo!['profileImageUrl'])
+                    : const AssetImage(AppConstants.defaultProfileImage)
+                        as ImageProvider,
+                onBackgroundImageError: (exception, stackTrace) {
+                  log('Error loading profile image: $exception');
+                },
+              ),
+              const SizedBox(height: 20),
+              CustomListTile(
+                title: 'Full Name',
+                subtitle: userInfo!['username']!,
+                leading: Image.asset(
+                  Assets.iconsUser,
+                  color: orangeColor,
+                ),
+              ),
+              CustomListTile(
+                title: 'Email',
+                subtitle: userInfo!['email']!,
+                leading: Icon(
+                  FontAwesomeIcons.envelope,
+                  color: orangeColor,
+                ),
+              ),
+              CustomListTile(
+                title: 'Phone Number',
+                subtitle: userInfo!['phone']!,
+                leading: Image.asset(
+                  Assets.iconsCall,
+                  color: orangeColor,
+                ),
+              ),
+            ],
+          );
   }
 }
 
 class CustomListTile extends StatelessWidget {
-  const CustomListTile(
-      {super.key,
-      required this.title,
-      this.leading,
-      this.trailing,
-      required this.subtitle});
+  const CustomListTile({
+    super.key,
+    required this.title,
+    this.leading,
+    this.trailing,
+    required this.subtitle,
+  });
+
   final String title;
   final String subtitle;
   final Widget? leading;
@@ -131,10 +159,13 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: leading,
-      title: Text(title),
+      title: Text(
+        title,
+        style: AppStyles.style18(context),
+      ),
       subtitle: Text(
         subtitle,
-        style: AppStyles.style18(context).copyWith(color: Colors.black)
+        style: AppStyles.style16Gray(context),
       ),
       trailing: trailing,
     );

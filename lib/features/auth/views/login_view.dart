@@ -143,8 +143,8 @@ class _LoginViewState extends State<LoginView> {
                             if (formKey.currentState!.validate()) {
                               await BlocProvider.of<AuthCubit>(context)
                                   .login(email: email!, password: password!);
-                              // await FirebaseMessaging.instance
-                              //     .subscribeToTopic(notifiGroup);
+                              await FirebaseMessaging.instance
+                                  .subscribeToTopic(notifiGroup);
                             }
 
                             //  FirebaseAuth.instance.authStateChanges().listen((User? user) {
@@ -180,8 +180,8 @@ class _LoginViewState extends State<LoginView> {
                           onTap: () async {
                             await BlocProvider.of<AuthCubit>(context)
                                 .signInWithGoogle();
-                            // await FirebaseMessaging.instance
-                            //     .subscribeToTopic(notifiGroup);
+                            await FirebaseMessaging.instance
+                                .subscribeToTopic(notifiGroup);
                           },
                         ),
                       ),

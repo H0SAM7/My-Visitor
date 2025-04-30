@@ -20,6 +20,16 @@ class InfoSection extends StatelessWidget {
             Navigator.pushNamed(context, PersonalInfoView.id);
           },
         ),
+         ItemSetting(
+          onTap: () {
+            //         Navigator.pushNamed(context, NotifiView.id);
+          },
+          leading: Icon(
+            Icons.history_outlined,
+            color: orangeColor,
+          ),
+          title: 'Booking Info',
+        ),
       
       ],
     );

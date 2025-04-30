@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:translator/translator.dart' as translator;
 
@@ -88,6 +89,7 @@ class _TranslationViewState extends State<TranslationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
@@ -116,7 +118,7 @@ class _TranslationViewState extends State<TranslationView> {
             ElevatedButton(
               style: ElevatedButton.styleFrom(
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                backgroundColor: const Color.fromARGB(255, 4, 68, 120),
+                backgroundColor: orangeColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                 ),
@@ -148,7 +150,7 @@ class _TranslationViewState extends State<TranslationView> {
           languageMap: languageMap,
         ),
         IconButton(
-          icon: const Icon(Icons.swap_horiz, size: 28),
+          icon:  Icon(Icons.swap_horiz, size: 28,color: orangeColor,),
           onPressed: _swapLanguages,
         ),
         _LanguageDropdown(
@@ -182,7 +184,7 @@ class _LanguageDropdown extends StatelessWidget {
     return DropdownButton<String>(
       value: value,
       underline: const SizedBox(),
-      icon: const Icon(Icons.arrow_drop_down),
+      icon:  Icon(Icons.arrow_drop_down,color: orangeColor,),
       items: languageMap.entries.map((entry) {
         return DropdownMenuItem(
           value: entry.key,
@@ -246,7 +248,7 @@ class _TextCardState extends State<_TextCard> {
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.grey[200],
+        color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Column(
@@ -258,24 +260,24 @@ class _TextCardState extends State<_TextCard> {
             maxLines: null,
             maxLength: 5000,
             decoration: InputDecoration.collapsed(hintText: widget.hint),
-            style: const TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16,color: Colors.black),
           ),
           if (widget.showCharCount)
             Text(
               "${widget.controller.text.length} / 5000",
-              style: const TextStyle(fontSize: 12, color: Colors.grey),
+              style: const TextStyle(fontSize: 12, color: Colors.black),
             ),
           const SizedBox(height: 8),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                icon: const Icon(Icons.volume_up, size: 20),
+                icon: const Icon(Icons.volume_up, size: 20,color:  Colors.black,),
                 onPressed: _speak,
               ),
               const SizedBox(width: 10),
               IconButton(
-                icon: const Icon(Icons.copy, size: 20),
+                icon: const Icon(Icons.copy, size: 20,color: Colors.black),
                 onPressed: _copyToClipboard,
               ),
             ],

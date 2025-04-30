@@ -1,5 +1,7 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/models/user_model.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
@@ -159,8 +161,8 @@ class _RegisterViewState extends State<RegisterView> {
                               await BlocProvider.of<AuthCubit>(context)
                                   .register(userModel: user);
 
-                              // await FirebaseMessaging.instance
-                              //     .subscribeToTopic(notifiGroup);
+                              await FirebaseMessaging.instance
+                                  .subscribeToTopic(notifiGroup);
                             }
                           },
                         ),
@@ -178,8 +180,8 @@ class _RegisterViewState extends State<RegisterView> {
                           onTap: () async {
                             await BlocProvider.of<AuthCubit>(context)
                                 .signInWithGoogle();
-                            // await FirebaseMessaging.instance
-                            //     .subscribeToTopic(notifiGroup);
+                            await FirebaseMessaging.instance
+                                .subscribeToTopic(notifiGroup);
                           },
                         ),
                       ),

@@ -1,3 +1,4 @@
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/get_formated_date.dart';
 import 'package:my_visitor/features/chat/data/models/message_model.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,7 @@ class MyMessage extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.all(10.0),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 14, 93, 157),
+                  color: orangeColor,
                   borderRadius: BorderRadius.only(
                     bottomRight: Radius.circular(16),
                     topLeft: Radius.circular(16),

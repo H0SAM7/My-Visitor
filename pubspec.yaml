@@ -35,6 +35,7 @@ dependencies:
   cloud_firestore: ^5.6.5
   collection: ^1.19.1
   cupertino_icons: ^1.0.6
+  curved_navigation_bar: ^1.0.6
   dartz: ^0.10.1
   device_preview: ^1.1.0
   dio: ^5.8.0+1
@@ -53,6 +54,7 @@ dependencies:
   google_fonts: ^6.2.1
   google_generative_ai: ^0.4.6
   google_sign_in: ^6.2.2
+  googleapis_auth: ^2.0.0
   hive: ^2.2.3
   hive_flutter: ^1.1.0
   image_picker: ^1.1.2
@@ -64,6 +66,7 @@ dependencies:
   rename_app: ^1.6.2
   rflutter_alert: ^2.0.7
   shared_preferences: ^2.5.2
+  supabase_flutter: ^2.9.0
   translator: ^1.0.3+1
   url_launcher: ^6.3.1
 
@@ -88,6 +91,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/files/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see

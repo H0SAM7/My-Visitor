@@ -38,6 +38,8 @@ required UserModel userModel
               .doc(user.email)
               .set({
             'email':userModel.email,
+            'username': userModel.name ?? userModel.email,
+              'phone': userModel.phoneNumber ?? 'Not Provided',
           });
           await userCredential.user?.updateDisplayName(userModel.name ??userModel.email);
       

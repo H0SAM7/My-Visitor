@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/features/ML/presentation/views/detection_view.dart';
 import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
+import 'package:my_visitor/features/Notifications/services/send_notifications_view.dart';
+import 'package:my_visitor/features/Notifications/views/notifi_view.dart';
 import 'package:my_visitor/features/auth/views/forget_view.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
@@ -19,6 +21,7 @@ import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.dart';
 import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
+import 'package:my_visitor/features/settings/views/sections/edit_profile_view.dart';
 import 'package:my_visitor/features/settings/views/settings_view.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
@@ -29,7 +32,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = ChatView.id;
+  static String? initialRoute = BottomNavigator.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -50,6 +53,10 @@ abstract class AppRoutes {
     ContactsScreen.id: (context) => ContactsScreen(),
     SettingsView.id: (context) => SettingsView(),
     PersonalInfoView.id: (context) => PersonalInfoView(),
+    EditProfileView.id: (context) => EditProfileView(),
+        SendNotifactionsSendView.id: (context) => SendNotifactionsSendView(),
+
+    NotifiView.id: (context) => NotifiView(),
 
     ChatView.id: (context) => ChatView(
           contactEmail: 'hoadel2003@gmail.com',

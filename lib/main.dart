@@ -1,4 +1,5 @@
 import 'package:firebase_core/firebase_core.dart'          ;
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart'                     ;
 import 'package:flutter/services.dart'                     ;
 import 'package:flutter_bloc/flutter_bloc.dart'            ;
@@ -16,6 +17,7 @@ import 'package:my_visitor/features/resturants/presentation/manager/resrurant_cu
 import 'package:my_visitor/firebase_options.dart';
 import 'package:hive_flutter/adapters.dart'      ;
 import 'package:my_visitor/keys/hive_keys.dart'  ;
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 //  home 
 
@@ -35,6 +37,18 @@ void main() async {
   await hiveInit();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
+  );
+   FirebaseMessaging messaging = FirebaseMessaging.instance;
+   await messaging.requestPermission(
+    alert: true,
+    badge: true,
+    sound: true,
+  );
+
+  await Supabase.initialize(
+    url: 'https://crgwwfzifppleytrqcmh.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNyZ3d3ZnppZnBwbGV5dHJxY21oIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzkyMjI0MzksImV4cCI6MjA1NDc5ODQzOX0.cjC38O9-YnZ916IaZDQXee4ONfdnV3Fy14ymnpOAZ4c',
   );
   Bloc.observer = SimpleBlocObserever();
   SystemChrome.setPreferredOrientations([

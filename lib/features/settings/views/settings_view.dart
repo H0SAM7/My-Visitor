@@ -29,7 +29,7 @@ class SettingsView extends StatelessWidget {
         child: Column(
           children: [
 
-            const UserDetailsSection(),
+            // const UserDetailsSection(),
             SizedBox(height: 15.h,),
             const SettingContainer(
               child: InfoSection(),

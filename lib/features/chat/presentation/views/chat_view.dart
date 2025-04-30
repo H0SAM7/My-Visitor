@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/features/chat/presentation/manager/cubit_cubit/chat_cubit.dart';
