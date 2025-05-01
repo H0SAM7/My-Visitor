@@ -60,6 +60,8 @@ class Assets {
 
   static const String imagesNoNotifi = "assets/images/no_notifi.png";
 
+  static const String imagesNodataCuate = "assets/images/Nodata-cuate.png";
+
   static const String imagesNotifiIcon = "assets/images/notifiIcon.png";
 
   static const String imagesPharaoh = "assets/images/pharaoh.png";

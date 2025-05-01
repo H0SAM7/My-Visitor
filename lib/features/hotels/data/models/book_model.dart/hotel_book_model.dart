@@ -17,4 +17,13 @@ class HotelBookModel {
       'guest': guest,
     };
   }
+
+  factory HotelBookModel.fromJson(Map<String, dynamic> json) {
+    return HotelBookModel(
+      checkIn: json['checkIn'] as String,
+      checkOut: json['checkOut'] as String,
+      noRooms: json['noRooms'] as int,
+      guest: json['guest'] as int,
+    );
+  }
 }

@@ -22,6 +22,7 @@ import 'package:my_visitor/features/landmarks/presentation/views/landmarks_view.
 import 'package:my_visitor/features/maps/map_view.dart';
 import 'package:my_visitor/features/payment/paymob/presentation/manager/cubit/pay_mob_cubit.dart';
 import 'package:my_visitor/features/settings/views/about_view.dart';
+import 'package:my_visitor/features/settings/views/booking_info.dart';
 import 'package:my_visitor/features/settings/views/faqs_view.dart';
 import 'package:my_visitor/features/settings/views/privacy_view.dart';
 import 'package:my_visitor/features/settings/views/sections/edit_profile_view.dart';
@@ -35,7 +36,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = BottomNavigator.id;
+  static String? initialRoute = BookingInfoView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -61,6 +62,7 @@ abstract class AppRoutes {
     FaqsView.id: (context) => FaqsView(),
     PrivacyPolicyView.id: (context) => PrivacyPolicyView(),
     AboutView.id: (context) => AboutView(),
+    BookingInfoView.id: (context) => BookingInfoView(),
 
     NotifiView.id: (context) => NotifiView(),
 

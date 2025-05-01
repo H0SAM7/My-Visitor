@@ -19,16 +19,6 @@ import 'package:hive_flutter/adapters.dart'      ;
 import 'package:my_visitor/keys/hive_keys.dart'  ;
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-//  home 
-
-
-
-//  settings 
-
-//  drawer
-
-//  redesign chat 
-
 
 
 

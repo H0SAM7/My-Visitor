@@ -28,13 +28,13 @@ class ReviewAndPriceSection extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(width: 4), // Space between rating and star
+            SizedBox(width: 4), 
             Icon(
               Icons.star,
               color: Colors.orange,
               size: 24,
             ),
-            SizedBox(width: 4), // Space between star and reviews
+            SizedBox(width: 4), 
             Text(
               '(${hotel.reviews!}) Reviews',
               style: TextStyle(

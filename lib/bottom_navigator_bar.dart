@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';

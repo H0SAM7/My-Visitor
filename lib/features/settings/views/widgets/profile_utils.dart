@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:my_visitor/core/utils/shared_pref.dart';
-import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 
 class ProfileUtils {

@@ -1,4 +1,3 @@
-import 'package:my_visitor/temp/restu.dart';
 
 final List<FAQ> faqs = const [
     FAQ(
