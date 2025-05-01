@@ -29,14 +29,16 @@ import 'package:my_visitor/features/settings/views/sections/edit_profile_view.da
 import 'package:my_visitor/features/settings/views/settings_view.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
-import 'package:my_visitor/features/splash/views/splash_screen.dart';
 import 'package:my_visitor/features/translation/translation_view.dart';
 import 'package:my_visitor/temp/screen.dart';
+
+import '../../features/splash/onboarding_view.dart';
+import '../../features/splash/splash_view.dart';
 
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = LoginView.id;
+  static String? initialRoute = SplashView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########
@@ -46,7 +48,9 @@ abstract class AppRoutes {
     LoginView.id: (context) => const LoginView(),
     screenTSt.id: (context) => const screenTSt(),
     ForgetView.id: (context) => const ForgetView(),
-    SplashScreen1.id: (context) => const SplashScreen1(),
+        OnboardingView.id: (context) => const OnboardingView(),
+        SplashView.id: (context) => const SplashView(),
+
     HotelsView.id: (context) => const HotelsView(),
     ResturantsView.id: (context) => const ResturantsView(),
     DetectionView.id: (context) => DetectionView(),

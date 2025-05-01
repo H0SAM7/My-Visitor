@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import '../models/chat_message.dart';
 import '../widgets/chat_bubble.dart';
@@ -132,7 +131,7 @@ ${_currentCity.isNotEmpty ? 'الموقع الحالي/Current Location: $_curre
       setState(() {
         _messages.add(ChatMessage(
           text: _currentLanguage == 'ar'
-              ? "عذراً، حدث خطأ. يرجى المحاولة لاحقاً."
+              ? "عذرا لم استطع فهمك الرجاء المحاولة مره اخريز"
               : "Sorry, an error occurred. Please try again later.",
           isUser: false,
           time: _getCurrentTime(),
@@ -233,7 +232,6 @@ ${_currentCity.isNotEmpty ? 'الموقع الحالي/Current Location: $_curre
           style: AppStyles.style22White(context),
         ),
         centerTitle: true,
-        leading: CustomBack(),
       ),
       backgroundColor: Colors.black,
       body: Column(

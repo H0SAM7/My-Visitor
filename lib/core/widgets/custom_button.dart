@@ -8,10 +8,12 @@ class CustomButton extends StatelessWidget {
     required this.title,
     this.color,
     this.onTap,
-    this.width,
+    this.width, this.txtColor,
   });
   final String title;
   final Color? color;
+    final Color? txtColor;
+
   final double? width;
   final void Function()? onTap;
   @override
@@ -34,9 +36,10 @@ class CustomButton extends StatelessWidget {
                 title,
                 textAlign: TextAlign.left,
                 style: AppStyles.style16Gray(context).copyWith(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                    color: Colors.white),
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color:txtColor?? Colors.white,
+                ),
               ),
             ),
           ),

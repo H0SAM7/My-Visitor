@@ -9,7 +9,10 @@ class ResturantsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
         appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
         title: Text(
           'Resturants Near You',
           style: AppStyles.style22White(context),

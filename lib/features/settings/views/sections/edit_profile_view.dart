@@ -12,7 +12,7 @@ import 'package:my_visitor/core/utils/shared_pref.dart';
 import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
-import 'package:my_visitor/features/chat/presentation/views/widgets/custom_app_bar.dart';
+import 'package:my_visitor/core/widgets/custom_app_bar.dart';
 
 class EditProfileView extends StatefulWidget {
   const EditProfileView({super.key});

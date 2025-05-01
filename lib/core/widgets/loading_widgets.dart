@@ -3,36 +3,37 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:my_visitor/constants.dart';
 
 class LoadingWidgets {
-  static Widget loadingCircles() {
+  static Widget loadingCircles({double? size}) {
     return Center(
       child: LoadingAnimationWidget.newtonCradle(
-        size: 100,
+        size: size??100,
         color: orangeColor,
       ),
     );
   }
 
-  static Widget loadingthreeRotatingDots() {
+  static Widget loadingthreeRotatingDots({double? size}) {
     return Center(
       child: LoadingAnimationWidget.threeRotatingDots(
-        size: 100,
+        size:size?? 100,
         color: orangeColor,
       ),
     );
   }
-static Widget loadingprogressiveDots() {
+static Widget loadingprogressiveDots({double? size}) {
+
     return Center(
       child: LoadingAnimationWidget.progressiveDots(
-        size: 100,
+        size:size?? 100,
         color: orangeColor,
       ),
     );
   }
 
-static Widget loadingdotsTriangle() {
+static Widget loadingdotsTriangle({double? size}) {
     return Center(
       child: LoadingAnimationWidget.dotsTriangle(
-        size: 100,
+        size:size?? 100,
         color: orangeColor,
       ),
     );

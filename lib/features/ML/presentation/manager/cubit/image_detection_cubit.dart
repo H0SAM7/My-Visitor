@@ -46,7 +46,7 @@ class ImageDetectionCubit extends Cubit<DetectionState> {
         );
       } else {
         emit(DetectionError(
-            errMessage: 'Unexpected response format , please try again'));
+            errMessage: 'Unexpected Error , please try again'));
       }
     } catch (e) {
       log('Error: $e');

@@ -1,16 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/utils/functions/url_luncher.dart';
 import 'package:my_visitor/core/widgets/confirmation_dialog.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
 import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ResturantsDetailsView extends StatelessWidget {
   const ResturantsDetailsView({super.key, required this.restaurantModel});
@@ -21,61 +18,70 @@ class ResturantsDetailsView extends StatelessWidget {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        body: Column(
-          children: [
-            Stack(
-              children: [
-                SizedBox(
-                  height: 320,
-                  child: CustomImage(
-                    borderRadius: 0,
-                    image: restaurantModel.squareImgUrl ??
-                        'https://th.bing.com/th/id/R.26f677899cb906831538311cac52504e?rik=s0GOw2btDQt1tQ&pid=ImgRaw&r=0',
-                  ),
-                ),
-                Positioned(
-                  top: 40.h,
-                  left: 16.w,
-                  child: CustomBack(),
-                ),
-              ],
-            ),
-            Expanded(
-              child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Column(
-                  children: [
-                    // Tabs
-                    const TabBar(
-                      indicatorColor: Colors.blue,
-                      labelColor: Colors.black,
-                      unselectedLabelColor: Colors.grey,
-                      tabs: [
-                        Tab(text: "Details"),
-                        Tab(text: "Reviews"),
-                      ],
+        appBar: AppBar(
+          leading: CustomBack(),
+          title: Text(
+            restaurantModel.name,
+            style: AppStyles.style22White(context),
+          ),
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          foregroundColor: Colors.transparent,
+          surfaceTintColor: Colors.transparent,
+        ),
+        backgroundColor: Colors.black,
+        body: SafeArea(
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  SizedBox(
+                    height: 320,
+                    child: CustomImage(
+                      borderRadius: 0,
+                      image: restaurantModel.squareImgUrl ??
+                          'https://th.bing.com/th/id/R.26f677899cb906831538311cac52504e?rik=s0GOw2btDQt1tQ&pid=ImgRaw&r=0',
                     ),
-                    const SizedBox(height: 16),
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          _DetailsTab(
-                            restaurantModel: restaurantModel,
-                          ),
-                          _ReviewsTab(
-                            restaurantModel: restaurantModel,
-                          ),
+                  ),
+                ],
+              ),
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                  ),
+                  child: Column(
+                    children: [
+                      // Tabs
+                      const TabBar(
+                        indicatorColor: Colors.blue,
+                        labelColor: Colors.black,
+                        unselectedLabelColor: Colors.grey,
+                        tabs: [
+                          Tab(text: "Details"),
+                          Tab(text: "Reviews"),
                         ],
                       ),
-                    ),
-                  ],
+                      const SizedBox(height: 16),
+                      Expanded(
+                        child: TabBarView(
+                          children: [
+                            _DetailsTab(
+                              restaurantModel: restaurantModel,
+                            ),
+                            _ReviewsTab(
+                              restaurantModel: restaurantModel,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -177,7 +183,7 @@ class _DetailsTab extends StatelessWidget {
         SizedBox(height: 50.h),
         CustomButton(
           title: 'Go Now',
-          onTap: ()  {
+          onTap: () {
             if (restaurantModel.hasMenu) {
               showCustomDialog(context,
                   title: 'Explorer',

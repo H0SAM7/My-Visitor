@@ -68,15 +68,11 @@ class _ScanViewState extends State<ScanView> {
             Positioned.fill(
               
               child: Image.asset(
-                Assets.imagesImageScan,
+                 Assets.imagesMina,
                 fit: BoxFit.cover,
               ),
             ),
-            Center(
-              child: Image.asset(
-                Assets.imagesScanRecan,
-              ),
-            ),
+         
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(

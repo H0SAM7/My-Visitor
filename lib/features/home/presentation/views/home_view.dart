@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/drawer/custom_drawer.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/fisrt_section.dart';

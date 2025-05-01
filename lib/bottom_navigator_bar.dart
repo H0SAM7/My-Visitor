@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/ML/presentation/views/scan_view.dart';
 import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
@@ -36,23 +35,23 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         items: [
           Image.asset(
             Assets.iconsHome,
-            color: orangeColor,
-            height: 20,
+            color: Colors.black,
+            height: 35,
           ),
           Image.asset(
             Assets.iconsScanning,
-            color: orangeColor,
-            height: 30,
+            color:Colors.black,
+            height: 35,
           ),
           Image.asset(
             Assets.iconsChatbot,
-            color: orangeColor,
-            height: 22,
+            color: Colors.black,
+            height: 25,
           ),
           Image.asset(
             Assets.iconsSetting,
-            color: orangeColor,
-            height: 30,
+            color:Colors.black,
+            height: 35,
           ),
         ],
         color: Colors.white,

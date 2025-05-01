@@ -46,7 +46,9 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_bloc: ^9.0.0
+  flutter_launcher_icons: ^0.14.3
   flutter_map: ^8.1.1
+  flutter_native_splash: ^2.4.6
   flutter_screenutil: ^5.9.3
   flutter_staggered_animations: ^1.1.1
   flutter_timer_countdown: ^1.0.7
@@ -124,3 +126,9 @@ flutter_assets:
   filename: assets.dart
   field_prefix: null
   ignore_comments: true
+flutter_native_splash:
+  color: "#0000FF" # Background color
+  image: assets/images/logo.png
+  android: true
+  ios: true
+  web: true

@@ -1,12 +1,9 @@
 import 'dart:io';
 import 'dart:typed_data';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:my_visitor/core/styles/text_styles.dart';
-import 'package:my_visitor/core/widgets/custom_err_view.dart';
 import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/ML/data/historical_data.dart';
 import 'package:my_visitor/features/ML/presentation/manager/cubit/image_detection_cubit.dart';
@@ -72,7 +69,11 @@ class DetectionView extends StatelessWidget {
         fit: BoxFit.cover,
       );
     } else {
-      return const Text("No image available");
+      return  Text("No image available",style:  TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          
+        ),);
     }
   }
 
@@ -99,9 +100,11 @@ class DetectionView extends StatelessWidget {
     } else if (state is DetectionError) {
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: CustomErrView(
-          errMessage: state.errMessage,
-        ),
+        child: Text('We could not identify the Image. Please try again later. ',style: TextStyle(
+          fontSize: 20,
+          fontWeight: FontWeight.bold,
+          
+        ),)
       );
     } else {
       return const SizedBox.shrink();

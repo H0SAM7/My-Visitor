@@ -91,10 +91,9 @@ class _LoginViewState extends State<LoginView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                       SizedBox(
+                      SizedBox(
                         height: 120.h,
                       ),
-                 
 
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -104,7 +103,7 @@ class _LoginViewState extends State<LoginView> {
                               .copyWith(fontSize: 25),
                         ),
                       ),
-                       SizedBox(
+                      SizedBox(
                         height: 10.h,
                       ),
                       CustomTextFrom(

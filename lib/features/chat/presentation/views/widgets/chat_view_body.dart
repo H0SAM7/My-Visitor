@@ -1,4 +1,5 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/chat/presentation/manager/cubit_cubit/chat_cubit.dart';
 import 'package:my_visitor/features/chat/data/models/message_model.dart';
@@ -154,7 +155,7 @@ class _ChatViewBodyState extends State<ChatViewBody> {
                   filled: true,
                   fillColor: Colors.white,
                   suffixIcon: IconButton(
-                    icon: Icon(Icons.send, color: Colors.blueAccent),
+                    icon: Icon(Icons.send, color: orangeColor),
                     onPressed: sendMessage,
                   ),
                 ),

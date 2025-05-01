@@ -47,6 +47,7 @@ class _CustomTextFromState extends State<CustomTextFrom> {
           focusColor: Colors.black,
           filled: true,
           fillColor: Colors.white,
+          floatingLabelBehavior: FloatingLabelBehavior.never, // Add this line
           label: Text(
             widget.label,
             style: TextStyle(
