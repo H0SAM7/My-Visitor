@@ -105,7 +105,7 @@ class _NotifiViewState extends State<NotifiView> {
           style: AppStyles.style22White(context, ),
         ),
         elevation: 0,
-        backgroundColor: Colors.black45,
+        backgroundColor: Colors.black,
       ),
       backgroundColor: const Color.fromARGB(255, 255, 254, 254),
 

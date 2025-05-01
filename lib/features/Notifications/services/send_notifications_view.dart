@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 
-
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/widgets/custom_text_field.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/Notifications/services/send_notifications.dart';
@@ -141,6 +141,17 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
               }
             },
           ),
+          // IconButton(onPressed: () async{
+          //       await FirebaseMessaging.instance
+          //                         .subscribeToTopic(notifiGroup);
+                            
+
+
+
+
+
+
+          // }, icon: Icon(Icons.import_contacts))
           // IconButton(
           //     onPressed: () async {
           //       await NotificationsServices().sendNotification(
@@ -156,8 +167,6 @@ class _sendNotifactionsSendViewState extends State<SendNotifactionsSendView> {
     );
   }
 }
-
-
 
 class CustomSendButton extends StatelessWidget {
   const CustomSendButton({
@@ -182,10 +191,13 @@ class CustomSendButton extends StatelessWidget {
         height: 50,
         width: width ?? 300,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(color: Colors.blueAccent,),
-            // gradient: LinearGradient(colors: mixColors),
-            color: color ?? Colors.blueAccent,),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(
+            color: Colors.blueAccent,
+          ),
+          // gradient: LinearGradient(colors: mixColors),
+          color: color ?? Colors.blueAccent,
+        ),
         child: Center(
           child: Text(
             label,
