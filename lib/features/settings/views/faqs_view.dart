@@ -9,12 +9,15 @@ class FaqsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(
           'Frequently Asked Questions (FAQs)',
           style: AppStyles.style18(context),
         ),
         backgroundColor: Colors.transparent,
+        foregroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
       ),
       body: ListView.builder(
         itemCount: faqs.length,
@@ -29,11 +32,10 @@ class FaqsView extends StatelessWidget {
               style: const TextStyle(
                 fontSize: 18.0,
                 fontWeight: FontWeight.bold,
-                color: Colors.black87,
+                color: Colors.white,
               ),
             ),
-           backgroundColor: const Color(0xFFF5F5F5),
-            collapsedBackgroundColor: Colors.white,
+            collapsedBackgroundColor: Colors.black,
             children: [
               Padding(
                 padding:
@@ -42,7 +44,7 @@ class FaqsView extends StatelessWidget {
                   faqs[index].answer,
                   style: const TextStyle(
                     fontSize: 15.0,
-                    color: Colors.black54,
+                    color: Colors.white,
                   ),
                 ),
               ),

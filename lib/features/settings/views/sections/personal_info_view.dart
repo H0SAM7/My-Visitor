@@ -101,7 +101,6 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
             children: [
               CircleAvatar(
                 radius: 45,
-                backgroundColor: Colors.orange,
                 backgroundImage: userInfo!['profileImageUrl'] != null &&
                         userInfo!['profileImageUrl'].isNotEmpty
                     ? NetworkImage(userInfo!['profileImageUrl'])

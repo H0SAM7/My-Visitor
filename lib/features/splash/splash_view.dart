@@ -11,7 +11,7 @@ class SplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     Future.delayed(
         const Duration(
-          seconds: 4,
+          seconds: 3,
         ), () {
       Navigator.pushReplacement(
         // ignore: use_build_context_synchronously
@@ -31,17 +31,8 @@ class SplashView extends StatelessWidget {
             Image.asset(
               Assets.imagesLogo,
             ),
-            const SizedBox(height: 20),
-            // const Text(
-            //   'My App',
-            //   style: TextStyle(
-            //     fontSize: 24,
-            //     color: Colors.white,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
-            const SizedBox(height: 20),
-            LoadingWidgets.loadingCircles(size:60 ,),
+            const SizedBox(height: 30),
+            LoadingWidgets.loadingCircles(size: 60, color: Color(0xffe5d189)),
           ],
         ),
       ),

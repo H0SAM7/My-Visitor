@@ -6,7 +6,6 @@ import 'package:my_visitor/features/settings/views/sections/app_section.dart';
 import 'package:my_visitor/features/settings/views/sections/info_section.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';
-import 'package:my_visitor/features/settings/views/widgets/user_details_section.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 

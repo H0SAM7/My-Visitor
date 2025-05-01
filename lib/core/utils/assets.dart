@@ -36,6 +36,8 @@ class Assets {
 
   static const String imagesAnubis = "assets/images/anubis.png";
 
+  static const String imagesAppIcon = "assets/images/app_icon.png";
+
   static const String imagesBackground = "assets/images/background.png";
 
   static const String imagesDefualtProfile = "assets/images/defualt_profile.png";

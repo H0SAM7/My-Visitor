@@ -27,8 +27,8 @@ class _EditProfileViewState extends State<EditProfileView> {
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
   String? _email;
-  XFile? _profileImage; // Temporary holder for picked image
-  String? _profileImageUrl; // URL from Firestore or Supabase
+  XFile? _profileImage; 
+  String? _profileImageUrl;
   bool _isLoading = false;
 
   @override
@@ -236,7 +236,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                       const SizedBox(height: 20),
                       CustomTextFrom(
                         label: 'Phone Number',
-                        hint: '01098894833',
+                        hint: '01123456789',
                         controller: _phoneController,
                         keyboardType: TextInputType.phone,
                         validator: (value) {

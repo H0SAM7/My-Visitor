@@ -96,7 +96,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 Text(userInfo?['username'] ?? AppConstants.defaultUsername),
             accountEmail: Text(userInfo?['email'] ?? AppConstants.defaultEmail),
             currentAccountPicture: CircleAvatar(
-              backgroundColor: Colors.orange,
               backgroundImage:
                   _profileImageUrl != null && _profileImageUrl!.isNotEmpty
                       ? NetworkImage(_profileImageUrl!)

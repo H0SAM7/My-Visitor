@@ -22,6 +22,7 @@ Future<void> hotelsInit() async {
   Hive.registerAdapter(GpsCoordinatesAdapter());
   Hive.registerAdapter(ChildrenAdapter());
   await Hive.openBox<HotelModel>(kHotelsBox);
+
 }
 
 Future<void> resturantInit() async {

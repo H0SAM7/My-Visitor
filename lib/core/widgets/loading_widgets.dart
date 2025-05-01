@@ -3,11 +3,11 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:my_visitor/constants.dart';
 
 class LoadingWidgets {
-  static Widget loadingCircles({double? size}) {
+  static Widget loadingCircles({double? size,Color? color}) {
     return Center(
       child: LoadingAnimationWidget.newtonCradle(
         size: size??100,
-        color: orangeColor,
+        color:color?? orangeColor,
       ),
     );
   }

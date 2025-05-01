@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});
-static String id='PrivacyPolicyView';
+  static String id = 'PrivacyPolicyView';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text('Privacy Policy',style: AppStyles.style18(context),),
         backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        foregroundColor: Colors.transparent,
+        leading: CustomBack(),
+        title: Text(
+          'Privacy Policy',
+          style: AppStyles.style18(context),
+        ),
+        elevation: 0,
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),

@@ -127,7 +127,7 @@ flutter_assets:
   field_prefix: null
   ignore_comments: true
 flutter_native_splash:
-  color: "#0000FF" # Background color
+  color: "#000000" 
   image: assets/images/logo.png
   android: true
   ios: true

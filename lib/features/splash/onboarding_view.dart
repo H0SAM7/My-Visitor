@@ -8,6 +8,7 @@ import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
+import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
 
@@ -21,9 +22,9 @@ class OnboardingView extends StatefulWidget {
 
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _pageController = PageController();
+  bool isLoading=false;
   int _currentPage = 0;
 
-  // List of image paths (replace with your actual image assets)
   final List<String> _images = [
     Assets.imagesSplash1,
     Assets.imagesSplash2,
@@ -83,7 +84,6 @@ class _OnboardingViewState extends State<OnboardingView> {
               );
             },
           ),
-          // Gradient overlay for better text readability
           Container(
             decoration: BoxDecoration(
               gradient: LinearGradient(
@@ -105,7 +105,7 @@ class _OnboardingViewState extends State<OnboardingView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Embrace the Mystique',
+                  'Discover the Wonders of Ancient Egypt',
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -114,14 +114,13 @@ class _OnboardingViewState extends State<OnboardingView> {
                 ),
                 const SizedBox(height: 8),
                 const Text(
-                  'Discover the land of the Pharaohs and explore ancient wonders.',
+                  'explore the pyramids, temples, and the tombs of pharaoh ',
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white70,
                   ),
                 ),
                 const SizedBox(height: 16),
-                // Dots indicator synchronized with PageView
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: List.generate(
@@ -140,11 +139,15 @@ class _OnboardingViewState extends State<OnboardingView> {
                   ),
                 ),
                 const SizedBox(height: 24),
-                CustomButton(
+               isLoading?CustomLoadingIndicator(): CustomButton(
                   title: 'Get Started',
                   color: const Color(0xFFF5A623),
                   txtColor: Colors.black,
                   onTap: () {
+                    isLoading=true;
+                    setState(() {
+                      
+                    });
                     FirebaseAuth.instance
                         .authStateChanges()
                         .listen((User? user) {
@@ -170,6 +173,10 @@ class _OnboardingViewState extends State<OnboardingView> {
                             ),
                           );
                         }
+                        isLoading=false;
+                        setState(() {
+                          
+                        });
                       }
                     });
                   },
@@ -184,3 +191,6 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 }
+
+
+

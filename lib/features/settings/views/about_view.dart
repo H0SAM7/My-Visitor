@@ -3,6 +3,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
@@ -12,10 +13,12 @@ static String id='AboutView';
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        surfaceTintColor: Colors.transparent,
+        foregroundColor: Colors.transparent,
         elevation: 0,
         title: Image.asset(Assets.imagesHomeLogo),
         centerTitle: true,
-    
+    leading: CustomBack(),
     
       ),
       body: SingleChildScrollView(

@@ -48,16 +48,14 @@ abstract class AppRoutes {
     LoginView.id: (context) => const LoginView(),
     screenTSt.id: (context) => const screenTSt(),
     ForgetView.id: (context) => const ForgetView(),
-        OnboardingView.id: (context) => const OnboardingView(),
-        SplashView.id: (context) => const SplashView(),
-
+    OnboardingView.id: (context) => const OnboardingView(),
+    SplashView.id: (context) => const SplashView(),
     HotelsView.id: (context) => const HotelsView(),
     ResturantsView.id: (context) => const ResturantsView(),
     DetectionView.id: (context) => DetectionView(),
     LandmarksView.id: (context) => LandmarksView(),
     ChatbotScreen.id: (context) => ChatbotScreen(),
     TranslationView.id: (context) => TranslationView(),
-
     ContactsScreen.id: (context) => ContactsScreen(),
     SettingsView.id: (context) => SettingsView(),
     PersonalInfoView.id: (context) => PersonalInfoView(),
@@ -67,7 +65,6 @@ abstract class AppRoutes {
     PrivacyPolicyView.id: (context) => PrivacyPolicyView(),
     AboutView.id: (context) => AboutView(),
     BookingInfoView.id: (context) => BookingInfoView(),
-
     NotifiView.id: (context) => NotifiView(),
 
     ChatView.id: (context) => ChatView(
