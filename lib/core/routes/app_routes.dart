@@ -36,7 +36,7 @@ import 'package:my_visitor/temp/screen.dart';
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
-  static String? initialRoute = BookingInfoView.id;
+  static String? initialRoute = LoginView.id;
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########

@@ -1,6 +1,7 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/models/user_model.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
@@ -93,17 +94,18 @@ class _RegisterViewState extends State<RegisterView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 40,
+                      SizedBox(
+                        height: 20.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: CustomBack(),
                       ),
 
-                      const SizedBox(
-                        height: 10,
+                      SizedBox(
+                        height: 90.h,
                       ),
+
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(

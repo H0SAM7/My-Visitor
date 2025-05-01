@@ -1,5 +1,6 @@
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/features/settings/views/booking_info.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:flutter/material.dart';
@@ -22,13 +23,14 @@ class InfoSection extends StatelessWidget {
         ),
          ItemSetting(
           onTap: () {
-            //         Navigator.pushNamed(context, NotifiView.id);
+                Navigator.pushNamed(context, BookingInfoView.id);
           },
           leading: Icon(
             Icons.history_outlined,
             color: orangeColor,
           ),
           title: 'Booking Info',
+
         ),
       
       ],

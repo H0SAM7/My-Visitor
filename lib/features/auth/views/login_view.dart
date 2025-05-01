@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
@@ -90,13 +91,10 @@ class _LoginViewState extends State<LoginView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      const SizedBox(
-                        height: 50,
+                       SizedBox(
+                        height: 120.h,
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.all(8.0),
-                      //   child: CustomBack(),
-                      // ),
+                 
 
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -105,6 +103,9 @@ class _LoginViewState extends State<LoginView> {
                           style: AppStyles.style22White(context)
                               .copyWith(fontSize: 25),
                         ),
+                      ),
+                       SizedBox(
+                        height: 10.h,
                       ),
                       CustomTextFrom(
                         hint: 'Enter Your Email',

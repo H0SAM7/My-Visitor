@@ -15,7 +15,6 @@ class BookHotelView extends StatefulWidget {
 }
 
 class _BookHotelViewState extends State<BookHotelView> {
-  // Controllers
   final ValueNotifier<DateTime> checkInDateController =
       ValueNotifier<DateTime>(DateTime(2025, 12, 5));
   final ValueNotifier<DateTime> checkOutDateController =
@@ -27,7 +26,6 @@ class _BookHotelViewState extends State<BookHotelView> {
   final ValueNotifier<String?> errorMessageController =
       ValueNotifier<String?>(null);
 
-  // Constraints
   static const int minRooms = 1;
   static const int maxRooms = 10;
   static const int minAdults = 1;
