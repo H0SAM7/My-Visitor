@@ -13,6 +13,7 @@ import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
 import 'package:my_visitor/core/widgets/custom_app_bar.dart';
+import 'package:http/http.dart' as http;
 
 class EditProfileView extends StatefulWidget {
   const EditProfileView({super.key});
@@ -27,7 +28,7 @@ class _EditProfileViewState extends State<EditProfileView> {
   final _nameController = TextEditingController();
   final _phoneController = TextEditingController();
   String? _email;
-  XFile? _profileImage; 
+  XFile? _profileImage;
   String? _profileImageUrl;
   bool _isLoading = false;
 
@@ -57,11 +58,12 @@ class _EditProfileViewState extends State<EditProfileView> {
       Map<String, dynamic> profile = await ProfileUtils.getUserProfile();
       setState(() {
         _email = profile['email'];
-        _nameController.text = profile['username'];
-        _phoneController.text = profile['phone'];
+        _nameController.text = profile['username'] ?? '';
+        _phoneController.text = profile['phone'] ?? '';
         _profileImageUrl = profile['profileImageUrl'];
       });
-      developer.log('Loaded profileImageUrl: $_profileImageUrl');
+      developer.log(
+          'Loaded profile: email=$_email, username=${_nameController.text}, phone=${_phoneController.text}, profileImageUrl=$_profileImageUrl');
     } catch (e) {
       developer.log('Error loading user info: $e');
       ScaffoldMessenger.of(context).showSnackBar(
@@ -80,7 +82,8 @@ class _EditProfileViewState extends State<EditProfileView> {
     if (pickedFile != null) {
       setState(() {
         _profileImage = pickedFile;
-        developer.log('Image picked: ${pickedFile.path}');
+        developer.log(
+            'Image picked: ${pickedFile.path}, size: ${File(pickedFile.path).length()} bytes');
       });
     } else {
       developer.log('No image selected');
@@ -90,21 +93,35 @@ class _EditProfileViewState extends State<EditProfileView> {
   Future<String> _uploadImage({required XFile image}) async {
     try {
       File file = File(image.path);
-      String fileName = "profileImages/${DateTime.now().millisecondsSinceEpoch}.jpg";
-      developer.log('Uploading image to Supabase: $fileName');
+      String fileName =
+          "profile-images/${DateTime.now().millisecondsSinceEpoch}.jpg";
+      developer.log(
+          'Uploading image to Supabase: $fileName, size: ${await file.length()} bytes');
       await supa.Supabase.instance.client.storage
-          .from('profileImages')
+          .from('profile-images')
           .upload(fileName, file);
       final String publicUrl = supa.Supabase.instance.client.storage
-          .from('profileImages')
+          .from('profile-images')
           .getPublicUrl(fileName);
-      setState(() {
-        _profileImageUrl = publicUrl; // Update UI with new URL
-      });
-      developer.log('✅ Image uploaded: $publicUrl');
-      return publicUrl;
+      // Test URL accessibility
+      final response = await http.get(Uri.parse(publicUrl));
+      developer
+          .log('URL accessibility: ${response.statusCode}, URL: $publicUrl');
+      if (response.statusCode == 200) {
+        setState(() {
+          _profileImageUrl = publicUrl;
+        });
+        developer.log('✅ Image uploaded: $publicUrl');
+        return publicUrl;
+      } else {
+        developer.log('❌ Image URL not accessible: ${response.statusCode}');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to access uploaded image')),
+        );
+        return "";
+      }
     } catch (e) {
-      developer.log('❌ Error: $e');
+      developer.log('❌ Error uploading image: $e');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Failed to upload image')),
       );
@@ -131,35 +148,42 @@ class _EditProfileViewState extends State<EditProfileView> {
     }
     try {
       String? newProfileImageUrl = _profileImageUrl;
-      if (_profileImage != null && (_profileImageUrl == null || !_profileImageUrl!.startsWith('http'))) {
+      if (_profileImage != null) {
         developer.log('Attempting to upload new image');
         newProfileImageUrl = await _uploadImage(image: _profileImage!);
         if (newProfileImageUrl.isEmpty) {
-          developer.log('Image upload failed, continuing with existing image URL');
-          newProfileImageUrl = _profileImageUrl;
+          developer.log('Image upload failed, using existing image URL');
+          newProfileImageUrl =
+              _profileImageUrl ?? AppConstants.defaultProfileImage;
+        } else {
+          setState(() {
+            _profileImage = null; // Clear local image after successful upload
+          });
         }
       }
       await FirebaseFirestore.instance.collection('users').doc(user.email).set({
         'email': user.email,
         'username': _nameController.text.trim(),
         'phone': _phoneController.text.trim(),
-        if (newProfileImageUrl != null && newProfileImageUrl.isNotEmpty && newProfileImageUrl.startsWith('http'))
-          'profileImageUrl': newProfileImageUrl,
+        'profileImageUrl':
+            newProfileImageUrl ?? AppConstants.defaultProfileImage,
       }, SetOptions(merge: true));
       developer.log('Firestore update successful');
       Map<String, String> userInfo = {
         'username': _nameController.text.trim(),
         'email': user.email!,
         'phone': _phoneController.text.trim(),
-        'profileImageUrl': newProfileImageUrl ?? AppConstants.defaultProfileImage,
+        'profileImageUrl':
+            newProfileImageUrl ?? AppConstants.defaultProfileImage,
       };
+
       await SharedPreference().setString(user.email!, jsonEncode(userInfo));
       await user.updateDisplayName(_nameController.text.trim());
       developer.log('Profile save successful');
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Profile updated successfully')),
       );
-      Navigator.pop(context);
+      Navigator.pushReplacementNamed(context, PersonalInfoView.id);
     } catch (e) {
       developer.log('Error saving profile: $e');
       ScaffoldMessenger.of(context).showSnackBar(
@@ -169,6 +193,20 @@ class _EditProfileViewState extends State<EditProfileView> {
     setState(() {
       _isLoading = false;
     });
+  }
+
+  ImageProvider? _getProfileImage() {
+    if (_profileImage != null) {
+      return FileImage(File(_profileImage!.path));
+    }
+    if (_profileImageUrl != null && _profileImageUrl!.isNotEmpty) {
+      if (_profileImageUrl!.startsWith('http')) {
+        return NetworkImage(_profileImageUrl!);
+      } else {
+        return AssetImage(_profileImageUrl!);
+      }
+    }
+    return const AssetImage(AppConstants.defaultProfileImage);
   }
 
   @override
@@ -198,19 +236,16 @@ class _EditProfileViewState extends State<EditProfileView> {
                         child: CircleAvatar(
                           radius: 45,
                           backgroundColor: Colors.orange,
-                          backgroundImage: _profileImage != null
-                              ? FileImage(File(_profileImage!.path)) // Preview picked image
-                              : (_profileImageUrl != null && _profileImageUrl!.isNotEmpty
-                                  ? (_profileImageUrl!.startsWith('http')
-                                      ? NetworkImage(_profileImageUrl!)
-                                      : AssetImage(_profileImageUrl!)) as ImageProvider
-                                  : const AssetImage(AppConstants.defaultProfileImage)),
-                          child: (_profileImage == null &&
-                                  (_profileImageUrl == null || _profileImageUrl!.isEmpty))
+                          backgroundImage: _getProfileImage(),
+                          child: (_getProfileImage() == null)
                               ? const Icon(Icons.edit)
                               : null,
                           onBackgroundImageError: (exception, stackTrace) {
                             developer.log('Error loading image: $exception');
+                            setState(() {
+                              _profileImageUrl =
+                                  AppConstants.defaultProfileImage;
+                            });
                           },
                         ),
                       ),
@@ -241,7 +276,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                         keyboardType: TextInputType.phone,
                         validator: (value) {
                           if (value != null && value.trim().isNotEmpty) {
-                            if (!RegExp(r'^\d{10,15}$').hasMatch(value.trim())) {
+                            if (!RegExp(r'^\d{10,15}$')
+                                .hasMatch(value.trim())) {
                               return 'Please enter a valid phone number';
                             }
                           }

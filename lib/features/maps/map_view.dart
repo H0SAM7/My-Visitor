@@ -4,13 +4,12 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
+import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/maps/cubit/map_cubit.dart';
-
-
 
 class MapView extends StatelessWidget {
   MapView({super.key, required this.latitude, required this.longitude});
-  static const String id='MapView';
+  static const String id = 'MapView';
   final double latitude;
   final double longitude;
   final MapController mapController = MapController();
@@ -24,14 +23,18 @@ class MapView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          title: const Text('Go to Trip', style: TextStyle(color: Colors.black)),
+          title:
+              const Text('Go to Trip', style: TextStyle(color: Colors.black)),
           centerTitle: true,
           leading: CustomBack(),
         ),
         body: BlocBuilder<MapCubit, MapState>(
           builder: (context, state) {
             if (state.currentLocation == null) {
-              return const Center(child: CircularProgressIndicator());
+              return Center(
+                  child: LoadingWidgets.loadingthreeRotatingDots(
+                size: 50,
+              ));
             }
             return Stack(
               children: [
@@ -52,7 +55,9 @@ class MapView extends StatelessWidget {
                       urlTemplate: state.isSatellite
                           ? "https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}"
                           : "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                      subdomains: state.isSatellite ? const ['mt0', 'mt1', 'mt2', 'mt3'] : const ['a', 'b', 'c'],
+                      subdomains: state.isSatellite
+                          ? const ['mt0', 'mt1', 'mt2', 'mt3']
+                          : const ['a', 'b', 'c'],
                     ),
                     MarkerLayer(markers: state.markers),
                     PolylineLayer(
@@ -74,8 +79,11 @@ class MapView extends StatelessWidget {
                     padding: const EdgeInsets.all(16),
                     decoration: const BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
-                      boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 10)],
+                      borderRadius:
+                          BorderRadius.vertical(top: Radius.circular(25)),
+                      boxShadow: [
+                        BoxShadow(color: Colors.black26, blurRadius: 10)
+                      ],
                     ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -93,8 +101,8 @@ class MapView extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             _infoTile('⏱️ Time', '${state.tripSeconds} Sec'),
-                            _infoTile('🛣️ Distance', '${state.distanceKm.toStringAsFixed(2)} Km'),
-                          
+                            _infoTile('🛣️ Distance',
+                                '${state.distanceKm.toStringAsFixed(2)} Km'),
                           ],
                         ),
                       ],
@@ -124,14 +132,20 @@ class MapView extends StatelessWidget {
                     }
                   },
                   backgroundColor: orangeColor,
-                  child: const Icon(Icons.my_location,color: Colors.white,),
+                  child: const Icon(
+                    Icons.my_location,
+                    color: Colors.white,
+                  ),
                 ),
                 const SizedBox(height: 20),
                 FloatingActionButton(
                   heroTag: 'changeMap',
                   onPressed: () => context.read<MapCubit>().toggleMapType(),
                   backgroundColor: orangeColor,
-                  child: const Icon(Icons.map,color: Colors.white,),
+                  child: const Icon(
+                    Icons.map,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             );

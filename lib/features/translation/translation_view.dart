@@ -7,10 +7,10 @@ import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:translator/translator.dart' as translator;
 
-
 class TranslationView extends StatefulWidget {
   const TranslationView({super.key});
-static String id='TranslationView';
+  static String id = 'TranslationView';
+
   @override
   State<TranslationView> createState() => _TranslationViewState();
 }
@@ -28,8 +28,8 @@ class _TranslationViewState extends State<TranslationView> {
   String _lastTo = '';
 
   final Map<String, String> languageMap = {
-    'en': 'USA',
-    'id': 'Indonesia',
+    'en': 'English',
+    'id': 'Indonesian',
     'ar': 'Arabic',
     'es': 'Spanish',
     'fr': 'French',
@@ -89,7 +89,6 @@ class _TranslationViewState extends State<TranslationView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
@@ -150,7 +149,7 @@ class _TranslationViewState extends State<TranslationView> {
           languageMap: languageMap,
         ),
         IconButton(
-          icon:  Icon(Icons.swap_horiz, size: 28,color: orangeColor,),
+          icon: Icon(Icons.swap_horiz, size: 28, color: orangeColor),
           onPressed: _swapLanguages,
         ),
         _LanguageDropdown(
@@ -184,7 +183,7 @@ class _LanguageDropdown extends StatelessWidget {
     return DropdownButton<String>(
       value: value,
       underline: const SizedBox(),
-      icon:  Icon(Icons.arrow_drop_down,color: orangeColor,),
+      icon: Icon(Icons.arrow_drop_down, color: orangeColor),
       items: languageMap.entries.map((entry) {
         return DropdownMenuItem(
           value: entry.key,
@@ -226,17 +225,59 @@ class _TextCard extends StatefulWidget {
 class _TextCardState extends State<_TextCard> {
   final FlutterTts flutterTts = FlutterTts();
 
+  // Mapping of app language codes to TTS language codes
+  final Map<String, String> ttsLanguageMap = {
+    'en': 'en-US',
+    'id': 'id-ID',
+    'ar': 'ar-SA',
+    'es': 'es-ES',
+    'fr': 'fr-FR',
+    'de': 'de-DE',
+  };
+
   Future<void> _speak() async {
     if (widget.controller.text.trim().isNotEmpty) {
-      await flutterTts.setLanguage("en-US");
-      await flutterTts.speak(widget.controller.text.trim());
+      // Determine which language to use based on the controller
+      String languageCode = widget.controller == widget.controller
+          ? (context.findAncestorStateOfType<_TranslationViewState>()?.selectedFrom ?? 'en')
+          : (context.findAncestorStateOfType<_TranslationViewState>()?.selectedTo ?? 'id');
+
+      // Get the TTS language code
+      String? ttsLanguage = ttsLanguageMap[languageCode];
+
+      if (ttsLanguage == null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('TTS not supported for ${languageCode.toUpperCase()}')),
+        );
+        return;
+      }
+
+      try {
+        // Check if the language is supported by the TTS engine
+        List<dynamic> languages = await flutterTts.getLanguages;
+        if (!languages.contains(ttsLanguage)) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('TTS language $ttsLanguage not available')),
+          );
+          return;
+        }
+
+        // Set the language and speak
+        await flutterTts.setLanguage(ttsLanguage);
+        await flutterTts.setPitch(1.0);
+        await flutterTts.speak(widget.controller.text.trim());
+      } catch (e) {
+        log('TTS error: $e');
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Failed to use text-to-speech')),
+        );
+      }
     }
   }
 
   Future<void> _copyToClipboard() async {
     if (widget.controller.text.trim().isNotEmpty) {
-      await Clipboard.setData(
-          ClipboardData(text: widget.controller.text.trim()));
+      await Clipboard.setData(ClipboardData(text: widget.controller.text.trim()));
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Copied to clipboard')),
       );
@@ -260,7 +301,7 @@ class _TextCardState extends State<_TextCard> {
             maxLines: null,
             maxLength: 5000,
             decoration: InputDecoration.collapsed(hintText: widget.hint),
-            style: const TextStyle(fontSize: 16,color: Colors.black),
+            style: const TextStyle(fontSize: 16, color: Colors.black),
           ),
           if (widget.showCharCount)
             Text(
@@ -272,16 +313,16 @@ class _TextCardState extends State<_TextCard> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                icon: const Icon(Icons.volume_up, size: 20,color:  Colors.black,),
+                icon: const Icon(Icons.volume_up, size: 20, color: Colors.black),
                 onPressed: _speak,
               ),
               const SizedBox(width: 10),
               IconButton(
-                icon: const Icon(Icons.copy, size: 20,color: Colors.black),
+                icon: const Icon(Icons.copy, size: 20, color: Colors.black),
                 onPressed: _copyToClipboard,
               ),
             ],
-          )
+          ),
         ],
       ),
     );

@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,7 +6,6 @@ import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/animation_routes.dart';
-import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
@@ -18,7 +16,6 @@ import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
-import 'package:my_visitor/temp/screen.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class LoginView extends StatefulWidget {
@@ -35,7 +32,6 @@ class _LoginViewState extends State<LoginView> {
   String? email, password;
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.sizeOf(context);
 
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {

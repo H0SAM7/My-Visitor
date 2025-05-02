@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/functions/save_hotel_payment.dart';
+import 'package:my_visitor/core/widgets/confirmation_dialog.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
@@ -96,6 +98,22 @@ class _BookConfirmationState extends State<BookConfirmation> {
               //   icon: const Icon(Icons.arrow_back, color: Colors.white),
               //   onPressed: () {},
               // ),
+              leading: CustomBack(
+                onPressed: () {
+                  showCustomDialog(context,
+                      title: '',
+                      content: 'Are You Sure from cancel the bookin?',
+                      positiveButtonText: 'Ok',
+                      negativeButtonText: 'Cancel', onPositivePressed: () {
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                    Navigator.pop(context);
+                  }, onNegativePressed: () {
+                    Navigator.pop(context);
+                  });
+                },
+              ),
               title: const Text(
                 'Review Summary',
                 style:

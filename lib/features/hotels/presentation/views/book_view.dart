@@ -49,7 +49,7 @@ class _BookHotelViewState extends State<BookHotelView> {
   }
 
   // Validate all inputs
-  bool _validateInputs() {
+bool _validateInputs() {
     // Check date validity
     if (checkOutDateController.value.isBefore(checkInDateController.value) ||
         checkOutDateController.value
@@ -66,37 +66,37 @@ class _BookHotelViewState extends State<BookHotelView> {
       return false;
     }
 
-    // Check adult count
+    // Check adult count (max 2 adults per room)
     if (adultsController.value < minAdults ||
-        adultsController.value > maxAdults) {
+        adultsController.value > (roomsController.value * 2)) {
       errorMessageController.value =
-          'Adults must be between $minAdults and $maxAdults';
+          'Adults must be between $minAdults and ${roomsController.value * 2}';
       return false;
     }
 
-    // Check children count
+    // Check children count (max 1 child per room)
     if (childrenController.value < minChildren ||
-        childrenController.value > maxChildren) {
+        childrenController.value > roomsController.value) {
       errorMessageController.value =
-          'Children must be between $minChildren and $maxChildren';
+          'Children must be between $minChildren and ${roomsController.value}';
       return false;
     }
 
-    // Check infants count
+    // Check infants count (max 1 infant per room)
     if (infantsController.value < minInfants ||
-        infantsController.value > maxInfants) {
+        infantsController.value > roomsController.value) {
       errorMessageController.value =
-          'Infants must be between $minInfants and $maxInfants';
+          'Infants must be between $minInfants and ${roomsController.value}';
       return false;
     }
 
-    // Check total guests
+    // Check total guests (max 4 guests per room: 2 adults + 1 child + 1 infant)
     final totalGuests = adultsController.value +
         childrenController.value +
         infantsController.value;
-    if (totalGuests > maxTotalGuests) {
+    if (totalGuests > (roomsController.value * 4)) {
       errorMessageController.value =
-          'Total guests cannot exceed $maxTotalGuests';
+          'Total guests cannot exceed ${roomsController.value * 4}';
       return false;
     }
 
@@ -143,6 +143,7 @@ class _BookHotelViewState extends State<BookHotelView> {
                   : () {
                       countController.value--;
                       _validateInputs();
+                      setState(() {});
                     },
               icon: const Icon(Icons.remove_circle, color: Colors.orange),
             ),
@@ -164,6 +165,7 @@ class _BookHotelViewState extends State<BookHotelView> {
                   : () {
                       countController.value++;
                       _validateInputs();
+                      setState(() {});
                     },
               icon: const Icon(Icons.add_circle, color: Colors.orange),
             ),
@@ -218,21 +220,21 @@ class _BookHotelViewState extends State<BookHotelView> {
               'Ages 18 or Above',
               adultsController,
               minAdults,
-              maxAdults,
+              (roomsController.value*2),
             ),
             _buildGuestSelector(
               'Children',
               'Ages 6 - 17',
               childrenController,
               minChildren,
-              maxChildren,
+              roomsController.value,
             ),
             _buildGuestSelector(
               'Infants',
               'Under Ages 2',
               infantsController,
               minInfants,
-              maxInfants,
+          roomsController.value,
             ),
             const Divider(color: Colors.white),
             const SizedBox(height: 8),

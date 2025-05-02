@@ -21,6 +21,7 @@ class ChatView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.transparent,
+          elevation: 0,
           leading: CustomBack(),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,

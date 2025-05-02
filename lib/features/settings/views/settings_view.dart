@@ -8,6 +8,7 @@ import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/features/splash/onboarding_view.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -27,9 +28,10 @@ class SettingsView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-
             // const UserDetailsSection(),
-            SizedBox(height: 15.h,),
+            SizedBox(
+              height: 15.h,
+            ),
             const SettingContainer(
               child: InfoSection(),
             ),
@@ -49,6 +51,7 @@ class SettingsView extends StatelessWidget {
                 title: 'Log out',
                 onTap: () async {
                   await FirebaseAuth.instance.signOut();
+                  Navigator.pushReplacementNamed(context, OnboardingView.id);
                 },
               ),
             ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/features/settings/views/widgets/faqs_data.dart';
 
 class FaqsView extends StatelessWidget {
@@ -17,7 +18,9 @@ class FaqsView extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.transparent,
+        elevation: 0,
         surfaceTintColor: Colors.transparent,
+        leading: CustomBack(),
       ),
       body: ListView.builder(
         itemCount: faqs.length,

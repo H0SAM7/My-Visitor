@@ -33,7 +33,14 @@ class PersonalInfoView extends StatelessWidget {
             title: 'Personal Info',
             widget: TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, EditProfileView.id);
+                Navigator.pushNamed(context, EditProfileView.id).then((result) {
+                  if (result == true) {
+                    // Notify the PersonalInfoSection to refresh
+                    _PersonalInfoSectionState? sectionState = context
+                        .findAncestorStateOfType<_PersonalInfoSectionState>();
+                    sectionState?.refreshProfile();
+                  }
+                });
               },
               child: Text(
                 'Edit',
@@ -62,6 +69,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
   void initState() {
     super.initState();
     _checkUserAndLoadInfo();
+    refreshProfile();
   }
 
   Future<void> _checkUserAndLoadInfo() async {
@@ -77,6 +85,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
   Future<void> _loadUserInfo() async {
     try {
       userInfo = await ProfileUtils.getUserProfile();
+      log('Loaded user info: $userInfo');
       setState(() {});
     } catch (e) {
       log('Error loading user info: $e');
@@ -91,6 +100,12 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
       };
       setState(() {});
     }
+  }
+
+  // New method to refresh profile data
+  Future<void> refreshProfile() async {
+    log('Refreshing profile data');
+    await _loadUserInfo();
   }
 
   @override

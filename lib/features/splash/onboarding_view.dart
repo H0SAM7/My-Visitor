@@ -22,7 +22,7 @@ class OnboardingView extends StatefulWidget {
 
 class _OnboardingViewState extends State<OnboardingView> {
   final PageController _pageController = PageController();
-  bool isLoading=false;
+  bool isLoading = false;
   int _currentPage = 0;
 
   final List<String> _images = [
@@ -139,49 +139,42 @@ class _OnboardingViewState extends State<OnboardingView> {
                   ),
                 ),
                 const SizedBox(height: 24),
-               isLoading?CustomLoadingIndicator(): CustomButton(
-                  title: 'Get Started',
-                  color: const Color(0xFFF5A623),
-                  txtColor: Colors.black,
-                  onTap: () {
-                    isLoading=true;
-                    setState(() {
-                      
-                    });
-                    FirebaseAuth.instance
-                        .authStateChanges()
-                        .listen((User? user) {
-                      if (user == null) {
-                        log('User is currently signed out!');
-                        Navigator.push(context,
-                            AnimationRoutes.flipHorizontalRoute(LoginView()));
-                      } else {
-                        if (user.emailVerified) {
-                          Navigator.push(
-                            context,
-                            AnimationRoutes.flipHorizontalRoute(
-                              BottomNavigator(),
-                            ),
-                          );
-                          log('User is signed in!');
-                        } else if (!user.emailVerified) {
-                        } else {
-                          Navigator.push(
-                            context,
-                            AnimationRoutes.flipHorizontalRoute(
-                              RegisterView(),
-                            ),
-                          );
-                        }
-                        isLoading=false;
-                        setState(() {
-                          
-                        });
-                      }
-                    });
-                  },
-                ),
-
+                isLoading
+                    ? CustomLoadingIndicator()
+                    : Center(
+                        child: CustomButton(
+                          title: 'Get Started',
+                          color: const Color(0xFFF5A623),
+                          txtColor: Colors.black,
+                          onTap: () async {
+                            setState(() => isLoading = true);
+                            try {
+                              final user = FirebaseAuth.instance.currentUser;
+                              if (user == null) {
+                                log('User is currently signed out!');
+                                Navigator.push(
+                                    context,
+                                    AnimationRoutes.flipHorizontalRoute(
+                                        LoginView()));
+                              } else if (user.emailVerified) {
+                                log('User is signed in and email verified!');
+                                Navigator.push(
+                                    context,
+                                    AnimationRoutes.flipHorizontalRoute(
+                                        BottomNavigator()));
+                              } else {
+                                log('User is signed in but email not verified!');
+                                Navigator.push(
+                                    context,
+                                    AnimationRoutes.flipHorizontalRoute(
+                                        RegisterView()));
+                              }
+                            } finally {
+                              setState(() => isLoading = false);
+                            }
+                          },
+                        ),
+                      ),
                 const SizedBox(height: 16),
               ],
             ),
@@ -191,6 +184,3 @@ class _OnboardingViewState extends State<OnboardingView> {
     );
   }
 }
-
-
-
