@@ -189,19 +189,16 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
     aboutMe:
         """The Statue of Ramesses II is a colossal 3,200-year-old figure of Ramesses II, depicting him standing. 
     It is 11 meters tall, made from red granite, and weighs 83 tons. The statue was discovered in 1882.
-
     This statue of the Pharaoh Ramesses II was designed to show him as a beneficent ruler, a mighty warrior, 
     and a living god. It was erected in the Ramesseum—his mortuary temple—where the cult of Ramesses would 
     continue for centuries. During his reign, the annual Nile flood repeatedly reached ideal levels, leading to 
     good harvests and a period of prosperity in Egypt. Ramesses himself fathered 85 children with a number of 
     queens during his 66-year reign.
-
     Ramesses II is known as one of Egypt's greatest pharaohs—nine later pharaohs even took his name in admiration. 
     Although Ramesses was renowned as a warrior-king, he suffered several military setbacks. He owed much of his 
     reputation to his skills as a self-publicist, erecting more statues than any other Egyptian pharaoh. 
     He even modified inscriptions on previous pharaohs' statues to glorify himself, ensuring that he was worshiped 
     as a god for centuries after his death.
-
     Early restoration attempts failed, but in 1955, Egyptian Prime Minister Gamal Abdel Nasser moved the statue’s 
     fragments to Bab Al-Hadid Square in Cairo, later renamed Ramses Square. There, the statue was restored to its 
     full height and erected on a three-meter pedestal at the edge of a fountain, stabilized by iron bars inside the body.""",
@@ -215,15 +212,12 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
     of the Fourth Dynasty King Menkaure. Originally, the pyramid stood 65.5 meters (215 ft) tall but now 
     measures 61 meters (200 ft) due to erosion and damage. Its base spans 108.5 meters (356 ft), and it has 
     an incline angle of approximately 51°20′25″. 
-
     The pyramid was constructed from limestone and Aswan granite. The upper portion was encased in Tura limestone, 
     but construction of the outer granite casing was halted after Menkaure's death. Only seven of the original 
     sixteen to eighteen granite layers remain today due to vandalism and natural erosion.
-
     The descending passage leads to a lower burial chamber, originally concealed by floor blocks in the 'large apartment' 
     chamber. Some theories suggest that the pyramid was initially planned to be smaller, with the blind alley being 
     the originally intended entrance passage.
-
     A boat hieroglyph was found painted on a limestone block near the pyramid, possibly indicating the presence of a 
     solar barque pit.""",
   ),
@@ -233,11 +227,9 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
     aboutMe:
         """A sphinx (or sphynx) is a mythical creature with the body of a lion and the head of a human, with variations found in different cultures. 
   It is a significant figure in Egyptian, Asian, and Greek mythology.
-
   The Great Sphinx of Giza is a 4,500-year-old limestone statue located near the Great Pyramid in Giza, Egypt. 
   Measuring 240 feet (73 meters) in length and 66 feet (20 meters) in height, it is one of the world's largest and most iconic monuments. 
   Despite its fame, the origins and history of the Great Sphinx remain subjects of debate.
-
   In ancient Egypt, the sphinx was regarded as a spiritual guardian and was most often depicted as a male wearing a pharaoh’s headdress—such as the Great Sphinx itself. 
   These statues were frequently placed in tomb and temple complexes. One notable example is "Sphinx Alley" in Upper Egypt, 
   a two-mile avenue lined with sphinx statues that connects the temples of Luxor and Karnak.""",

@@ -183,7 +183,7 @@ class _EditProfileViewState extends State<EditProfileView> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Profile updated successfully')),
       );
-      Navigator.pushReplacementNamed(context, PersonalInfoView.id);
+      Navigator.popAndPushNamed(context, PersonalInfoView.id);
     } catch (e) {
       developer.log('Error saving profile: $e');
       ScaffoldMessenger.of(context).showSnackBar(

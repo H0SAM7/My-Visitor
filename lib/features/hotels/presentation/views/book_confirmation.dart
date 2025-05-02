@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/functions/save_hotel_payment.dart';
 import 'package:my_visitor/core/widgets/confirmation_dialog.dart';
@@ -76,10 +77,10 @@ class _BookConfirmationState extends State<BookConfirmation> {
             title: 'Successful process',
             description: '',
             closeFunction: () {
-              Navigator.pushReplacementNamed(context, HomeView.id);
+              Navigator.pushReplacementNamed(context, BottomNavigator.id);
             },
             onPressed: () {
-              Navigator.pushReplacementNamed(context, HomeView.id);
+              Navigator.pushReplacementNamed(context, BottomNavigator.id);
             },
             actionTitle: 'Ok',
           );
@@ -125,7 +126,7 @@ class _BookConfirmationState extends State<BookConfirmation> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Hotel Card
+               
                   Container(
                     decoration: BoxDecoration(
                       color: Colors.grey[900],

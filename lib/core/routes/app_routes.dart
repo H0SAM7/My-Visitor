@@ -31,14 +31,16 @@ import 'package:my_visitor/features/settings/views/sections/personal_info_view.d
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/translation/translation_view.dart';
 import 'package:my_visitor/temp/screen.dart';
-
 import '../../features/splash/onboarding_view.dart';
 import '../../features/splash/splash_view.dart';
+
 
 abstract class AppRoutes {
   //     BottomNavigator
   // BottomNavigator.id: (context) => const BottomNavigator(),
+
   static String? initialRoute = SplashView.id;
+  
   static Map<String, Widget Function(BuildContext)> routes = {
     BottomNavigator.id: (context) => const BottomNavigator(),
     //navigation bar #########

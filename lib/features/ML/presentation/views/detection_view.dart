@@ -44,7 +44,7 @@ class DetectionView extends StatelessWidget {
                     // crossAxisAlignment: CrossAxisAlignment.start,
                     // mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      _buildImage(size.height * 0.4, size.width),
+                      _buildImage(size.height * 0.3, size.width),
                       const SizedBox(height: 20),
                       _buildStateContent(context, state),
                     ],
