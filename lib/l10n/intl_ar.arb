@@ -1,8 +1,89 @@
 {
+  "@@locale": "ar",
+  "discoverTitle": "اكتشف عجائب مصر القديمة",
+  "@discoverTitle": {
+    "description": "العنوان الرئيسي في شاشة البدء"
+  },
+  "discoverSubtitle": "استكشف الأهرامات والمعابد وقبور الفراعنة",
+  "@discoverSubtitle": {
+    "description": "وصف توضيحي لما يمكن اكتشافه"
+  },
+  "getStarted": "ابدأ الآن",
+  "@getStarted": {
+    "description": "زر البدء"
+  },"homeTitle": "الرئيسية",
+  "@homeTitle": {
+    "description": "عنوان شريط التطبيق في الشاشة الرئيسية"
+  },
 
+  "hotelsSectionTitle": "الفنادق",
+  "@hotelsSectionTitle": {
+    "description": "عنوان قسم الفنادق"
+  },
 
-    "appName": "My Visitor",
-  "splashWelcome": "Welcome to My Visitor",
-  "loadingMessage": "Loading..."
+  "restaurantsSectionTitle": "المطاعم",
+  "@restaurantsSectionTitle": {
+    "description": "عنوان قسم المطاعم"
+  },
+
+  "landmarksSectionTitle": "المعالم السياحية",
+  "@landmarksSectionTitle": {
+    "description": "عنوان قسم المعالم السياحية"
+  },
+
+  "welcomeMessage": "مرحبًا بك في ماي فيزيتور",
+  "@welcomeMessage": {
+    "description": "رسالة الترحيب في الشاشة الرئيسية"
+  },
+
+  "exploreNearby": "استكشف الأماكن القريبة",
+  "@exploreNearby": {
+    "description": "دعوة لاستكشاف الأماكن القريبة"
+  }
+ , "greatPyramidTitle": "الهرم الأكبر بالجيزة",
+"@greatPyramidTitle": {
+  "description": "عنوان قسم الهرم الأكبر"
+},
+
+"gizaNecropolis": "جبانة الجيزة",
+"@gizaNecropolis": {
+  "description": "وصف لموقع الهرم"
+},
+"hotelsNearYou": "فنادق قريبة منك",
+"@hotelsNearYou": {
+  "description": "عنوان قسم الفنادق القريبة"
+},
+
+"seeAll": "عرض الكل",
+"@seeAll": {
+  "description": "زر لعرض جميع العناصر"
+}
+,"restaurantsNearYou": "مطاعم قريبة منك",
+"@restaurantsNearYou": {
+  "description": "عنوان قسم المطاعم القريبة"
+}
+,
+"Popular_Now": "رائج الان",
+"@Popular_Now": {
+  "description": "رائج الان"
+},
+  "settings": "الإعدادات",
+  "personalInfo": "معلومات شخصية",
+  "bookingInfo": "معلومات الحجز",
+  "logout": "تسجيل الخروج",
+  "notifications": "الإشعارات",
+  "language": "اللغة",
+  "faqs": "الأسئلة الشائعة",
+  "aboutApp": "حول التطبيق",
+  "privacyPolicy": "الخصوصية والسياسة",
+  "supportTeam": "فريق الدعم"
+  ,
+    "accountInformation": "معلومات الحساب",
+    "translation": "الترجمة",
+    "aiAssistant": "مساعد الذكاء الاصطناعي",
+    "support": "الدعم"
+  
+  
+
 
 }

@@ -1,3 +1,91 @@
 {
-    
+    "@@locale": "en",
+    "discoverTitle": "Discover the Wonders of Ancient Egypt",
+    "@discoverTitle": {
+      "description": "Main title in onboarding"
+    },
+    "discoverSubtitle": "Explore the pyramids, temples, and the tombs of pharaoh",
+    "@discoverSubtitle": {
+      "description": "Subtitle describing what user will discover"
+    },
+    "getStarted": "Get Started",
+    "@getStarted": {
+      "description": "Button label to start the app"
+    },
+
+
+  "homeTitle": "Home",
+  "@homeTitle": {
+    "description": "App bar title for the Home screen"
+  },
+
+  "hotelsSectionTitle": "Hotels",
+  "@hotelsSectionTitle": {
+    "description": "Section title for hotels"
+  },
+
+  "restaurantsSectionTitle": "Restaurants",
+  "@restaurantsSectionTitle": {
+    "description": "Section title for restaurants"
+  },
+
+  "landmarksSectionTitle": "Landmarks",
+  "@landmarksSectionTitle": {
+    "description": "Section title for landmarks"
+  },
+
+  "welcomeMessage": "Welcome to MyVisitor",
+  "@welcomeMessage": {
+    "description": "Greeting message shown on Home screen"
+  },
+
+  "exploreNearby": "Explore what's nearby",
+  "@exploreNearby": {
+    "description": "Prompt for the user to explore nearby locations"
+  },"greatPyramidTitle": "The Great Pyramid of Giza",
+"@greatPyramidTitle": {
+  "description": "Title for the Great Pyramid section"
+},
+
+"gizaNecropolis": "Giza Necropolis",
+"@gizaNecropolis": {
+  "description": "Subtitle for the pyramid location"
 }
+,"hotelsNearYou": "Hotels Near You",
+"@hotelsNearYou": {
+  "description": "Section title for hotels near the user"
+},
+
+"seeAll": "See All",
+"@seeAll": {
+  "description": "Text button to navigate to full list"
+},
+
+"restaurantsNearYou": "Restaurants Near You",
+"@restaurantsNearYou": {
+  "description": "Section title for nearby restaurants"
+},
+
+"Popular_Now": "Popular Now",
+"@Popular_Now": {
+  "description": "Popular Now"
+},
+    "settings": "Settings",
+    "personalInfo": "Personal Info",
+    "bookingInfo": "Booking Info",
+    "logout": "Log out",
+    "notifications": "Notifications",
+    "language": "Language",
+    "faqs": "FAQs",
+    "aboutApp": "About App",
+    "privacyPolicy": "Privacy & Policy",
+    "supportTeam": "Support Team"
+   ,
+    "accountInformation": "Account Information",
+  "translation": "Translation",
+  "aiAssistant": "Ai Assistant",
+  "support": "Support"
+  
+
+  }
+  

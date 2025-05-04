@@ -7,12 +7,15 @@ import 'package:my_visitor/features/settings/views/faqs_view.dart';
 import 'package:my_visitor/features/settings/views/privacy_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class AppSections extends StatelessWidget {
   const AppSections({super.key});
 
   @override
   Widget build(BuildContext context) {
+                        final s= S.of(context);
+
     return Column(
       children: [
        
@@ -24,7 +27,7 @@ class AppSections extends StatelessWidget {
             Assets.iconsBell,
             color: orangeColor,
           ),
-          title: 'Notifications',
+          title: s.notifications,
         ),
         ItemSetting(
           onTap: () {
@@ -33,7 +36,7 @@ class AppSections extends StatelessWidget {
             Icons.language_outlined,
             color: orangeColor,
           ),
-          title: 'Language',
+          title: s.language,
         ),
       ],
     );
@@ -45,6 +48,8 @@ class GeneralSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                        final s= S.of(context);
+
     return Column(
       children: [
         ItemSetting(
@@ -52,7 +57,7 @@ class GeneralSection extends StatelessWidget {
             Icons.help_center_outlined,
             color: orangeColor,
           ),
-          title: 'FAQs',
+          title: s.faqs,
           onTap: (){
             Navigator.pushNamed(context, FaqsView.id);
           },
@@ -62,7 +67,7 @@ class GeneralSection extends StatelessWidget {
             Icons.info_outline,
             color: orangeColor,
           ),
-          title: 'About App',
+          title:s.aboutApp,
           onTap: (){
             Navigator.pushNamed(context, AboutView.id);
           },
@@ -72,7 +77,7 @@ class GeneralSection extends StatelessWidget {
             Icons.privacy_tip_outlined,
             color: orangeColor,
           ),
-          title: 'privacy & policy',
+          title:s.privacyPolicy,
           onTap: (){
             Navigator.pushNamed(context, PrivacyPolicyView.id);
           },
@@ -82,7 +87,7 @@ class GeneralSection extends StatelessWidget {
             Icons.chat_bubble_outline,
             color: orangeColor,
           ),
-          title: 'Support Team',
+          title: s.supportTeam,
           onTap: (){
             Navigator.pushNamed(context, ChatView.id);
           },

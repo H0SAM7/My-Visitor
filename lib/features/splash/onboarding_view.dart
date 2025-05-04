@@ -11,6 +11,7 @@ import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/register_view.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});
@@ -64,6 +65,8 @@ class _OnboardingViewState extends State<OnboardingView> {
 
   @override
   Widget build(BuildContext context) {
+        final s= S.of(context);
+
     return Scaffold(
       body: Stack(
         fit: StackFit.expand,
@@ -104,8 +107,8 @@ class _OnboardingViewState extends State<OnboardingView> {
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Discover the Wonders of Ancient Egypt',
+                 Text(
+                 s.discoverTitle,
                   style: TextStyle(
                     fontSize: 32,
                     fontWeight: FontWeight.bold,
@@ -113,8 +116,8 @@ class _OnboardingViewState extends State<OnboardingView> {
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'explore the pyramids, temples, and the tombs of pharaoh ',
+                 Text(
+                  s.discoverSubtitle,
                   style: TextStyle(
                     fontSize: 16,
                     color: Colors.white70,
@@ -143,7 +146,7 @@ class _OnboardingViewState extends State<OnboardingView> {
                     ? CustomLoadingIndicator()
                     : Center(
                         child: CustomButton(
-                          title: 'Get Started',
+                          title: s.getStarted,
                           color: const Color(0xFFF5A623),
                           txtColor: Colors.black,
                           onTap: () async {

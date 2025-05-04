@@ -230,7 +230,9 @@ ${_currentCity.isNotEmpty ? 'الموقع الحالي/Current Location: $_curre
         title: Text(
           'Ai Assistent ',
           style: AppStyles.style22White(context),
+          
         ),
+        automaticallyImplyLeading: false,
         centerTitle: true,
       ),
       backgroundColor: Colors.black,

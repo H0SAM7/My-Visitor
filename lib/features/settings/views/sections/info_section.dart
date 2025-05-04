@@ -4,6 +4,7 @@ import 'package:my_visitor/features/settings/views/booking_info.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class InfoSection extends StatelessWidget {
   const InfoSection({
@@ -12,11 +13,13 @@ class InfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                        final s= S.of(context);
+
     return Column(
       children: [
         ItemSetting(
           leading: Image.asset(Assets.iconsUser,color: orangeColor,),
-          title: 'Personal Info',
+          title: s.personalInfo,
           onTap: () {
             Navigator.pushNamed(context, PersonalInfoView.id);
           },
@@ -29,7 +32,7 @@ class InfoSection extends StatelessWidget {
             Icons.history_outlined,
             color: orangeColor,
           ),
-          title: 'Booking Info',
+          title: s.bookingInfo,
 
         ),
       

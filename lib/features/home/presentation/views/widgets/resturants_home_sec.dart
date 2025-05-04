@@ -7,6 +7,7 @@ import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/resturants/presentation/views/widgets/home_resturants_list_view.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class ResturantsHomeSec extends StatelessWidget {
   const ResturantsHomeSec({
@@ -15,6 +16,9 @@ class ResturantsHomeSec extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                final s= S.of(context);
+
+
     return Column(
       children: [
         Divider(),
@@ -26,10 +30,10 @@ class ResturantsHomeSec extends StatelessWidget {
                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
           
             children: [
-              CustomTitleHeader(title: 'Restaurants Near You'),
+              CustomTitleHeader(title: s.restaurantsNearYou),
                  TextButton(
                    child: Text(
-                     'See All ',
+                     s.seeAll,
                      style: AppStyles.style18(
                        context,
                      ).copyWith(color: orangeColor),

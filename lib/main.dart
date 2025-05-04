@@ -114,6 +114,7 @@ class MyApp extends StatelessWidget {
           splitScreenMode: true,
           builder: (_, child) {
             return MaterialApp(
+                  locale: Locale('ar'), 
               localizationsDelegates: [
                 S.delegate,
                 GlobalMaterialLocalizations.delegate,

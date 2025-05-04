@@ -12,6 +12,7 @@ class HomeView extends StatelessWidget {
   static String id = 'HomeView';
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,

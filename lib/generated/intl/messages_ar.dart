@@ -21,5 +21,47 @@ class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
-  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{};
+  static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Popular_Now": MessageLookupByLibrary.simpleMessage("رائج الان"),
+        "aboutApp": MessageLookupByLibrary.simpleMessage("حول التطبيق"),
+        "accountInformation":
+            MessageLookupByLibrary.simpleMessage("معلومات الحساب"),
+        "aiAssistant":
+            MessageLookupByLibrary.simpleMessage("مساعد الذكاء الاصطناعي"),
+        "bookingInfo": MessageLookupByLibrary.simpleMessage("معلومات الحجز"),
+        "discoverSubtitle": MessageLookupByLibrary.simpleMessage(
+            "استكشف الأهرامات والمعابد وقبور الفراعنة"),
+        "discoverTitle":
+            MessageLookupByLibrary.simpleMessage("اكتشف عجائب مصر القديمة"),
+        "exploreNearby":
+            MessageLookupByLibrary.simpleMessage("استكشف الأماكن القريبة"),
+        "faqs": MessageLookupByLibrary.simpleMessage("الأسئلة الشائعة"),
+        "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+        "gizaNecropolis": MessageLookupByLibrary.simpleMessage("جبانة الجيزة"),
+        "greatPyramidTitle":
+            MessageLookupByLibrary.simpleMessage("الهرم الأكبر بالجيزة"),
+        "homeTitle": MessageLookupByLibrary.simpleMessage("الرئيسية"),
+        "hotelsNearYou":
+            MessageLookupByLibrary.simpleMessage("فنادق قريبة منك"),
+        "hotelsSectionTitle": MessageLookupByLibrary.simpleMessage("الفنادق"),
+        "landmarksSectionTitle":
+            MessageLookupByLibrary.simpleMessage("المعالم السياحية"),
+        "language": MessageLookupByLibrary.simpleMessage("اللغة"),
+        "logout": MessageLookupByLibrary.simpleMessage("تسجيل الخروج"),
+        "notifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
+        "personalInfo": MessageLookupByLibrary.simpleMessage("معلومات شخصية"),
+        "privacyPolicy":
+            MessageLookupByLibrary.simpleMessage("الخصوصية والسياسة"),
+        "restaurantsNearYou":
+            MessageLookupByLibrary.simpleMessage("مطاعم قريبة منك"),
+        "restaurantsSectionTitle":
+            MessageLookupByLibrary.simpleMessage("المطاعم"),
+        "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
+        "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
+        "support": MessageLookupByLibrary.simpleMessage("الدعم"),
+        "supportTeam": MessageLookupByLibrary.simpleMessage("فريق الدعم"),
+        "translation": MessageLookupByLibrary.simpleMessage("الترجمة"),
+        "welcomeMessage":
+            MessageLookupByLibrary.simpleMessage("مرحبًا بك في ماي فيزيتور")
+      };
 }

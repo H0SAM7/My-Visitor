@@ -9,20 +9,25 @@ import 'package:my_visitor/features/settings/views/widgets/setting_container.dar
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:my_visitor/features/splash/onboarding_view.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
   static String id = 'SettingsView';
   @override
   Widget build(BuildContext context) {
+
+                    final s= S.of(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Text(
-          'Settings',
+          s.settings,
           style: AppStyles.style22White(context),
         ),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       backgroundColor: Colors.black,
       body: SingleChildScrollView(
@@ -48,7 +53,7 @@ class SettingsView extends StatelessWidget {
                   Assets.iconsLogout,
                   color: orangeColor,
                 ),
-                title: 'Log out',
+                title: s.logout,
                 onTap: () async {
                   await FirebaseAuth.instance.signOut();
                   Navigator.pushReplacementNamed(context, OnboardingView.id);

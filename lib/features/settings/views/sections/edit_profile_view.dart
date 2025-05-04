@@ -181,13 +181,18 @@ class _EditProfileViewState extends State<EditProfileView> {
       await user.updateDisplayName(_nameController.text.trim());
       developer.log('Profile save successful');
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Profile updated successfully')),
+        const SnackBar(
+          content: Text('Profile updated successfully'),
+        ),
       );
-      Navigator.popAndPushNamed(context, PersonalInfoView.id);
+      Navigator.pop(context);
+      // Navigator.pushNamed(context, PersonalInfoView.id);
     } catch (e) {
       developer.log('Error saving profile: $e');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Failed to save profile: $e')),
+        SnackBar(
+          content: Text('Failed to save profile: $e'),
+        ),
       );
     }
     setState(() {
@@ -221,16 +226,22 @@ class _EditProfileViewState extends State<EditProfileView> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: _isLoading
-          ? Center(child: LoadingWidgets.loadingprogressiveDots())
+          ? Center(
+              child: LoadingWidgets.loadingprogressiveDots(),
+            )
           : Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(
+                8.0,
+              ),
               child: SingleChildScrollView(
                 child: Form(
                   key: _formKey,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const CustomAppBar(title: 'Edit Profile'),
+                      const CustomAppBar(
+                        title: 'Edit Profile',
+                      ),
                       GestureDetector(
                         onTap: _pickImage,
                         child: CircleAvatar(
@@ -238,7 +249,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                           backgroundColor: Colors.orange,
                           backgroundImage: _getProfileImage(),
                           child: (_getProfileImage() == null)
-                              ? const Icon(Icons.edit)
+                              ? const Icon(Icons.edit,)
                               : null,
                           onBackgroundImageError: (exception, stackTrace) {
                             developer.log('Error loading image: $exception');

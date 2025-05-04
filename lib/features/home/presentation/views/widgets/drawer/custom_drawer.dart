@@ -12,6 +12,7 @@ import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
 import 'package:my_visitor/features/translation/translation_view.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});
@@ -85,6 +86,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
+                        final s= S.of(context);
+
     return Drawer(
       backgroundColor: Colors.black,
       child: ListView(
@@ -105,7 +108,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             decoration: const BoxDecoration(color: Colors.black),
           ),
           DrawerListTile(
-            title: "Account Information",
+            title: s.accountInformation,
             leading: Image.asset(
               Assets.iconsUser,
               color: orangeColor,
@@ -115,7 +118,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           DrawerListTile(
-            title: "Translation",
+            title: s.translation,
             leading: Icon(
               Icons.translate_outlined,
               color: orangeColor,
@@ -125,7 +128,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
           DrawerListTile(
-            title: "Ai Assistant",
+            title: s.aiAssistant,
             leading: Image.asset(
               Assets.iconsChatbot,
               color: orangeColor,
@@ -136,7 +139,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
             },
           ),
              DrawerListTile(
-            title: "Support",
+            title: s.support,
             leading: Icon(
               Icons.chat_bubble_outline,
               color: orangeColor,
@@ -148,7 +151,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
       
          Divider(),
           DrawerListTile(
-            title: 'Log out',
+            title: s.logout,
             onTap: () async {
               await FirebaseAuth.instance.signOut();
               Navigator.pushNamed(context, LoginView.id);
