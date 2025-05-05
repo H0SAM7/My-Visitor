@@ -295,7 +295,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                           return null;
                         },
                       ),
-                      const SizedBox(height: 30),
+                      const SizedBox(height: 30,),
                       CustomSendButton(
                         label: 'Save',
                         onTap: _saveProfile,
