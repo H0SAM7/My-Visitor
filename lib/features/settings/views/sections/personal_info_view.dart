@@ -45,7 +45,9 @@ class PersonalInfoView extends StatelessWidget {
               },
               child: Text(
                 s.edit,
-                style: TextStyle(color: orangeColor),
+                style: TextStyle(color: orangeColor,
+                fontSize: 18),
+                
               ),
             ),
           ),
@@ -121,7 +123,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 padding: const EdgeInsets.all(30.0),
                 child: CircleAvatar(
                                   backgroundColor: orangeColor,
-                                  radius: 45,
+                                  radius: 55,
                                   backgroundImage: userInfo!['profileImageUrl'] != null &&
                      userInfo!['profileImageUrl'].isNotEmpty
                  ? NetworkImage(userInfo!['profileImageUrl'])
@@ -133,9 +135,9 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                                 ),
               ),
              Divider(
-              color: Colors.black,
-              endIndent: .6,
-              indent:.6,
+              color: Colors.white,
+              endIndent: 40.6,
+              indent:40.6,
              ),
               const SizedBox(height: 20),
               CustomListTile(
