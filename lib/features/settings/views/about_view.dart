@@ -4,10 +4,12 @@ import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
+import 'package:intl/intl.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
-static String id='AboutView';
+  static String id = 'AboutView';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +20,7 @@ static String id='AboutView';
         elevation: 0,
         title: Image.asset(Assets.imagesHomeLogo),
         centerTitle: true,
-    leading: CustomBack(),
-    
+        leading:  CustomBack(),
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
@@ -33,46 +34,35 @@ static String id='AboutView';
                 child: FadeInAnimation(child: widget),
               ),
               children: [
-                _buildSectionTitle('Name',context),
-                _buildSectionContent('Visitor – Your Smart Tourism Companion'),
+                _buildSectionTitle('about_name', context),
+                _buildSectionContent('about_app_name'),
                 const SizedBox(height: 16),
-                _buildSectionTitle('Version',context),
-                _buildSectionContent('v1.0.0'),
+                _buildSectionTitle('about_version', context),
+                _buildSectionContent('about_version_number'),
                 const SizedBox(height: 16),
-                _buildSectionTitle('Description',context),
-                _buildSectionContent(
-                  'Visitor is an AI-powered tourism app designed to make your travel experience smarter and more convenient. '
-                  'From detecting landmarks with your camera to booking hotels and museums, chatting with a smart assistant, '
-                  'or translating on the go — all in one place.',
-                ),
+                _buildSectionTitle('about_description', context),
+                _buildSectionContent('about_description'),
                 const SizedBox(height: 16),
-                _buildSectionTitle('Key Features',context),
+                _buildSectionTitle('about_key_features', context),
                 _buildFeatureList([
-                  'AI-based Landmark Detection',
-                  'Smart Chatbot Support',
-                  'Hotel and Museum Booking',
-                  'Multi-language Translation',
-                  'Offline Mode',
-                  'Interactive Maps & GPS Navigation',
-                  'Personalized Itineraries',
-                  'Live Chat Support',
+                  'about_feature_1',
+                  'about_feature_2',
+                  'about_feature_3',
+                  'about_feature_4',
+                  'about_feature_5',
+                  'about_feature_6',
+                  'about_feature_7',
+                  'about_feature_8',
                 ]),
                 const SizedBox(height: 16),
-                _buildSectionTitle('Purpose',context),
-                _buildSectionContent(
-                  'To enhance your travel experience by combining technology and convenience — letting you explore, '
-                  'discover, and connect with new places more intelligently.',
-                ),
+                _buildSectionTitle('about_purpose', context),
+                _buildSectionContent('about_purpose_text'),
                 const SizedBox(height: 16),
-                _buildSectionTitle('Developed by',context),
-                _buildSectionContent(
-                  'Final Year Graduation Project Team – 2025\n'
-                  'Faculty of Computers & AI – [EELU]',
-                  
-                ),
+                _buildSectionTitle('about_developed_by', context),
+                _buildSectionContent('about_developers_text'),
                 const SizedBox(height: 16),
-                _buildSectionTitle('Contact',context),
-                _buildSectionContent('✉ Email: support@Visitor.app'),
+                _buildSectionTitle('about_contact', context),
+                _buildSectionContent('about_contact_email'),
               ],
             ),
           ),
@@ -81,16 +71,26 @@ static String id='AboutView';
     );
   }
 
-  Widget _buildSectionTitle(String title,BuildContext context) {
+  Widget _buildSectionTitle(String key, BuildContext context) {
     return Text(
-      title,
+      Intl.message(
+        key, 
+        name: key, 
+        desc: 'Section title: $key',
+        args: [],
+      ),
       style: AppStyles.style22White(context),
     );
   }
 
-  Widget _buildSectionContent(String content) {
+  Widget _buildSectionContent(String key) {
     return Text(
-      content,
+      Intl.message(
+        key,
+        name: key,
+        desc: 'Section content: $key',
+        args: [],
+      ),
       style: const TextStyle(
         fontSize: 16,
         color: Color.fromARGB(255, 207, 193, 193),
@@ -108,7 +108,7 @@ static String id='AboutView';
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     Icon(
+                    Icon(
                       Icons.check_circle,
                       size: 20,
                       color: orangeColor,
@@ -116,7 +116,12 @@ static String id='AboutView';
                     const SizedBox(width: 8),
                     Expanded(
                       child: Text(
-                        feature,
+                        Intl.message(
+                          feature,
+                          name: feature,
+                          desc: 'Feature: $feature',
+                          args: [],
+                        ),
                         style: const TextStyle(
                           fontSize: 16,
                           color: Colors.white,

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
+import 'package:my_visitor/generated/l10n.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 import 'package:my_visitor/core/utils/shared_pref.dart';
 import 'package:my_visitor/core/widgets/loading_widgets.dart';
@@ -223,6 +224,8 @@ class _EditProfileViewState extends State<EditProfileView> {
 
   @override
   Widget build(BuildContext context) {
+                                final s= S.of(context);
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: _isLoading
@@ -239,8 +242,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const CustomAppBar(
-                        title: 'Edit Profile',
+                       CustomAppBar(
+                        title:s.edit_profile,
                       ),
                       GestureDetector(
                         onTap: _pickImage,
@@ -262,34 +265,34 @@ class _EditProfileViewState extends State<EditProfileView> {
                       ),
                       const SizedBox(height: 20),
                       CustomTextFrom(
-                        label: 'Full Name',
-                        hint: 'Hosam Adel',
+                        label: s.full_name,
+                        hint: s.full_name,
                         controller: _nameController,
                         validator: (value) {
                           if (value == null || value.trim().isEmpty) {
-                            return 'Please enter your name';
+                            return s.please_enter_your_name;
                           }
                           return null;
                         },
                       ),
                       const SizedBox(height: 20),
                       CustomTextFrom(
-                        label: 'Email',
+                        label: s.email,
                         hint: _email ?? AppConstants.defaultEmail,
                         enabled: false,
                         initialValue: _email,
                       ),
                       const SizedBox(height: 20),
                       CustomTextFrom(
-                        label: 'Phone Number',
-                        hint: '01123456789',
+                        label: s.phone_number,
+                        hint: s.phone_number,
                         controller: _phoneController,
                         keyboardType: TextInputType.phone,
                         validator: (value) {
                           if (value != null && value.trim().isNotEmpty) {
                             if (!RegExp(r'^\d{10,15}$')
                                 .hasMatch(value.trim())) {
-                              return 'Please enter a valid phone number';
+                              return s.please_enter_valid_phone;
                             }
                           }
                           return null;
@@ -297,7 +300,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                       ),
                       const SizedBox(height: 30,),
                       CustomSendButton(
-                        label: 'Save',
+                        label:s.save,
                         onTap: _saveProfile,
                       ),
                     ],

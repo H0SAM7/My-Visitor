@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/functions/is_ar.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
+import 'package:my_visitor/generated/l10n.dart';
 import '../models/chat_message.dart';
 import '../widgets/chat_bubble.dart';
 import '../services/ai_service.dart';
@@ -195,7 +197,7 @@ ${_currentCity.isNotEmpty ? 'الموقع الحالي/Current Location: $_curre
               style: const TextStyle(
                   color: Colors.white), // لون النص أثناء الكتابة
               decoration: InputDecoration(
-                hintText: _currentLanguage == 'ar'
+                hintText: isArabic(context)
                     ? 'اسأل عن السياحة المصرية...'
                     : 'Ask about Egyptian tourism...',
                 hintStyle: const TextStyle(color: Colors.white), // لون الـ hint
@@ -225,10 +227,12 @@ ${_currentCity.isNotEmpty ? 'الموقع الحالي/Current Location: $_curre
 
   @override
   Widget build(BuildContext context) {
+                        final s= S.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Ai Assistent ',
+         s.aiAssistant,
           style: AppStyles.style22White(context),
           
         ),

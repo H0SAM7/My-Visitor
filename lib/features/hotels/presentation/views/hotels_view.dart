@@ -8,6 +8,7 @@ import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/hotels_list_view.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class HotelsView extends StatefulWidget {
   const HotelsView({super.key});
@@ -32,11 +33,13 @@ class _HotelsViewState extends State<HotelsView> {
 
   @override
   Widget build(BuildContext context) {
+                                final s= S.of(context);
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text(
-          'Hotels Near You',
+        s.hotelsNearYou,
           style: AppStyles.style22White(context),
         ),
         centerTitle: true,

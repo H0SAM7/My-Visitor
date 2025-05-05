@@ -15,6 +15,7 @@ import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
+import 'package:my_visitor/generated/l10n.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class RegisterView extends StatefulWidget {
@@ -32,6 +33,8 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
+                                        final s= S.of(context);
+
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
@@ -40,19 +43,19 @@ class _RegisterViewState extends State<RegisterView> {
           showCustomAlert(
             context: context,
             type: AlertType.info,
-            title: 'Check  your email',
+            title: s.checkEmailVerify,
             description:
-                'Please  check your email to verify your account, and you can Login ',
+               s.checkEmailVerifyDesc,
             onPressed: () {
               Navigator.pushReplacementNamed(context, LoginView.id);
             },
-            actionTitle: 'Ok',
+            actionTitle: s.Ok,
           );
         } else if (state is AuthVerificationFailure) {
           showCustomAlert(
             context: context,
             type: AlertType.warning,
-            title: 'Time out',
+            title: s.timeoutTitle,
             description: state.errMessage,
             closeFunction: () {
               Navigator.pushReplacementNamed(context, RegisterView.id);
@@ -60,7 +63,7 @@ class _RegisterViewState extends State<RegisterView> {
             onPressed: () {
               Navigator.pushReplacementNamed(context, RegisterView.id);
             },
-            actionTitle: 'Ok',
+            actionTitle: s.okButton,
           );
         } else if (state is AuthFailure) {
           if (!_isDialogShowing) {
@@ -69,14 +72,14 @@ class _RegisterViewState extends State<RegisterView> {
             showCustomAlert(
               context: context,
               type: AlertType.error,
-              title: 'Error',
+              title: s.errorTitle,
               description: state.errMessage,
               onPressed: () {
                 _isDialogShowing = false; // Reset flag after dismissing
 
                 Navigator.pushReplacementNamed(context, RegisterView.id);
               },
-              actionTitle: 'Ok',
+              actionTitle: s.okButton,
             );
           }
         }
@@ -109,7 +112,7 @@ class _RegisterViewState extends State<RegisterView> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          'Hello! Register to get \nstarted',
+                          s.helloRegister,
                           style: AppStyles.style22White(context)
                               .copyWith(fontSize: 25),
                         ),
@@ -118,22 +121,22 @@ class _RegisterViewState extends State<RegisterView> {
                         height: 15,
                       ),
                       CustomTextFrom(
-                        hint: 'enter name',
-                        label: 'Name',
+                        hint:s.nameHint,
+                        label: s.nameLabel,
                         onChanged: (value) {
                           name = value;
                         },
                       ),
                       CustomTextFrom(
-                        hint: 'enter email',
-                        label: 'Email',
+                        hint: s.emailHint,
+                        label:s.emailLabel,
                         onChanged: (value) {
                           email = value;
                         },
                       ),
                       CustomTextFrom(
-                        hint: 'enter password',
-                        label: 'Password',
+                        hint: s.passwordHint,
+                        label: s.passwordLabel,
                         isPasswordField: true,
                         onChanged: (value) {
                           password = value;
@@ -141,8 +144,8 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
 
                       HaveAccWidget(
-                        title: 'You have Accounts? ',
-                        action: 'Login',
+                        title: s.youHaveAccount,
+                        action: s.loginAction,
                         onPressed: () {
                           Navigator.pushNamed(context, LoginView.id);
                         },
@@ -152,7 +155,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       Center(
                         child: CustomSendButton(
-                          label: 'Sign Up',
+                          label: s.signUpAction,
                           onTap: () async {
                             if (formKey.currentState!.validate()) {
                               final user = UserModel(

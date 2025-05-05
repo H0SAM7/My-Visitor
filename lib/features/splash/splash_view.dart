@@ -32,7 +32,7 @@ class SplashView extends StatelessWidget {
               Assets.imagesLogo,
             ),
             const SizedBox(height: 30),
-            LoadingWidgets.loadingCircles(size: 60, color: Color(0xffe5d189)),
+            LoadingWidgets.loadingCircles(size: 60, color: Color(0xffe5d189),),
           ],
         ),
       ),

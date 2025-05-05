@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
+import 'package:my_visitor/core/utils/functions/is_ar.dart';
 import 'package:my_visitor/core/utils/functions/url_luncher.dart';
 import 'package:my_visitor/core/widgets/confirmation_dialog.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
 import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class ResturantsDetailsView extends StatelessWidget {
   const ResturantsDetailsView({super.key, required this.restaurantModel});
@@ -54,14 +56,19 @@ class ResturantsDetailsView extends StatelessWidget {
                   child: Column(
                     children: [
                       // Tabs
-                      const TabBar(
+                      TabBar(
                         indicatorColor: Colors.blue,
                         labelColor: Colors.black,
                         unselectedLabelColor: Colors.grey,
-                        tabs: [
-                          Tab(text: "Details"),
-                          Tab(text: "Reviews"),
-                        ],
+                        tabs: isArabic(context)
+                            ? [
+                                Tab(text: "Reviews"),
+                                Tab(text: "Details"),
+                              ]
+                            : [
+                                Tab(text: "Details"),
+                                Tab(text: "Reviews"),
+                              ],
                       ),
                       const SizedBox(height: 16),
                       Expanded(
@@ -95,6 +102,8 @@ class _DetailsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                            final s= S.of(context);
+
     return ListView(
       children: [
         // Title + Rating
@@ -182,14 +191,14 @@ class _DetailsTab extends StatelessWidget {
 
         SizedBox(height: 50.h),
         CustomButton(
-          title: 'Go Now',
+          title:s.goNow,
           onTap: () {
             if (restaurantModel.hasMenu) {
               showCustomDialog(context,
-                  title: 'Explorer',
-                  content: 'Are you sure you want to open this Menu',
-                  positiveButtonText: 'Ok',
-                  negativeButtonText: 'Cancel', onPositivePressed: () async {
+                  title: s.Explorer,
+                  content: s.AreyousureyouwanttoopenthisMenu,
+                  positiveButtonText: s.Ok,
+                  negativeButtonText: s.cancel, onPositivePressed: () async {
                 await launchUrlMethod(
                     Uri.parse(restaurantModel.menuUrl.toString()));
               }, onNegativePressed: () {
@@ -210,10 +219,12 @@ class _ReviewsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                                final s= S.of(context);
+
     final reviews = restaurantModel.reviewSnippets?.reviewSnippetsList ?? [];
 
     if (reviews.isEmpty) {
-      return const Center(child: Text("No reviews available."));
+      return  Center(child: Text(s.noReviews));
     }
 
     return ListView.builder(

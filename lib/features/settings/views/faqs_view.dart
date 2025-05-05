@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/features/settings/views/widgets/faqs_data.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class FaqsView extends StatelessWidget {
   const FaqsView({super.key});
@@ -9,18 +10,21 @@ class FaqsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+    final faqs = getFaqs(context); 
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
         title: Text(
-          'Frequently Asked Questions (FAQs)',
+          s.faqs,
           style: AppStyles.style18(context),
         ),
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.transparent,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
-        leading: CustomBack(),
+        leading:  CustomBack(),
       ),
       body: ListView.builder(
         itemCount: faqs.length,
@@ -41,8 +45,7 @@ class FaqsView extends StatelessWidget {
             collapsedBackgroundColor: Colors.black,
             children: [
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
                 child: Text(
                   faqs[index].answer,
                   style: const TextStyle(

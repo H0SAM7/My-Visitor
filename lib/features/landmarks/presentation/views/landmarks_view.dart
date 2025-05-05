@@ -9,6 +9,7 @@ import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/landmarks/data/models/landmark_model.dart';
 import 'package:my_visitor/features/landmarks/presentation/manager/landmark_cubit/landmark_cubit.dart';
 import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_list_view.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class LandmarksView extends StatefulWidget {
   const LandmarksView({super.key});
@@ -32,10 +33,12 @@ class _LandmarksViewState extends State<LandmarksView> {
   List<Destination> destinations = [];
   @override
   Widget build(BuildContext context) {
+                                    final s= S.of(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        title: Text("Popular Now",style: AppStyles.style22White(context),),
+        title: Text(s.Popular_Now,style: AppStyles.style22White(context),),
         leading: CustomBack(),
         centerTitle: true,
       ),
@@ -86,7 +89,7 @@ class _LandmarksViewState extends State<LandmarksView> {
             return CustomErrView(errMessage: state.errMessage);
           } else {
             return const Center(
-              child: Text('Press a button to fetch hotels'),
+              child: Text('No Data Avaliable Now !'),
             );
           }
         },

@@ -7,6 +7,7 @@ import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/ML/data/historical_data.dart';
 import 'package:my_visitor/features/ML/presentation/manager/cubit/image_detection_cubit.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class DetectionView extends StatelessWidget {
   final Uint8List? imageBytes;
@@ -17,6 +18,8 @@ class DetectionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                                    final s= S.of(context);
+
     final size = MediaQuery.sizeOf(context);
 
     return BlocProvider(
@@ -28,7 +31,7 @@ class DetectionView extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: Text(
-            'Detection Result',
+         s.detection,
             style: AppStyles.style22White(context),
           ),
           centerTitle: true,

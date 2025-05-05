@@ -16,6 +16,7 @@ import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
+import 'package:my_visitor/generated/l10n.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class LoginView extends StatefulWidget {
@@ -32,6 +33,8 @@ class _LoginViewState extends State<LoginView> {
   String? email, password;
   @override
   Widget build(BuildContext context) {
+                                        final s= S.of(context);
+
 
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
@@ -48,7 +51,7 @@ class _LoginViewState extends State<LoginView> {
           showCustomAlert(
             context: context,
             type: AlertType.error,
-            title: 'Error',
+            title: s.errorTitle,
             description: state.errMessage,
             closeFunction: () {
               Navigator.pushReplacement(
@@ -66,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               );
             },
-            actionTitle: 'Ok',
+            actionTitle: s.Ok,
           );
         }
       },
@@ -94,7 +97,7 @@ class _LoginViewState extends State<LoginView> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          'Welcome back! \nGlad to see you, Again!',
+                      s.welcomeBack,
                           style: AppStyles.style22White(context)
                               .copyWith(fontSize: 25),
                         ),
@@ -103,15 +106,15 @@ class _LoginViewState extends State<LoginView> {
                         height: 10.h,
                       ),
                       CustomTextFrom(
-                        hint: 'Enter Your Email',
-                        label: 'Email',
+                        hint: s.emailHint,
+                        label:s.email,
                         onChanged: (value) {
                           email = value;
                         },
                       ),
                       CustomTextFrom(
-                        hint: "enter  your password",
-                        label: 'Password',
+                        hint: s.passwordHint,
+                        label: s.passwordLabel,
                         isPasswordField: true,
                         onChanged: (value) {
                           password = value;
@@ -124,7 +127,7 @@ class _LoginViewState extends State<LoginView> {
                             Navigator.pushNamed(context, ForgetView.id);
                           },
                           child: Text(
-                            'Forget Password',
+                           s.forgetPassword,
                             style: TextStyle(color: orangeColor),
                           ),
                         ),
@@ -134,7 +137,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       Center(
                         child: CustomSendButton(
-                          label: 'Login',
+                          label: s.loginButton,
                           onTap: () async {
                             if (formKey.currentState!.validate()) {
                               await BlocProvider.of<AuthCubit>(context)
@@ -190,8 +193,8 @@ class _LoginViewState extends State<LoginView> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           HaveAccWidget(
-                            title: 'Don’t have an account? ',
-                            action: 'Sign Up',
+                            title: s.dontHaveAccount,
+                            action:s.signUpAction,
                             onPressed: () {
                               Navigator.pushNamed(context, RegisterView.id);
                             },

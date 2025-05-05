@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/core/widgets/custom_app_bar.dart';
+import 'package:my_visitor/generated/l10n.dart';
 import 'package:translator/translator.dart' as translator;
 
 class TranslationView extends StatefulWidget {
@@ -21,7 +23,7 @@ class _TranslationViewState extends State<TranslationView> {
   final translator.GoogleTranslator _translator = translator.GoogleTranslator();
 
   String selectedFrom = 'en';
-  String selectedTo = 'id';
+  String selectedTo = 'es'; // Changed default from 'id' to 'es'
 
   String _lastInput = '';
   String _lastFrom = '';
@@ -29,11 +31,14 @@ class _TranslationViewState extends State<TranslationView> {
 
   final Map<String, String> languageMap = {
     'en': 'English',
-    'id': 'Indonesian',
     'ar': 'Arabic',
     'es': 'Spanish',
     'fr': 'French',
     'de': 'German',
+    'zh': 'Chinese',
+    'hi': 'Hindi',
+    'pt': 'Portuguese',
+    'ru': 'Russian',
   };
 
   @override
@@ -88,29 +93,26 @@ class _TranslationViewState extends State<TranslationView> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return Scaffold(
       body: SafeArea(
         child: ListView(
           padding: const EdgeInsets.all(16),
           children: [
+            CustomAppBar(title: s.translate_title),
             _buildLanguageSelector(),
             const SizedBox(height: 20),
-            const Center(
-              child: Text(
-                "Translate",
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-              ),
-            ),
             const SizedBox(height: 20),
             _TextCard(
               controller: inputController,
-              hint: "Type here...",
+              hint: s.type_here,
               showCharCount: true,
             ),
             const SizedBox(height: 20),
             _TextCard(
               controller: outputController,
-              hint: "Translation...",
+              hint: s.translation,
               enabled: false,
             ),
             const SizedBox(height: 30),
@@ -123,8 +125,8 @@ class _TranslationViewState extends State<TranslationView> {
                 ),
               ),
               onPressed: _translateText,
-              child: const Text(
-                "Translate",
+              child: Text(
+                s.translation,
                 style: TextStyle(fontSize: 18, color: Colors.white),
               ),
             ),
@@ -228,11 +230,14 @@ class _TextCardState extends State<_TextCard> {
   // Mapping of app language codes to TTS language codes
   final Map<String, String> ttsLanguageMap = {
     'en': 'en-US',
-    'id': 'id-ID',
     'ar': 'ar-SA',
     'es': 'es-ES',
     'fr': 'fr-FR',
     'de': 'de-DE',
+    'zh': 'zh-CN',
+    'hi': 'hi-IN',
+    'pt': 'pt-PT',
+    'ru': 'ru-RU',
   };
 
   Future<void> _speak() async {
@@ -240,7 +245,7 @@ class _TextCardState extends State<_TextCard> {
       // Determine which language to use based on the controller
       String languageCode = widget.controller == widget.controller
           ? (context.findAncestorStateOfType<_TranslationViewState>()?.selectedFrom ?? 'en')
-          : (context.findAncestorStateOfType<_TranslationViewState>()?.selectedTo ?? 'id');
+          : (context.findAncestorStateOfType<_TranslationViewState>()?.selectedTo ?? 'es');
 
       // Get the TTS language code
       String? ttsLanguage = ttsLanguageMap[languageCode];

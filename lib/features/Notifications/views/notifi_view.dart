@@ -7,6 +7,7 @@ import 'package:my_visitor/features/Notifications/views/widgets/no_notifi_view.d
 import 'package:my_visitor/features/Notifications/views/widgets/notifi_list_view.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NotifiView extends StatefulWidget {
@@ -98,10 +99,12 @@ class _NotifiViewState extends State<NotifiView> {
 
   @override
   Widget build(BuildContext context) {
+                            final s= S.of(context);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Notifications',
+          s.notifications,
           style: AppStyles.style22White(context, ),
         ),
         elevation: 0,

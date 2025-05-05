@@ -12,6 +12,7 @@ import 'package:my_visitor/core/widgets/custom_app_bar.dart';
 import 'package:my_visitor/features/settings/views/sections/edit_profile_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
 import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class AppConstants {
   static const String defaultUsername = 'User Name';
@@ -26,16 +27,16 @@ class PersonalInfoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return Scaffold(
       body: Column(
         children: [
           CustomAppBar(
-            title: 'Personal Info',
+            title: s.personalInfo,
             widget: TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, EditProfileView.id).then((result) {
                   if (result == true) {
-                    // Notify the PersonalInfoSection to refresh
                     _PersonalInfoSectionState? sectionState = context
                         .findAncestorStateOfType<_PersonalInfoSectionState>();
                     sectionState?.refreshProfile();
@@ -43,7 +44,7 @@ class PersonalInfoView extends StatelessWidget {
                 });
               },
               child: Text(
-                'Edit',
+                s.edit,
                 style: TextStyle(color: orangeColor),
               ),
             ),
@@ -110,11 +111,14 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return userInfo == null
         ? Center(child: LoadingWidgets.loadingthreeRotatingDots())
         : Column(
             children: [
               CircleAvatar(
+                backgroundColor: orangeColor,
                 radius: 45,
                 backgroundImage: userInfo!['profileImageUrl'] != null &&
                         userInfo!['profileImageUrl'].isNotEmpty
@@ -127,7 +131,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
               ),
               const SizedBox(height: 20),
               CustomListTile(
-                title: 'Full Name',
+                title: s.full_name,
                 subtitle: userInfo!['username']!,
                 leading: Image.asset(
                   Assets.iconsUser,
@@ -135,7 +139,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 ),
               ),
               CustomListTile(
-                title: 'Email',
+                title: s.email,
                 subtitle: userInfo!['email']!,
                 leading: Icon(
                   FontAwesomeIcons.envelope,
@@ -143,7 +147,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 ),
               ),
               CustomListTile(
-                title: 'Phone Number',
+                title: s.phone_number,
                 subtitle: userInfo!['phone']!,
                 leading: Image.asset(
                   Assets.iconsCall,

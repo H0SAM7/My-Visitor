@@ -3,9 +3,11 @@ import 'package:my_visitor/core/utils/assets.dart';
 import 'package:flutter/material.dart';
 
 class ItemSetting extends StatelessWidget {
-  const ItemSetting({super.key, required this.title, this.leading, this.onTap});
+  const ItemSetting({super.key, required this.title, this.leading, this.onTap, this.trailing});
   final String title;
   final Widget? leading;
+    final Widget? trailing;
+
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class ItemSetting extends StatelessWidget {
       child: ListTile(
         leading: leading,
         title: Text(title,style: AppStyles.style18(context),),
-        trailing: Image.asset(Assets.iconsChevronRight),
+        trailing:trailing?? Image.asset(Assets.iconsChevronRight),
       ),
     );
   }

@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/utils/shared_pref.dart';
+import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/chat/presentation/views/chat_view.dart';
 import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
@@ -22,7 +24,7 @@ class CustomDrawer extends StatefulWidget {
 
 class _CustomDrawerState extends State<CustomDrawer> {
   Map<String, String>? userInfo;
-  String? _profileImageUrl; // Changed to store URL instead of File
+  String? _profileImageUrl;
 
   @override
   void initState() {
@@ -85,7 +87,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
   @override
   Widget build(BuildContext context) {
-                        final s= S.of(context);
+    final s = S.of(context);
 
     return Drawer(
       backgroundColor: Colors.black,
@@ -98,11 +100,29 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 Text(userInfo?['username'] ?? AppConstants.defaultUsername),
             accountEmail: Text(userInfo?['email'] ?? AppConstants.defaultEmail),
             currentAccountPicture: CircleAvatar(
-              backgroundImage:
-                  _profileImageUrl != null && _profileImageUrl!.isNotEmpty
-                      ? NetworkImage(_profileImageUrl!)
-                      : const AssetImage(AppConstants.defaultProfileImage)
-                          as ImageProvider,
+              backgroundColor: orangeColor,
+              child: ClipOval(
+                child: _profileImageUrl != null && _profileImageUrl!.isNotEmpty
+                    ? CachedNetworkImage(
+                        imageUrl: _profileImageUrl!,
+                        placeholder: (context, url) => const Center(
+                          child: CustomLoadingIndicator(),
+                        ),
+                        errorWidget: (context, url, error) => Image.asset(
+                          AppConstants.defaultProfileImage,
+                          fit: BoxFit.cover,
+                        ),
+                        fit: BoxFit.cover,
+                        width: 80,
+                        height: 80,
+                      )
+                    : Image.asset(
+                        AppConstants.defaultProfileImage,
+                        fit: BoxFit.cover,
+                        width: 80,
+                        height: 80,
+                      ),
+              ),
             ),
             decoration: const BoxDecoration(color: Colors.black),
           ),
@@ -137,7 +157,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               Navigator.pushNamed(context, ChatbotScreen.id);
             },
           ),
-             DrawerListTile(
+          DrawerListTile(
             title: s.support,
             leading: Icon(
               Icons.chat_bubble_outline,
@@ -147,8 +167,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
               Navigator.pushNamed(context, ChatView.id);
             },
           ),
-      
-         Divider(),
+          Divider(),
           DrawerListTile(
             title: s.logout,
             onTap: () async {

@@ -9,6 +9,7 @@ import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
+import 'package:my_visitor/generated/l10n.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class ForgetView extends StatefulWidget {
@@ -38,15 +39,17 @@ class _ForgetViewState extends State<ForgetView> {
 
   @override
   Widget build(BuildContext context) {
+                                    final s= S.of(context);
+
     return BlocListener<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is AuthSuccess) {
           showCustomAlert(
             context: context,
             type: AlertType.info,
-            title: 'Check  your email',
+            title: s.checkEmailVerify,
             description:
-                'Please  check your email to reset your pssword, and you can Login ',
+               s.checkEmailResetDesc,
             onPressed: () {
               Navigator.pushReplacement(
                 context,
@@ -55,13 +58,13 @@ class _ForgetViewState extends State<ForgetView> {
                 ),
               );
             },
-            actionTitle: 'Ok',
+            actionTitle: s.Ok,
           );
         } else if (state is AuthFailure) {
           showCustomAlert(
             context: context,
             type: AlertType.error,
-            title: 'Error',
+            title: s.errorTitle,
             description: state.errMessage,
             onPressed: () {
              Navigator.pushReplacement(
@@ -71,7 +74,7 @@ class _ForgetViewState extends State<ForgetView> {
                 ),
               );
             },
-            actionTitle: 'Ok',
+            actionTitle:s.Ok,
           );
         }
       },
@@ -91,7 +94,7 @@ class _ForgetViewState extends State<ForgetView> {
                   height: 15,
                 ),
                 Text(
-                  'Forgot Password?',
+                  s.forgetPassword,
                   style: AppStyles.style32(context, Colors.white),
                 ),
                 const SizedBox(
@@ -100,7 +103,7 @@ class _ForgetViewState extends State<ForgetView> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 4.0),
                   child: Text(
-                    """Don't worry! It occurs. Please enter the email address linked with your account.""",
+                  s.dontWorry,
                     style: AppStyles.style18(context),
                   ),
                 ),
@@ -108,8 +111,8 @@ class _ForgetViewState extends State<ForgetView> {
                   height: 20,
                 ),
                 CustomTextFrom(
-                  label: 'Email',
-                  hint: 'Enter your email',
+                  label: s.email,
+                  hint: s.emailHint,
                   controller: emailController,
                   onChanged: (email) {
                     emailController.text = email;
@@ -120,7 +123,7 @@ class _ForgetViewState extends State<ForgetView> {
                 ),
                 Center(
                   child: CustomSendButton(
-                    label: 'send',
+                    label:s.sendButton,
                     onTap: () async {
                       if ((formKey.currentState!.validate())) {
                         await BlocProvider.of<AuthCubit>(context)
@@ -140,12 +143,12 @@ class _ForgetViewState extends State<ForgetView> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Remember Password?",
+                       s.rememberPassword,
                         //   textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white),
                       ),
                       Text(
-                        " Login",
+                        s.loginButton,
                         style: TextStyle(color: orangeColor),
                       ),
                     ],

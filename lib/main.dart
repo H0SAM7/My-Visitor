@@ -8,6 +8,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_visitor/bloc_observer.dart';
+import 'package:my_visitor/core/localization/lang_cubit.dart';
 import 'package:my_visitor/core/routes/app_routes.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:my_visitor/core/utils/hive_inits.dart';
@@ -21,6 +22,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:my_visitor/generated/l10n.dart';
 import 'package:my_visitor/keys/hive_keys.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await hiveInit();
@@ -107,32 +109,38 @@ class MyApp extends StatelessWidget {
           create: (context) => LandmarkCubit()..fetchLandmarks(),
           lazy: true,
         ),
+        BlocProvider(
+          create: (context) => LanguageCubit(),
+          lazy: true,
+        ),
       ],
       child: ScreenUtilInit(
           designSize: const Size(360, 690),
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (_, child) {
-            return MaterialApp(
-                  locale: Locale('ar'), 
-              localizationsDelegates: [
-                S.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              supportedLocales: S.delegate.supportedLocales,
-              darkTheme: ThemeData.dark(),
-              themeMode: ThemeMode.dark,
-              debugShowCheckedModeBanner: false,
-              theme: ThemeData(
-                scaffoldBackgroundColor: Colors.black,
-                fontFamily: GoogleFonts.manrope().fontFamily,
-              ),
-              initialRoute: AppRoutes.initialRoute,
-              routes: AppRoutes.routes,
-              onGenerateRoute: AppRoutes.generateRoute,
-            );
+            return Builder(builder: (context) {
+              return MaterialApp(
+                locale: context.watch<LanguageCubit>().state,
+                localizationsDelegates: [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: S.delegate.supportedLocales,
+                darkTheme: ThemeData.dark(),
+                themeMode: ThemeMode.dark,
+                debugShowCheckedModeBanner: false,
+                theme: ThemeData(
+                  scaffoldBackgroundColor: Colors.black,
+                  fontFamily: GoogleFonts.manrope().fontFamily,
+                ),
+                initialRoute: AppRoutes.initialRoute,
+                routes: AppRoutes.routes,
+                onGenerateRoute: AppRoutes.generateRoute,
+              );
+            });
           }),
     );
   }

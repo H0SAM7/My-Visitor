@@ -4,6 +4,7 @@ import 'package:my_visitor/features/chat/presentation/manager/cubit_cubit/chat_c
 import 'package:my_visitor/features/chat/presentation/views/widgets/chat_view_body.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class ChatView extends StatelessWidget {
   const ChatView({
@@ -15,6 +16,8 @@ class ChatView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                            final s= S.of(context);
+
     return BlocProvider(
       create: (context) => ChatCubit(),
       child: Scaffold(
@@ -22,17 +25,18 @@ class ChatView extends StatelessWidget {
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.transparent,
           elevation: 0,
+          surfaceTintColor: Colors.transparent,
           leading: CustomBack(),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Support Team",
+               s.chat_view_title,
                 style: AppStyles.style22White(context),
                 
               ),
               Text(
-                'Typically replies within 5 minutes',
+               s.chat_view_reply_time,
                 style: AppStyles.style16Gray(context),
               ),
             ],

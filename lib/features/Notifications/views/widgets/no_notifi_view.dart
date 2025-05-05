@@ -8,11 +8,12 @@ class NoNoitifiView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Column(
        mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-  
+   
         Align(
           
           child: Image.asset(Assets.imagesNoNotifi)),

@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class PrivacyPolicyView extends StatelessWidget {
   const PrivacyPolicyView({super.key});
   static String id = 'PrivacyPolicyView';
+  
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -14,7 +18,7 @@ class PrivacyPolicyView extends StatelessWidget {
         foregroundColor: Colors.transparent,
         leading: CustomBack(),
         title: Text(
-          'Privacy Policy',
+          s.privacy_policy_title,  
           style: AppStyles.style18(context),
         ),
         elevation: 0,
@@ -24,56 +28,51 @@ class PrivacyPolicyView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Privacy & Policy',
-              style: TextStyle(
+            Text(
+              s.privacy_policy_header,
+              style: const TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
                 color: Colors.blueAccent,
               ),
             ),
             const SizedBox(height: 8),
-            const Text(
-              'Last Updated: April 30, 2025',
-              style: TextStyle(
+            Text(
+              s.last_updated, 
+              style: const TextStyle(
                 fontSize: 16,
                 fontStyle: FontStyle.italic,
                 color: Colors.grey,
               ),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'At Visitor, your privacy is a top priority. This Privacy Policy explains how we collect, use, and protect your information when using our mobile application.',
-              style: TextStyle(fontSize: 16),
+            Text(
+              s.privacy_intro_text, 
+              style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
-            _buildSectionTitle('📌 Information We Collect:'),
-            _buildBulletPoint(
-                'Personal Data: Name, email, phone number (during sign-up).'),
-            _buildBulletPoint(
-                'Location Data: To offer nearby landmarks, navigation, and booking suggestions.'),
-            _buildBulletPoint(
-                'Device Data: App version, language settings, and device model.'),
-            _buildBulletPoint(
-                'Booking & Usage History: For better recommendations and support.'),
+            _buildSectionTitle(s.information_we_collect),
+            _buildBulletPoint(s.personal_data),
+            _buildBulletPoint(s.location_data),
+            _buildBulletPoint(s.device_data),
+            _buildBulletPoint(s.booking_history),
             const SizedBox(height: 16),
-            _buildSectionTitle('🔐 How We Use Your Information:'),
-            _buildBulletPoint('To personalize your travel experience.'),
-            _buildBulletPoint('To improve app performance and features.'),
-            _buildBulletPoint('To process bookings and payments securely.'),
-            _buildBulletPoint('To offer support via chatbot or live chat.'),
+            _buildSectionTitle(s.how_we_use_information),
+            _buildBulletPoint(s.personalize_travel),
+            _buildBulletPoint(s.improve_app_performance),
+            _buildBulletPoint(s.process_bookings),
+            _buildBulletPoint(s.offer_support),
             const SizedBox(height: 16),
-            _buildSectionTitle('❌ Data Sharing:'),
-            const Text(
-              'We do not sell or share your data with third parties unless required by law or with your explicit consent (e.g., for hotel booking).',
-              style: TextStyle(fontSize: 16),
+            _buildSectionTitle(s.data_sharing),
+            Text(
+              s.data_sharing_text, 
+              style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
-            _buildSectionTitle('🛠 Your Rights:'),
-            _buildBulletPoint('Access, modify, or delete your data.'),
-            _buildBulletPoint('Disable location tracking from settings.'),
-            _buildBulletPoint(
-                'Contact us at privacy@Visitor.app for data-related inquiries.'),
+            _buildSectionTitle(s.your_rights),
+            _buildBulletPoint(s.access_modify_data),
+            _buildBulletPoint(s.disable_location_tracking),
+            _buildBulletPoint(s.contact_privacy_email),
           ],
         ),
       ),

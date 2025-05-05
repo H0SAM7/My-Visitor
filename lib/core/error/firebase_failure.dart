@@ -1,18 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-/// Abstract class for representing failure with an optional error message.
 abstract class Failure {
   final String? errMessage;
 
   const Failure({this.errMessage});
 }
 
-/// Handles Firebase-related failures.
 class FirebaseFailure extends Failure {
   FirebaseFailure({super.errMessage});
 
-  /// Factory method to generate failure from any Firebase [Exception].
   factory FirebaseFailure.fromFirebaseException(Exception exception) {
     if (exception is FirebaseAuthException) {
       return FirebaseFailure.fromAuthException(exception);
@@ -25,7 +21,6 @@ class FirebaseFailure extends Failure {
     }
   }
 
-  /// Handles [FirebaseAuthException] with readable error messages.
   factory FirebaseFailure.fromAuthException(FirebaseAuthException exception) {
     switch (exception.code) {
       case 'invalid-email':
@@ -57,7 +52,6 @@ class FirebaseFailure extends Failure {
     }
   }
 
-  /// Handles [FirebaseException] related to Firestore and general Firebase issues.
   factory FirebaseFailure.fromFirestoreException(FirebaseException exception) {
     switch (exception.code) {
       case 'permission-denied':
