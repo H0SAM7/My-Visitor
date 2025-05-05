@@ -21,7 +21,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
               hintText: 'Search...',
               backgroundColor: WidgetStateProperty.all(Colors.white),
               controller: controller,
-              enabled: false,
+            //  enabled: false,
               padding: const WidgetStatePropertyAll<EdgeInsets>(
                 EdgeInsets.symmetric(horizontal: 16.0),
               ),

@@ -41,17 +41,17 @@ class _BottomNavigatorState extends State<BottomNavigator> {
           ),
           Image.asset(
             Assets.iconsScanning,
-            color: _currentIndex == 1 ? orangeColor : Colors.black,
+            color: _currentIndex == 1 ?  orangeColor : Colors.black,
             height: 35,
           ),
           Image.asset(
             Assets.iconsChatbot,
-            color: _currentIndex == 2 ? orangeColor : Colors.black,
+            color: _currentIndex == 2 ?  orangeColor: Colors.black,
             height: 25,
           ),
           Image.asset(
             Assets.iconsSetting,
-            color: _currentIndex == 3 ? orangeColor : Colors.black,
+            color: _currentIndex == 3 ?  orangeColor : Colors.black,
             height: 35,
           ),
         ],
