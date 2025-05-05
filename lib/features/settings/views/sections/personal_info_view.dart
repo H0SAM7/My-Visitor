@@ -117,18 +117,26 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
         ? Center(child: LoadingWidgets.loadingthreeRotatingDots())
         : Column(
             children: [
-              CircleAvatar(
-                backgroundColor: orangeColor,
-                radius: 45,
-                backgroundImage: userInfo!['profileImageUrl'] != null &&
-                        userInfo!['profileImageUrl'].isNotEmpty
-                    ? NetworkImage(userInfo!['profileImageUrl'])
-                    : const AssetImage(AppConstants.defaultProfileImage)
-                        as ImageProvider,
-                onBackgroundImageError: (exception, stackTrace) {
-                  log('Error loading profile image: $exception');
-                },
+              Padding(
+                padding: const EdgeInsets.all(30.0),
+                child: CircleAvatar(
+                                  backgroundColor: orangeColor,
+                                  radius: 45,
+                                  backgroundImage: userInfo!['profileImageUrl'] != null &&
+                     userInfo!['profileImageUrl'].isNotEmpty
+                 ? NetworkImage(userInfo!['profileImageUrl'])
+                 : const AssetImage(AppConstants.defaultProfileImage)
+                     as ImageProvider,
+                                  onBackgroundImageError: (exception, stackTrace) {
+                                    log('Error loading profile image: $exception');
+                                  },
+                                ),
               ),
+             Divider(
+              color: Colors.black,
+              endIndent: .6,
+              indent:.6,
+             ),
               const SizedBox(height: 20),
               CustomListTile(
                 title: s.full_name,
