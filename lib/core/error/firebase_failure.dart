@@ -1,31 +1,37 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
+/// Abstract class for representing failure with an optional error message.
 abstract class Failure {
   final String? errMessage;
 
   const Failure({this.errMessage});
 }
 
+/// Handles Firebase-related failures.
 class FirebaseFailure extends Failure {
   FirebaseFailure({super.errMessage});
 
+  /// Factory method to generate failure from any Firebase [Exception].
   factory FirebaseFailure.fromFirebaseException(Exception exception) {
     if (exception is FirebaseAuthException) {
       return FirebaseFailure.fromAuthException(exception);
     } else if (exception is FirebaseException) {
       return FirebaseFailure.fromFirestoreException(exception);
     } else {
-      return FirebaseFailure(errMessage: 'An unknown Firebase error occurred.');
+      return FirebaseFailure(
+        errMessage: 'An unknown Firebase error occurred: ${exception.toString()}',
+      );
     }
   }
 
+  /// Handles [FirebaseAuthException] with readable error messages.
   factory FirebaseFailure.fromAuthException(FirebaseAuthException exception) {
     switch (exception.code) {
       case 'invalid-email':
         return FirebaseFailure(errMessage: 'The email address is not valid.');
       case 'user-disabled':
-        return FirebaseFailure(
-            errMessage: 'The user account has been disabled.');
+        return FirebaseFailure(errMessage: 'The user account has been disabled.');
       case 'user-not-found':
         return FirebaseFailure(errMessage: 'No user found with this email.');
       case 'wrong-password':
@@ -38,43 +44,42 @@ class FirebaseFailure extends Failure {
         return FirebaseFailure(errMessage: 'This operation is not allowed.');
       case 'invalid-credential':
         return FirebaseFailure(
-          errMessage:
-              'The credentials provided are incorrect Email or password or have expired. Please try again.',
+          errMessage: 'The provided credentials are invalid or expired. Please try again.',
         );
       case 'account-exists-with-different-credential':
         return FirebaseFailure(
-          errMessage:
-              'An account already exists with the same email but different sign-in method.',
+          errMessage: 'An account already exists with the same email but different sign-in method.',
         );
       default:
         return FirebaseFailure(
-            errMessage: 'An unexpected Firebase Auth error occurred.');
+          errMessage: 'Auth error (${exception.code}): ${exception.message}',
+        );
     }
   }
+
+  /// Handles [FirebaseException] related to Firestore and general Firebase issues.
   factory FirebaseFailure.fromFirestoreException(FirebaseException exception) {
     switch (exception.code) {
       case 'permission-denied':
-        return FirebaseFailure(
-            errMessage: 'Permission denied to access Firestore.');
+        return FirebaseFailure(errMessage: 'Permission denied to access Firestore.');
       case 'not-found':
         return FirebaseFailure(errMessage: 'Document not found in Firestore.');
       case 'aborted':
         return FirebaseFailure(errMessage: 'Firestore operation was aborted.');
       case 'already-exists':
-        return FirebaseFailure(
-            errMessage: 'Document already exists in Firestore.');
+        return FirebaseFailure(errMessage: 'Document already exists in Firestore.');
       case 'resource-exhausted':
-        return FirebaseFailure(errMessage: 'Firestore resource exhausted.');
+        return FirebaseFailure(errMessage: 'Firestore resource limit exceeded.');
       case 'unavailable':
-        return FirebaseFailure(
-            errMessage: 'Firestore service is currently unavailable.');
+        return FirebaseFailure(errMessage: 'Firestore service is currently unavailable.');
       case 'deadline-exceeded':
         return FirebaseFailure(errMessage: 'Firestore operation timed out.');
       case 'cancelled':
         return FirebaseFailure(errMessage: 'Firestore request was cancelled.');
       default:
         return FirebaseFailure(
-            errMessage: 'An unexpected Firestore error occurred.');
+          errMessage: 'Firestore error (${exception.code}): ${exception.message}',
+        );
     }
   }
 }
