@@ -88,7 +88,9 @@ class ContactsItem extends StatelessWidget {
             ),
             title: Text(
               messageModel.userName,
-              style: AppStyles.style22White(context),
+              style: AppStyles.style22White(context).copyWith(
+                color: Colors.black
+              ),
             ),
             // subtitle: Text(
             //   messageModel.message,

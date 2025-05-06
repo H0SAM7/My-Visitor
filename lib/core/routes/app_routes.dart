@@ -68,6 +68,7 @@ abstract class AppRoutes {
     AboutView.id: (context) => AboutView(),
     BookingInfoView.id: (context) => BookingInfoView(),
     NotifiView.id: (context) => NotifiView(),
+    ContactsScreen.id: (context) => ContactsScreen(),
 
     ChatView.id: (context) => ChatView(
           contactEmail: 'hoadel2003@gmail.com',

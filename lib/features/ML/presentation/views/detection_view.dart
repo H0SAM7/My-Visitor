@@ -18,20 +18,18 @@ class DetectionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-                                    final s= S.of(context);
+    final s = S.of(context);
 
     final size = MediaQuery.sizeOf(context);
 
     return BlocProvider(
       create: (_) => ImageDetectionCubit(Dio())
-        ..uploadImage(imageBytes: imageBytes, imageFile: imageFile)
-        ,
+        ..uploadImage(imageBytes: imageBytes, imageFile: imageFile),
       child: Scaffold(
-
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           title: Text(
-         s.detection,
+            s.detection,
             style: AppStyles.style22White(context),
           ),
           centerTitle: true,
@@ -39,7 +37,7 @@ class DetectionView extends StatelessWidget {
         backgroundColor: Colors.black,
         body: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(4.0),
             child: SingleChildScrollView(
               child: BlocBuilder<ImageDetectionCubit, DetectionState>(
                 builder: (context, state) {
@@ -63,29 +61,36 @@ class DetectionView extends StatelessWidget {
 
   Widget _buildImage(double height, double width) {
     if (imageBytes != null) {
-      return Image.memory(imageBytes!, height: height);
+      return ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+
+        child: Image.memory(
+          imageBytes!,
+        ),
+      );
     } else if (imageFile != null) {
-      return Image.file(
-        imageFile!,
-        height: height,
-        width: width,
-        fit: BoxFit.cover,
+      return ClipRRect(
+        borderRadius: BorderRadius.circular(4),
+        child: Image.file(
+          imageFile!,
+          fit: BoxFit.cover,
+        ),
       );
     } else {
-      return  Text("No image available",style:  TextStyle(
+      return Text(
+        "No image available",
+        style: TextStyle(
           fontSize: 20,
           fontWeight: FontWeight.bold,
-          
-        ),);
+        ),
+      );
     }
   }
 
   Widget _buildStateContent(BuildContext context, DetectionState state) {
-    
-    if (state is DetectionLoading|| state is GetDataLoading) {
+    if (state is DetectionLoading || state is GetDataLoading) {
       return LoadingWidgets.loadingdotsTriangle();
-    } else if (state is DetectionSuccess ) {
-  
+    } else if (state is DetectionSuccess) {
       // DetectionModel detectionModel =
       //     BlocProvider.of<ImageDetectionCubit>(context).getItemById(classNum) ??
       //         DetectionModel(name: 'name', aboutMe: 'aboutMe', id: -1);
@@ -94,21 +99,24 @@ class DetectionView extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("${historicalList[state.classNumber].name} :", style: AppStyles.style22White(context)),
+            Text("${historicalList[state.classNumber].name} :",
+                style: AppStyles.style22White(context)),
             const SizedBox(height: 20),
-            Text(historicalList[state.classNumber].aboutMe, style: AppStyles.style18(context)),
+            Text(historicalList[state.classNumber].aboutMe,
+                style: AppStyles.style18(context)),
           ],
         ),
       );
     } else if (state is DetectionError) {
       return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-        child: Text('We could not identify the Image. Please try again later. ',style: TextStyle(
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-          
-        ),)
-      );
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Text(
+            'We could not identify the Image. Please try again later. ',
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+            ),
+          ));
     } else {
       return const SizedBox.shrink();
     }
