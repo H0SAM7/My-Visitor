@@ -31,12 +31,12 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("مطاعم بالقرب منك"),
         "aboutApp": MessageLookupByLibrary.simpleMessage("حول التطبيق"),
         "about_app_name": MessageLookupByLibrary.simpleMessage(
-            "فيزيتور – رفيقك الذكي في السياحة"),
+            "زائر – رفيقك الذكي في السياحة"),
         "about_contact": MessageLookupByLibrary.simpleMessage("التواصل"),
         "about_contact_email": MessageLookupByLibrary.simpleMessage(
             "✉ البريد الإلكتروني: support@Visitor.app"),
         "about_description": MessageLookupByLibrary.simpleMessage(
-            "فيزيتور هو تطبيق سياحي مدعوم بالذكاء الاصطناعي يهدف إلى جعل تجربتك السياحية أكثر ذكاءً وسهولة. من التعرف على المعالم السياحية باستخدام الكاميرا، إلى حجز الفنادق والمتاحف، والدردشة مع مساعد ذكي، أو الترجمة أثناء التنقل — كل ذلك في مكان واحد."),
+            "زائر هو تطبيق سياحي مدعوم بالذكاء الاصطناعي يهدف إلى جعل تجربتك السياحية أكثر ذكاءً وسهولة. من التعرف على المعالم السياحية باستخدام الكاميرا، إلى حجز الفنادق والمتاحف، والدردشة مع مساعد ذكي، أو الترجمة أثناء التنقل — كل ذلك في مكان واحد."),
         "about_developed_by":
             MessageLookupByLibrary.simpleMessage("تم التطوير بواسطة"),
         "about_developers_text": MessageLookupByLibrary.simpleMessage(
@@ -245,7 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicy":
             MessageLookupByLibrary.simpleMessage("الخصوصية والسياسة"),
         "privacy_intro_text": MessageLookupByLibrary.simpleMessage(
-            "في تطبيق فيزيتور، خصوصيتك هي أولويتنا القصوى. تشرح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك عند استخدام تطبيقنا المحمول."),
+            "في تطبيق زائر خصوصيتك هي أولويتنا القصوى. تشرح سياسة الخصوصية هذه كيفية جمع واستخدام وحماية معلوماتك عند استخدام تطبيقنا المحمول."),
         "privacy_policy_header":
             MessageLookupByLibrary.simpleMessage("الخصوصية والسياسة"),
         "privacy_policy_title":

@@ -36,27 +36,27 @@ class _BottomNavigatorState extends State<BottomNavigator> {
         items: [
           Image.asset(
             Assets.iconsHome,
-            color: _currentIndex == 0 ?   orangeColor : Colors.black,
+            color: _currentIndex == 0 ?   orangeColor : Colors.white,
             height: 35,
           ),
           Image.asset(
             Assets.iconsScanning,
-            color: _currentIndex == 1 ?  orangeColor : Colors.black,
+            color: _currentIndex == 1 ?  orangeColor : Colors.white,
             height: 35,
           ),
           Image.asset(
             Assets.iconsChatbot,
-            color: _currentIndex == 2 ?  orangeColor: Colors.black,
+            color: _currentIndex == 2 ?  orangeColor: Colors.white,
             height: 25,
           ),
           Image.asset(
             Assets.iconsSetting,
-            color: _currentIndex == 3 ?  orangeColor : Colors.black,
+            color: _currentIndex == 3 ?  orangeColor : Colors.white,
             height: 35,
           ),
         ],
-       color: Colors.white,
-        buttonBackgroundColor: Colors.white,
+       color: Color(0xff1c1c1c),
+        buttonBackgroundColor: Color(0xff5c3317),
         backgroundColor: Colors.transparent,
         animationCurve: Curves.easeInOut,
         animationDuration: Duration(milliseconds: 600),

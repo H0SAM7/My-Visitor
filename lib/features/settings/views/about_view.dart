@@ -41,7 +41,7 @@ class AboutView extends StatelessWidget {
                 _buildSectionContent('about_version_number'),
                 const SizedBox(height: 16),
                 _buildSectionTitle('about_description', context),
-                _buildSectionContent('about_description'),
+                // _buildSectionContent('about_description'),
                 const SizedBox(height: 16),
                 _buildSectionTitle('about_key_features', context),
                 _buildFeatureList([

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/utils/functions/is_ar.dart';
@@ -15,7 +16,7 @@ class CustomAppBar extends StatelessWidget {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 8),
         child: Row(
           children: [
             GestureDetector(
@@ -27,6 +28,7 @@ class CustomAppBar extends StatelessWidget {
                 angle:isAr? 3.14159 :0,
                 child: Image.asset(
                   Assets.iconsBack,
+                  height: 25.h,
                   
                   color:color?? Colors.white,
                 ),
