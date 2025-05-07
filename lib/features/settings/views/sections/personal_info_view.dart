@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
@@ -116,7 +117,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
     final s = S.of(context);
 
     return userInfo == null
-        ? Center(child: LoadingWidgets.loadingthreeRotatingDots())
+        ? Center(child: LoadingWidgets.loadingthreeRotatingDots(size: 60))
         : Column(
             children: [
               Padding(
@@ -146,6 +147,8 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 leading: Image.asset(
                   Assets.iconsUser,
                   color: orangeColor,
+                            height: 26.h,
+
                 ),
               ),
               CustomListTile(
@@ -153,6 +156,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 subtitle: userInfo!['email']!,
                 leading: Icon(
                   FontAwesomeIcons.envelope,
+                  size: 26,
                   color: orangeColor,
                 ),
               ),
@@ -162,6 +166,8 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 leading: Image.asset(
                   Assets.iconsCall,
                   color: orangeColor,
+                            height: 26.h,
+
                 ),
               ),
             ],
