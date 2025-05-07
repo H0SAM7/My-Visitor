@@ -13,14 +13,15 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
   Future<void> register({
-required UserModel userModel
+required UserModel userModel,
+required String password,
   }) async {
     emit(AuthLoading());
     try {
       final userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email:userModel.email,
-        password: userModel.password,
+        password: password,
       );
       User? user = userCredential.user;
       if (user != null) {

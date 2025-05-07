@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
@@ -59,7 +60,7 @@ class HotelCard extends StatelessWidget {
                         maxLines: 1,
                         style: AppStyles.style22White(
                           context,
-                        ).copyWith(fontSize: 16),
+                        ).copyWith(fontSize: 16.sp),
                       ),
                       //                     AutoSizeText(
                       //   hotel.name.toString(),

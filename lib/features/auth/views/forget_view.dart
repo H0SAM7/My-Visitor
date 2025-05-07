@@ -4,11 +4,11 @@ import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/core/widgets/custom_text_field.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
-import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
 import 'package:my_visitor/generated/l10n.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 

@@ -1,6 +1,6 @@
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
+import 'package:my_visitor/core/widgets/custom_text_field.dart';
 
 class CreateNewPass extends StatelessWidget {
   const CreateNewPass({super.key});

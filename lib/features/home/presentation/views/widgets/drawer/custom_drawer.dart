@@ -1,12 +1,13 @@
-import 'dart:convert';
+import 'dart:developer';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
+import 'package:my_visitor/core/models/user_model.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
-import 'package:my_visitor/core/utils/shared_pref.dart';
-import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
+import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/chat/presentation/views/chat_view.dart';
 import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
@@ -23,66 +24,69 @@ class CustomDrawer extends StatefulWidget {
 }
 
 class _CustomDrawerState extends State<CustomDrawer> {
-  Map<String, String>? userInfo;
-  String? _profileImageUrl;
+  final ProfileUtils _userService = ProfileUtils();
+  UserModel? userModel;
+  bool _isLoading = false;
 
   @override
   void initState() {
     super.initState();
-    _loadUserInfo();
+    _checkUserAndLoadInfo();
   }
 
-  Future<void> _loadUserInfo() async {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
+  Future<void> _checkUserAndLoadInfo() async {
+    if (FirebaseAuth.instance.currentUser == null) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
-        Navigator.pushNamed(context, LoginView.id);
+        Navigator.pushReplacementNamed(context, LoginView.id);
       });
       return;
     }
+    await loadUserData();
+  }
 
+  Future<void> loadUserData() async {
+    setState(() {
+      _isLoading = true;
+    });
     try {
-      // Fetch user profile from ProfileUtils, same as PersonalInfoView
-      Map<String, dynamic>? profileData = await ProfileUtils.getUserProfile();
-      if (profileData != null) {
-        userInfo = {
-          'username': profileData['username']?.toString() ??
-              user.displayName ??
-              AppConstants.defaultUsername,
-          'email': profileData['email']?.toString() ??
-              user.email ??
-              AppConstants.defaultEmail,
-          'phone':
-              profileData['phone']?.toString() ?? AppConstants.defaultPhone,
-        };
-        _profileImageUrl = profileData['profileImageUrl']?.toString();
-      } else {
-        // Fallback to SharedPreferences or default values
-        String? jsonString = await SharedPreference().getString(user.email!);
-        if (jsonString != null) {
-          Map<String, dynamic> storedUserInfo = jsonDecode(jsonString);
-          userInfo = storedUserInfo
-              .map((key, value) => MapEntry(key, value.toString()));
-          _profileImageUrl = userInfo!['profileImageUrl'];
-        } else {
-          userInfo = {
-            'username': user.displayName ?? AppConstants.defaultUsername,
-            'email': user.email ?? AppConstants.defaultEmail,
-            'phone': AppConstants.defaultPhone,
-          };
-          _profileImageUrl = AppConstants.defaultProfileImage;
-        }
-      }
-      setState(() {});
+      final userModel = await _userService.loadUserData();
+      setState(() {
+        this.userModel = userModel;
+        log('Loaded user data: name=${userModel?.name}, email=${userModel?.email}, image=${userModel?.image}');
+      });
     } catch (e) {
-      userInfo = {
-        'username': user.displayName ?? AppConstants.defaultUsername,
-        'email': user.email ?? AppConstants.defaultEmail,
-        'phone': AppConstants.defaultPhone,
-      };
-      _profileImageUrl = AppConstants.defaultProfileImage;
-      setState(() {});
+      log('Error loading user data: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error Refresh data please try again')),
+      );
     }
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  Future<void> refreshProfile() async {
+    log('Starting profile refresh in CustomDrawer');
+    try {
+      final userModel = await _userService.refreshProfile();
+      setState(() {
+        this.userModel = userModel;
+        log('Refreshed user data: name=${userModel?.name}, email=${userModel?.email}, image=${userModel?.image}');
+      });
+    } catch (e) {
+      log('Error refreshing profile: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error Refresh data please try again')),
+      );
+    }
+  }
+
+  bool isValidUrl(String? url) {
+    if (url == null || url.isEmpty) return false;
+    final uri = Uri.tryParse(url);
+    return uri != null &&
+        uri.hasAbsolutePath &&
+        (uri.scheme == 'http' || uri.scheme == 'https');
   }
 
   @override
@@ -91,96 +95,109 @@ class _CustomDrawerState extends State<CustomDrawer> {
 
     return Drawer(
       backgroundColor: Colors.black,
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: [
-          UserAccountsDrawerHeader(
-            arrowColor: Colors.black,
-            accountName:
-                Text(userInfo?['username'] ?? AppConstants.defaultUsername),
-            accountEmail: Text(userInfo?['email'] ?? AppConstants.defaultEmail),
-            currentAccountPicture: CircleAvatar(
-              backgroundColor: orangeColor,
-              child: ClipOval(
-                child: _profileImageUrl != null && _profileImageUrl!.isNotEmpty
-                    ? CachedNetworkImage(
-                        imageUrl: _profileImageUrl!,
-                        placeholder: (context, url) => const Center(
-                          child: CustomLoadingIndicator(),
-                        ),
-                        errorWidget: (context, url, error) => Image.asset(
-                          AppConstants.defaultProfileImage,
-                          fit: BoxFit.cover,
-                        ),
-                        fit: BoxFit.cover,
-                        width: 80,
-                        height: 80,
-                      )
-                    : Image.asset(
-                        AppConstants.defaultProfileImage,
-                        fit: BoxFit.cover,
-                        width: 80,
-                        height: 80,
-                      ),
-              ),
+      child: _isLoading || userModel == null
+          ? Center(child: LoadingWidgets.loadingthreeRotatingDots(size: 60))
+          : ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                UserAccountsDrawerHeader(
+                  arrowColor: Colors.black,
+                  accountName: Text(userModel!.name ?? AppConstants.defaultUsername),
+                  accountEmail: Text(userModel!.email ?? AppConstants.defaultEmail),
+                  currentAccountPicture: CircleAvatar(
+                    radius: 40,
+                    backgroundColor: orangeColor,
+                    child: ClipOval(
+                      child: userModel!.image == null ||
+                              userModel!.image!.isEmpty ||
+                              !isValidUrl(userModel!.image)
+                          ? Image.asset(
+                              AppConstants.defaultProfileImage,
+                              fit: BoxFit.cover,
+                              width: 80,
+                              height: 80,
+                            )
+                          : CachedNetworkImage(
+                              imageUrl: userModel!.image!,
+                              placeholder: (context, url) => Center(
+                                child: LoadingWidgets.loadingthreeRotatingDots(size: 30),
+                              ),
+                              errorWidget: (context, url, error) => Image.asset(
+                                AppConstants.defaultProfileImage,
+                                fit: BoxFit.cover,
+                              ),
+                              fit: BoxFit.cover,
+                              width: 80,
+                              height: 80,
+                            ),
+                    ),
+                  ),
+                  decoration: const BoxDecoration(color: Colors.black),
+                ),
+                DrawerListTile(
+                  title: s.accountInformation,
+                  leading: Image.asset(
+                    Assets.iconsUser,
+                    color: orangeColor,
+                    height: 22.h,
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, PersonalInfoView.id).then((result) {
+                      log('Returned from PersonalInfoView with result: $result');
+                      if (result == true) {
+                        refreshProfile();
+                      }
+                    });
+                  },
+                ),
+                DrawerListTile(
+                  title: s.translation,
+                  leading: Icon(
+                    Icons.translate_outlined,
+                    color: orangeColor,
+                    size: 22,
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, TranslationView.id);
+                  },
+                ),
+                DrawerListTile(
+                  title: s.aiAssistant,
+                  leading: Image.asset(
+                    Assets.iconsChatbot,
+                    color: orangeColor,
+                    height: 22.h,
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, ChatbotScreen.id);
+                  },
+                ),
+                DrawerListTile(
+                  title: s.support,
+                  leading: Icon(
+                    Icons.chat_bubble_outline,
+                    color: orangeColor,
+                    size: 22,
+                  ),
+                  onTap: () {
+                    Navigator.pushNamed(context, ChatView.id);
+                  },
+                ),
+                const Divider(),
+                DrawerListTile(
+                  title: s.logout,
+                  onTap: () async {
+                    await FirebaseAuth.instance.signOut();
+                    Navigator.pushReplacementNamed(context, LoginView.id);
+                  },
+                  leading: Image.asset(
+                    Assets.iconsLogout,
+                    height: 22.h,
+                    color: orangeColor,
+                  ),
+                ),
+              ],
             ),
-            decoration: const BoxDecoration(color: Colors.black),
-          ),
-          DrawerListTile(
-            title: s.accountInformation,
-            leading: Image.asset(
-              Assets.iconsUser,
-              color: orangeColor,
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, PersonalInfoView.id);
-            },
-          ),
-          DrawerListTile(
-            title: s.translation,
-            leading: Icon(
-              Icons.translate_outlined,
-              color: orangeColor,
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, TranslationView.id);
-            },
-          ),
-          DrawerListTile(
-            title: s.aiAssistant,
-            leading: Image.asset(
-              Assets.iconsChatbot,
-              color: orangeColor,
-              height: 22,
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, ChatbotScreen.id);
-            },
-          ),
-          DrawerListTile(
-            title: s.support,
-            leading: Icon(
-              Icons.chat_bubble_outline,
-              color: orangeColor,
-            ),
-            onTap: () {
-              Navigator.pushNamed(context, ChatView.id);
-            },
-          ),
-          Divider(),
-          DrawerListTile(
-            title: s.logout,
-            onTap: () async {
-              await FirebaseAuth.instance.signOut();
-              Navigator.pushNamed(context, LoginView.id);
-            },
-            leading: Image.asset(
-              Assets.iconsLogout,
-              color: orangeColor,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

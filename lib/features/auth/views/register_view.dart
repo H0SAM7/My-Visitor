@@ -7,11 +7,11 @@ import 'package:my_visitor/core/models/user_model.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
+import 'package:my_visitor/core/widgets/custom_text_field.dart';
 import 'package:my_visitor/core/widgets/show_custom_alert.dart';
 import 'package:my_visitor/features/auth/manager/auth_cubit/auth_cubit.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
-import 'package:my_visitor/features/auth/views/widgets/custom_text_field.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
@@ -160,11 +160,12 @@ class _RegisterViewState extends State<RegisterView> {
                             if (formKey.currentState!.validate()) {
                               final user = UserModel(
                                 email: email!,
-                                password: password!,
+                       
                                 name: name,
                               );
+                                   
                               await BlocProvider.of<AuthCubit>(context)
-                                  .register(userModel: user);
+                                  .register(userModel: user,password: password!);
 
                               await FirebaseMessaging.instance
                                   .subscribeToTopic(notifiGroup);

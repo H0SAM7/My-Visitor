@@ -1,12 +1,16 @@
 import 'dart:developer';
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_visitor/constants.dart';
+import 'package:my_visitor/core/models/user_model.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
+import 'package:my_visitor/core/widgets/custom_image.dart';
 import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/core/widgets/custom_app_bar.dart';
@@ -14,13 +18,6 @@ import 'package:my_visitor/features/settings/views/sections/edit_profile_view.da
 import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
 import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';
 import 'package:my_visitor/generated/l10n.dart';
-
-class AppConstants {
-  static const String defaultUsername = 'User Name';
-  static const String defaultEmail = 'User@gmail.com';
-  static const String defaultPhone = 'Not Provided';
-  static const String defaultProfileImage = Assets.imagesDefualtProfile;
-}
 
 class PersonalInfoView extends StatelessWidget {
   const PersonalInfoView({super.key});
@@ -36,19 +33,17 @@ class PersonalInfoView extends StatelessWidget {
             title: s.personalInfo,
             widget: TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, EditProfileView.id).then((result) {
-                  if (result == true) {
-                    _PersonalInfoSectionState? sectionState = context
-                        .findAncestorStateOfType<_PersonalInfoSectionState>();
-                    sectionState?.refreshProfile();
-                  }
-                });
+              Navigator.pushNamed(context, EditProfileView.id).then((result) {
+      if (result == true) {
+        _PersonalInfoSectionState? sectionState = context
+            .findAncestorStateOfType<_PersonalInfoSectionState>();
+        sectionState?.loadUserData();
+      }
+    });
               },
               child: Text(
                 s.edit,
-                style: TextStyle(color: orangeColor,
-                fontSize: 18),
-                
+                style: TextStyle(color: orangeColor, fontSize: 18),
               ),
             ),
           ),
@@ -67,13 +62,15 @@ class PersonalInfoSection extends StatefulWidget {
 }
 
 class _PersonalInfoSectionState extends State<PersonalInfoSection> {
-  Map<String, dynamic>? userInfo;
+  final ProfileUtils _userService = ProfileUtils();
+  UserModel? userModel;
 
   @override
   void initState() {
     super.initState();
     _checkUserAndLoadInfo();
     refreshProfile();
+    setState(() {});
   }
 
   Future<void> _checkUserAndLoadInfo() async {
@@ -83,77 +80,76 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
       });
       return;
     }
-    await _loadUserInfo();
+    await loadUserData();
   }
 
-  Future<void> _loadUserInfo() async {
+  Future<void> loadUserData() async {
     try {
-      userInfo = await ProfileUtils.getUserProfile();
-      log('Loaded user info: $userInfo');
-      setState(() {});
+      final userModel = await _userService.loadUserData();
+      setState(() {
+        this.userModel = userModel;
+      });
     } catch (e) {
-      log('Error loading user info: $e');
+      log('Error loading user data: $e');
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to load user info')),
+        const SnackBar(content: Text('Failed to load user data')),
       );
-      userInfo = {
-        'username': AppConstants.defaultUsername,
-        'email': AppConstants.defaultEmail,
-        'phone': AppConstants.defaultPhone,
-        'profileImageUrl': AppConstants.defaultProfileImage,
-      };
-      setState(() {});
     }
   }
 
-  // New method to refresh profile data
   Future<void> refreshProfile() async {
-    log('Refreshing profile data');
-    await _loadUserInfo();
+    try {
+      final userModel = await _userService.refreshProfile();
+      setState(() {
+        this.userModel = userModel;
+      });
+    } catch (e) {
+      log('Error refreshing profile: $e');
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Failed to refresh profile')),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
 
-    return userInfo == null
+    return userModel == null
         ? Center(child: LoadingWidgets.loadingthreeRotatingDots(size: 60))
         : Column(
             children: [
               Padding(
                 padding: const EdgeInsets.all(30.0),
                 child: CircleAvatar(
-                                  backgroundColor: orangeColor,
-                                  radius: 55,
-                                  backgroundImage: userInfo!['profileImageUrl'] != null &&
-                     userInfo!['profileImageUrl'].isNotEmpty
-                 ? NetworkImage(userInfo!['profileImageUrl'])
-                 : const AssetImage(AppConstants.defaultProfileImage)
-                     as ImageProvider,
-                                  onBackgroundImageError: (exception, stackTrace) {
-                                    log('Error loading profile image: $exception');
-                                  },
-                                ),
+                  backgroundColor: orangeColor,
+                  radius: 55,
+                  backgroundImage:
+                      userModel!.image == null || userModel!.image!.isEmpty
+                          ? const AssetImage(AppConstants.defaultProfileImage)
+                          : CachedNetworkImageProvider(
+                              userModel!.image!,
+                            ) as ImageProvider<Object>,
+                ),
               ),
-             Divider(
-              color: Colors.white,
-              endIndent: 40.6,
-              indent:40.6,
-             ),
+              Divider(
+                color: Colors.white,
+                endIndent: 40.6,
+                indent: 40.6,
+              ),
               const SizedBox(height: 20),
               CustomListTile(
                 title: s.full_name,
-                subtitle: userInfo!['username']!,
+                subtitle: userModel!.name ?? AppConstants.defaultUsername,
                 leading: Image.asset(
                   Assets.iconsUser,
                   color: orangeColor,
-                            height: 26.h,
-
+                  height: 26.h,
                 ),
               ),
               CustomListTile(
                 title: s.email,
-                subtitle: userInfo!['email']!,
+                subtitle: userModel!.email,
                 leading: Icon(
                   FontAwesomeIcons.envelope,
                   size: 26,
@@ -162,12 +158,11 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
               ),
               CustomListTile(
                 title: s.phone_number,
-                subtitle: userInfo!['phone']!,
+                subtitle: userModel!.phoneNumber ?? AppConstants.defaultPhone,
                 leading: Image.asset(
                   Assets.iconsCall,
                   color: orangeColor,
-                            height: 26.h,
-
+                  height: 26.h,
                 ),
               ),
             ],

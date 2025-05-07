@@ -75,15 +75,12 @@ class HomeResturantCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(restaurantModel.name,
-                          style: AppStyles.style22White(context)),
+                          style: AppStyles.style22White(context).copyWith(fontSize: 16.sp)),
                       Text(
                         restaurantModel.reviewSnippets.reviewSnippetsList[1]
                                 .reviewText ??
                             '',
-                        style: TextStyle(
-                          fontSize: screenWidth * 0.045,
-                          color: Colors.white,
-                        ),
+                        style: AppStyles.style16Gray(context)
                       ),
                       SizedBox(height: cardHeight * 0.02),
                       Text(

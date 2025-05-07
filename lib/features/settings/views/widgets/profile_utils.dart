@@ -2,56 +2,77 @@ import 'dart:convert';
 import 'dart:developer';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:my_visitor/core/models/user_model.dart';
+import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/utils/shared_pref.dart';
-import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 
+
+class AppConstants {
+  static const String defaultUsername = 'User Name';
+  static const String defaultEmail = 'User@gmail.com';
+  static const String defaultPhone = 'Not Provided';
+  static const String defaultProfileImage = Assets.imagesDefualtProfile;
+}
 class ProfileUtils {
-  static Future<Map<String, dynamic>> getUserProfile() async {
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user == null) {
-      return {
-        'username': AppConstants.defaultUsername,
-        'email': AppConstants.defaultEmail,
-        'phone': AppConstants.defaultPhone,
-        'profileImageUrl': AppConstants.defaultProfileImage,
-      };
-    }
+  
 
+
+
+
+
+
+
+
+  static final ProfileUtils _instance = ProfileUtils._internal();
+  factory ProfileUtils() => _instance;
+  ProfileUtils._internal();
+
+  Future<UserModel?> loadUserData() async {
     try {
-      // Check SharedPreferences
-      String? jsonString = await SharedPreference().getString(user.email!);
-      Map<String, dynamic> storedUserInfo = {};
-      if (jsonString != null) {
-        storedUserInfo = jsonDecode(jsonString);
+      final User? user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        log('No authenticated user found');
+        throw Exception('User not authenticated');
       }
 
-      // Check Firestore
-      DocumentSnapshot doc =
-          await FirebaseFirestore.instance.collection('users').doc(user.email).get();
+      final DocumentSnapshot doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.email)
+          .get();
+
       if (doc.exists) {
-        return {
-          'username': doc.get('username') ?? storedUserInfo['username']?.toString() ?? user.displayName ?? AppConstants.defaultUsername,
-          'email': user.email ?? AppConstants.defaultEmail,
-          'phone': doc.get('phone') ?? storedUserInfo['phone']?.toString() ?? AppConstants.defaultPhone,
-          'profileImageUrl': doc.get('profileImageUrl') ?? storedUserInfo['profileImageUrl']?.toString() ?? AppConstants.defaultProfileImage,
-        };
+        final userModel = UserModel.fromJson(doc.data() as Map<String, dynamic>);
+        log('Loaded user data: ${doc.data().toString()}');
+        return userModel;
+      } else {
+        log('User document does not exist for ${user.email}');
+        return null;
       }
-
-      // Fallback to SharedPreferences or defaults
-      return {
-        'username': storedUserInfo['username']?.toString() ?? user.displayName ?? AppConstants.defaultUsername,
-        'email': user.email ?? AppConstants.defaultEmail,
-        'phone': storedUserInfo['phone']?.toString() ?? AppConstants.defaultPhone,
-        'profileImageUrl': storedUserInfo['profileImageUrl']?.toString() ?? AppConstants.defaultProfileImage,
-      };
     } catch (e) {
-      log('Error fetching profile: $e');
-      return {
-        'username': user.displayName ?? AppConstants.defaultUsername,
-        'email': user.email ?? AppConstants.defaultEmail,
-        'phone': AppConstants.defaultPhone,
-        'profileImageUrl': AppConstants.defaultProfileImage,
-      };
+      log('Error loading user data: $e');
+      rethrow; 
+    }
+  }
+
+  Future<UserModel?> refreshProfile() async {
+    log('Refreshing profile data');
+    return await loadUserData();
+  }
+Future<void> updateProfile(UserModel updatedModel) async {
+    try {
+      final User? user = FirebaseAuth.instance.currentUser;
+      if (user == null) {
+        log('No authenticated user found');
+        throw Exception('User not authenticated');
+      }
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.email)
+          .set(updatedModel.toJson());
+      log('Profile updated successfully for ${user.email}');
+    } catch (e) {
+      log('Error updating profile: $e');
+      rethrow;
     }
   }
 }
