@@ -1,4 +1,3 @@
-
 import 'package:my_visitor/features/ML/data/models/detection_model.dart';
 
 List<DetectionModel> historicalList = [
@@ -39,7 +38,7 @@ Isis hid with Horus in the marshes of the Nile delta until her son was fully gro
   ),
   DetectionModel(
     id: 5,
-    name: "Hatshepsu",
+    name: "Hatshepsut",
     aboutMe:
         """reign was a period of great prosperity and general peace. One of the most prolific builders in Ancient Egypt, she oversaw large-scale construction projects such as the Karnak Temple Complex, the Red Chapel, the Speos Artemidos and most famously, the Mortuary Temple of Hatshepsut at Deir el-Bahar.
 Hatshepsut was the daughter of Thutmose I and Great Royal Wife, Ahmose. Upon the death of her husband and half-brother Thutmose II, she had initially ruled as regent to her stepson, Thutmose III, who inherited the throne at the age of two. Several years into her regency, Hatshepsut assumed the position of pharaoh and adopted the full royal titulary, making her a co-ruler alongside Thutmose III. In order to establish herself in the Egyptian patriarchy, she took on traditionally male roles and was depicted as a male pharaoh, with physically masculine traits and traditionally male garb. She emphasized both the qualities of men and women to convey the idea that she was both a mother and father to the realm.[9] Hatshepsut's reign was a period of great prosperity and general peace. One of the most prolific builders in Ancient Egypt, she oversaw large-scale construction projects such as the Karnak Temple Complex, the Red Chapel, the Speos Artemidos and most famously, the Mortuary Temple of Hatshepsut at Deir el-Bahari.
@@ -103,7 +102,7 @@ In 2006, the Egyptian government decided to relocate the statue to a more approp
   ),
   DetectionModel(
     id: 13,
-    name: "Statue-of-King-Zose",
+    name: "Statue-of-King-Zoser",
     aboutMe:
         """This statue was found in a closed room called Serdab, northeast of the funerary complex of King Djoser at Saqqara. It is believed that the statue of Djoser is the oldest known life-sized Egyptian statue. It depicts King Djoser himself, seated on his throne and enveloped in a jubilee cloak.
 The ka statue of king Djoser was entirely coated with white plaster and painted. The deep-set eyes were once inlaid. The king has a ceremonial false beard and wears a black wig topped by the royal nemes headdress. The front side of the pedestal is inscribed with hieroglyphic text, indicating the name and epitaphs of King Netjerikhet of Upper and Lower Egypt.
@@ -136,13 +135,6 @@ Don’t fear; our tours are much safer than those in Christie’s books! Why not
     id: 17,
     name: "The-Great-Temple-of-Ramesses-II",
     aboutMe:
-        """Abu Simbel is a temple built by Ramesses II (c.1279-1213 B.C.E.) in ancient Nubia, where he wished to demonstrate his power and his divine nature. Four colossal (65 feet/20 meters high) statues of him sit in pairs flanking the entrance. The head and torso of the statue to the left of the entrance fell during ancient times, probably the result of an earthquake. This temple faces the east, and Re-Horakhty, one manifestation of the sun god, is shown inside the niche directly above the entrance. The alignment of the temple is such that twice a year the sun's rays reach into the innermost sanctuary to illuminate the seated statues of Ptah, Amun-Re, Ramesses II, and Re-Horakhty.
-The temple was cut out of the sandstone cliffs above the Nile River in an area near the Second Cataract. When the High Dam was being constructed in the early 1960s, international cooperation assembled funds and technical expertise to move this temple to higher ground so that it would not be inundated by the waters of Lake Nasser.""",
-  ),
-  DetectionModel(
-    id: 18,
-    name: "The-Great-Temple-of-Ramesses-II",
-    aboutMe:
         """Abu Simbel is a temple built by Ramesses II (c.1279-1213 B.C.E.) 
     in ancient Nubia, where he wished to demonstrate his power and his divine nature. 
     Four colossal (65 feet/20 meters high) statues of him sit in pairs flanking the entrance. 
@@ -159,7 +151,7 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
     to higher ground so that it would not be inundated by the waters of Lake Nasser.""",
   ),
   DetectionModel(
-    id: 19,
+    id: 18,
     name: "amenhotep-iii-and-tiye",
     aboutMe: """The long reign of Amenhotep III and his great royal wife, Tiye, 
     was a golden age for Egypt. Ruling together for as many as 38 years, the pair 
@@ -184,7 +176,7 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
     The king’s three jubilee celebrations were documented in excruciating detail.""",
   ),
   DetectionModel(
-    id: 20,
+    id: 19,
     name: "bust-of-ramesses-ii",
     aboutMe:
         """The Statue of Ramesses II is a colossal 3,200-year-old figure of Ramesses II, depicting him standing. 
@@ -204,7 +196,7 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
     full height and erected on a three-meter pedestal at the edge of a fountain, stabilized by iron bars inside the body.""",
   ),
   DetectionModel(
-    id: 21,
+    id: 20,
     name: "menkaure-pyramid",
     aboutMe:
         """The Pyramid of Menkaure is the smallest of the three main pyramids of the Giza complex, 
@@ -222,7 +214,7 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
     solar barque pit.""",
   ),
   DetectionModel(
-    id: 22,
+    id: 21,
     name: "sphinx",
     aboutMe:
         """A sphinx (or sphynx) is a mythical creature with the body of a lion and the head of a human, with variations found in different cultures. 
@@ -235,7 +227,7 @@ The temple was cut out of the sandstone cliffs above the Nile River in an area n
   a two-mile avenue lined with sphinx statues that connects the temples of Luxor and Karnak.""",
   ),
   DetectionModel(
-    id: 23,
+    id: 22,
     name: "Abu Haggag Mosque",
     aboutMe:
         """: is quite possibly the most lovely and notable mosque in Luxor, Egypt. It is a priority objective for anyone with any interest at all in Islamic history and design that you will explore during Egypt day tours. The mosque was based on the site of a past mosque, which was obliterated by a seismic tremor in the 19th century. The ongoing mosque was the foundation of the 18th century and has since turned into a significant site in Luxor day tours.
@@ -243,14 +235,14 @@ The Abu El-Haggag Mosque is a brilliant illustration of Islamic design that will
 During your tour in Egypt sightseeing tours, you will discover that the Abu El-Haggag Mosque has played an important role in the social history of Luxor. It is an image of the city's Islamic legacy and is viewed as perhaps of the main mosque in Upper Egypt. The mosque draws in guests during Egypt budget tours from everywhere around the world who come to see its wonderful design and to find out about the historical backdrop of Islam in Egypt. It is likewise a significant site for nearby Muslims, who come to ask and to take part in strict celebrations and events. You can use your time in Luxor and take a day tour in Luxor west bank. This journey will be unforgettable.""",
   ),
   DetectionModel(
-    id: 24,
+    id: 23,
     name: "Abu Simbel Temples",
     aboutMe:
         """is an ancient temple complex, originally cut into a solid rock cliff, in southern Egypt and located at the second cataract of the Nile River. The two temples which comprise the site were created during the reign of Ramesses II (c. 1279 - c. 1213 BCE) either between 1264 - 1244 BCE or 1244-1224 BCE. The discrepancy in the dates is due to differing interpretations of the life of Ramesses II by modern day scholars. It is certain, based upon the extensive artwork throughout the interior of the Great Temple, that the structures were created, at least in part, to celebrate Ramesses' victory over the Hittites at the Battle of Kadesh in 1274 BCE. To some scholars, this indicates a probable date of 1264 BCE for the initial construction as the victory would have been fresh in the memory of the people. However, the decision to build the grand monument at that precise location, on the border with the conquered lands of Nubia, suggests to other scholars the later date of 1244 BCE in that it would have had to have been begun after the Nubian Campaigns Ramesses II undertook with his sons and was built as a symbol of Egypt's power.
 Whichever date construction began, it is agreed that it took twenty years to create the complex and that the temples are dedicated to the gods Ra-Horakty, Ptah, and the deified Ramesses II (The Great Temple) and the goddess Hathor and Queen Nefertari, Ramesses' favourite wife (The Small Temple). While it is assumed that the name, `Abu Simbel', was the designation for the complex in antiquity, this is not so. Allegedly, the Swiss explorer Burckhardt was led to the site by a boy named Abu Simbel in 1813 CE and the site was then named after him. Burckhardt, however, was unable to uncover the site, which was buried in sand up to the necks of the grand colossi and later mentioned this experience to his friend and fellow explorer Giovanni Belzoni. It was Belzoni who uncovered and first excavated (or looted) Abu Simbel in 1817 CE and it is considered likely that it was he, not Burckhardt, who was led to the site by the young boy and who named the complex after him. As with other aspects regarding Abu Simbel (such as the date it was begun), the truth of either version of the story is open to interpretation and all that is known is that the original name for the complex, if it had a specific designation, has been lost.""",
   ),
   DetectionModel(
-    id: 25,
+    id: 24,
     name: "Abu el-Abbas el-Mursi Mosque",
     aboutMe:
         """Morsi Abu EL Abbas was born in the Andalusia region of Spain in 1219 to a wealthy Muslim family that left for Tunisia because of the rise of Christian control of Spain; he and his family left for Alexandria, which was a popular destination for many Muslim scholars during that era. He lived in Alexandria for 43 years until his death in 1286 and was buried in a small construction near the eastern heron, which was later turned into a huge mausoleum and a mosque. Every year, a festival takes place to celebrate him. 
@@ -258,20 +250,20 @@ Whichever date construction began, it is agreed that it took twenty years to cre
  The Mosque of Abu El Abbas El Mursi was erected in 1775 by Algerians and holds special significance as it was built atop the tomb of the revered 13th-century Andalusian saint Ahmed Abu al-Abbas al-Mursi. Known for his devout Sufi practice and leadership within the Shadhali brotherhood, this mosque stands proudly on Mosque Square in the Anfoushi neighborhood of Alexandria, with a direct view over the eastern harbor in Alexandria.""",
   ),
   DetectionModel(
-    id: 26,
+    id: 25,
     name: "Aga Khan Mausoleum",
     aboutMe:
         """The Mausoleum of Aga Khan is the mausoleum of Aga Khan III (Sir Sultan Muhammed Shah, who died in 1957). The mausoleum is located at Aswan along the Nile of Egypt, since Egypt was formerly the centre of power of the Fatimids, an Ismaili Shia dynasty. It is now also the resting place of Aga Khan IV.The construction of the mausoleum began in 1956 and ended in 1960.[1] The Aga Khan III's wife, Begum Om Habibeh Aga Khan, commissioned the construction of the mausoleum, which initially accepted tourists inside; however, the interior was closed off to the public in 1997.[2]A red rose is laid on the Aga Khan III's tomb every day – a practice first started by Begum Om Habibeh Aga Khan. The mausoleum sits atop a hill along the west bank of the Nile, where it overlooks Aga Khan III and Begum Om Habibeh Aga Khan's villa, the Prince Sadruddin Aga Khan House.[4] The villa was designed by Egyptian architect Hassan Fathy, and it served as a winter home for Aga Khan III, whose will stated that he would be buried near the villa two years after his death.[4][5]  
 Egyptian architect Farid Shafi'e (1907–1985) designed the mausoleum, who during his career served as an architectural designer; professor and director of the architecture department at Cairo University; and consultant for the King Abdulaziz University, among other roles.[6] Among some of the other buildings that Farid Shafie designed during his career are the headquarters of the Royal Navy in Cairo; the Office of the Sheikh at the Al-Azhar Mosque; and a royal suite in the Abdeen Palace in Cairo.[7]""",
   ),
   DetectionModel(
-    id: 27,
+    id: 26,
     name: "Agiba Beach",
     aboutMe:
         "The most iconic of Marsa Matruh’s beaches is Agiba, with its picturesque cove nestled between two white cliffs. For a panoramic view of the crystal-clear waters in this pristine stretch of the Mediterranean, climb up the cliffs with a cool drink and get lost gazing at the gentle waves. When you’re done climbing and swimming, make sure to check out Agiba’s caves.",
   ),
   DetectionModel(
-    id: 28,
+    id: 27,
     name: "Al-Azhar Mosque",
     aboutMe:
         """ Al-Azhar is one of Cairo’s oldest and main mosques and a must-see when visiting the Egyptian capital. This jewel of Islam is located in the Historic Cairo area and is therefore a UNESCO World Heritage Site.
@@ -281,7 +273,7 @@ The passing of the centuries and the different historical periods in Egypt left 
 It began as a large prayer hall with five corridors and a central courtyard, occupying some 85 metres long and 69 metres wide. It was during the Mamluk period (1250-1517) when the mosque grew and added minarets and madrasas. However, it was in the subsequent Ottoman period (1517-1867) when the complex underwent its greatest expansion, doubling in size and adding new entrance gates such as the Bab al-Muzayinin (Barbers’ Gate), which is now the main entrance to the mosque.""",
   ),
   DetectionModel(
-    id: 29,
+    id: 28,
     name: "Al-Azhar Park",
     aboutMe:
         """The Al-Azhar Park is one of the foremost public parks in Egypt, found in Cairo City, and it is recorded as one of the world's sixty incredible open parks by the Public Spaces Venture. The Historic Cities Support Program made it with the help of The Aga Khan Trust for Culture. Once a rundown region in Cairo, it has undergone a miraculous change and is a popular tourist destination in Egypt.
@@ -289,13 +281,13 @@ The Park includes more than two million trees and plants. It is situated in an e
 Al-Azhar Park is a popular spot for locals and tourists alike. It is a place where people can relax, enjoy the scenery, and breathe fresh air.""",
   ),
   DetectionModel(
-    id: 30,
+    id: 29,
     name: "Alexandria Opera House ",
     aboutMe:
         """Was constructed in 1918 during the reign of Sultan Fuad I and named "Mohamed Ali Theatre". The original owner was Badr El Din Kerdany who had appointed French architect Georges Baroque to do the design. Following its inauguration in 1921, the theatre was host to celebrated Arab and foreign singers. In 1962 the theatre was renamed "Sayed Darwish Theatre" in honour of this pioneer of Arab music.""",
   ),
   DetectionModel(
-    id: 31,
+    id: 30,
     name: "Amenhotep III Sun Templte",
     aboutMe:
         """The Mortuary Temple Of Amenhotep III, built by Amenhotep for the Pharaoh Amenhotep III during the 18th Dynasty in the New Kingdom lies on the Western bank of the Nile River. The Mortuary Temple of Amenhotep III is the largest funeral collection in and around Thebes.
@@ -304,7 +296,7 @@ The whole area enclosed by three gates divided into north and south halves looks
 Followed by a walkway adorned with statues of the Pharaohs and the Queens, the entrance also leads to a courtyard spotted by the statue of a crocodile sphinx. The temple has two other statues preserved to the present day.""",
   ),
   DetectionModel(
-    id: 32,
+    id: 31,
     name: "Aswan High Dam",
     aboutMe:
         """The Aswan Dam is a stunning attraction that has been around for centuries. Located in the southern part of the country, it is a monumental achievement of engineering and architecture that travelers should not miss. It provides hydroelectricity, flood protection, and irrigation for millions of Egyptians. From its history to its activities and cost, here is everything you need to know about visiting this iconic structure. 
@@ -312,7 +304,7 @@ Let's fast forward a bit to the modern era. The Aswan High Dam that we know toda
 And that's not all the Aswan Dam does, either. It also generates a ton of electricity. In fact, it's one of the largest hydroelectric power stations in the world. That power is used to help meet the energy needs of Egypt's growing population, powering homes, businesses, and industries all around the country.""",
   ),
   DetectionModel(
-    id: 33,
+    id: 32,
     name: "Bagawat",
     aboutMe:
         """is an ancient Christian cemetery, and one of the oldest in the world, which functioned at the Kharga Oasis in southern-central Egypt from the 3rd to the 7th century AD. It is one of the earliest and best preserved Christian cemeteries from the ancient world.
@@ -320,21 +312,29 @@ The Necropolis of El Bagawat is located in the Western Desert in Kharga Oasis. T
 The El Bagawat cemetery is reported to be pre-historic[2] and is one of the oldest Christian cemeteries in Egypt.[3][2] Before Christianity was introduced into Egypt, it was a burial ground used by the non-Christians and later by the Christians. The chapels here are said to belong to both the eras.[4] Coptic frescoes of the 3rd to the 7th century are found on the walls.[5] There are 263 funerary chapels, of which the Chapel of the Exodus (first half of the 4th century) and Chapel of Peace (5th or 6th century) have the best-preserved frescoes, although fresco fragments can also be seen in Chapels 25, 172, 173, 175, and 210.[6]""",
   ),
   DetectionModel(
-    id: 34,
+    id: 33,
     name: "Bayt Al-Suhaymi",
     aboutMe:
         """Bayt al-Suhaymi ("House of Suhaymi") is a traditional Egyptian Islamic themed house and museum in Cairo, Egypt. It was originally built in 1648[1] by Abdel Wahab el Tablawy along the Darb al-Asfar, a very prestigious and expensive part of Islamic Cairo. In 1796 it was purchased by Sheikh Ahmed as-Suhaymi, whose family held it for several subsequent generations. The Sheikh greatly extended the house from its original through incorporating neighbouring houses into its structure.
 The house is built around a sahn, in the centre of which there is a small garden with plants and palm trees. From here several of the fine mashrabiya windows in the house can be seen. Today the house is a museum which foreign visitors can tour for 220 Egyptian pounds (110 for students). Much of the marble floor work, wooden furniture, and ceiling decor is still intact. Restoration took place after the earthquake of 1992.[2]""",
   ),
   DetectionModel(
-    id: 35,
+    id: 34,
     name: "Bibliotheca Alexandrina",
     aboutMe:
-        """The Bibliotheca Alexandrina (Latin, 'Library of Alexandria';[1] Arabic: مكتبة الإسكندرية, romanized: Maktabat al-’Iskandariyya, Egyptian Arabic pronunciation: [mækˈtæb(e)t eskendeˈɾejjæ]) (BA) is a major library and cultural center on the shore of the Mediterranean Sea in Alexandria, Egypt. It is a commemoration of the Library of Alexandria, once one of the largest libraries worldwide, which was lost in antiquity. The Bibliotheca Alexandrina contains books in classical Arabic, English, and French languages.
-The idea of reviving the old library dates back to 1974 when a committee set up by Alexandria University selected a plot of land for its new library. Construction work began in 1995, and after some US\$220 million had been spent, the complex was officially inaugurated on 16 October 2002. In 2009, the library received a donation of 500,000 books from the Bibliothèque nationale de France (BnF). The gift makes the Bibliotheca Alexandrina the sixth-largest Francophone library in the world.[2]""",
+        """is a major cultural and academic center located in Alexandria, Egypt.
+It was inaugurated in 2002 as a tribute to the ancient Library of Alexandria, one of the greatest libraries of the ancient world.
+The building is renowned for its modern architecture, featuring a large, slanted circular structure that symbolizes the rising sun of knowledge.
+It houses millions of books in multiple languages, along with museums, art galleries, and a planetarium.
+The Bibliotheca serves as a hub for learning, dialogue, and cultural exchange for visitors from around the world.
+The Bibliotheca Alexandrina was designed by the Norwegian architectural firm Snøhetta and is located on the Mediterranean shoreline, near where the ancient library once stood.
+Its main reading room is tilted toward the sea and spans over 70,000 square meters, capable of housing over 8 million books.
+The outer wall of the building is covered in carved letters from more than 120 scripts and languages, symbolizing global knowledge and communication.
+In addition to books, the library also contains a rare manuscripts museum, an antiquities museum, and an internet archive.
+It serves not only as a library but as a center for education, dialogue, and scientific research, hosting international conferences, exhibitions, and public lectures.""",
   ),
   DetectionModel(
-    id: 36,
+    id: 35,
     name: "Citadel of Qaitbay ",
     aboutMe:
         """The Citadel of Qaitbay (or the Fort of Qaitbay; Arabic: قلعة قايتباي) is a 15th-century defensive fortress located on the Mediterranean sea coast, in Alexandria, Egypt. It was built from 1477 to 1479 AD (882–884 AH) by Sultan Al-Ashraf Sayf al-Din Qa'it Bay.[2] The Citadel is situated on the eastern side of the northern tip of Pharos Island at the mouth of the Eastern Harbour.[3] 
@@ -342,7 +342,7 @@ The Qaitbay Citadel in Alexandria is considered one of the most important defens
 The Citadel is situated at the entrance of the eastern harbour on the eastern point of Pharos Island. It was erected on the site of the former Lighthouse of Alexandria, which was one of the Seven Wonders of the Ancient World. Many structural modifications were made to the lighthouse after the Arab conquest of Egypt, but the lighthouse continued to function for many centuries. Restoration began in the period of Ahmed Ibn Tulun (about 880 AD). During the 11th century an earthquake occurred, causing damage to the octagonal part. The bottom survived, but it could only serve as a watchtower, and a small mosque was built on the top. Two very destructive earthquakes occurred in 1303 and 1323, which resulted in the complete destruction of the lighthouse. """,
   ),
   DetectionModel(
-    id: 37,
+    id: 36,
     name: "Dahshur Pyramid",
     aboutMe:
         """Dahshur[transliteration 1] (in English often called Dashur; Arabic: دهشور Dahšūr  pronounced [dɑhˈʃuːɾ], Coptic: ⲧⲁϩϭⲟⲩⲣ Dahchur[1]) is an ancient Egyptian pyramid complex and necropolis and shares the name of the nearby village of Manshiyyat Dahshur (Arabic: منشأة دهشور) in markaz Badrashin, Giza.[2]
@@ -350,27 +350,27 @@ Dahshur is listed as a UNESCO World Heritage Site, and is located on the Western
 The Dahshur pyramids were an extremely important learning experience for the Egyptians. It provided them with the knowledge and know-how to transition from step-sided pyramids to smooth-sided pyramids. Ultimately their breadth of experience would allow them to build the Great Pyramid of Giza; the last of the Seven Wonders of the Ancient World still standing to this date. """,
   ),
   DetectionModel(
-    id: 38,
+    id: 37,
     name: "Deir el-Bahari",
     aboutMe:
         """ Egyptian archaeological site in the necropolis of Thebes. It is made up of a bay in the cliffs on the west bank of the Nile River east of the Valley of the Kings. Its name (Arabic for “northern monastery”) refers to a monastery built there in the 7th century CE. 
 Of the three ancient Egyptian structures on the site, one, the funerary temple of King Mentuhotep II (built c. 1970 BCE), has lost much of its superstructure. The second, the terraced temple of Queen Hatshepsut (built c. 1470 BCE), was uncovered (1894–96) beneath the monastery ruins and subsequently underwent partial restoration. A fuller restoration of the third terrace, sanctuary, and retaining wall was started in 1968 by a Polish archaeological mission, which also found a third temple, built by Thutmose III about 1435 BCE, above and between the two earlier temples. All three temples were linked by long causeways to valley temples with docking facilities. Situated under one of the cliffs, Hatshepsut’s temple in particular is a famous example of creative architectural exploitation of a site. All three temples were largely destroyed by progressive rock falls from the cliffs above. """,
   ),
   DetectionModel(
-    id: 39,
+    id: 38,
     name: "Deir el-Medina",
     aboutMe:
         """Deir el-Medina (Egyptian Arabic: دير المدينة), or Dayr al-Madīnah, is an ancient Egyptian workmen's village which was home to the artisans who worked on the tombs in the Valley of the Kings during the 18th to 20th Dynasties of the New Kingdom of Egypt (ca. 1550–1080 BC).[1] The settlement's ancient name was Set maat ("Place of Truth"), and the workmen who lived there were called "Servants in the Place of Truth".[2] During the Christian era, the temple of Hathor was converted into a Monastery of Saint Isidorus the Martyr (Coptic: ⲡⲧⲟⲡⲟⲥ ⲙ̄ⲫⲁⲅⲓⲟⲥ ⲁⲡⲁ ⲓⲥⲓⲇⲱⲣⲟⲥ ⲡⲙⲁⲣⲧⲉⲣⲟⲥ)[3] from which the Egyptian Arabic name Deir el-Medina ("Monastery of the City") is derived.[4] """,
   ),
   DetectionModel(
-    id: 40,
+    id: 39,
     name: "Edfu Temple ",
     aboutMe:
         """The Temple of Edfu was buried under centuries of sand and silt until the nineteenth century, when French Egyptologist Auguste Mariette rediscovered the site. The complex is one of the most well-preserved sites in Egypt today; its architecture is very much intact, and the building contains a wealth of legible inscriptions on its walls. It is dedicated to the falcon god, Horus.
 The temple was built on top of much older ruins dating back to Ramses III, and was constructed over the course of 180 years under a variety of rulers during the Ptolemaic period in Egypt. This period represented a time of Greek rule; each pharaoh was a descendent of Ptolemy, a general in the army of Alexander the Great who took control of the region a few centuries prior to the construction of the temple. However, the temple embodies the traditional architecture of ancient Egypt and is largely free of Hellenistic influence. The temple itself is dedicated to the worship of the Egyptian god Horus, who was frequently merged with the Greek god Apollo. In fact, the city of Edfu was renamed Apollonopolis Magna during Greco-Roman rule in Egypt.""",
   ),
   DetectionModel(
-    id: 41,
+    id: 40,
     name: "Egyptian National Military Museum",
     aboutMe:
         """Location:The Military Museum is located on Salah Salem Street inside Salaheddin Citadel in the northwestern edge. It was opened on November 20, 1949.
@@ -378,7 +378,7 @@ The museum was dedicated to the residence of Muhammad Ali Pasha and his family. 
  It was used as a palace until the British occupation to Egypt in 1298 AH / 1882 AD and this turned the palace became the seat of the military governor of the British army and then used as a hospital for the British occupation forces, until the government recovered it and turned it into a war museum that tells the history of the Egyptian army throughout the ages.""",
   ),
   DetectionModel(
-    id: 42,
+    id: 41,
     name: "Fatimid Cemeter",
     aboutMe:
         """Among the modern graves are some ruined mud-brick domed tombs, some of which go back to the Fatimid period (9th century). The domes are built on a drum with corners sticking out like horns, a feature unique to southern Egypt. Tombs decorated with flags belong to local saints; you may see Aswanis circumambulating a tomb, praying for the saint’s intercession.
@@ -386,21 +386,21 @@ The museum was dedicated to the residence of Muhammad Ali Pasha and his family. 
 The municipality of Aswan has fenced off the Fatimid Cemetery. Enter from the main gate, a 10-minute walk from the Corniche along the road to the airport, and walk right through the cemetery to join the road to the Unfinished Obelisk; just aim for the four-storey building facing the back of the cemetery. The site’s caretaker will often accompany you and show you the best-preserved tombs, for which he should be given a baksheesh (tip) of a few pounds.""",
   ),
   DetectionModel(
-    id: 43,
+    id: 42,
     name: "Gayer Anderson 🙂 Museum",
     aboutMe:
         """The Gayer-Anderson Museum is an art museum located in Cairo, Egypt. It is situated adjacent to the Mosque of Ahmad ibn Tulun in the Sayyida Zeinab neighborhood. The building takes its name from Major Robert Grenville Gayer-Anderson Pasha, who resided in the house between 1935 and 1942 with special permission from the Egyptian Government. The museum is noted for being one of examples of 17th-century domestic architecture left in Cairo, and also for its collection of furniture, carpets, curio, and other objects. 
 Robert Grenville Gayer-Anderson joined the Royal Army Medical Corps in 1904 and was later transferred to the Egyptian Army in 1907. He was then promoted to become a Major in 1914 and during the same year, he became Assistant Adjutant-General for recruiting in the Egyptian Army. In 1919, he retired from the army to become the Senior Inspector in the Egyptian Ministry of the Interior, and he later became the Oriental Secretary to the British Residency in Cairo. He retired in 1924 but continued to live in Egypt, expanding his interests in Egyptology and Oriental Studies.[1]""",
   ),
   DetectionModel(
-    id: 44,
+    id: 43,
     name: "Great Sphinx of Giza ",
     aboutMe:
         """A sphinx (or sphynx) is a creature with the body of a lion and the head of a human, with some variations. It is a prominent mythological figure in Egyptian, Asian, and Greek mythology.The Great Sphinx of Giza is a giant 4,500-year-old limestone statue situated near the Great Pyramid in Giza, Egypt. Measuring 240 feet (73 meters) long and 66 feet (20 meters) high, the Great Sphinx is one of the world’s largest monuments. It is also one of the most recognizable relics of the ancient Egyptians, though the origins and history of the colossal structure are still debated.
 In ancient Egypt, the sphinx was a spiritual guardian and most often depicted as a male with a pharaoh headdress—as is the Great Sphinx—and figures of the creatures were often included in tomb and temple complexes. For instance, the so-called Sphinx Alley in Upper Egypt is a two-mile avenue that connects the temples of Luxor and Karnak and is lined with sphinx statues.""",
   ),
   DetectionModel(
-    id: 45,
+    id: 44,
     name: "Hanging Church",
     aboutMe:
         """The Hanging Church is considered the oldest church in the area of Al-Fustat (Old Cairo).
@@ -411,7 +411,7 @@ There are 110 icons here, the oldest of which dates back to the 8th Century, but
 The French monk Vansleb, who was sent to Egypt in 1671 by King Louis XIV in order to study the state of the churches and the monasteries of Egypt, mentioned that he had seen on one of the walls of the Hanging Church, inscriptions written by the hand of the great Muslim commander Amr Ibn El-As, asking the Muslim people to treat this church with respect.""",
   ),
   DetectionModel(
-    id: 46,
+    id: 45,
     name: "Hypostyle Hall",
     aboutMe:
         """In antiquity, Karnak was the largest religious sanctuary in Egypt's imperial capital of Thebes (modern Luxor) and was home to the god Amun-Re, king of the Egyptian pantheon. For over 2000 years, successive pharaohs rebuilt and expanded the temples of Karnak, making it the largest complex of religious monuments from the ancient world.
@@ -420,7 +420,7 @@ Sety I offering two flower bouquets. Relief from the north interior wall of the 
 Sety I’s craftsmen embellished the walls and columns in the north half of the building with exquisite bas relief sculptures of the highest quality before the king’s death. Sety’s successor, the celebrated Pharaoh Ramesses II (reigned ca. 1279-1213 BCE), commanded his artisans to carve the walls and columns in its southern wing mostly in sunk relief in various phases over the course of his long reign.""",
   ),
   DetectionModel(
-    id: 47,
+    id: 46,
     name: "Karnak Temple",
     aboutMe:
         """The Karnak Temple is located in the ancient city of Thebes (Luxor today) in Egypt. It was a place for the ancient Egyptians to watch their gods. Karnak is an Arabic word that means ''fortified village.'' To the ancient Egyptians, Karnak was a sacred place. The Temple of Karnak was believed to be the spot where creation began. They also believed it was a point of interaction between the god Amun-Ra and Egyptians. It is important to Egypt's cultural history because it was a place of worship and provides clues about the ancient Egyptian religion. There were no libraries in ancient Thebes, so history was recorded on the walls of Karnak. Pharaohs had successful events inscribed into the walls. For instance, there are inscriptions about territory gained under Amenhotep III. There are also religious inscriptions on the walls.
@@ -429,7 +429,7 @@ The Karnak Temple was built between 2055 BC and around 100 AD. It was built as a
 The Karnak temple is located in Karnak, Luxor Governorate, south of Egypt on the east side of the Nile River bank.""",
   ),
   DetectionModel(
-    id: 48,
+    id: 47,
     name: "Luxor Temple",
     aboutMe:
         """The Temple of Luxor is one of the most famous tourist attractions and the second biggest temple in Luxor, Egypt. In Egypt “the pharaonic land” you can find a great number of historical destinations that attract many tourists from all over the world. One of the most important cities in Egypt is Luxor
@@ -443,8 +443,8 @@ The temple complex is notable for its massive pylon (gateway) built by Ramses II
 The Avenue of Sphinxes, a ceremonial road flanked by sphinx statues, once connected Luxor Temple to Karnak Temple, another major temple complex in Thebes.""",
   ),
   DetectionModel(
-    id: 49,
-    name: "Montaza Palace ",
+    id: 48,
+    name: "Montazah Palace ",
     aboutMe:
         """Al Montazah Palace is one of the greatest distinctions in Alexandria, in this place that you cannot miss. You will come across many palaces that were formerly royal residences of different families. So the care and beauty of the site are unmistakable and that is the case in the gardens of the Montazah Palace, Egypt.
 Montaza Palace is distinguished by its beautiful and large gardens and royal palaces remaining from its royal heritage. The gardens of the Montaza Palace are a tourist attraction for the memory of those who visit Alexandria due to their vast extension and attractiveness.
@@ -455,45 +455,84 @@ Montazah Royal Gardens is distinguished by its beautiful gardens and royal palac
 Then it is a place to discover and explore in great tranquility along with your walkthrough Alexandria. In these gardens, you will find a kingdom of nature worthy of admiration, where tall palm trees abound. In addition to a large number of gazelles, which walk through its extensions with great formality.""",
   ),
   DetectionModel(
-      id: 50,
+      id: 49,
       name: "Pyramids",
       aboutMe:
           """Pyramids of Giza, three 4th-dynasty (c. 2575–c. 2465 BCE) pyramids erected on a rocky plateau on the west bank of the Nile River near Al-Jīzah (Giza) in northern Egypt. In ancient times they were included among the Seven Wonders of the World. The ancient ruins of the Memphis area, including the Pyramids of Giza, Ṣaqqārah, Dahshūr, Abū Ruwaysh, and Abū Ṣīr, were collectively designated a UNESCO World Heritage site in 1979.
 The designations of the pyramids—Khufu, Khafre, and Menkaure—correspond to the kings for whom they were built. The northernmost and oldest pyramid of the group was built for Khufu (Greek: Cheops), the second king of the 4th dynasty. Called the Great Pyramid, it is the largest of the three, the length of each side at the base averaging 755.75 feet (230 meters) and its original height being 481.4 feet (147 meters). The middle pyramid was built for Khafre (Greek: Chephren), the fourth of the eight kings of the 4th dynasty; the structure measures 707.75 feet (216 meters) on each side and was originally 471 feet (143 meters) high. The southernmost and last pyramid to be built was that of Menkaure (Greek: Mykerinus), the fifth king of the 4th dynasty; each side measures 356.5 feet (109 meters), and the structure’s completed height was 218 feet (66 meters). All three pyramids were plundered both internally and externally in ancient and medieval times. Thus, the grave goods originally deposited in the burial chambers are missing, and the pyramids no longer reach their original heights because they have been almost entirely stripped of their outer casings of smooth white limestone; the Great Pyramid, for example,"""),
+
+  // need to edit
+
+  // DetectionModel(
+  //   id: 50,
+  //   name: "Ramesseum",
+  //   aboutMe:
+  //       """The Saqqara Necropolis, located near Memphis, is one of Egypt's most important archaeological sites, serving as a burial ground for over 3,000 years. It is home to the Step Pyramid of Djoser, the oldest known monumental stone structure, built around 2630 BCE by architect Imhotep. The necropolis includes numerous pyramids, tombs, and mastabas, showcasing the evolution of Egyptian funerary architecture. Saqqara was designated a UNESCO World Heritage Site in 1979, alongside other Memphis-area sites.""",
+  // ),
   DetectionModel(
     id: 51,
-    name: "Saqqara Necropolis",
+    name: "Saint George Church",
     aboutMe:
-        """The Saqqara Necropolis, located near Memphis, is one of Egypt's most important archaeological sites, serving as a burial ground for over 3,000 years. It is home to the Step Pyramid of Djoser, the oldest known monumental stone structure, built around 2630 BCE by architect Imhotep. The necropolis includes numerous pyramids, tombs, and mastabas, showcasing the evolution of Egyptian funerary architecture. Saqqara was designated a UNESCO World Heritage Site in 1979, alongside other Memphis-area sites.""",
+        """is a historic Coptic Orthodox church located in Cairo, Egypt.
+It is one of the few round churches still in use in the East, dating back to the 10th century.
+Built atop the Roman fortress of Babylon, it blends ancient architecture with spiritual significance.
+The church is dedicated to Saint George, a revered martyr in Christianity.
+It serves as a prominent religious and cultural landmark for both locals and visitors.""",
   ),
   DetectionModel(
     id: 52,
-    name: "Temple of Hathor at Dendera",
+    name: "Saqqara Pyramid",
     aboutMe:
-        """The Temple of Hathor at Dendera, built primarily during the Ptolemaic period (305–30 BCE), is one of the best-preserved temples in Egypt. Dedicated to Hathor, the goddess of love, music, and motherhood, the temple features intricate reliefs and a famous zodiac ceiling, depicting astronomical knowledge of the time. The site also includes a sacred lake and several smaller chapels, reflecting its role as a major religious center.""",
+        """also known as the Step Pyramid of Djoser, is located in Saqqara, Egypt.
+It is the oldest known pyramid in Egypt, built during the 27th century BC by architect Imhotep.
+This pyramid marked a major evolution in ancient Egyptian architecture, using stone instead of mudbrick.
+With its unique step-like design, it served as the tomb of Pharaoh Djoser.
+The pyramid complex reflects the early stages of monumental building and religious practice in Egypt.""",
   ),
   DetectionModel(
     id: 53,
-    name: "Valley of the Kings",
+    name: "St. Catherines Monastery",
     aboutMe:
-        """The Valley of the Kings, near Luxor, served as the royal burial ground for pharaohs of the New Kingdom (1539–1075 BCE), including Tutankhamun and Ramesses II. Carved into the cliffs west of the Nile, the valley contains over 60 tombs, many adorned with vivid paintings and hieroglyphs depicting the journey to the afterlife. Its discovery in the 19th and 20th centuries, particularly Tutankhamun’s tomb in 1922, revealed unparalleled treasures.""",
+        """ is an ancient Christian monastery located at the foot of Mount Sinai in Egypt.
+It is one of the oldest working monasteries in the world, built in the 6th century by order of Emperor Justinian I.
+The monastery is a UNESCO World Heritage Site and holds a priceless collection of early Christian manuscripts and icons.
+It is named after Saint Catherine of Alexandria, whose relics are said to have been miraculously discovered there.
+St. Catherine’s remains a sacred pilgrimage site for Christians, Jews, and Muslims alike.""",
   ),
   DetectionModel(
     id: 54,
-    name: "Medinet Habu",
+    name: "Temple_of_Isis_in_Philae",
     aboutMe:
-        """Medinet Habu is the mortuary temple of Ramesses III, located on the west bank of the Nile near Luxor. Built around 1180 BCE, it is renowned for its well-preserved reliefs depicting military victories, including the defeat of the Sea Peoples. The temple complex also served as an administrative center and includes a palace, making it a key example of New Kingdom architecture.""",
+        """The Philae Temple is a gem in the crown of the river Nile that stands majestically on Agilkia Island, southern Egypt. This legendary site was built in 690 BC to honour Isis, the Egyptian goddess of healing and magic. As one of the last places of worship built in the classical Egyptian style, the Philae Temple has a complex and fascinating history.  
+The Philae Temple is nestled downstream from the controversial Aswan High Dam on Lake Nasser, one of the largest man-made lakes in the world. Intrepid explorers can cruise down the calming river Nile before hopping off to explore the rich expanse of the Philae Temple.
+The temple complex is recorded in several classical texts by ancient writers, including Ptolemy, Seneca and Pliny the Elder. The Philae Temple also provides the backdrop for some beloved novels. Are you familiar with a certain Belgian (not French!) character who solved mysteries here? 
+At Literary Tours in Egypt, we agree with Agatha Christie’s Monsieur Hercule Poirot when he said, ‘There are very wonderful things to be seen in Egypt, are there not?’ So why not have your own Death on the Nile luxury adventure around the Philae Temple? 
+Don’t fear; our tours are much safer than those in Christie’s books! Why not get in touch with our team to find out more about our Personalised Egypt Guided Tour Packages? In the meantime, let us guide you through one of Aswan’s most important cultural sites""",
   ),
   DetectionModel(
     id: 55,
-    name: "Abydos Temple",
+    name: "Temple_of_Kom_Ombo",
     aboutMe:
-        """Abydos, one of Egypt’s oldest cities, was a major religious center dedicated to Osiris, god of the underworld. The Temple of Seti I, built around 1290 BCE, features exquisite reliefs and the famous Abydos King List, a chronological record of pharaohs. The site was a pilgrimage destination, believed to be the burial place of Osiris, and remains a significant archaeological site.""",
+        """ Kom Ombo temple is one of the most unique temples in Aswan and probably in Egypt. Kom Ombo means “The Hill Of Gold” as the word "Kom" means "Hill" in Arabic while the word "Ombo" means gold in hieroglyphics. It was constructed in the Greco-Roman Period, from 205 till 180 BC in the ruling period of King Ptolemy V with some additions later on during the Roman period. It is located East side of the Nile River, 45 km north of the city of Aswan. Kom Ombo temple is considered to be highly special and one of a kind as it’s a double design temple and divided into two identical sectors dedicated to the worship of two deities in the southern half is the worship house of the crocodile deity Sobek, patron of fertility and accompanied with Hathor and Khonsu, while in the northern part of the temple was consecrated to the falcon deity Horus the Elder (Haroeris) the protector of the Pharaohs and Egypt. It was also built to confirm the ptolemies sovereignty and supremacy over the entire country. """,
   ),
   DetectionModel(
     id: 56,
-    name: "Ramesseum Hypostyle Hall",
+    name: "Trajan-s Kiosk",
     aboutMe:
-        """The Ramesseum, Ramesses II’s mortuary temple in Thebes, includes a grand hypostyle hall with towering columns decorated with scenes of the pharaoh’s military triumphs and divine rituals. Constructed around 1250 BCE, the hall’s partially ruined state still conveys the grandeur of New Kingdom architecture. The nearby fallen colossus of Ramesses II inspired Shelley’s poem ‘Ozymandias,’ symbolizing the transience of power.""",
+        """is a small Roman structure located on Agilkia Island near Philae Temple in Aswan, Egypt.
+It was built during the Roman period, likely under Emperor Trajan in the early 2nd century AD.
+The kiosk is famous for its elegant 14-columned open design and unfinished capitals.
+Historians believe it was used as a ceremonial entrance or a pavilion for Pharaohs and priests arriving by boat.
+Despite its modest size, it is one of the most picturesque monuments in southern Egypt.""",
+  ),
+  DetectionModel(
+    id: 57,
+    name: "Unfinished Obelisk",
+    aboutMe:
+        """ is an ancient monument located in a granite quarry in Aswan, Egypt.
+It was commissioned by Queen Hatshepsut during the 18th Dynasty of the New Kingdom.
+Had it been completed, it would have been the largest obelisk ever erected, weighing around 1,200 tons.
+The obelisk was abandoned due to cracks appearing in the granite during carving.
+Today, it offers valuable insight into ancient Egyptian stoneworking techniques and quarrying methods.""",
   ),
 ];
