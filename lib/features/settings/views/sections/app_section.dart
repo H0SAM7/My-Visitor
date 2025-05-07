@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/localization/lang_cubit.dart';
 import 'package:my_visitor/core/utils/assets.dart';
@@ -22,38 +23,40 @@ class AppSections extends StatelessWidget {
     final s = S.of(context);
 
     return Column(
-  children: [
-    ItemSetting(
-      onTap: () {
-        Navigator.pushNamed(context, NotifiView.id);
-      },
-      leading: Image.asset(
-        Assets.iconsBell,
-        color: orangeColor,
-      ),
-      title: s.notifications,
-    ),
-    ItemSetting( 
-      
-      title: s.language,
-      leading: Icon(Icons.language_outlined,color: orangeColor,),
-      onTap: () {
-        log(isArabic(context).toString());
-        context.read<LanguageCubit>().setLocale(
-              isArabic(context)
-                  ? const Locale('en', '')
-                  : const Locale('ar', ''),
-            );
-      },
-      trailing:   Text(
-          isArabic(context) ? 'English' : 'العربية',
-          style: TextStyle(
+      children: [
+        ItemSetting(
+          onTap: () {
+            Navigator.pushNamed(context, NotifiView.id);
+          },
+          leading: Image.asset(
+            Assets.iconsRinging,
             color: orangeColor,
+                  height: 26.h,
+
+          ),
+          title: s.notifications,
+        ),
+        ItemSetting(
+          title: s.language,
+          leading: Image.asset(Assets.iconsLanguage,color: orangeColor,          height: 26.h,
+),
+          onTap: () {
+            log(isArabic(context).toString());
+            context.read<LanguageCubit>().setLocale(
+                  isArabic(context)
+                      ? const Locale('en', '')
+                      : const Locale('ar', ''),
+                );
+          },
+          trailing: Text(
+            isArabic(context) ? 'English' : 'العربية',
+            style: TextStyle(
+              color: orangeColor,
+            ),
           ),
         ),
-    ),
-  ],
-);
+      ],
+    );
   }
 }
 
@@ -93,40 +96,32 @@ class GeneralSection extends StatelessWidget {
     return Column(
       children: [
         ItemSetting(
-          leading: Icon(
-            Icons.help_center_outlined,
-            color: orangeColor,
-          ),
+          leading: Image.asset(Assets.iconsQuestion,color: orangeColor,          height: 26.h,
+),
           title: s.faqs,
           onTap: () {
             Navigator.pushNamed(context, FaqsView.id);
           },
         ),
         ItemSetting(
-          leading: Icon(
-            Icons.info_outline,
-            color: orangeColor,
-          ),
+          leading: Image.asset(Assets.iconsInformation,color: orangeColor,          height: 26.h,
+),
           title: s.aboutApp,
           onTap: () {
             Navigator.pushNamed(context, AboutView.id);
           },
         ),
         ItemSetting(
-          leading: Icon(
-            Icons.privacy_tip_outlined,
-            color: orangeColor,
-          ),
+          leading: Image.asset(Assets.iconsPersonalData,color: orangeColor,          height: 26.h,
+),
           title: s.privacyPolicy,
           onTap: () {
             Navigator.pushNamed(context, PrivacyPolicyView.id);
           },
         ),
         ItemSetting(
-          leading: Icon(
-            Icons.chat_bubble_outline,
-            color: orangeColor,
-          ),
+          leading: Image.asset(Assets.iconsCustomerSupport,color: orangeColor,          height: 26.h,
+),
           title: s.supportTeam,
           onTap: () {
             Navigator.pushNamed(context, ChatView.id);

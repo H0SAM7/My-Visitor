@@ -86,6 +86,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "يرجى التحقق من بريدك الإلكتروني لتفعيل حسابك، ويمكنك تسجيل الدخول"),
         "contact_privacy_email": MessageLookupByLibrary.simpleMessage(
             "Contact us at privacy@Visitor.app for data-related inquiries."),
+        "continueGoogle":
+            MessageLookupByLibrary.simpleMessage("اكمل بواسطة حساب جوجل"),
         "data_sharing": MessageLookupByLibrary.simpleMessage("❌ Data Sharing:"),
         "data_sharing_text": MessageLookupByLibrary.simpleMessage(
             "We do not sell or share your data with third parties unless required by law or with your explicit consent (e.g., for hotel booking)."),

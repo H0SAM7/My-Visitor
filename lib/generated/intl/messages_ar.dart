@@ -87,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "يرجى التحقق من بريدك الإلكتروني لتفعيل حسابك، ويمكنك تسجيل الدخول"),
         "contact_privacy_email": MessageLookupByLibrary.simpleMessage(
             "اتصل بنا على privacy@Visitor.app للاستفسارات المتعلقة بالبيانات."),
+        "continueGoogle":
+            MessageLookupByLibrary.simpleMessage("اكمل بواسطة حساب جوجل"),
         "data_sharing":
             MessageLookupByLibrary.simpleMessage("❌ مشاركة البيانات:"),
         "data_sharing_text": MessageLookupByLibrary.simpleMessage(

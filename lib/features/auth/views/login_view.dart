@@ -107,7 +107,7 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       CustomTextFrom(
                         hint: s.emailHint,
-                        label:s.email,
+                        label:s.emailLabel,
                         onChanged: (value) {
                           email = value;
                         },

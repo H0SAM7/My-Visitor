@@ -1609,6 +1609,16 @@ class S {
       args: [],
     );
   }
+
+  /// `اكمل بواسطة حساب جوجل`
+  String get continueGoogle {
+    return Intl.message(
+      'اكمل بواسطة حساب جوجل',
+      name: 'continueGoogle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

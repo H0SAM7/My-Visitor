@@ -210,7 +210,8 @@
 "youHaveAccount": "لديك حساب؟",
 "checkEmailVerify": "تحقق من بريدك الإلكتروني",
 "checkEmailVerifyDesc": "يرجى التحقق من بريدك الإلكتروني لتفعيل حسابك، ويمكنك تسجيل الدخول",
-"timeoutTitle": "انتهت المهلة"
+"timeoutTitle": "انتهت المهلة",
+"continueGoogle":"اكمل بواسطة حساب جوجل"
 
 
 

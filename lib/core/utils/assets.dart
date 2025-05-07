@@ -14,15 +14,29 @@ class Assets {
 
   static const String iconsChevronRight = "assets/icons/chevron-right.png";
 
+  static const String iconsCustomerSupport = "assets/icons/customer-support.png";
+
   static const String iconsDrawerIcon = "assets/icons/drawer_icon.png";
+
+  static const String iconsFile = "assets/icons/file.png";
 
   static const String iconsGoogle = "assets/icons/google.png";
 
   static const String iconsHome = "assets/icons/Home.png";
 
+  static const String iconsInformation = "assets/icons/information.png";
+
+  static const String iconsLanguage = "assets/icons/language.png";
+
   static const String iconsLogout = "assets/icons/Logout.png";
 
+  static const String iconsPersonalData = "assets/icons/personal-data.png";
+
+  static const String iconsQuestion = "assets/icons/question.png";
+
   static const String iconsRightGoVector = "assets/icons/RightGoVector.png";
+
+  static const String iconsRinging = "assets/icons/ringing.png";
 
   static const String iconsScan = "assets/icons/scan.png";
 
@@ -32,7 +46,7 @@ class Assets {
 
   static const String iconsSettingsIcon = "assets/icons/SettingsIcon.png";
 
-  static const String iconsUser = "assets/icons/User.png";
+  static const String iconsUser = "assets/icons/user.png";
 
   static const String imagesAnubis = "assets/images/anubis.png";
 

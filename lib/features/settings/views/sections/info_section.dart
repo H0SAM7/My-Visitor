@@ -1,3 +1,4 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/settings/views/booking_info.dart';
@@ -13,29 +14,33 @@ class InfoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-                        final s= S.of(context);
+    final s = S.of(context);
 
     return Column(
       children: [
         ItemSetting(
-          leading: Image.asset(Assets.iconsUser,color: orangeColor,),
+          leading: Image.asset(
+            Assets.iconsUser,
+            color: orangeColor,
+          height: 26.h,
+          ),
           title: s.personalInfo,
           onTap: () {
             Navigator.pushNamed(context, PersonalInfoView.id);
           },
         ),
-         ItemSetting(
+        ItemSetting(
           onTap: () {
-                Navigator.pushNamed(context, BookingInfoView.id);
+            Navigator.pushNamed(context, BookingInfoView.id);
           },
-          leading: Icon(
-            Icons.history_outlined,
+          leading: Image.asset(
+            Assets.iconsFile,
+                      height: 26.h,
+
             color: orangeColor,
           ),
           title: s.bookingInfo,
-
         ),
-      
       ],
     );
   }

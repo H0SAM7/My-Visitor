@@ -1,6 +1,7 @@
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:my_visitor/generated/l10n.dart';
 
 class GoogleButton extends StatelessWidget {
   const GoogleButton({
@@ -11,6 +12,8 @@ class GoogleButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+                                            final s= S.of(context);
+
     return GestureDetector(
       onTap: onTap,
       child: Container(
@@ -30,9 +33,9 @@ class GoogleButton extends StatelessWidget {
               //   width: 50,
               //   height: 40,
               // ),
-              const Text(
+               Text(
                 textAlign: TextAlign.center,
-                'Continue with Google',
+               s.continueGoogle,
                 style: TextStyle(
                   // color: Colors.white,
                   fontWeight: FontWeight.bold,
@@ -45,3 +48,4 @@ class GoogleButton extends StatelessWidget {
     );
   }
 }
+

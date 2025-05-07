@@ -51,6 +51,8 @@ class SettingsView extends StatelessWidget {
               child: ItemSetting(
                 leading: Image.asset(
                   Assets.iconsLogout,
+                            height: 26.h,
+
                   color: orangeColor,
                 ),
                 title: s.logout,
