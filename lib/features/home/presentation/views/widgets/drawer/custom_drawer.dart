@@ -174,11 +174,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
                 DrawerListTile(
                   title: s.support,
-                  leading: Icon(
-                    Icons.chat_bubble_outline,
-                    color: orangeColor,
-                    size: 22,
-                  ),
+                  leading: Image.asset(Assets.iconsCustomerSupport,    color: orangeColor,
+                    height: 22.h,),
                   onTap: () {
                     Navigator.pushNamed(context, ChatView.id);
                   },

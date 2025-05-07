@@ -97,7 +97,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/files/
+    - assets/files/admin.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
@@ -130,7 +130,7 @@ flutter_assets:
   field_prefix: null
   ignore_comments: true
 flutter_native_splash:
-  color: "#000000"
+  color: "#FFFFFF"
   image: assets/images/logo.png
   android: true
   ios: true

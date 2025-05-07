@@ -1,4 +1,5 @@
 
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ final String subtitle;
       padding: const EdgeInsets.all(4.0),
       child: Container(
         decoration: BoxDecoration(
-          border: Border.all(color: Colors.blueAccent,),
+          border: Border.all(color:orangeColor,),
           borderRadius: BorderRadius.circular(16)
         ),
         child: ListTile(
@@ -30,11 +31,14 @@ final String subtitle;
             title
             
           ,
-            style: AppStyles.style18(context),
+            style: AppStyles.style18(context).copyWith(color: Colors.black),
           ),
-          subtitle:  Text(subtitle),
+          subtitle:  Text(subtitle,style: AppStyles.style16Gray(context),),
         ),
       ),
     );
   }
 }
+
+
+// منك لله يمصطقي انت وميتا

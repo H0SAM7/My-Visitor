@@ -25,7 +25,7 @@ class _NotifiViewState extends State<NotifiView> {
   @override
   void initState() {
     super.initState();
-    loadNotifications(); // Load notifications when the widget is initialized
+    loadNotifications(); 
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       log('Received Message: ${message.notification?.title}, ${message.notification?.body}');

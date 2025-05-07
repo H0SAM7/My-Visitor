@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/drawer/custom_drawer.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/fisrt_section.dart';
@@ -12,12 +13,24 @@ class HomeView extends StatelessWidget {
   static String id = 'HomeView';
   @override
   Widget build(BuildContext context) {
-
+    final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Image.asset(Assets.imagesHomeLogo),
+        title: Image.asset(
+          Assets.imagesHomeLogo,
+     
+        ),
+        leading: IconButton(
+          onPressed: () {
+         _scaffoldKey.currentState?.openDrawer();
+          },
+          icon: Image.asset(
+            Assets.iconsDrawerIcon,     color: Colors.white,
+          height: 26.h,
+          ),
+        ),
         centerTitle: true,
         // actions: [
         //   CircleAvatar(
@@ -26,9 +39,9 @@ class HomeView extends StatelessWidget {
         //   ),
         //   SizedBox(width: 10),
         // ],
-    
       ),
       extendBodyBehindAppBar: true,
+      key: _scaffoldKey,
       drawer: CustomDrawer(),
       body: CustomScrollView(
         slivers: [
