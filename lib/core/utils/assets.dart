@@ -46,7 +46,7 @@ class Assets {
 
   static const String iconsSettingsIcon = "assets/icons/SettingsIcon.png";
 
-  static const String iconsUser = "assets/icons/user.png";
+  static const String iconsUser = "assets/icons/User.png";
 
   static const String imagesAnubis = "assets/images/anubis.png";
 
