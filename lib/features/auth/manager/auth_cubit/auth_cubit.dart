@@ -13,14 +13,14 @@ class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
 
   Future<void> register({
-required UserModel userModel,
-required String password,
+    required UserModel userModel,
+    required String password,
   }) async {
     emit(AuthLoading());
     try {
       final userCredential =
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email:userModel.email,
+        email: userModel.email,
         password: password,
       );
       User? user = userCredential.user;
@@ -38,12 +38,13 @@ required String password,
               .collection('users')
               .doc(user.email)
               .set({
-            'email':userModel.email,
+            'email': userModel.email,
             'username': userModel.name ?? userModel.email,
-              'phone': userModel.phoneNumber ?? 'Not Provided',
+            'phone': userModel.phoneNumber ?? 'Not Provided',
           });
-          await userCredential.user?.updateDisplayName(userModel.name ??userModel.email);
-      
+          await userCredential.user
+              ?.updateDisplayName(userModel.name ?? userModel.email);
+
           emit(AuthSuccess());
 
           log('User account created successfully.');
@@ -128,7 +129,7 @@ required String password,
           .doc(userCredential.user!.email!)
           .set({
         'email': userCredential.user!.email!,
-      });
+      }, SetOptions(merge: true));
       emit(AuthSuccess());
       // Once signed in, return the UserCredential
       return userCredential;
