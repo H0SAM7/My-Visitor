@@ -87,6 +87,11 @@ Future<void> hiveInit() async {
   await landmarksInit();
 }
 
+
+
+//MyVisitor 
+//Is CN=Hosam Adel, OU=Eelu, O=Eelu, L=Sohag, ST=Sohag, C=eg correct?
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

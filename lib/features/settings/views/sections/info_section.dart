@@ -22,7 +22,8 @@ class InfoSection extends StatelessWidget {
           leading: Image.asset(
             Assets.iconsUser,
             color: orangeColor,
-          height: 26.h,
+      height: 22.h,
+            width: 22.w,
           ),
           title: s.personalInfo,
           onTap: () {
@@ -35,7 +36,8 @@ class InfoSection extends StatelessWidget {
           },
           leading: Image.asset(
             Assets.iconsFile,
-                      height: 26.h,
+               height: 22.h,
+            width: 22.w,
 
             color: orangeColor,
           ),

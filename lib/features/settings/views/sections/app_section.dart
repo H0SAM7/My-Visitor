@@ -31,15 +31,19 @@ class AppSections extends StatelessWidget {
           leading: Image.asset(
             Assets.iconsRinging,
             color: orangeColor,
-                  height: 26.h,
-
+        height: 22.h,
+            width: 22.w,
           ),
           title: s.notifications,
         ),
         ItemSetting(
           title: s.language,
-          leading: Image.asset(Assets.iconsLanguage,color: orangeColor,          height: 26.h,
-),
+          leading: Image.asset(
+            Assets.iconsLanguage,
+            color: orangeColor,
+    height: 22.h,
+            width: 22.w,
+          ),
           onTap: () {
             log(isArabic(context).toString());
             context.read<LanguageCubit>().setLocale(
@@ -78,7 +82,7 @@ class LangSwitch extends StatelessWidget {
         const SizedBox(width: 5),
         Icon(
           Icons.arrow_forward_ios,
-          size: 19,
+          size: 22.w,
           color: Colors.white.withOpacity(0.5),
         ),
       ],
@@ -96,32 +100,48 @@ class GeneralSection extends StatelessWidget {
     return Column(
       children: [
         ItemSetting(
-          leading: Image.asset(Assets.iconsQuestion,color: orangeColor,          height: 26.h,
-),
+          leading: Image.asset(
+            Assets.iconsQuestion,
+            color: orangeColor,
+     height: 22.h,
+            width: 22.w,
+          ),
           title: s.faqs,
           onTap: () {
             Navigator.pushNamed(context, FaqsView.id);
           },
         ),
         ItemSetting(
-          leading: Image.asset(Assets.iconsInformation,color: orangeColor,          height: 26.h,
-),
+          leading: Image.asset(
+            Assets.iconsInformation,
+            color: orangeColor,
+        height: 22.h,
+            width: 22.w,
+          ),
           title: s.aboutApp,
           onTap: () {
             Navigator.pushNamed(context, AboutView.id);
           },
         ),
         ItemSetting(
-          leading: Image.asset(Assets.iconsPersonalData,color: orangeColor,          height: 26.h,
-),
+          leading: Image.asset(
+            Assets.iconsPersonalData,
+            color: orangeColor,
+           height: 22.h,
+            width: 22.w,
+          ),
           title: s.privacyPolicy,
           onTap: () {
             Navigator.pushNamed(context, PrivacyPolicyView.id);
           },
         ),
         ItemSetting(
-          leading: Image.asset(Assets.iconsCustomerSupport,color: orangeColor,          height: 26.h,
-),
+          leading: Image.asset(
+            Assets.iconsCustomerSupport,
+            color: orangeColor,
+            height: 22.h,
+            width: 22.w,
+          ),
           title: s.supportTeam,
           onTap: () {
             Navigator.pushNamed(context, ChatView.id);

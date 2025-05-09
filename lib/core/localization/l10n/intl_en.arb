@@ -188,39 +188,7 @@
 "Ok":"Ok",
 "cancel":"Cancel",
 "noReviews":"No reviews available.",
-"detection":"Detection Image Result",
-"forgotPassword": "نسيت كلمة المرور؟",
-"dontWorry": "لا تقلق! هذا يحدث. يرجى إدخال عنوان البريد الإلكتروني المرتبط بحسابك.",
-"emailLabel": "البريد الإلكتروني",
-"emailHint": "أدخل بريدك الإلكتروني",
-"sendButton": "إرسال",
-"rememberPassword": "تذكرت كلمة المرور؟",
-"loginAction": "تسجيل الدخول",
-"checkEmailReset": "تحقق من بريدك الإلكتروني",
-"checkEmailResetDesc": "يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور، ويمكنك تسجيل الدخول",
-"errorTitle": "خطأ",
-"okButton": "موافق",
-"welcomeBack": "مرحبًا بعودتك! \nسعداء برؤيتك مجددًا!",
-"passwordLabel": "كلمة المرور",
-"passwordHint": "أدخل كلمة المرور",
-"forgetPassword": "نسيت كلمة المرور",
-"loginButton": "تسجيل الدخول",
-"orText": "أو",
-"dontHaveAccount": "ليس لديك حساب؟",
-"signUpAction": "إنشاء حساب",
-"helloRegister": "مرحبًا! سجل لتبدأ",
-"nameLabel": "الاسم",
-"nameHint": "أدخل الاسم",
-"signUpButton": "إنشاء حساب",
-"youHaveAccount": "لديك حساب؟",
-"checkEmailVerify": "تحقق من بريدك الإلكتروني",
-"checkEmailVerifyDesc": "يرجى التحقق من بريدك الإلكتروني لتفعيل حسابك، ويمكنك تسجيل الدخول",
-"timeoutTitle": "انتهت المهلة" ,
-"continueGoogle":"اكمل بواسطة حساب جوجل"
-
-
-
-
+"detection":"Detection Image Result"
 
 
 

@@ -102,10 +102,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
               children: [
                 UserAccountsDrawerHeader(
                   arrowColor: Colors.black,
-                  accountName: Text(userModel!.name ?? AppConstants.defaultUsername),
-                  accountEmail: Text(userModel!.email ?? AppConstants.defaultEmail),
+                  accountName:
+                      Text(userModel!.name ?? AppConstants.defaultUsername),
+                  accountEmail:
+                      Text(userModel!.email ?? AppConstants.defaultEmail),
                   currentAccountPicture: CircleAvatar(
-                    radius: 40,
+                    radius: 40.r,
                     backgroundColor: orangeColor,
                     child: ClipOval(
                       child: userModel!.image == null ||
@@ -120,7 +122,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                           : CachedNetworkImage(
                               imageUrl: userModel!.image!,
                               placeholder: (context, url) => Center(
-                                child: LoadingWidgets.loadingthreeRotatingDots(size: 30),
+                                child: LoadingWidgets.loadingthreeRotatingDots(
+                                    size: 30),
                               ),
                               errorWidget: (context, url, error) => Image.asset(
                                 AppConstants.defaultProfileImage,
@@ -139,10 +142,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   leading: Image.asset(
                     Assets.iconsUser,
                     color: orangeColor,
-                    height: 22.h,
+            height: 22.h,
+            width: 22.w,
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, PersonalInfoView.id).then((result) {
+                    Navigator.pushNamed(context, PersonalInfoView.id)
+                        .then((result) {
                       log('Returned from PersonalInfoView with result: $result');
                       if (result == true) {
                         refreshProfile();
@@ -155,7 +160,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   leading: Icon(
                     Icons.translate_outlined,
                     color: orangeColor,
-                    size: 22,
+                    size: 22.w,
                   ),
                   onTap: () {
                     Navigator.pushNamed(context, TranslationView.id);
@@ -166,7 +171,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   leading: Image.asset(
                     Assets.iconsChatbot,
                     color: orangeColor,
-                    height: 22.h,
+             height: 22.h,
+            width: 22.w,
                   ),
                   onTap: () {
                     Navigator.pushNamed(context, ChatbotScreen.id);
@@ -174,8 +180,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 ),
                 DrawerListTile(
                   title: s.support,
-                  leading: Image.asset(Assets.iconsCustomerSupport,    color: orangeColor,
-                    height: 22.h,),
+                  leading: Image.asset(
+                    Assets.iconsCustomerSupport,
+                    color: orangeColor,
+            height: 22.h,
+            width: 22.w,
+                  ),
                   onTap: () {
                     Navigator.pushNamed(context, ChatView.id);
                   },
@@ -189,7 +199,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   },
                   leading: Image.asset(
                     Assets.iconsLogout,
-                    height: 22.h,
+          height: 22.h,
+            width: 22.w,
                     color: orangeColor,
                   ),
                 ),

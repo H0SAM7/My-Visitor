@@ -76,18 +76,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "chat_view_reply_time": MessageLookupByLibrary.simpleMessage(
             "Typically replies within 5 minutes"),
         "chat_view_title": MessageLookupByLibrary.simpleMessage("Support Team"),
-        "checkEmailReset":
-            MessageLookupByLibrary.simpleMessage("تحقق من بريدك الإلكتروني"),
-        "checkEmailResetDesc": MessageLookupByLibrary.simpleMessage(
-            "يرجى التحقق من بريدك الإلكتروني لإعادة تعيين كلمة المرور، ويمكنك تسجيل الدخول"),
-        "checkEmailVerify":
-            MessageLookupByLibrary.simpleMessage("تحقق من بريدك الإلكتروني"),
-        "checkEmailVerifyDesc": MessageLookupByLibrary.simpleMessage(
-            "يرجى التحقق من بريدك الإلكتروني لتفعيل حسابك، ويمكنك تسجيل الدخول"),
         "contact_privacy_email": MessageLookupByLibrary.simpleMessage(
             "Contact us at privacy@Visitor.app for data-related inquiries."),
-        "continueGoogle":
-            MessageLookupByLibrary.simpleMessage("اكمل بواسطة حساب جوجل"),
         "data_sharing": MessageLookupByLibrary.simpleMessage("❌ Data Sharing:"),
         "data_sharing_text": MessageLookupByLibrary.simpleMessage(
             "We do not sell or share your data with third parties unless required by law or with your explicit consent (e.g., for hotel booking)."),
@@ -102,17 +92,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "Explore the pyramids, temples, and the tombs of pharaoh"),
         "discoverTitle": MessageLookupByLibrary.simpleMessage(
             "Discover the Wonders of Ancient Egypt"),
-        "dontHaveAccount":
-            MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟"),
-        "dontWorry": MessageLookupByLibrary.simpleMessage(
-            "لا تقلق! هذا يحدث. يرجى إدخال عنوان البريد الإلكتروني المرتبط بحسابك."),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
-        "emailHint":
-            MessageLookupByLibrary.simpleMessage("أدخل بريدك الإلكتروني"),
-        "emailLabel": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
-        "errorTitle": MessageLookupByLibrary.simpleMessage("خطأ"),
         "exploreNearby":
             MessageLookupByLibrary.simpleMessage("Explore what\'s nearby"),
         "failed_to_access_uploaded_image": MessageLookupByLibrary.simpleMessage(
@@ -188,10 +170,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
         "faqs_title": MessageLookupByLibrary.simpleMessage(
             "Frequently Asked Questions (FAQs)"),
-        "forgetPassword":
-            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور"),
-        "forgotPassword":
-            MessageLookupByLibrary.simpleMessage("نسيت كلمة المرور؟"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
         "gizaNecropolis":
@@ -199,8 +177,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "goNow": MessageLookupByLibrary.simpleMessage("Go Now"),
         "greatPyramidTitle":
             MessageLookupByLibrary.simpleMessage("The Great Pyramid of Giza"),
-        "helloRegister":
-            MessageLookupByLibrary.simpleMessage("مرحبًا! سجل لتبدأ"),
         "homeTitle": MessageLookupByLibrary.simpleMessage("Home"),
         "hotelsNearYou":
             MessageLookupByLibrary.simpleMessage("Hotels Near You"),
@@ -218,21 +194,12 @@ class MessageLookup extends MessageLookupByLibrary {
             "Last Updated: April 30, 2025"),
         "location_data": MessageLookupByLibrary.simpleMessage(
             "Location Data: To offer nearby landmarks, navigation, and booking suggestions."),
-        "loginAction": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-        "loginButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "logout": MessageLookupByLibrary.simpleMessage("Log out"),
-        "nameHint": MessageLookupByLibrary.simpleMessage("أدخل الاسم"),
-        "nameLabel": MessageLookupByLibrary.simpleMessage("الاسم"),
         "noReviews":
             MessageLookupByLibrary.simpleMessage("No reviews available."),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "offer_support": MessageLookupByLibrary.simpleMessage(
             "To offer support via chatbot or live chat."),
-        "okButton": MessageLookupByLibrary.simpleMessage("موافق"),
-        "orText": MessageLookupByLibrary.simpleMessage("أو"),
-        "passwordHint":
-            MessageLookupByLibrary.simpleMessage("أدخل كلمة المرور"),
-        "passwordLabel": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "personal_data": MessageLookupByLibrary.simpleMessage(
             "Personal Data: Name, email, phone number (during sign-up)."),
@@ -256,8 +223,6 @@ class MessageLookup extends MessageLookupByLibrary {
             "To process bookings and payments securely."),
         "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
             "Profile updated successfully"),
-        "rememberPassword":
-            MessageLookupByLibrary.simpleMessage("تذكرت كلمة المرور؟"),
         "restaurantsNearYou":
             MessageLookupByLibrary.simpleMessage("Restaurants Near You"),
         "restaurantsSectionTitle":
@@ -265,21 +230,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
-        "sendButton": MessageLookupByLibrary.simpleMessage("إرسال"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "signUpAction": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
-        "signUpButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
         "supportTeam": MessageLookupByLibrary.simpleMessage("Support Team"),
-        "timeoutTitle": MessageLookupByLibrary.simpleMessage("انتهت المهلة"),
         "translate_title": MessageLookupByLibrary.simpleMessage("Translation"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "type_here": MessageLookupByLibrary.simpleMessage("Type here..."),
-        "welcomeBack": MessageLookupByLibrary.simpleMessage(
-            "مرحبًا بعودتك! \nسعداء برؤيتك مجددًا!"),
         "welcomeMessage":
             MessageLookupByLibrary.simpleMessage("Welcome to MyVisitor"),
-        "youHaveAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "your_rights": MessageLookupByLibrary.simpleMessage("🛠 Your Rights:")
       };
 }
