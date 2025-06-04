@@ -66,7 +66,7 @@ The bottom course of casing stones was made out of pink granite but the remainde
     id: 8,
     name: "Mask-of-Tutankhamun",
     aboutMe:
-        "postulates that the slope on the blocks was cut to shape before being placed due to the limited working space towards the top of the pyramid.[6]",
+        "postulates that the slope on the blocks was cut to shape before being placed due to the limited working space towards the top of the pyramid.",
   ),
   DetectionModel(
     id: 9,
