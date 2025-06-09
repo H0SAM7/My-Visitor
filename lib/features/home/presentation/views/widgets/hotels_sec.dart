@@ -6,8 +6,7 @@ import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/utils/functions/is_ar.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/features/home/presentation/views/widgets/hotels_home_view.dart';
-import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/hotels/presentation/views/hotels_view.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class HomeHotelsSection extends StatelessWidget {
   const HomeHotelsSection({

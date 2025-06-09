@@ -8,7 +8,11 @@ import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/hotels/data/models/hotel_model/hotel_model.dart';
 import 'package:my_visitor/features/hotels/presentation/manager/hotel_cubit/hotel_cubit.dart';
 import 'package:my_visitor/features/hotels/presentation/views/widgets/hotels_list_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/core/localization/generated/l10n.dart';
+
+
+
+
 
 class HotelsView extends StatefulWidget {
   const HotelsView({super.key});
@@ -33,13 +37,13 @@ class _HotelsViewState extends State<HotelsView> {
 
   @override
   Widget build(BuildContext context) {
-                                final s= S.of(context);
+    final s = S.of(context);
 
     return Scaffold(
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         title: Text(
-        s.hotelsNearYou,
+          s.hotelsNearYou,
           style: AppStyles.style22White(context),
         ),
         centerTitle: true,
@@ -52,7 +56,7 @@ class _HotelsViewState extends State<HotelsView> {
         listener: (context, state) {
           if (state is HotelSuccess) {
             hotels.addAll(state.hotels);
-            
+
             log('HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH ${hotels.length}');
           }
 
@@ -91,10 +95,9 @@ class _HotelsViewState extends State<HotelsView> {
           }
 
           return const Center(
-            child: Text('Press a button to fetch hotels'),
-          );
-        },
-      ),
-    );
-  }
-}
+            child: Text('Press a button to fetch hotels'),                                                              );
+                                                           },
+                                                           ),
+                                                           );
+                                                           }
+                                                           }

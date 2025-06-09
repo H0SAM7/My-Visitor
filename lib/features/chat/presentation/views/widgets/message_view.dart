@@ -30,8 +30,11 @@ class MyMessage extends StatelessWidget {
                 ),
                 child: Text(
                   messageModel.message,
+                  softWrap: true,
+                  maxLines: null,
                   style: const TextStyle(
                     color: Colors.white,
+                    
                   ),
                 ),
               ),

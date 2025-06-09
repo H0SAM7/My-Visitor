@@ -16,8 +16,7 @@ import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/core/widgets/custom_app_bar.dart';
 import 'package:my_visitor/features/settings/views/sections/edit_profile_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
-import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class PersonalInfoView extends StatelessWidget {
   const PersonalInfoView({super.key});
@@ -144,7 +143,8 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 leading: Image.asset(
                   Assets.iconsUser,
                   color: orangeColor,
-                  height: 26.h,
+                  height: 22.h,
+                    width:22.w
                 ),
               ),
               CustomListTile(
@@ -152,7 +152,7 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 subtitle: userModel!.email,
                 leading: Icon(
                   FontAwesomeIcons.envelope,
-                  size: 26,
+                  size: 22.w,
                   color: orangeColor,
                 ),
               ),
@@ -162,7 +162,8 @@ class _PersonalInfoSectionState extends State<PersonalInfoSection> {
                 leading: Image.asset(
                   Assets.iconsCall,
                   color: orangeColor,
-                  height: 26.h,
+                  height: 22.h,
+                  width:22.w
                 ),
               ),
             ],

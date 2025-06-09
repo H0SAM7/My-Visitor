@@ -15,7 +15,7 @@ import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/core/localization/generated/l10n.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class RegisterView extends StatefulWidget {
@@ -33,7 +33,7 @@ class _RegisterViewState extends State<RegisterView> {
 
   @override
   Widget build(BuildContext context) {
-                                        final s= S.of(context);
+    final s = S.of(context);
 
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
@@ -44,8 +44,7 @@ class _RegisterViewState extends State<RegisterView> {
             context: context,
             type: AlertType.info,
             title: s.checkEmailVerify,
-            description:
-               s.checkEmailVerifyDesc,
+            description: s.checkEmailVerifyDesc,
             onPressed: () {
               Navigator.pushReplacementNamed(context, LoginView.id);
             },
@@ -67,7 +66,7 @@ class _RegisterViewState extends State<RegisterView> {
           );
         } else if (state is AuthFailure) {
           if (!_isDialogShowing) {
-            _isDialogShowing = true; // Set flag to true before showing dialog
+            _isDialogShowing = true;
 
             showCustomAlert(
               context: context,
@@ -75,9 +74,9 @@ class _RegisterViewState extends State<RegisterView> {
               title: s.errorTitle,
               description: state.errMessage,
               onPressed: () {
-                _isDialogShowing = false; // Reset flag after dismissing
+                _isDialogShowing = false;
 
-                Navigator.pushReplacementNamed(context, RegisterView.id);
+                Navigator.of(context, rootNavigator: true).pop();
               },
               actionTitle: s.okButton,
             );
@@ -121,7 +120,7 @@ class _RegisterViewState extends State<RegisterView> {
                         height: 15,
                       ),
                       CustomTextFrom(
-                        hint:s.nameHint,
+                        hint: s.nameHint,
                         label: s.nameLabel,
                         onChanged: (value) {
                           name = value;
@@ -129,7 +128,7 @@ class _RegisterViewState extends State<RegisterView> {
                       ),
                       CustomTextFrom(
                         hint: s.emailHint,
-                        label:s.emailLabel,
+                        label: s.emailLabel,
                         onChanged: (value) {
                           email = value;
                         },
@@ -160,12 +159,12 @@ class _RegisterViewState extends State<RegisterView> {
                             if (formKey.currentState!.validate()) {
                               final user = UserModel(
                                 email: email!,
-                       
                                 name: name,
                               );
-                                   
+
                               await BlocProvider.of<AuthCubit>(context)
-                                  .register(userModel: user,password: password!);
+                                  .register(
+                                      userModel: user, password: password!);
 
                               await FirebaseMessaging.instance
                                   .subscribeToTopic(notifiGroup);

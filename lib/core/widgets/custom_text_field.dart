@@ -32,6 +32,11 @@ class _CustomTextFromState extends State<CustomTextFrom> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: TextFormField(
+        // Set keyboardType and maxLines based on isPasswordField
+        keyboardType: widget.isPasswordField 
+            ? TextInputType.visiblePassword 
+            : TextInputType.multiline,
+        maxLines: widget.isPasswordField ? 1 : null, // Set to 1 for password fields
         controller: widget.controller,
         validator: widget.validator ??
             (value) {
@@ -47,7 +52,7 @@ class _CustomTextFromState extends State<CustomTextFrom> {
           focusColor: Colors.black,
           filled: true,
           fillColor: Colors.white,
-          floatingLabelBehavior: FloatingLabelBehavior.never, // Add this line
+          floatingLabelBehavior: FloatingLabelBehavior.never,
           label: Text(
             widget.label,
             style: TextStyle(

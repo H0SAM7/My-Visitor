@@ -8,8 +8,7 @@ import 'package:my_visitor/core/widgets/custom_err_view.dart';
 import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/landmarks/data/models/landmark_model.dart';
 import 'package:my_visitor/features/landmarks/presentation/manager/landmark_cubit/landmark_cubit.dart';
-import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_list_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/landmarks/presentation/views/widgets/landmarks_list_view.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class LandmarksView extends StatefulWidget {
   const LandmarksView({super.key});

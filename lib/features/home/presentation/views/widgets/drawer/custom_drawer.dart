@@ -13,8 +13,7 @@ import 'package:my_visitor/features/chat/presentation/views/chat_view.dart';
 import 'package:my_visitor/features/chatbot/screens/chat_screen.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
-import 'package:my_visitor/features/translation/translation_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/translation/translation_view.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({super.key});

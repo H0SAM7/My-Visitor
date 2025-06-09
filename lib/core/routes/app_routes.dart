@@ -74,6 +74,7 @@ abstract class AppRoutes {
           contactEmail: 'hoadel2003@gmail.com',
         ),
   };
+  
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case HotelDetailsView.id:

@@ -100,3 +100,7 @@ class HotelDetailsView extends StatelessWidget {
     );
   }
 }
+
+
+
+

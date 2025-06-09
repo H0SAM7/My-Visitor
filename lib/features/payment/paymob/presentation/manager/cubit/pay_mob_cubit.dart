@@ -49,6 +49,8 @@ class PayMobCubit extends Cubit<PayMobState> {
                   Uri.parse(
                       "https://accept.paymob.com/api/acceptance/iframes/${PaymobConstants.idFrame1}?payment_token=$paymentKey"),
                 );
+
+                log( " ******************************* https://accept.paymob.com/api/acceptance/iframes/${PaymobConstants.idFrame1}?payment_token=$paymentKey");
                 await Future.delayed(
                   Duration(seconds: 60),
                 );

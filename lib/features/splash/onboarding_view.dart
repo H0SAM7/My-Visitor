@@ -10,8 +10,7 @@ import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_loading_indecator.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
-import 'package:my_visitor/features/auth/views/register_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/auth/views/register_view.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class OnboardingView extends StatefulWidget {
   const OnboardingView({super.key});

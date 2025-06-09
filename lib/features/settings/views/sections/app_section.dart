@@ -12,8 +12,7 @@ import 'package:my_visitor/features/settings/views/about_view.dart';
 import 'package:my_visitor/features/settings/views/faqs_view.dart';
 import 'package:my_visitor/features/settings/views/privacy_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
-import 'package:flutter/material.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:flutter/material.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class AppSections extends StatelessWidget {
   const AppSections({super.key});

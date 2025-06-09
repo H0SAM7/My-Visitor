@@ -10,8 +10,7 @@ import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/auth/views/login_view.dart';
 import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
 import 'package:my_visitor/core/widgets/custom_app_bar.dart';
-import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/settings/views/widgets/profile_utils.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 import 'package:supabase_flutter/supabase_flutter.dart' as supa;
 
 class EditProfileView extends StatefulWidget {

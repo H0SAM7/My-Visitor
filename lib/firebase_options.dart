@@ -46,15 +46,17 @@ class DefaultFirebaseOptions {
     messagingSenderId: '510264322044',
     projectId: 'my-vistor',
     authDomain: 'my-vistor.firebaseapp.com',
+    databaseURL: 'https://my-vistor-default-rtdb.firebaseio.com',
     storageBucket: 'my-vistor.firebasestorage.app',
     measurementId: 'G-5GXSKRM5BX',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCQuH4hO2DE6PcbQm6QRd28A3BLAFuGyfo',
-    appId: '1:510264322044:android:0322eb9cfc312d2d1f7479',
+    appId: '1:510264322044:android:3b8f7ce4f861fa951f7479',
     messagingSenderId: '510264322044',
     projectId: 'my-vistor',
+    databaseURL: 'https://my-vistor-default-rtdb.firebaseio.com',
     storageBucket: 'my-vistor.firebasestorage.app',
   );
 
@@ -63,9 +65,10 @@ class DefaultFirebaseOptions {
     appId: '1:510264322044:ios:d50cc37c994d918f1f7479',
     messagingSenderId: '510264322044',
     projectId: 'my-vistor',
+    databaseURL: 'https://my-vistor-default-rtdb.firebaseio.com',
     storageBucket: 'my-vistor.firebasestorage.app',
-    iosClientId:
-        '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
+    androidClientId: '510264322044-4kophtj4tfrkdvpbqjhg6r77ac2p78pp.apps.googleusercontent.com',
+    iosClientId: '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
     iosBundleId: 'com.example.myVisitor',
   );
 
@@ -74,9 +77,10 @@ class DefaultFirebaseOptions {
     appId: '1:510264322044:ios:d50cc37c994d918f1f7479',
     messagingSenderId: '510264322044',
     projectId: 'my-vistor',
+    databaseURL: 'https://my-vistor-default-rtdb.firebaseio.com',
     storageBucket: 'my-vistor.firebasestorage.app',
-    iosClientId:
-        '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
+    androidClientId: '510264322044-4kophtj4tfrkdvpbqjhg6r77ac2p78pp.apps.googleusercontent.com',
+    iosClientId: '510264322044-bu1eipc5facbksajhe1c8pt5poh0u81p.apps.googleusercontent.com',
     iosBundleId: 'com.example.myVisitor',
   );
 
@@ -86,7 +90,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '510264322044',
     projectId: 'my-vistor',
     authDomain: 'my-vistor.firebaseapp.com',
+    databaseURL: 'https://my-vistor-default-rtdb.firebaseio.com',
     storageBucket: 'my-vistor.firebasestorage.app',
     measurementId: 'G-WNWDZHMVY2',
   );
+
 }

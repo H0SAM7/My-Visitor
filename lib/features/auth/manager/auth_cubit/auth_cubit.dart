@@ -134,7 +134,6 @@ class AuthCubit extends Cubit<AuthState> {
       // Once signed in, return the UserCredential
       return userCredential;
     } catch (e) {
-      // Log and rethrow any other exceptions
       log('Exception: ${e.toString()}');
       emit(AuthFailure(
           errMessage: FirebaseFailure.fromFirebaseException(e as Exception)

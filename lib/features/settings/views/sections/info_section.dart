@@ -4,8 +4,7 @@ import 'package:my_visitor/core/utils/assets.dart';
 import 'package:my_visitor/features/settings/views/booking_info.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
-import 'package:flutter/material.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:flutter/material.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class InfoSection extends StatelessWidget {
   const InfoSection({

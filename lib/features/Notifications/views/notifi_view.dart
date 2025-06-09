@@ -6,8 +6,7 @@ import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/features/Notifications/views/widgets/no_notifi_view.dart';
 import 'package:my_visitor/features/Notifications/views/widgets/notifi_list_view.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:flutter/material.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NotifiView extends StatefulWidget {

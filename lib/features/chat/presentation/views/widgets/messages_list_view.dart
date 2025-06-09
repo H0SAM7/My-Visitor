@@ -17,12 +17,16 @@ class MessagesListView extends StatelessWidget {
         itemBuilder: (context, index) {
           return messagesList[index].sender ==
                   FirebaseAuth.instance.currentUser!.email!
-              ? MyMessage(
-                  messageModel: messagesList[index],
-                )
-              : FriendMessage(
-                  messageModel: messagesList[index],
-                );
+              ? Expanded(
+                child: MyMessage(
+                    messageModel: messagesList[index],
+                  ),
+              )
+              : Expanded(
+                child: FriendMessage(
+                    messageModel: messagesList[index],
+                  ),
+              );
         });
   }
 }

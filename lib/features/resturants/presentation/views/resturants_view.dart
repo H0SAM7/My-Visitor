@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
-import 'package:my_visitor/features/resturants/presentation/views/widgets/resutrant_list_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/resturants/presentation/views/widgets/resutrant_list_view.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class ResturantsView extends StatelessWidget {
   const ResturantsView({super.key});

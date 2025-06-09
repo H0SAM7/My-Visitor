@@ -29,7 +29,7 @@ class _BookConfirmationState extends State<BookConfirmation> {
   bool isloading = false;
   void _handlePaymentSuccess(String orderId, String token) async {
     await Future.delayed(
-      Duration(minutes: 2),
+      Duration(minutes: 1),
     );
     final result = await BlocProvider.of<PayMobCubit>(context)
         .updatePaymentStatus(orderId: orderId, token: token);

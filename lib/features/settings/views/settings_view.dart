@@ -8,8 +8,7 @@ import 'package:my_visitor/features/settings/views/widgets/item_setting.dart';
 import 'package:my_visitor/features/settings/views/widgets/setting_container.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:my_visitor/features/splash/onboarding_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/splash/onboarding_view.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});

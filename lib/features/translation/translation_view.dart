@@ -5,8 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:my_visitor/constants.dart';
 import 'package:my_visitor/core/utils/assets.dart';
-import 'package:my_visitor/core/widgets/custom_app_bar.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/core/widgets/custom_app_bar.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 import 'package:translator/translator.dart' as translator;
 
 class TranslationView extends StatefulWidget {

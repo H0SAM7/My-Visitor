@@ -1339,6 +1339,286 @@ class S {
       args: [],
     );
   }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't worry! It happens. Please enter the email address associated with your account.`
+  String get dontWorry {
+    return Intl.message(
+      'Don\'t worry! It happens. Please enter the email address associated with your account.',
+      name: 'dontWorry',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get emailLabel {
+    return Intl.message(
+      'Email',
+      name: 'emailLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email`
+  String get emailHint {
+    return Intl.message(
+      'Enter your email',
+      name: 'emailHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Send`
+  String get sendButton {
+    return Intl.message(
+      'Send',
+      name: 'sendButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remembered your password?`
+  String get rememberPassword {
+    return Intl.message(
+      'Remembered your password?',
+      name: 'rememberPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get loginAction {
+    return Intl.message(
+      'Login',
+      name: 'loginAction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your email`
+  String get checkEmailReset {
+    return Intl.message(
+      'Check your email',
+      name: 'checkEmailReset',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your email to reset your password. You can then log in.`
+  String get checkEmailResetDesc {
+    return Intl.message(
+      'Please check your email to reset your password. You can then log in.',
+      name: 'checkEmailResetDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get errorTitle {
+    return Intl.message(
+      'Error',
+      name: 'errorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get okButton {
+    return Intl.message(
+      'OK',
+      name: 'okButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome back!\nWe're happy to see you again!`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome back!\nWe\'re happy to see you again!',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password`
+  String get passwordLabel {
+    return Intl.message(
+      'Password',
+      name: 'passwordLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password`
+  String get passwordHint {
+    return Intl.message(
+      'Enter your password',
+      name: 'passwordHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password`
+  String get forgetPassword {
+    return Intl.message(
+      'Forgot Password',
+      name: 'forgetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login`
+  String get loginButton {
+    return Intl.message(
+      'Login',
+      name: 'loginButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OR`
+  String get orText {
+    return Intl.message(
+      'OR',
+      name: 'orText',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account?`
+  String get dontHaveAccount {
+    return Intl.message(
+      'Don\'t have an account?',
+      name: 'dontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUpAction {
+    return Intl.message(
+      'Sign Up',
+      name: 'signUpAction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hello! Register to get started`
+  String get helloRegister {
+    return Intl.message(
+      'Hello! Register to get started',
+      name: 'helloRegister',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get nameLabel {
+    return Intl.message(
+      'Name',
+      name: 'nameLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your name`
+  String get nameHint {
+    return Intl.message(
+      'Enter your name',
+      name: 'nameHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign Up`
+  String get signUpButton {
+    return Intl.message(
+      'Sign Up',
+      name: 'signUpButton',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get youHaveAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'youHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Check your email`
+  String get checkEmailVerify {
+    return Intl.message(
+      'Check your email',
+      name: 'checkEmailVerify',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your email to verify your account. You can then log in.`
+  String get checkEmailVerifyDesc {
+    return Intl.message(
+      'Please check your email to verify your account. You can then log in.',
+      name: 'checkEmailVerifyDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Timeout`
+  String get timeoutTitle {
+    return Intl.message(
+      'Timeout',
+      name: 'timeoutTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue with Google`
+  String get continueGoogle {
+    return Intl.message(
+      'Continue with Google',
+      name: 'continueGoogle',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

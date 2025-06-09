@@ -6,8 +6,7 @@ import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_title_header.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
-import 'package:my_visitor/features/resturants/presentation/views/widgets/home_resturants_list_view.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/resturants/presentation/views/widgets/home_resturants_list_view.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class ResturantsHomeSec extends StatelessWidget {
   const ResturantsHomeSec({

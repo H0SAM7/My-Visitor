@@ -5,7 +5,7 @@ abstract class AppStyles {
   static TextStyle style22White(BuildContext context) {
     return TextStyle(
       color: Colors.white,
-      fontSize: 22.sp,
+      fontSize: 20.sp,
       fontWeight: FontWeight.bold,
     );
   }

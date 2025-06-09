@@ -76,8 +76,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "chat_view_reply_time": MessageLookupByLibrary.simpleMessage(
             "Typically replies within 5 minutes"),
         "chat_view_title": MessageLookupByLibrary.simpleMessage("Support Team"),
+        "checkEmailReset":
+            MessageLookupByLibrary.simpleMessage("Check your email"),
+        "checkEmailResetDesc": MessageLookupByLibrary.simpleMessage(
+            "Please check your email to reset your password. You can then log in."),
+        "checkEmailVerify":
+            MessageLookupByLibrary.simpleMessage("Check your email"),
+        "checkEmailVerifyDesc": MessageLookupByLibrary.simpleMessage(
+            "Please check your email to verify your account. You can then log in."),
         "contact_privacy_email": MessageLookupByLibrary.simpleMessage(
             "Contact us at privacy@Visitor.app for data-related inquiries."),
+        "continueGoogle":
+            MessageLookupByLibrary.simpleMessage("Continue with Google"),
         "data_sharing": MessageLookupByLibrary.simpleMessage("❌ Data Sharing:"),
         "data_sharing_text": MessageLookupByLibrary.simpleMessage(
             "We do not sell or share your data with third parties unless required by law or with your explicit consent (e.g., for hotel booking)."),
@@ -92,9 +102,16 @@ class MessageLookup extends MessageLookupByLibrary {
             "Explore the pyramids, temples, and the tombs of pharaoh"),
         "discoverTitle": MessageLookupByLibrary.simpleMessage(
             "Discover the Wonders of Ancient Egypt"),
+        "dontHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
+        "dontWorry": MessageLookupByLibrary.simpleMessage(
+            "Don\'t worry! It happens. Please enter the email address associated with your account."),
         "edit": MessageLookupByLibrary.simpleMessage("Edit"),
         "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "emailHint": MessageLookupByLibrary.simpleMessage("Enter your email"),
+        "emailLabel": MessageLookupByLibrary.simpleMessage("Email"),
+        "errorTitle": MessageLookupByLibrary.simpleMessage("Error"),
         "exploreNearby":
             MessageLookupByLibrary.simpleMessage("Explore what\'s nearby"),
         "failed_to_access_uploaded_image": MessageLookupByLibrary.simpleMessage(
@@ -170,6 +187,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "faqs": MessageLookupByLibrary.simpleMessage("FAQs"),
         "faqs_title": MessageLookupByLibrary.simpleMessage(
             "Frequently Asked Questions (FAQs)"),
+        "forgetPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password"),
+        "forgotPassword":
+            MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "full_name": MessageLookupByLibrary.simpleMessage("Full Name"),
         "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
         "gizaNecropolis":
@@ -177,6 +198,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "goNow": MessageLookupByLibrary.simpleMessage("Go Now"),
         "greatPyramidTitle":
             MessageLookupByLibrary.simpleMessage("The Great Pyramid of Giza"),
+        "helloRegister": MessageLookupByLibrary.simpleMessage(
+            "Hello! Register to get started"),
         "homeTitle": MessageLookupByLibrary.simpleMessage("Home"),
         "hotelsNearYou":
             MessageLookupByLibrary.simpleMessage("Hotels Near You"),
@@ -194,12 +217,21 @@ class MessageLookup extends MessageLookupByLibrary {
             "Last Updated: April 30, 2025"),
         "location_data": MessageLookupByLibrary.simpleMessage(
             "Location Data: To offer nearby landmarks, navigation, and booking suggestions."),
+        "loginAction": MessageLookupByLibrary.simpleMessage("Login"),
+        "loginButton": MessageLookupByLibrary.simpleMessage("Login"),
         "logout": MessageLookupByLibrary.simpleMessage("Log out"),
+        "nameHint": MessageLookupByLibrary.simpleMessage("Enter your name"),
+        "nameLabel": MessageLookupByLibrary.simpleMessage("Name"),
         "noReviews":
             MessageLookupByLibrary.simpleMessage("No reviews available."),
         "notifications": MessageLookupByLibrary.simpleMessage("Notifications"),
         "offer_support": MessageLookupByLibrary.simpleMessage(
             "To offer support via chatbot or live chat."),
+        "okButton": MessageLookupByLibrary.simpleMessage("OK"),
+        "orText": MessageLookupByLibrary.simpleMessage("OR"),
+        "passwordHint":
+            MessageLookupByLibrary.simpleMessage("Enter your password"),
+        "passwordLabel": MessageLookupByLibrary.simpleMessage("Password"),
         "personalInfo": MessageLookupByLibrary.simpleMessage("Personal Info"),
         "personal_data": MessageLookupByLibrary.simpleMessage(
             "Personal Data: Name, email, phone number (during sign-up)."),
@@ -223,6 +255,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "To process bookings and payments securely."),
         "profile_updated_successfully": MessageLookupByLibrary.simpleMessage(
             "Profile updated successfully"),
+        "rememberPassword":
+            MessageLookupByLibrary.simpleMessage("Remembered your password?"),
         "restaurantsNearYou":
             MessageLookupByLibrary.simpleMessage("Restaurants Near You"),
         "restaurantsSectionTitle":
@@ -230,14 +264,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Reviews"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
+        "sendButton": MessageLookupByLibrary.simpleMessage("Send"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "signUpAction": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "signUpButton": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "support": MessageLookupByLibrary.simpleMessage("Support"),
         "supportTeam": MessageLookupByLibrary.simpleMessage("Support Team"),
+        "timeoutTitle": MessageLookupByLibrary.simpleMessage("Timeout"),
         "translate_title": MessageLookupByLibrary.simpleMessage("Translation"),
         "translation": MessageLookupByLibrary.simpleMessage("Translation"),
         "type_here": MessageLookupByLibrary.simpleMessage("Type here..."),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage(
+            "Welcome back!\nWe\'re happy to see you again!"),
         "welcomeMessage":
             MessageLookupByLibrary.simpleMessage("Welcome to MyVisitor"),
+        "youHaveAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "your_rights": MessageLookupByLibrary.simpleMessage("🛠 Your Rights:")
       };
 }

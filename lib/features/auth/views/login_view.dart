@@ -1,9 +1,12 @@
+import 'dart:developer';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_visitor/bottom_navigator_bar.dart';
 import 'package:my_visitor/constants.dart';
+import 'package:my_visitor/core/localization/generated/l10n.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/utils/animation_routes.dart';
 import 'package:my_visitor/core/widgets/custom_progress_hud.dart';
@@ -16,7 +19,6 @@ import 'package:my_visitor/features/auth/views/widgets/custom_send_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/google_button.dart';
 import 'package:my_visitor/features/auth/views/widgets/have_acc_widget.dart';
 import 'package:my_visitor/features/auth/views/widgets/or_widget.dart';
-import 'package:my_visitor/generated/l10n.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class LoginView extends StatefulWidget {
@@ -33,8 +35,7 @@ class _LoginViewState extends State<LoginView> {
   String? email, password;
   @override
   Widget build(BuildContext context) {
-                                        final s= S.of(context);
-
+    final s = S.of(context);
 
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
@@ -54,20 +55,10 @@ class _LoginViewState extends State<LoginView> {
             title: s.errorTitle,
             description: state.errMessage,
             closeFunction: () {
-              Navigator.pushReplacement(
-                context,
-                AnimationRoutes.fadeRoute(
-                  const LoginView(),
-                ),
-              );
+                 Navigator.of(context, rootNavigator: true).pop();
             },
             onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                AnimationRoutes.fadeRoute(
-                  const LoginView(),
-                ),
-              );
+               Navigator.of(context, rootNavigator: true).pop();
             },
             actionTitle: s.Ok,
           );
@@ -97,7 +88,7 @@ class _LoginViewState extends State<LoginView> {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                      s.welcomeBack,
+                          s.welcomeBack,
                           style: AppStyles.style22White(context)
                               .copyWith(fontSize: 25),
                         ),
@@ -107,9 +98,10 @@ class _LoginViewState extends State<LoginView> {
                       ),
                       CustomTextFrom(
                         hint: s.emailHint,
-                        label:s.emailLabel,
+                        label: s.emailLabel,
                         onChanged: (value) {
                           email = value;
+                          log(s.emailLabel);
                         },
                       ),
                       CustomTextFrom(
@@ -127,7 +119,7 @@ class _LoginViewState extends State<LoginView> {
                             Navigator.pushNamed(context, ForgetView.id);
                           },
                           child: Text(
-                           s.forgetPassword,
+                            s.forgetPassword,
                             style: TextStyle(color: orangeColor),
                           ),
                         ),
@@ -194,7 +186,7 @@ class _LoginViewState extends State<LoginView> {
                         children: [
                           HaveAccWidget(
                             title: s.dontHaveAccount,
-                            action:s.signUpAction,
+                            action: s.signUpAction,
                             onPressed: () {
                               Navigator.pushNamed(context, RegisterView.id);
                             },

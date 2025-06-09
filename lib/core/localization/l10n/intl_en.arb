@@ -188,8 +188,35 @@
 "Ok":"Ok",
 "cancel":"Cancel",
 "noReviews":"No reviews available.",
-"detection":"Detection Image Result"
-
+"detection":"Detection Image Result",
+ "forgotPassword": "Forgot Password?",
+  "dontWorry": "Don't worry! It happens. Please enter the email address associated with your account.",
+  "emailLabel": "Email",
+  "emailHint": "Enter your email",
+  "sendButton": "Send",
+  "rememberPassword": "Remembered your password?",
+  "loginAction": "Login",
+  "checkEmailReset": "Check your email",
+  "checkEmailResetDesc": "Please check your email to reset your password. You can then log in.",
+  "errorTitle": "Error",
+  "okButton": "OK",
+  "welcomeBack": "Welcome back!\nWe're happy to see you again!",
+  "passwordLabel": "Password",
+  "passwordHint": "Enter your password",
+  "forgetPassword": "Forgot Password",
+  "loginButton": "Login",
+  "orText": "OR",
+  "dontHaveAccount": "Don't have an account?",
+  "signUpAction": "Sign Up",
+  "helloRegister": "Hello! Register to get started",
+  "nameLabel": "Name",
+  "nameHint": "Enter your name",
+  "signUpButton": "Sign Up",
+  "youHaveAccount": "Already have an account?",
+  "checkEmailVerify": "Check your email",
+  "checkEmailVerifyDesc": "Please check your email to verify your account. You can then log in.",
+  "timeoutTitle": "Timeout",
+  "continueGoogle": "Continue with Google"
 
 
 

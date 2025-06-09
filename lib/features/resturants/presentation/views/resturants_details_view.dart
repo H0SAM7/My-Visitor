@@ -8,8 +8,7 @@ import 'package:my_visitor/core/widgets/confirmation_dialog.dart';
 import 'package:my_visitor/core/widgets/custom_back.dart';
 import 'package:my_visitor/core/widgets/custom_button.dart';
 import 'package:my_visitor/core/widgets/custom_image.dart';
-import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';
-import 'package:my_visitor/generated/l10n.dart';
+import 'package:my_visitor/features/resturants/data/models/resturant_model/resturant_model.dart';import 'package:my_visitor/core/localization/generated/l10n.dart';
 
 class ResturantsDetailsView extends StatelessWidget {
   const ResturantsDetailsView({super.key, required this.restaurantModel});
