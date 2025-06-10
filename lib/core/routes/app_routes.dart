@@ -30,7 +30,6 @@ import 'package:my_visitor/features/settings/views/settings_view.dart';
 import 'package:my_visitor/features/settings/views/sections/personal_info_view.dart';
 import 'package:my_visitor/features/resturants/presentation/views/resturants_view.dart';
 import 'package:my_visitor/features/translation/translation_view.dart';
-import 'package:my_visitor/temp/screen.dart';
 import '../../features/splash/onboarding_view.dart';
 import '../../features/splash/splash_view.dart';
 
@@ -48,7 +47,6 @@ abstract class AppRoutes {
     ScanView.id: (context) => const ScanView(),
     RegisterView.id: (context) => const RegisterView(),
     LoginView.id: (context) => const LoginView(),
-    screenTSt.id: (context) => const screenTSt(),
     ForgetView.id: (context) => const ForgetView(),
     OnboardingView.id: (context) => const OnboardingView(),
     SplashView.id: (context) => const SplashView(),
