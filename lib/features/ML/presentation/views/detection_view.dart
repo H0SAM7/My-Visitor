@@ -3,11 +3,12 @@ import 'dart:typed_data';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_visitor/core/localization/generated/l10n.dart';
 import 'package:my_visitor/core/styles/text_styles.dart';
 import 'package:my_visitor/core/widgets/loading_widgets.dart';
 import 'package:my_visitor/features/ML/data/historical_data.dart';
+import 'package:my_visitor/features/ML/data/models/transelation_model.dart';
 import 'package:my_visitor/features/ML/presentation/manager/cubit/image_detection_cubit.dart';
-import 'package:my_visitor/generated/l10n.dart';
 
 class DetectionView extends StatelessWidget {
   final Uint8List? imageBytes;
