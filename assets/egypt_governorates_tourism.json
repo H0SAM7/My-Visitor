@@ -1,0 +1,158 @@
+{
+  "governorates": [
+    {
+      "name": "Giza",
+      "description": "Giza Governorate is located on the western bank of the Nile River, opposite Cairo Governorate. It combines urban and rural characteristics, ancient history, and modern development.",
+      "tourist_places": [
+        "The Three Pyramids and the Sphinx",
+        "The Saqqara area (Step Pyramid of Djoser)",
+        "Dahshur (Bent Pyramid and Red Pyramid)",
+        "The Grand Egyptian Museum"
+      ],
+      "activities": [
+        {
+          "title": "Camel Riding",
+          "description": "Enjoy camel riding at the pyramids, a fun and wonderful experience recommended for all visitors.",
+          "images": [
+            "https://www.istockphoto.com/photo/young-tourist-in-cairo-egypt-gm531928802-94020681",
+            "https://www.istockphoto.com/photo/egypt-cairo-asian-female-tourist-riding-camel-with-great-pyramid-of-giza-in-gm1495914049-518760377",
+            "https://www.istockphoto.com/photo/young-female-tourist-riding-camel-in-the-egyptian-desert-and-visits-the-pyramids-in-gm2148601027-569765377",
+            "https://www.pexels.com/photo/people-posing-on-camel-by-giza-pyramid-20226467/",
+            "https://www.istockphoto.com/photo/tourist-family-riding-camels-in-a-vast-desert-landscape-under-a-clear-blue-sky-with-gm2195989311-614038159",
+            "https://www.istockphoto.com/photo/egypt-cairo-asian-group-tourists-riding-camel-with-great-pyramid-of-giza-in-gm1495914177-518760388",
+            "https://www.pexels.com/photo/camel-with-tourist-on-back-in-desert-4356143/"
+          ],
+          "location": ""
+        },
+        {
+          "title": "Horseback Riding",
+          "description": "Try horseback riding at the Giza Pyramids and enjoy the scenic beauty and fresh air.",
+          "images": [
+            "https://www.pexels.com/photo/woman-wearing-blue-long-sleeved-shirt-riding-brown-horse-2402916/",
+            "https://www.istockphoto.com/photo/pyramid-of-mycerinus-gm172301446-4569571",
+            "https://images.app.goo.gl/cPkUe66TBdh5cczS9",
+            "https://images.app.goo.gl/qvgkTjox8HjVsaaJ9"
+          ],
+          "location": ""
+        },
+        {
+          "title": "Horse-drawn Carriage Ride",
+          "description": "Tourists enjoy horse-drawn carriage rides around Giza\u2019s streets and tourist areas, including the Nile Corniche.",
+          "images": [
+            "https://www.pexels.com/photo/clear-sky-over-pyramids-in-giza-11208768/",
+            "https://www.pexels.com/photo/horse-drawn-carriage-at-giza-pyramid-complex-31667419/",
+            "https://www.pexels.com/photo/horse-and-pyramid-in-giza-behind-19310839/"
+          ],
+          "location": ""
+        }
+      ]
+    },
+    {
+      "name": "Aswan",
+      "description": "Aswan is known for its natural beauty, Nubian culture, and ancient temples. It\u2019s a key destination for tourists worldwide.",
+      "tourist_places": [
+        "Philae Temple",
+        "Nubian Museum",
+        "Aswan High Dam",
+        "Aswan Botanical Island",
+        "Aga Khan Mausoleum",
+        "Monastery of St. Simeon"
+      ],
+      "activities": [
+        {
+          "title": "Sand Therapy",
+          "description": "Hot sand immersion therapy on Elephantine Island is used to treat ailments like rheumatism and joint diseases.",
+          "images": [
+            "https://images.app.goo.gl/3TfhwTNe9wXZyNGx6",
+            "https://images.app.goo.gl/hqk8w22X9dfYAT4m6",
+            "https://images.app.goo.gl/nYHKf7ZguVKnBLHY6"
+          ],
+          "location": "Elephantine Island"
+        },
+        {
+          "title": "Boat Ride on the Nile",
+          "description": "Ride a boat along the Nile and enjoy the stunning natural views of Egypt.",
+          "images": [
+            "https://images.app.goo.gl/uKRFuuUHJMbWVkym8",
+            "https://images.app.goo.gl/wPYDmc2MAKtKjptD8",
+            "https://images.app.goo.gl/3qZkhJJST8kDAqtf6"
+          ],
+          "location": ""
+        },
+        {
+          "title": "Visit the Botanical Gardens",
+          "description": "Botanical Island is a beautiful natural site in the middle of the Nile River, rich with plant species.",
+          "images": [
+            "https://images.app.goo.gl/UYthPqiJPR3gdMzAA",
+            "https://images.app.goo.gl/5LyjkEVXFstWdNu58",
+            "https://images.app.goo.gl/gafFsYPPEcRmo1Zd6"
+          ],
+          "location": ""
+        },
+        {
+          "title": "Aswan Market",
+          "description": "A lively market offering spices, Nubian crafts, perfumes, and souvenirs.",
+          "images": [
+            "https://images.app.goo.gl/913n3XdoMAdWSJFcA",
+            "https://images.app.goo.gl/5VNLTtw3gz9cZay77",
+            "https://images.app.goo.gl/wN2cpqRRQQJPVVaS6"
+          ],
+          "location": ""
+        }
+      ]
+    },
+    {
+      "name": "Fayoum",
+      "description": "Fayoum is known for its deserts, natural reserves, and adventure tourism.",
+      "tourist_places": [
+        "Wadi El-Rayan Protected Area",
+        "Wadi Al-Hitan Protected Area"
+      ],
+      "activities": [
+        {
+          "title": "Exploring Natural Sites",
+          "description": "Visit Wadi El-Rayan waterfalls, lakes, and Wadi Al-Hitan\u2019s whale fossils.",
+          "images": [
+            "https://images.app.goo.gl/9VPneq7gg8J7FU3D8",
+            "https://images.app.goo.gl/yGY8UL5G8jYeKBEV9",
+            "https://images.app.goo.gl/U47c3h5QCTBGEzPz6",
+            "https://images.app.goo.gl/Zs3SA1P8WpwVgEL9A",
+            "https://images.app.goo.gl/sLTsxWXzraYBYcpX8",
+            "https://images.app.goo.gl/cLe17qzZY7p3UYek6"
+          ],
+          "location": ""
+        },
+        {
+          "title": "Safari Trips",
+          "description": "4x4 desert safaris across Fayoum\u2019s landscapes.",
+          "images": [
+            "https://images.app.goo.gl/CtMdHBbMnJwiF6M2A",
+            "https://images.app.goo.gl/zf5iAhhtX5twj2S38",
+            "https://images.app.goo.gl/Md52t7HZpb9TTfeA8"
+          ],
+          "location": ""
+        },
+        {
+          "title": "Desert Camping",
+          "description": "Adventure camping under starry skies in Wadi El-Rayan and Wadi Al-Hitan.",
+          "images": [
+            "https://images.app.goo.gl/q3CVMEwe9u3LR45R7",
+            "https://images.app.goo.gl/niyzZC8BpEx8tnu27",
+            "https://images.app.goo.gl/Nj9uruZaqEtpftLbA"
+          ],
+          "location": ""
+        },
+        {
+          "title": "Sand Skating",
+          "description": "Sandboarding in Wadi El-Rayan is one of the best sports experiences in Fayoum.",
+          "images": [
+            "https://images.app.goo.gl/FeEGihS2a4UM2g8Y9",
+            "https://images.app.goo.gl/jGYCzv54YJnnmLgW9",
+            "https://images.app.goo.gl/3iKuei8YUYPcds197"
+          ],
+          "location": ""
+        }
+      ]
+    }
+  ]
+}

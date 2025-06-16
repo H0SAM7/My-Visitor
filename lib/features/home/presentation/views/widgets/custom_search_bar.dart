@@ -1,67 +1,69 @@
 import 'package:flutter/material.dart';
-import 'package:my_visitor/constants.dart';
+import 'package:my_visitor/features/home/presentation/search_models/governorate_model.dart';
+import 'package:my_visitor/features/home/presentation/views/governorate_details_view.dart';
 
-class CustomSearchBar extends StatefulWidget {
-  const CustomSearchBar({super.key});
+class CustomSearchBar extends StatelessWidget {
+  final List<Governorate> governorates;
 
-  @override
-  State<CustomSearchBar> createState() => _CustomSearchBarState();
-}
+  const CustomSearchBar({super.key, required this.governorates});
 
-class _CustomSearchBarState extends State<CustomSearchBar> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
-      child: SizedBox(
-        height: 35,
-        child: SearchAnchor(
-          builder: (BuildContext context, SearchController controller) {
-            return SearchBar(
-              hintText: 'Search...',
-              backgroundColor: WidgetStateProperty.all(Colors.white),
-              controller: controller,
-            //  enabled: false,
-              padding: const WidgetStatePropertyAll<EdgeInsets>(
-                EdgeInsets.symmetric(horizontal: 16.0),
-              ),
-              onTap: () {
-                controller.openView();
-              },
-              onChanged: (_) {
-                controller.openView();
-              },
-              leading: Icon(
-                Icons.search,
-                color: orangeColor,
-              ),
-              shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.circular(8), // Smaller rounded corners
-                ),
-              ),
-            );
-          },
-          suggestionsBuilder:
-              (BuildContext context, SearchController controller) {
-            return List<ListTile>.generate(0, (int index) {
-              final String item = 'item $index';
-              return ListTile(
-                title: Text(item),
-                onTap: () {
-                  setState(() {
-                    controller.closeView(item);
-                  });
+    return RawAutocomplete<Governorate>(
+      optionsBuilder: (TextEditingValue textEditingValue) {
+        if (textEditingValue.text == '') {
+          return const Iterable<Governorate>.empty();
+        }
+        return governorates.where((Governorate gov) => gov.name
+            .toLowerCase()
+            .contains(textEditingValue.text.toLowerCase()));
+      },
+      displayStringForOption: (Governorate option) => option.name,
+      fieldViewBuilder:
+          (context, controller, focusNode, onFieldSubmitted) {
+        return TextField(
+          controller: controller,
+          focusNode: focusNode,
+          decoration: InputDecoration(
+            hintText: 'Search Governorates...',
+            prefixIcon: Icon(Icons.search, color: Colors.orange),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+            filled: true,
+            fillColor: Colors.white,
+          ),
+        );
+      },
+      optionsViewBuilder: (context, onSelected, options) {
+        return Align(
+          alignment: Alignment.topLeft,
+          child: Material(
+            elevation: 4,
+            child: SizedBox(
+              height: 200,
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                itemCount: options.length,
+                itemBuilder: (context, index) {
+                  final Governorate option = options.elementAt(index);
+                  return ListTile(
+                    title: Text(option.name),
+                    onTap: () {
+                      onSelected(option);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) =>
+                              GovernorateDetailsView(governorate: option),
+                        ),
+                      );
+                    },
+                  );
                 },
-              );
-            });
-          },
-        ),
-      ),
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }
-
-
-
